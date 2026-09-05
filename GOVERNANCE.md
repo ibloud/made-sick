@@ -9,6 +9,7 @@
 - **Verified creative relationship:** released work or attributable statements establish collaboration; no health or participation status follows from it.
 - **Public recognition:** one creator has publicly highlighted another's work; it does not establish collaboration.
 - **Creative identity:** an artist-controlled persona, account, label, or narrative device publicly linked by primary sources.
+- **Issue-led creative collaboration:** released work plus attributable public framing connects collaborators to a defined issue; it does not establish lived experience, diagnosis, clinical authority, or campaign enrollment.
 - **Archived:** removed from discovery while preserving a minimal audit record where legally appropriate.
 
 ## Verification is field-specific
@@ -49,3 +50,9 @@ Lyrics and other creative works may communicate illness, disability, treatment, 
 Germ contact is optional and creator-enabled. Made Sick should not proxy, retain, or publish private message content. Blocking, abuse reporting, and contact permissions must remain available.
 
 Artist DMs are never a mental-health care pathway. Fan pages, reaction channels, clinicians, peer-support organizations, and wellness publishers must follow [DISCLOSURE_STANDARD.md](DISCLOSURE_STANDARD.md).
+
+## Sensitive-topic collaborations
+
+For work involving substance use, overdose, suicide, self-harm, abuse, or other potentially triggering subjects, publish a specific content note, the documented purpose, and qualified resources outside the artist relationship. Collaborators should approve shared campaign framing. Do not infer that depiction equals endorsement, or that participation proves lived experience.
+
+Claims about platform moderation require preserved primary evidence such as the artist's statement, a platform notice, a screenshot, or an appeal record. Until then, label the claim as reported and unverified; never present a platform action as proof of wrongdoing.
