@@ -47,3 +47,5 @@ Lyrics and other creative works may communicate illness, disability, treatment, 
 ## Private contact
 
 Germ contact is optional and creator-enabled. Made Sick should not proxy, retain, or publish private message content. Blocking, abuse reporting, and contact permissions must remain available.
+
+Artist DMs are never a mental-health care pathway. Fan pages, reaction channels, clinicians, peer-support organizations, and wellness publishers must follow [DISCLOSURE_STANDARD.md](DISCLOSURE_STANDARD.md).
