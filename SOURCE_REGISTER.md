@@ -24,6 +24,21 @@ The register preserves what the cited speaker or publication said. It does not i
 
 Creators and authorized representatives may request correction, narrower wording, or removal through the repository's issue tracker.
 
+## Ren: medical trauma, audience projection, and care boundaries
+
+- **Supported medical context:** In a detailed NME interview, Ren discusses chronic illness, Lyme disease, misdiagnosis, treatment, mental health, and the effect of those experiences on his life and work.
+- **Primary interview:** https://www.youtube.com/watch?v=AAIGsXEZ0WI
+- **Additional first-person context:** https://www.facebook.com/renmakesmusic/videos/1416604028921075/
+- **Audience context:** Published coverage records listeners describing Ren's work in life-saving or therapeutic terms and notes that mental-health practitioners have analyzed his music. https://www.phillyvoice.com/ren-gill-music-mental-health-chronic-illness/
+- **Interpretation boundary:** The sources support discussion of PTSD or medical trauma and of the separate pressure created when audiences project clinical or salvific authority onto an artist. They do not establish that popularity or fan requests caused Ren's PTSD.
+- **Platform response:** Do not frame Ren or any artist as a mental-health provider or “messiah.” Route requests for care beyond the artist relationship.
+
+## Mental-health support and reaction references
+
+- **HeartSupport:** Publicly describes free, music-based mental-health support, peer supporters, a festival Support Wall, and recurring support calls. https://www.heartsupport.com/
+- **Therapist reaction supplied for review:** “For Joe” reaction and analysis. https://www.youtube.com/watch?v=unBcbxVh7p4
+- **Verification boundary:** A video title containing “therapist” is not sufficient credential verification. Until the presenter's name, credential, status, and jurisdiction are checked, classify it as self-described therapist commentary rather than verified clinical education.
+
 ## The Skinner Brothers
 
 - **Displayed statement:** The band publicly documented that Ren supported their work before they made and released a collaborative EP.
