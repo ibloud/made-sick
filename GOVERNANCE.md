@@ -32,6 +32,10 @@ Content involving health products, professional services, sponsorship, or affili
 
 References to relatives receive heightened review. Do not publish a relative's disability or health status merely because a creator has discussed family experience; require a directly attributable public source, minimize identifying detail, and distinguish the creator's perspective from the relative's consent.
 
+## Art-led disclosure
+
+Lyrics and other creative works may communicate illness, disability, treatment, grief, or mortality without naming a diagnosis. The directory may document an evidence-bounded interpretation when the work is connected to attributable public context. It must label interpretation as interpretation, link to the creator's official work, avoid substantial reproduction, and never translate an artistic narrator into a verified medical claim.
+
 ## Consent and correction
 
 - Enrollment requires an affirmative action by the creator or authorized representative.
