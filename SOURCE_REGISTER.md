@@ -84,3 +84,25 @@ Creators and authorized representatives may request correction, narrower wording
 - **Context source:** https://twntythree.com/tokens-new-album-im-leaving-soon-is-a-vivisection-of-grime-grief-reinvention/
 - **Interpretation:** The songs can reasonably be read within that wider album context as indirect artistic communication about bodily uncertainty, pressure, and mortality. This is an interpretation of the work, not a claim that either song names a condition.
 - **Respect boundary:** Made Sick points audiences back to the complete official recording. It does not reproduce the lyrics, demand diagnostic disclosure, or treat an artistic narrator as a medical affidavit.
+
+## Knox Hill featuring Ren — “Fentanyl”
+
+- **Displayed statement:** Knox Hill and Ren released “Fentanyl,” a work addressing fentanyl and addiction themes.
+- **Official video:** https://www.youtube.com/watch?v=r_QntRsLUuQ
+- **Public context:** Knox Hill's public promotion describes the work as carrying an important message; related public posts use addiction-awareness framing. https://www.facebook.com/knoxhill/videos/ren-i-cooked-up-something-special-fentanyl-out-now-rap-ren-knoxhill/1056177105831536/
+- **Evidence class:** Official released collaboration plus attributable collaborator promotion.
+- **Directory state:** Issue-led creative collaboration; neither artist is enrolled through this record.
+- **Boundary:** The work and cited framing do not establish either artist's personal substance-use history, recovery status, medical expertise, or endorsement of any treatment.
+
+### Platform-moderation claim
+
+- **Claim supplied for review:** Meta allegedly restricted Ren's reach or classified the collaboration as drug promotion.
+- **Current evidence state:** Unverified. The reviewed public sources confirm the release and issue framing, but no primary artist statement, platform notice, screenshot, or appeal record was located that documents the alleged Meta action.
+- **Publication rule:** Describe this only as a reported claim awaiting primary documentation. Do not say Meta determined that Ren was a “drug pusher,” and do not imply that a moderation action—if documented—proves promotion of illegal drugs.
+
+## Substance-use support references
+
+- **SAMHSA Find Help:** U.S. mental-health, drug, and alcohol support and treatment-referral information. https://www.samhsa.gov/find-help
+- **FindTreatment.gov:** U.S. treatment locator operated by SAMHSA. https://findtreatment.gov/
+- **CDC fentanyl information:** Public-health information about fentanyl, overdose prevention, and naloxone. https://www.cdc.gov/overdose-prevention/about/fentanyl.html
+- **Scope boundary:** These are U.S. resources. International posts should add verified local services. In a suspected overdose, seek immediate local emergency help; U.S. readers should call 911 and use naloxone if available.
