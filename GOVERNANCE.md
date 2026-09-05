@@ -6,6 +6,9 @@
 - **Applicant:** the creator has requested participation; nothing is public by default.
 - **Verified participant:** identity control and selected public fields have been checked.
 - **Ally:** an opted-in creator who supports the campaign without claiming illness.
+- **Verified creative relationship:** released work or attributable statements establish collaboration; no health or participation status follows from it.
+- **Public recognition:** one creator has publicly highlighted another's work; it does not establish collaboration.
+- **Creative identity:** an artist-controlled persona, account, label, or narrative device publicly linked by primary sources.
 - **Archived:** removed from discovery while preserving a minimal audit record where legally appropriate.
 
 ## Verification is field-specific
@@ -26,6 +29,8 @@ Acceptable labels include:
 Made Sick does not diagnose, treat, or validate medical conditions. Creators are never required to disclose a diagnosis. Personal routines must be presented as personal experience and must not promise diagnosis, treatment, prevention, cure, or guaranteed outcomes.
 
 Content involving health products, professional services, sponsorship, or affiliate relationships requires additional review and clear disclosure. Platform review does not replace independent legal advice.
+
+References to relatives receive heightened review. Do not publish a relative's disability or health status merely because a creator has discussed family experience; require a directly attributable public source, minimize identifying detail, and distinguish the creator's perspective from the relative's consent.
 
 ## Consent and correction
 
