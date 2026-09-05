@@ -78,6 +78,33 @@ Made Sick therefore rejects “mental-health messiah” framing. It may describe
 - Pages should preserve a visible route to appropriate support outside the artist relationship.
 - Imminent-danger language requires the platform's documented escalation response; moderators must not promise confidentiality they cannot maintain.
 
+## Substance-use and overdose content
+
+Songs and collaborations may depict drugs, addiction, recovery, overdose, grief, or harm reduction without endorsing drug use. Do not rely on a provocative title, artwork, or lyric excerpt to carry the public-interest context. Put the purpose and content note in captions, descriptions, press materials, and campaign pages.
+
+Recommended disclosure:
+
+> **Content note:** This work discusses [specific themes]. It is artistic expression intended to support [documented issue or purpose], not promotion of drug use, medical advice, or crisis care. If this affects you, use the qualified resources below; please do not send crisis or treatment requests to the artists or their DMs.
+
+Publication checklist:
+
+- Name only themes actually present and use non-stigmatizing language.
+- State the documented purpose; do not invent advocacy, lived experience, recovery status, or endorsement for a collaborator.
+- Obtain shared framing from collaborators or their authorized teams when presenting a joint campaign.
+- Keep the content note and resource link visible in the post itself, not only behind a profile link.
+- Separate artistic credits, issue partners, clinicians, peer supporters, sponsors, and affiliates.
+- Verify professional credentials and organizational scope before describing a resource as clinical or qualified.
+- Provide country-appropriate resources where the audience is known; label U.S.-only services clearly.
+- Preserve platform notices and appeal records before making claims about moderation or suppressed reach.
+
+For U.S. audiences, SAMHSA provides treatment-referral information at https://www.samhsa.gov/find-help and https://findtreatment.gov/. CDC provides fentanyl, overdose-response, and naloxone information at https://www.cdc.gov/overdose-prevention/about/fentanyl.html. Suspected overdose requires immediate local emergency help; in the United States, call 911 and administer naloxone if available.
+
+### Case example: Knox Hill featuring Ren, “Fentanyl”
+
+The official release documents the collaboration, and Knox Hill's public promotion describes an important message in the context of addiction awareness. Made Sick may therefore classify it as an **issue-led creative collaboration**. That label establishes the released work and its sourced public framing; it does not establish either artist's personal substance-use history, clinical authority, campaign enrollment, or responsibility for listener care.
+
+The reported claim that Meta restricted Ren's reach or treated him as a drug promoter must be labeled **artist-reported / awaiting primary documentation** unless the relevant artist statement, platform notice, screenshot, or appeal record is archived. It must not be restated as a verified Meta finding.
+
 ## Advertising and conflicts
 
 Material relationships must be conspicuous wherever the recommendation appears. Health-product and treatment claims require appropriate substantiation; a personal testimonial does not prove typical outcomes or clinical efficacy.
