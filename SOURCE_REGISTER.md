@@ -23,3 +23,38 @@ This register records the evidence supporting named editorial examples. A listin
 The register preserves what the cited speaker or publication said. It does not infer a diagnosis, current medical status, treatment recommendation, legal capacity, or campaign participation. Autism is presented as neurodivergence, not as an illness requiring cure. Health information is included only where it is directly relevant to the creator's own public account of making work.
 
 Creators and authorized representatives may request correction, narrower wording, or removal through the repository's issue tracker.
+
+## The Skinner Brothers
+
+- **Displayed statement:** The band publicly documented that Ren supported their work before they made and released a collaborative EP.
+- **Source:** The Skinner Brothers, public Facebook video; official collaborative release “So the Story Goes.”
+- **URLs:** https://www.facebook.com/theskinnerbrothers/videos/2220922971999331/ and https://www.youtube.com/watch?v=u1qtyMPokZM
+- **Evidence class:** First-person band account plus released work.
+- **Directory state:** Verified creative relationship; not enrolled.
+- **Boundary:** No health or family-experience designation is assigned. A claim involving a relative requires a directly attributable public source and heightened privacy review.
+
+## Sofia Isella
+
+- **Displayed statement:** Ren publicly shared Sofia Isella's work.
+- **Source:** Ren, public YouTube community post sharing “I Can Be Your Mother.”
+- **URL:** https://www.youtube.com/post/UgkxIEbJeYjBc3WpjXDOFIj_lq3fRCyRfFYF
+- **Evidence class:** First-person public recommendation by Ren.
+- **Directory state:** Public recognition; not enrolled.
+- **Boundary:** Recognition does not establish a released collaboration, personal relationship, health narrative, or campaign participation.
+
+## Santa Salut
+
+- **Displayed statement:** A public-facing Instagram Story showed support for Sick Boi and tagged Ren.
+- **Source:** Instagram Story capture supplied to the project for review on September 5, 2026.
+- **Evidence class:** Public-facing social post preserved as a review artifact; the media is not redistributed in this repository.
+- **Directory state:** Public supporter / Sick Boi amplifier; not enrolled.
+- **Boundary:** The post does not establish illness, collaboration, sponsorship, or campaign participation.
+
+## Token / Never Too Different / Goldy
+
+- **Displayed statement:** Token's official releases openly link the alternate Goldy identity and the public `@goldytokey` Instagram account.
+- **Sources:** Token, “GOLDY” and “ROOKIE” official music-video descriptions; Never Too Different is identified publicly as Token's label.
+- **URLs:** https://www.youtube.com/watch?v=iq-gyRFu1U0 and https://www.youtube.com/watch?v=OjAFhd8X8HM
+- **Evidence class:** Artist-controlled official release pages.
+- **Directory state:** Public creative-identity example; not enrolled.
+- **Boundary:** Goldy is described as a publicly linked alternate creative identity, not a secret account. Album themes or allusions do not establish a diagnosis or current illness; no health designation is assigned.
