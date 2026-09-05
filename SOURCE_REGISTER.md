@@ -109,3 +109,14 @@ Creators and authorized representatives may request correction, narrower wording
 - **FindTreatment.gov:** U.S. treatment locator operated by SAMHSA. https://findtreatment.gov/
 - **CDC fentanyl information:** Public-health information about fentanyl, overdose prevention, and naloxone. https://www.cdc.gov/overdose-prevention/about/fentanyl.html
 - **Scope boundary:** These are U.S. resources. International posts should add verified local services. In a suspected overdose, seek immediate local emergency help; U.S. readers should call 911 and use naloxone if available.
+
+## Sick Boi episodes, clothing, and accessible merchandise
+
+- **Episode 1:** Ren, “SICK BOI - Episode 1 - The flame of Prometheus.” https://www.youtube.com/watch?v=47UW7nNzI2U
+- **Episode 2:** Ren, “SICK BOI - Episode 2 - Pandora's Box.” https://www.youtube.com/watch?v=Ohy0GtuxXWg
+- **Creative anchor:** Ren, “SICK BOI.” https://www.youtube.com/watch?v=gTxTyZglwAY
+- **Evidence class:** Official works published by Ren's verified YouTube channel.
+- **Boutique line:** The official Sick Boi site presents numbered subjects, item profiles, and episode-linked clothing drops. https://www.sickboi.com/
+- **Accessible merchandise route:** Ren's public launch follow-up distinguished the higher-priced Sick Boi clothing project from “way cheaper” forthcoming tees, beanies, vinyl, and other merchandise at Ren Makes Merch. https://www.facebook.com/renmakesmusic/posts/the-response-to-the-sickboihq-launch-has-been-crazy-almost-sold-out-in-24-hours-/1099084324922414/ and https://renmakesmerch.com/
+- **Interpretation:** Made Sick may discuss the clothing as a voluntary community “uniform” and the episodes as its narrative context. This is Loptr Lab's interpretation, not an official campaign statement from Ren or Sick Boi Ltd.
+- **Participation boundary:** Wearing or purchasing either line does not disclose illness, establish a diagnosis, enroll the wearer in Made Sick, or authorize publication of their story. Lower pricing supports an accessibility distinction; it does not establish that every product is affordable to every person.
