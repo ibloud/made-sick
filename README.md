@@ -37,4 +37,4 @@ Serve the repository with any static HTTP server, or open `index.html` directly.
 
 Independent prototype by Loptr Lab. No affiliation with pckt.blog, standard.site, Germ Network, Bluesky, or their respective teams is implied.
 
-See [GOVERNANCE.md](GOVERNANCE.md), [PRIVACY.md](PRIVACY.md), and [LICENSE](LICENSE).
+See [GOVERNANCE.md](GOVERNANCE.md), [DISCLOSURE_STANDARD.md](DISCLOSURE_STANDARD.md), [PRIVACY.md](PRIVACY.md), and [LICENSE](LICENSE).
