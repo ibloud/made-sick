@@ -9,7 +9,7 @@ Made Sick is an early, consent-first creator directory for celebrating meaningfu
 - **Directory:** a curated AppView that indexes only creators who opt in and labels evidence field by field.
 - **Private contact:** an optional, creator-enabled [Germ](https://www.germnetwork.com/) entry point for end-to-end encrypted messages.
 
-The current release is a static product prototype. It does not create accounts, issue verification badges, collect health information, or claim that any editorially referenced artist has joined the campaign.
+The current release is a static product prototype. It does not create accounts, issue verification badges, collect private health information, or claim that any editorially referenced artist has joined the campaign. Named public-record examples and their evidence boundaries are documented in [SOURCE_REGISTER.md](SOURCE_REGISTER.md).
 
 ## Principles
 
