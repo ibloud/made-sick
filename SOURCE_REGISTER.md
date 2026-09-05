@@ -97,7 +97,10 @@ Creators and authorized representatives may request correction, narrower wording
 ### Platform-moderation claim
 
 - **Claim supplied for review:** Meta allegedly restricted Ren's reach or classified the collaboration as drug promotion.
-- **Current evidence state:** Unverified. The reviewed public sources confirm the release and issue framing, but no primary artist statement, platform notice, screenshot, or appeal record was located that documents the alleged Meta action.
+- **Contemporaneous archive supplied for review:** “Ren - Serious Health Update - Instagram Sept 28 to Sept 30, 2024,” uploaded by the fan-run YouTube channel Ren Not Ren. https://www.youtube.com/watch?v=P7XLLMOZAqs
+- **Timing:** The archive identifies Instagram material from September 28–30, 2024, immediately after the September 27 release of “Fentanyl.” This makes it a useful lead for reconstructing the period, not proof of why an account or post may have been unavailable.
+- **Evidence class:** Secondary preservation/repost. The uploader is not Ren or Meta, and the video title describes a health update rather than a platform enforcement notice.
+- **Current evidence state:** Unverified. The reviewed public sources confirm the release, issue framing, and a contemporaneous period of health-related Instagram updates, but no primary artist statement, Meta notice, screenshot, or appeal record was located that documents the alleged Meta action or its stated reason.
 - **Publication rule:** Describe this only as a reported claim awaiting primary documentation. Do not say Meta determined that Ren was a “drug pusher,” and do not imply that a moderation action—if documented—proves promotion of illegal drugs.
 
 ## Substance-use support references
