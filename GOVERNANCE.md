@@ -51,6 +51,12 @@ Germ contact is optional and creator-enabled. Made Sick should not proxy, retain
 
 Artist DMs are never a mental-health care pathway. Fan pages, reaction channels, clinicians, peer-support organizations, and wellness publishers must follow [DISCLOSURE_STANDARD.md](DISCLOSURE_STANDARD.md).
 
+## Public livestreams
+
+Made Sick Sessions are opt-in public broadcasts, not private support. Before publishing a player, confirm the creator-controlled AT identity and stream handle, topics, guests, recording and replay terms, media rights, moderator, content note, resources, and correction or removal route. Chat must never be presented as therapy, crisis response, or a confidential disclosure channel.
+
+No copyrighted episode, music video, recording, or other third-party work may be rebroadcast merely because Made Sick comments on or links to it. Use official links unless the relevant rights are documented.
+
 ## Sensitive-topic collaborations
 
 For work involving substance use, overdose, suicide, self-harm, abuse, or other potentially triggering subjects, publish a specific content note, the documented purpose, and qualified resources outside the artist relationship. Collaborators should approve shared campaign framing. Do not infer that depiction equals endorsement, or that participation proves lived experience.
