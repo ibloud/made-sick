@@ -37,4 +37,8 @@ Made Sick does not operate a DM inbox, message composer, or messaging proxy. It 
 
 The Phase 2 interface may store a contact-policy draft in the creator's browser for review and export. That draft does not change Germ or the creator's public AT Protocol profile. Real configuration and card exchange occur in Germ. End-to-end encryption protects transport and service access as designed, but it cannot prevent a conversation participant from saving, copying, or sharing received content.
 
+## PIXIE habit cue prototype
+
+The PIXIE demonstration stores one user-authored cue, one user-authored action, and an optional check-in response in that browser's local storage. It does not send notifications, read HealthKit, collect location or age, create an account, transmit the record, infer a diagnosis, or share a consistency history. Pause and delete controls are always available. A production reminder service would require a new, explicit permission and a separate privacy review before any device notification, health integration, caregiver contact, analytics, or synchronization is added.
+
 This document is a product-design baseline, not a final privacy policy. A production launch requires jurisdiction-specific privacy and platform counsel.

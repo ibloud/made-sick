@@ -26,6 +26,8 @@ The ARG boundary is explicit: no impersonation, secrecy about sponsorship or pro
 
 Germ handles private communication rather than Made Sick. The interface reflects the subject's current closed contact declaration, offers a device-local policy draft, requires a care-boundary acknowledgement before drafting broader access, and hands configuration to Germ. Made Sick never receives Germ cards, encryption keys, contact relationships, or message content.
 
+The PIXIE panel demonstrates the project's intended care behavior with one voluntary, user-authored habit cue. A person may mark a full version, a smaller version, or rest; all are neutral check-ins and there is no streak or score. The record stays in browser storage and can be paused or deleted. This is an interaction prototype, not a notification service, health monitor, diagnosis tool, or caregiver channel.
+
 ## Principles
 
 1. No profile without affirmative creator consent.

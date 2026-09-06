@@ -271,6 +271,7 @@
             <button class="tool-icon active" type="button" data-tool="writing" aria-pressed="true"><span aria-hidden="true">W</span>Writing</button>
             <button class="tool-icon" type="button" data-tool="play" aria-pressed="false"><span aria-hidden="true">P</span>Play</button>
             <button class="tool-icon" type="button" data-tool="live" aria-pressed="false"><span aria-hidden="true">L</span>Live</button>
+            <button class="tool-icon" type="button" data-tool="pixie" aria-pressed="false"><span aria-hidden="true">✦</span>PIXIE</button>
             <button class="tool-icon" type="button" data-tool="messages" aria-pressed="false"><span aria-hidden="true">M</span>Messages</button>
           </nav>
 
@@ -316,6 +317,32 @@
                 <button class="text-button danger" id="unload-stream" type="button" hidden>Unload player</button>
               </div>
               <p class="support-note">No Made Sick Session is scheduled. Recording, media rights, moderation, topic notes, and takedown contacts must still pass the activation gate before a session is promoted.</p>
+            </article>
+
+            <article class="tool-panel" data-panel="pixie" hidden>
+              <div class="window-title"><span>PIXIE</span><span id="pixie-state">Paused until you choose</span></div>
+              <p class="step">A GENTLE, DEVICE-LOCAL CUE</p>
+              <h3>You decide what care looks like today.</h3>
+              <p>Write one habit you already want help remembering. PIXIE does not prescribe a routine, judge capacity, or assume that age determines ability.</p>
+              <form class="pixie-checkin" id="pixie-checkin">
+                <label for="pixie-cue"><strong>When this happens…</strong><span>Use a moment, not private health information. Example: “when my stream break starts.”</span></label>
+                <input id="pixie-cue" name="cue" maxlength="100" required placeholder="When my stream break starts">
+                <label for="pixie-action"><strong>Gently remind me to…</strong><span>Your words, and something that can be made smaller on a low-capacity day.</span></label>
+                <input id="pixie-action" name="action" maxlength="100" required placeholder="drink water and move in a comfortable way">
+                <fieldset>
+                  <legend>For this check-in, all answers count</legend>
+                  <label><input type="radio" name="response" value="done"> Done for now</label>
+                  <label><input type="radio" name="response" value="smaller"> I chose a smaller version</label>
+                  <label><input type="radio" name="response" value="rest"> Not today — rest is valid</label>
+                </fieldset>
+                <div class="pilot-actions">
+                  <button class="button" type="submit">Save on this device</button>
+                  <button class="text-button" id="pause-pixie" type="button">Pause</button>
+                  <button class="text-button danger" id="delete-pixie" type="button">Delete</button>
+                </div>
+                <p class="pilot-message" id="pixie-message" role="status" aria-live="polite">Nothing is scheduled or saved. PIXIE waits for your choice.</p>
+              </form>
+              <p class="support-note"><strong>Safety demo:</strong> no account, cloud storage, HealthKit, location, ads, streaks, leaderboard, age gate, or medical advice. This prototype cannot send notifications or contact a caregiver. Stop or change the cue whenever it does not help. For urgent medical or safety needs, use an appropriate local professional or emergency service—not PIXIE.</p>
             </article>
 
             <article class="tool-panel" data-panel="messages" hidden>

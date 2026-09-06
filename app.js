@@ -171,6 +171,75 @@ if (streamConsent && loadStream && unloadStream && streamFrame) {
   });
 }
 
+const pixieForm = document.querySelector('#pixie-checkin');
+
+if (pixieForm) {
+  const storageKey = 'made-sick:pixie-cue:v1';
+  const state = document.querySelector('#pixie-state');
+  const message = document.querySelector('#pixie-message');
+  const pauseButton = document.querySelector('#pause-pixie');
+  const deleteButton = document.querySelector('#delete-pixie');
+
+  function readCue() {
+    try {
+      return JSON.parse(localStorage.getItem(storageKey));
+    } catch (_error) {
+      return null;
+    }
+  }
+
+  function restoreCue() {
+    const cue = readCue();
+    if (!cue) return;
+    pixieForm.elements.cue.value = cue.cue || '';
+    pixieForm.elements.action.value = cue.action || '';
+    const response = pixieForm.querySelector(`[name="response"][value="${cue.response}"]`);
+    if (response) response.checked = true;
+    state.textContent = cue.paused ? 'Paused by you' : 'Active on this device';
+    message.textContent = cue.paused
+      ? 'Your cue is paused. Edit and save whenever you want it back.'
+      : `Saved locally · ${new Date(cue.updatedAt).toLocaleString()}. No reminder was sent.`;
+  }
+
+  pixieForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+    const record = {
+      schema: 'org.made-sick.pixie-cue/1',
+      cue: pixieForm.elements.cue.value.trim(),
+      action: pixieForm.elements.action.value.trim(),
+      response: pixieForm.elements.response.value || null,
+      paused: false,
+      storage: 'device-local',
+      updatedAt: new Date().toISOString()
+    };
+    localStorage.setItem(storageKey, JSON.stringify(record));
+    state.textContent = 'Active on this device';
+    message.textContent = 'Cue saved here. No notification, score, message, or health data was sent.';
+  });
+
+  pauseButton.addEventListener('click', () => {
+    const cue = readCue();
+    if (!cue) {
+      message.textContent = 'There is no saved cue to pause.';
+      return;
+    }
+    cue.paused = true;
+    cue.updatedAt = new Date().toISOString();
+    localStorage.setItem(storageKey, JSON.stringify(cue));
+    state.textContent = 'Paused by you';
+    message.textContent = 'Paused. Your cue stays on this device until you edit or delete it.';
+  });
+
+  deleteButton.addEventListener('click', () => {
+    localStorage.removeItem(storageKey);
+    pixieForm.reset();
+    state.textContent = 'Paused until you choose';
+    message.textContent = 'Deleted from this device. Nothing remains for PIXIE to act on.';
+  });
+
+  restoreCue();
+}
+
 const germForm = document.querySelector('#germ-settings');
 
 if (germForm) {
