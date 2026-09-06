@@ -5,3 +5,18 @@
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.button,.profile-card{transition:none}}
 .care-boundary{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(3rem,8vw,9rem);padding:clamp(4rem,8vw,8rem) clamp(1rem,6vw,7rem);background:var(--blue);border-top:var(--line);border-bottom:var(--line)}.care-boundary h2{font-family:Georgia,serif;font-size:clamp(2.3rem,5vw,5rem);line-height:.95;letter-spacing:-.045em;margin:0 0 1.5rem;max-width:900px}.care-intro>p:not(.eyebrow):not(.support-note){font-size:1.15rem;max-width:720px}.support-note{margin-top:2rem;padding-top:1rem;border-top:var(--line);font-family:monospace;font-size:.8rem}.profile-types{border:var(--line);background:var(--paper)}.profile-types article{display:grid;gap:.4rem;padding:1.2rem;border-bottom:var(--line)}.profile-types article:last-child{border-bottom:0}.profile-types strong{font-size:1.1rem}.profile-types span{font-size:.95rem}
 @media(max-width:700px){.care-boundary{grid-template-columns:1fr}}
+
+/* Calm, high-contrast accessibility palette. Accent colors are reserved for
+   small elements; large reading surfaces stay pale to reduce glare. */
+:root{--ink:#171717;--paper:#faf7f2;--acid:#d7ef68;--red:#a72b22;--blue:#d9eef4;--focus:#075ea8}
+body{background:var(--paper)}
+.site-header{background:rgba(250,247,242,.96)}
+.hero{background:radial-gradient(circle at 72% 20%,rgba(215,239,104,.42),transparent 24%),linear-gradient(115deg,var(--paper) 70%,#e7e1d8 70%)}
+.profile-card{background:#fffdfa}
+.status-reference{background:#e9e4dc}
+.participate{background:#f3ddd8}
+.step{color:#ff9286}
+:focus-visible{outline:4px solid var(--focus);outline-offset:4px}
+
+@media(prefers-contrast:more){:root{--paper:#fff;--blue:#fff;--acid:#fff}.site-header,.profile-card,.participate{background:#fff}.directory-note{border-left-width:10px}}
+@media(forced-colors:active){.wordmark span:last-child,.hero h1 em,.step{color:CanvasText}.button,.profile-card,.manifesto,.profile-types{forced-color-adjust:auto}}
