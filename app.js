@@ -34,6 +34,8 @@ if (pilotForm) {
   const inviteToggle = pilotForm.elements.duetInvite;
   const sessionFields = document.querySelector('#session-fields');
   const duetLink = document.querySelector('#duet-link');
+  const playDuetLink = document.querySelector('#play-duet-link');
+  const playDuetLocked = document.querySelector('#play-duet-locked');
   const message = document.querySelector('#pilot-message');
   const exportButton = document.querySelector('#export-pilot');
   const deleteButton = document.querySelector('#delete-pilot');
@@ -41,6 +43,10 @@ if (pilotForm) {
   function setConditionalFields() {
     sessionFields.hidden = !recordToggle.checked;
     duetLink.hidden = !inviteToggle.checked;
+    if (playDuetLink && playDuetLocked) {
+      playDuetLink.hidden = !inviteToggle.checked;
+      playDuetLocked.hidden = inviteToggle.checked;
+    }
   }
 
   function readRecord() {
@@ -116,6 +122,7 @@ if (pilotForm) {
 
   setConditionalFields();
   restoreRecord();
+  setConditionalFields();
 }
 
 const toolButtons = [...document.querySelectorAll('[data-tool]')];
