@@ -50,6 +50,18 @@ Germ is the optional private-message route. Do not copy private messages into pr
 
 Streamplace is the proposed public live-video layer. Do not activate an embed until the creator, handle, recording terms, media rights, moderator, content note, resources, and takedown route are verified under [STREAMPLACE_INTEGRATION.md](STREAMPLACE_INTEGRATION.md). Public chat is not private support.
 
+## Creative career learning
+
+### Explore The Futur
+
+Made Sick is Dominique Devereaux’s independent expression of the spirit behind Chris Do’s **1 Billion Mission**: helping more people make a living doing what they love.
+
+Creators looking for practical education about creativity, business, personal branding, pricing, and building a sustainable creative career can visit:
+
+- The Futur: https://thefutur.com/
+
+Made Sick is an independent project and is not affiliated with or endorsed by Chris Do or The Futur. This is an optional external learning resource. It is separate from PIXIE’s health features and must never be used to gate access, create urgency, enroll someone automatically, or suggest that income is a condition of recovery.
+
 ## Questions about Made Sick
 
 Use the Made Sick repository issue tracker for questions about this prototype, its profile model, or its integration decisions:
