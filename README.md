@@ -37,6 +37,22 @@ The PIXIE panel demonstrates the project's intended care behavior with one volun
 5. Creators can leave the directory without losing their identity or writing.
 6. Sponsorships and material relationships must be disclosed.
 
+## Contributing
+
+This covers proposing code, feature, or copy changes — for content moderation and profile disputes, see [GOVERNANCE.md](GOVERNANCE.md) instead.
+
+**Before opening a PR or issue:**
+
+1. Check it against the product test sentence in [PIXIE_HANDOFF.md](PIXIE_HANDOFF.md): *"PIXIE gently reminds me of a care action I chose, accepts the capacity I have today, and lets me stop without penalty."* If a proposed feature makes that sentence less true, it needs to be reworked before it's proposed, not after.
+2. Run the existing test suite (`npm install && node --test tests/`) and confirm it still passes. If your change touches `app.js` behavior, add a test for it in the same PR rather than after.
+3. No PR will be accepted that adds, even opt-in, any of: streaks, leaderboards, guilt/urgency/scarcity language, age-based defaults, capacity inferred from missed check-ins, or a default-on data-sharing/notification/tracking capability. This list isn't exhaustive — if a change moves data or attention toward the product and away from the person's own judgment, flag it in the PR description and expect it to be discussed, not merged quietly.
+4. Accessibility is acceptance criteria, not a follow-up task: keyboard operability, visible focus states, `aria-live` announcements for status changes, and WCAG 2.2 AA contrast/target-size apply to new UI the same as existing UI.
+5. Any change that adds a new data field, new third-party connection, or new consent screen should say plainly, in the PR description: what data it touches, why, and how a person leaves or deletes it.
+
+**Small fixes** (copy corrections, contrast/target-size tweaks, dependency bumps) can skip the full discussion above — just note in the PR which of the five points it doesn't apply to and why.
+
+
+
 ## Run locally
 
 Serve the repository with any static HTTP server, or open `index.html` directly.
