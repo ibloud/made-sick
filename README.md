@@ -2,6 +2,14 @@
 
 Made Sick is an early, consent-first creator directory for celebrating meaningful milestones, publishing creator-owned stories, listing verified events, and sharing carefully labeled wellness practices.
 
+## Make a living doing what you love
+
+Made Sick is Dominique Devereaux’s independent expression of the spirit behind Chris Do’s **“1 Billion Mission”**: helping more people make a living doing what they love.
+
+If you want practical education about creativity, business, personal branding, pricing, and building a sustainable creative career, visit [The Futur](https://thefutur.com/).
+
+Made Sick is an independent project and is not affiliated with or endorsed by Chris Do or The Futur. The referral is optional and separate from PIXIE’s health features: no gated access, urgency language, automatic enrollment, or suggestion that earning money is a condition of recovery.
+
 ## Product model
 
 - **Identity:** an AT Protocol DID and handle controlled by the creator.
