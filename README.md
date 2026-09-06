@@ -8,6 +8,7 @@ Made Sick is an early, consent-first creator directory for celebrating meaningfu
 - **Writing:** long-form posts published through tools such as [pckt.blog](https://pckt.blog/) using compatible `standard.site` records.
 - **Directory:** a curated AppView that indexes only creators who opt in and labels evidence field by field.
 - **Private contact:** an optional, creator-enabled [Germ](https://www.germnetwork.com/) entry point for end-to-end encrypted messages.
+- **Live video:** proposed opt-in [Streamplace](https://stream.place/) sessions embedded only after creator consent, rights clearance, and a moderation plan.
 
 The current release is a static product prototype. It does not create accounts, issue verification badges, collect private health information, or claim that any editorially referenced artist has joined the campaign. Named public-record examples and their evidence boundaries are documented in [SOURCE_REGISTER.md](SOURCE_REGISTER.md).
 
@@ -31,6 +32,7 @@ Serve the repository with any static HTTP server, or open `index.html` directly.
 - Build an AppView that indexes approved DIDs and `standard.site` posts.
 - Add field-level evidence and expiration dates for event verification.
 - Integrate an opt-in Germ launch link after the creator enables private messages.
+- Pilot one consented Streamplace session using [STREAMPLACE_INTEGRATION.md](STREAMPLACE_INTEGRATION.md).
 - Add moderation, correction, removal, and appeal workflows before accepting public submissions.
 
 ## Status
