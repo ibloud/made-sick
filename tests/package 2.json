@@ -1,0 +1,23 @@
+{
+  "name": "made-sick",
+  "version": "1.0.0",
+  "description": "Made Sick is an early, consent-first creator directory for celebrating meaningful milestones, publishing creator-owned stories, listing verified events, and sharing carefully labeled wellness practices.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ibloud/made-sick.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ibloud/made-sick/issues"
+  },
+  "homepage": "https://github.com/ibloud/made-sick#readme",
+  "devDependencies": {
+    "jsdom": "^30.0.1"
+  }
+}
