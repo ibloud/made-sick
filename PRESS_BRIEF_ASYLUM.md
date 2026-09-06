@@ -22,7 +22,19 @@ In a public-facing social-media video supplied to this project, Webby thanked Ha
 
 Those statements express Webby's perspective. They are not, by themselves, evidence of coordinated exclusion, suppression, or a complete absence of other coverage.
 
-**Publication check required:** obtain the original post URL, publication date, and permission or a direct comment from Webby or his representative before relying on the supplied copy of the video as a primary source.
+### Archive provenance
+
+The supplied video was downloaded from PV Story, a third-party Instagram Story viewer, rather than from a persistent native Instagram post. Two contemporaneous screenshots supplied by the archivist show:
+
+- a PV Story results page identifying the account as `chriswebby`, displaying “Chris Webby,” a verification badge, “Musician/band,” and “Business Account”;
+- the Story preview containing the speaker, labeled as approximately 15 hours old; and
+- a device capture time of 6:45 a.m. on Sunday, September 6, 2026.
+
+On that evidence, the working description is: **“A public Instagram Story attributed to Chris Webby, observed and downloaded through PV Story on September 6, 2026.”**
+
+This is useful contemporaneous provenance, but it is not equivalent to a native Instagram permalink or confirmation from Meta or the artist. The screenshots establish what the archivist observed on the third-party interface; they do not independently prove PV Story's retrieval process or rule out alteration before receipt.
+
+**Publication check required:** preserve the original downloaded file, filename, metadata, screenshots, capture notes, and any available page URL. A reporter should seek confirmation or comment from Webby or his representative before treating the archived Story as authenticated primary-source material.
 
 ## Why it may matter beyond one album
 
