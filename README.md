@@ -12,6 +12,20 @@ Made Sick is an early, consent-first creator directory for celebrating meaningfu
 
 The current release is a static product prototype. It does not create accounts, issue verification badges, collect private health information, or claim that any editorially referenced artist has joined the campaign. Named public-record examples and their evidence boundaries are documented in [SOURCE_REGISTER.md](SOURCE_REGISTER.md).
 
+## Functional pilot
+
+The creator-controlled AT Protocol identity `ibloud.xyz` (`did:plc:b5uem672ci23lqrcz6j6bs2c`) is the first functional test fixture. The pilot interface demonstrates separate consent for directory presence, preparing a Duet invitation, and keeping a player-owned session reference. Records remain in the participant's browser and can be exported or deleted. The prototype does not send invitations, receive gameplay, or operate a production consent service.
+
+The pilot's ATmosphere desk also connects the same DID to its public `pixie.pckt.blog` publication and Streamplace profile. Writing is linked from verified `site.standard.*` records. The Streamplace iframe has no `src` until a visitor affirmatively chooses to connect, and it can be unloaded immediately. Germ contact remains closed in accordance with the identity's public contact declaration. The app-and-window organization is inspired by Aether OS as an interface example; no Aether OS code, assets, branding, or implied affiliation are included.
+
+## Phase 2: participatory story layer
+
+Phase 2 reframes the ATmosphere desk as an in-world recruitment surface: audiences move from public evidence to voluntary participation and creator-controlled communication. It draws on the feeling of dystopian collective storytelling and the audience participation surrounding Ren's earlier Money Game treasure hunt while remaining an independent Loptr Lab prototype. It is not affiliated with or endorsed by Ren, Sick Boi, *Mr. Robot*, fsociety, Aether OS, or their rights holders.
+
+The ARG boundary is explicit: no impersonation, secrecy about sponsorship or provenance, trespass, dangerous tasks, urgent payment, credential collection, health disclosure, or contacting artists through private channels. Fictional clues must remain distinguishable from emergency, medical, financial, or legal instructions.
+
+Germ handles private communication rather than Made Sick. The interface reflects the subject's current closed contact declaration, offers a device-local policy draft, requires a care-boundary acknowledgement before drafting broader access, and hands configuration to Germ. Made Sick never receives Germ cards, encryption keys, contact relationships, or message content.
+
 ## Principles
 
 1. No profile without affirmative creator consent.

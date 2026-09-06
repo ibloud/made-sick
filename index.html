@@ -15,12 +15,28 @@
       <a href="#directory">Directory</a>
       <a href="#how-it-works">How it works</a>
       <a href="#sessions">Sessions</a>
+      <a href="#pilot">Pilot</a>
       <a href="#learn">Learn AT Proto</a>
     </nav>
     <a class="button button-small" href="https://github.com/ibloud/made-sick/issues/new" target="_blank" rel="noreferrer">Request an invite</a>
   </header>
 
   <main id="top">
+    <section class="phase-two" aria-labelledby="phase-two-title">
+      <div class="phase-signal" aria-hidden="true"><span>02</span></div>
+      <div class="phase-copy">
+        <p class="eyebrow">Phase 2 · the signal is open</p>
+        <h1 id="phase-two-title">You found the door.<br><em>Choose what happens next.</em></h1>
+        <p class="lede">Read the public archive. Enter the game. Witness the live signal. Open a private channel only when both people choose it.</p>
+        <div class="phase-route" aria-label="Phase 2 route">
+          <a href="#directory"><span>01</span><strong>Recognize</strong><small>Public evidence</small></a>
+          <a href="#pilot"><span>02</span><strong>Participate</strong><small>Your permissions</small></a>
+          <a href="#pilot"><span>03</span><strong>Transmit</strong><small>Creator-controlled tools</small></a>
+        </div>
+        <p class="fiction-notice"><strong>Story layer:</strong> an independent Loptr Lab participatory prototype inspired by dystopian collective storytelling and Ren's earlier Money Game treasure-hunt experience. It is not an official Ren, Sick Boi, Mr. Robot, or fsociety experience.</p>
+      </div>
+    </section>
+
     <section class="hero" aria-labelledby="hero-title">
       <div class="hero-copy">
         <p class="eyebrow">A creator-owned directory in the ATmosphere</p>
@@ -197,6 +213,143 @@
       <p class="support-note">Independent prototype · Made Sick is not affiliated with or endorsed by Streamplace. Public livestream chat is not private support, therapy, or emergency care.</p>
     </section>
 
+    <section class="pilot" id="pilot" aria-labelledby="pilot-title">
+      <div class="pilot-heading">
+        <div>
+          <p class="eyebrow">Functional test case · creator-controlled</p>
+          <h2 id="pilot-title">Try the path with @ibloud.xyz.</h2>
+        </div>
+        <p class="pilot-state"><span aria-hidden="true"></span> Pilot fixture · no invitation sent</p>
+      </div>
+
+      <div class="pilot-grid">
+        <article class="identity-card">
+          <p class="step">01 · IDENTITY</p>
+          <h3>I. B. Loud IVXX</h3>
+          <p class="handle">@ibloud.xyz</p>
+          <dl>
+            <div><dt>DID</dt><dd>did:plc:b5uem672ci23lqrcz6j6bs2c</dd></div>
+            <div><dt>Identity evidence</dt><dd>Public AT Protocol profile</dd></div>
+            <div><dt>Directory state</dt><dd>Authorized pilot</dd></div>
+          </dl>
+          <a class="text-link" href="https://bsky.app/profile/ibloud.xyz" target="_blank" rel="noreferrer">Open creator-controlled profile ↗</a>
+        </article>
+
+        <form class="pilot-console" id="pilot-console">
+          <fieldset>
+            <legend>02 · Choose what this test may do</legend>
+            <label><input type="checkbox" name="directory" checked> Keep @ibloud.xyz in the Made Sick pilot directory</label>
+            <label><input type="checkbox" name="duetInvite"> Prepare an invitation to play at duet.loptrlab.com</label>
+            <label><input type="checkbox" name="sessionRecord"> Save a Duet session reference on this device</label>
+          </fieldset>
+
+          <div class="session-fields" id="session-fields" hidden>
+            <label for="session-id">Session reference <span>Do not enter health information or private messages.</span></label>
+            <input id="session-id" name="sessionId" maxlength="80" autocomplete="off" placeholder="Example: duet-playtest-001">
+            <label for="session-note">Player-owned note <span>Optional · 160 characters</span></label>
+            <textarea id="session-note" name="sessionNote" maxlength="160" rows="3" placeholder="What should the next playtest remember?"></textarea>
+          </div>
+
+          <div class="pilot-actions">
+            <button class="button" type="submit">Save pilot choices</button>
+            <a class="text-link" id="duet-link" href="https://duet.loptrlab.com/" target="_blank" rel="noreferrer" hidden>Open Duet ↗</a>
+            <button class="text-button" id="export-pilot" type="button">Export my record</button>
+            <button class="text-button danger" id="delete-pilot" type="button">Delete from this device</button>
+          </div>
+          <p class="pilot-message" id="pilot-message" role="status" aria-live="polite">Nothing from this form has been saved.</p>
+          <p class="support-note">This pilot stores choices only in this browser. Made Sick does not receive them, contact anyone, capture Duet gameplay, or infer health information. Export creates a participant-controlled JSON record for later testing.</p>
+        </form>
+      </div>
+
+      <section class="atmosphere-desk" aria-labelledby="desk-title">
+        <header class="desk-bar">
+          <div><span class="desk-mark" aria-hidden="true">MS</span><strong id="desk-title">@ibloud.xyz · ATmosphere desk</strong></div>
+          <p>One identity · tools open separately</p>
+        </header>
+        <div class="desk-body">
+          <nav class="tool-dock" aria-label="Pilot tools">
+            <button class="tool-icon active" type="button" data-tool="writing" aria-pressed="true"><span aria-hidden="true">W</span>Writing</button>
+            <button class="tool-icon" type="button" data-tool="play" aria-pressed="false"><span aria-hidden="true">P</span>Play</button>
+            <button class="tool-icon" type="button" data-tool="live" aria-pressed="false"><span aria-hidden="true">L</span>Live</button>
+            <button class="tool-icon" type="button" data-tool="messages" aria-pressed="false"><span aria-hidden="true">M</span>Messages</button>
+          </nav>
+
+          <div class="tool-window">
+            <article class="tool-panel active" data-panel="writing">
+              <div class="window-title"><span>Writing</span><span>Public · creator-owned</span></div>
+              <p class="step">PIXIE.PCKT.BLOG</p>
+              <h3>Urban Alien Adventures</h3>
+              <p>Paraconsistent · Inclusive · Xenodochial · Intuitive · Ecstatic</p>
+              <div class="record-proof">
+                <span>Verified public record</span>
+                <code>site.standard.publication/3m5orwxvvm2tq</code>
+              </div>
+              <article class="document-card">
+                <p class="step">LATEST VERIFIED DOCUMENT · SEPTEMBER 4, 2026</p>
+                <h4>The Crown Was Never the Point</h4>
+                <p>Can work born from pain become an ecosystem for joy?</p>
+                <a class="button" href="https://pixie.pckt.blog/the-crown-was-never-the-point-gakt55y" target="_blank" rel="noreferrer">Read at the source</a>
+              </article>
+            </article>
+
+            <article class="tool-panel" data-panel="play" hidden>
+              <div class="window-title"><span>Play</span><span>Invitation gate</span></div>
+              <p class="step">DUET.LOPTRLAB.COM</p>
+              <h3>Enter only by choice.</h3>
+              <p>The pilot record above controls whether a Duet invitation may be prepared and whether a player-owned session reference may be kept.</p>
+              <a class="button" href="https://duet.loptrlab.com/" target="_blank" rel="noreferrer">Open Duet</a>
+              <p class="support-note">Made Sick does not yet receive gameplay events. Opening Duet leaves this site.</p>
+            </article>
+
+            <article class="tool-panel" data-panel="live" hidden>
+              <div class="window-title"><span>Live</span><span id="stream-state">Player locked</span></div>
+              <p class="step">STREAM.PLACE/IBLOUD.XYZ</p>
+              <h3>Public live video, loaded deliberately.</h3>
+              <div class="stream-gate" id="stream-gate">
+                <p>Loading the player connects your browser to Streamplace. Chat is public and is not therapy, crisis response, or a private support channel.</p>
+                <label><input type="checkbox" id="stream-consent"> I choose to connect to Streamplace and view this public profile.</label>
+                <button class="button" id="load-stream" type="button" disabled>Load Streamplace</button>
+              </div>
+              <div class="stream-frame" id="stream-frame" hidden></div>
+              <div class="pilot-actions">
+                <a class="text-link" href="https://stream.place/ibloud.xyz" target="_blank" rel="noreferrer">Open directly on Streamplace ↗</a>
+                <button class="text-button danger" id="unload-stream" type="button" hidden>Unload player</button>
+              </div>
+              <p class="support-note">No Made Sick Session is scheduled. Recording, media rights, moderation, topic notes, and takedown contacts must still pass the activation gate before a session is promoted.</p>
+            </article>
+
+            <article class="tool-panel" data-panel="messages" hidden>
+              <div class="window-title"><span>Messages</span><span id="germ-state">Closed by creator</span></div>
+              <p class="step">GERM · CREATOR CONTROLLED</p>
+              <h3>The channel opens from the inside.</h3>
+              <p>The current public profile declares incoming Germ contact unavailable. Made Sick respects that setting and provides no message box, inbox, or substitute contact route.</p>
+              <form class="germ-settings" id="germ-settings">
+                <fieldset>
+                  <legend>Draft a future contact policy</legend>
+                  <label><input type="radio" name="germPolicy" value="none" checked> Nobody may start a new conversation</label>
+                  <label><input type="radio" name="germPolicy" value="card"> Only people I directly give a Germ card or link</label>
+                  <label><input type="radio" name="germPolicy" value="following"> People permitted by my published Germ policy</label>
+                </fieldset>
+                <label class="germ-check"><input type="checkbox" name="germBoundary"> I understand that private chat is not therapy, crisis response, or a submission route for medical information.</label>
+                <div class="pilot-actions">
+                  <button class="button" type="submit">Save private draft</button>
+                  <button class="text-button" id="export-germ" type="button">Export settings</button>
+                  <button class="text-button danger" id="clear-germ" type="button">Reset to closed</button>
+                </div>
+                <p class="pilot-message" id="germ-message" role="status" aria-live="polite">Public contact remains closed. Draft settings stay on this device.</p>
+              </form>
+              <div class="germ-handoff">
+                <div><strong>Ready to configure the real channel?</strong><span>Continue in Germ. Made Sick never receives message content, cards, keys, or contact history.</span></div>
+                <a class="button" href="https://landing.ger.mx/newUser" target="_blank" rel="noreferrer">Open Germ</a>
+              </div>
+              <p class="support-note">Germ describes its chats as end-to-end encrypted, with information stored on participants' devices. A recipient can still save or share what they receive. Verify the card and identity in Germ before discussing anything sensitive.</p>
+            </article>
+          </div>
+        </div>
+        <footer class="desk-footer">Phase 2 interface model inspired by the app-and-window clarity of Aether OS and participatory ARG storytelling. Independent implementation; no affiliation or copied assets.</footer>
+      </section>
+    </section>
+
     <section class="participate" id="participate" aria-labelledby="participate-title">
       <div>
         <p class="eyebrow">Participation contract</p>
@@ -255,7 +408,7 @@
   <footer>
     <div class="wordmark footer-mark"><span>MADE</span><span>SICK</span></div>
     <p>A proposed creator-owned campaign prototype by Loptr Lab.</p>
-    <nav aria-label="Footer navigation"><a href="GOVERNANCE.md">Governance</a><a href="DISCLOSURE_STANDARD.md">Disclosures</a><a href="PRIVACY.md">Privacy</a><a href="BUILDER_RESOURCES.md">Builder resources</a><a href="https://github.com/ibloud/made-sick">Source</a></nav>
+    <nav aria-label="Footer navigation"><a href="PHASE_2.md">Phase 2</a><a href="GOVERNANCE.md">Governance</a><a href="DISCLOSURE_STANDARD.md">Disclosures</a><a href="PRIVACY.md">Privacy</a><a href="BUILDER_RESOURCES.md">Builder resources</a><a href="https://github.com/ibloud/made-sick">Source</a></nav>
   </footer>
   <script src="app.js"></script>
 </body>

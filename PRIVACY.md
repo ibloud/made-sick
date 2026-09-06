@@ -31,4 +31,10 @@ End-to-end encrypted messaging protects message content in transit and from serv
 
 A Streamplace player must not load until a real, consented session is configured. Loading a third-party player can disclose viewer connection data to that service. The page must identify the stream provider, link its applicable terms and privacy information, and distinguish public chat from Germ private messaging. Hosts must tell participants whether a session is recorded, where a replay will live, and how clips may be reused before going live.
 
+## Germ private communication
+
+Made Sick does not operate a DM inbox, message composer, or messaging proxy. It must not collect Germ cards, cryptographic keys, contact relationships, activity data, or message content. A creator's current published contact policy is authoritative; the absence of permission is a closed channel, not an invitation to find another route.
+
+The Phase 2 interface may store a contact-policy draft in the creator's browser for review and export. That draft does not change Germ or the creator's public AT Protocol profile. Real configuration and card exchange occur in Germ. End-to-end encryption protects transport and service access as designed, but it cannot prevent a conversation participant from saving, copying, or sharing received content.
+
 This document is a product-design baseline, not a final privacy policy. A production launch requires jurisdiction-specific privacy and platform counsel.

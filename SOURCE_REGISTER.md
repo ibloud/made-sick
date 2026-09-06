@@ -120,3 +120,20 @@ Creators and authorized representatives may request correction, narrower wording
 - **Accessible merchandise route:** Ren's public launch follow-up distinguished the higher-priced Sick Boi clothing project from “way cheaper” forthcoming tees, beanies, vinyl, and other merchandise at Ren Makes Merch. https://www.facebook.com/renmakesmusic/posts/the-response-to-the-sickboihq-launch-has-been-crazy-almost-sold-out-in-24-hours-/1099084324922414/ and https://renmakesmerch.com/
 - **Interpretation:** Made Sick may discuss the clothing as a voluntary community “uniform” and the episodes as its narrative context. This is Loptr Lab's interpretation, not an official campaign statement from Ren or Sick Boi Ltd.
 - **Participation boundary:** Wearing or purchasing either line does not disclose illness, establish a diagnosis, enroll the wearer in Made Sick, or authorize publication of their story. Lower pricing supports an accessibility distinction; it does not establish that every product is affordable to every person.
+
+## Phase 2 interface and participation references
+
+- **Aether OS:** Public product interface described as a web OS for AT Protocol apps whose data remains on the user's PDS. https://www.aetheros.computer/
+- **Use:** Interface reference for app-and-window organization only.
+- **Boundary:** Made Sick contains no Aether OS code, assets, branding, private settings, or claim of affiliation.
+- **Money Game Part 3:** Official music video published by Ren. https://www.youtube.com/watch?v=nyWbun_PbTc
+- **Treasure-hunt record:** Public compilation of the seven-sins videos from the Money Game 3 treasure hunt. https://www.youtube.com/watch?v=UFVRI2ilqpg
+- **Use:** Historical inspiration for voluntary audience discovery and staged narrative participation.
+- **Boundary:** Phase 2 is not a continuation of Ren's original ARG and must not imply Ren or his team created, approved, or participates in it.
+
+## Germ Network privacy and integration
+
+- **User guide:** Germ Network, “Using Germ DM,” updated August 6, 2026. https://www.germnetwork.com/using-germ-dm
+- **Integration explanation:** Germ Network, “Integrating Germ with AT Protocol.” https://www.germnetwork.com/blog/integrating-germ-atproto
+- **Supported statements:** Germ describes card exchange as the permission mechanism for new contact, stores user-produced information on participant devices, and encrypts message content end to end using Messaging Layer Security. Its AT Protocol integration publishes a recipient policy so other apps can set expectations about whether a connection request may be received.
+- **Boundary:** Made Sick does not independently audit Germ's cryptography or guarantee confidentiality against endpoint compromise, recipients, screenshots, exports, impersonation, or device loss. Current Germ documentation remains authoritative.
