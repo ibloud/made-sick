@@ -20,3 +20,7 @@ body{background:var(--paper)}
 
 @media(prefers-contrast:more){:root{--paper:#fff;--blue:#fff;--acid:#fff}.site-header,.profile-card,.participate{background:#fff}.directory-note{border-left-width:10px}}
 @media(forced-colors:active){.wordmark span:last-child,.hero h1 em,.step{color:CanvasText}.button,.profile-card,.manifesto,.profile-types{forced-color-adjust:auto}}
+.symbol-callout{align-self:start;max-width:720px;border:var(--line);border-left:10px solid var(--red);background:#fffdfa;padding:clamp(1.4rem,3vw,2.5rem);box-shadow:var(--shadow)}
+.symbol-callout h3{font-family:Georgia,serif;font-size:clamp(2rem,4vw,4rem);line-height:1;margin:0 0 1.25rem}.symbol-callout>p:not(.eyebrow):not(.notice){font-size:clamp(1.05rem,1.5vw,1.25rem)}
+@media(prefers-contrast:more){.symbol-callout{background:#fff;border-left-color:var(--ink)}}
+@media(forced-colors:active){.symbol-callout{box-shadow:none;border-left-width:10px}}
