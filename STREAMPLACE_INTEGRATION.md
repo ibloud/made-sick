@@ -60,3 +60,5 @@ Made Sick should store only the approved stream URL, scheduling metadata, disclo
 5. Consider Streamplace player components or self-hosting only after the pilot establishes a real operational need.
 
 Streamplace is MIT-licensed. Made Sick is an independent prototype and does not imply affiliation or endorsement.
+
+For the official Streamplace repository, documentation, and community server—and the corresponding Germ resources—see [BUILDER_RESOURCES.md](BUILDER_RESOURCES.md).
