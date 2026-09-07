@@ -329,3 +329,24 @@ if (germForm) {
 
   restoreDraft();
 }
+
+// Bluesky Web Intent Handler
+function shareToBluesky(text, url = window.location.href) {
+  const shareText = encodeURIComponent(`${text} ${url}`);
+  const intentUrl = `https://bsky.app/intent/compose?text=${shareText}`;
+  window.open(intentUrl, '_blank', 'noopener,noreferrer');
+}
+
+// Attach click handlers to any button with [data-share-bsky]
+document.addEventListener('DOMContentLoaded', () => {
+  const shareButtons = document.querySelectorAll('[data-share-bsky]');
+  
+  shareButtons.forEach(button => {
+    button.addEventListener('click', (e) => {
+      e.preventDefault();
+      const customText = button.getAttribute('data-share-text') || 'Checking out Made Sick — Share the Joy';
+      const customUrl = button.getAttribute('data-share-url') || 'https://made-sick.org';
+      shareToBluesky(customText, customUrl);
+    });
+  });
+});
