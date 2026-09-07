@@ -225,3 +225,201 @@ input:focus-visible,textarea:focus-visible,select:focus-visible{outline:4px soli
   html{scroll-behavior:auto}
   *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
 }
+
+/* --- Pilot Console Redesign --- */
+.pilot {
+  background: var(--paper);
+}
+
+.pilot-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.pilot-state {
+  font-family: monospace;
+  font-weight: 800;
+  background: var(--ink);
+  color: var(--paper);
+  padding: .5rem 1rem;
+  border: 2px solid var(--ink);
+}
+
+.pilot-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: clamp(1.5rem, 4vw, 3.5rem);
+}
+
+/* Identity Card */
+.identity-card {
+  border: var(--line);
+  padding: 1.5rem;
+  background: #f4f8fb;
+  box-shadow: var(--shadow);
+}
+
+.identity-card .handle {
+  font-family: monospace;
+  font-weight: 800;
+  font-size: 1.2rem;
+  color: var(--red);
+  margin: .5rem 0 1.25rem;
+}
+
+.identity-card dl {
+  margin: 0;
+  display: grid;
+  gap: .8rem;
+}
+
+.identity-card dt {
+  font-family: monospace;
+  font-size: .8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.identity-card dd {
+  margin: 0;
+  font-weight: 700;
+  word-break: break-all;
+}
+
+/* Redesigned Pilot Console Form */
+.pilot-console {
+  border: var(--line);
+  padding: 1.75rem;
+  background: var(--paper);
+  box-shadow: var(--shadow);
+  display: grid;
+  gap: 1.5rem;
+}
+
+.pilot-console fieldset {
+  border: var(--line);
+  padding: 1.25rem;
+  display: grid;
+  gap: 0.9rem;
+  background: var(--paper);
+}
+
+.pilot-console legend {
+  font-family: monospace;
+  font-weight: 900;
+  color: var(--red);
+  padding: 0 0.5rem;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  background: var(--paper);
+}
+
+/* Custom Brutalist Checkboxes */
+.pilot-console label {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-weight: 700;
+  font-size: 0.95rem;
+  cursor: pointer;
+  user-select: none;
+}
+
+.pilot-console input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 1.35rem;
+  height: 1.35rem;
+  border: var(--line);
+  background: var(--paper);
+  cursor: pointer;
+  display: grid;
+  place-content: center;
+  margin: 0;
+  flex-shrink: 0;
+  transition: background 0.1s ease-in-out;
+}
+
+.pilot-console input[type="checkbox"]:checked {
+  background: var(--acid);
+}
+
+.pilot-console input[type="checkbox"]:checked::before {
+  content: "✓";
+  font-family: monospace;
+  font-weight: 900;
+  font-size: 1rem;
+  color: var(--ink);
+}
+
+.pilot-console input[type="checkbox"]:focus-visible {
+  outline: 4px solid var(--focus);
+  outline-offset: 2px;
+}
+
+/* Form Fields & Inputs */
+.session-fields {
+  display: grid;
+  gap: 1.2rem;
+}
+
+.session-fields label {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.35rem;
+  font-weight: 800;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.session-fields span {
+  font-size: 0.8rem;
+  font-family: monospace;
+  font-weight: 700;
+  opacity: 0.8;
+}
+
+.session-fields input,
+.session-fields textarea {
+  border: var(--line);
+  padding: 0.85rem 1rem;
+  font-family: monospace;
+  font-size: 1rem;
+  font-weight: 700;
+  width: 100%;
+  background: var(--paper);
+  color: var(--ink);
+  box-shadow: 3px 3px 0 var(--ink);
+  border-radius: 0;
+}
+
+.session-fields input:focus-visible,
+.session-fields textarea:focus-visible {
+  outline: 4px solid var(--focus);
+  outline-offset: 2px;
+}
+
+/* Action Controls Row */
+.pilot-actions {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+  padding-top: 0.5rem;
+}
+
+/* Status Message Box */
+.pilot-message {
+  font-family: monospace;
+  background: #f0ebd8;
+  border: var(--line);
+  box-shadow: 4px 4px 0 var(--ink);
+  padding: 1rem 1.2rem;
+  font-weight: 800;
+  font-size: 0.9rem;
+  margin: 0;
+}
