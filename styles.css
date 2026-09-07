@@ -24,7 +24,7 @@
   --max-width: 1140px;
 }
 
-/* --- 2. Global Resets & Base Helpers --- */
+/* --- 2. Global Resets & Accessibility --- */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -39,6 +39,23 @@ body {
   padding: 2rem 1.5rem;
   max-width: var(--max-width);
   margin: 0 auto;
+}
+
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 1rem;
+  background: var(--ink);
+  color: var(--paper);
+  padding: 0.5rem 1rem;
+  z-index: 1000;
+  font-family: var(--font-mono);
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.skip-link:focus {
+  top: 1rem;
 }
 
 h1, h2, h3, h4 {
@@ -88,29 +105,40 @@ summary:focus-visible {
 }
 
 /* --- 3. Header & Navigation --- */
-header {
+.site-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   border-bottom: var(--line);
   padding-bottom: 1.5rem;
   margin-bottom: 3rem;
+  gap: 1.5rem;
+  flex-wrap: wrap;
 }
 
-.brand-title {
+.wordmark {
+  display: flex;
+  gap: 0.2rem;
   font-family: var(--font-mono);
   font-weight: 900;
-  font-size: 1.4rem;
+  font-size: 1.5rem;
   letter-spacing: 0.1em;
+  text-decoration: none;
+  color: var(--ink);
   text-transform: uppercase;
 }
 
-header nav {
-  display: flex;
-  gap: 1.5rem;
+.wordmark span:last-child {
+  color: var(--red);
 }
 
-header nav a {
+.site-header nav {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.site-header nav a {
   text-decoration: none;
   font-family: var(--font-mono);
   font-weight: 700;
@@ -118,12 +146,12 @@ header nav a {
   text-transform: uppercase;
 }
 
-header nav a:hover {
+.site-header nav a:hover {
   text-decoration: underline;
   color: var(--red);
 }
 
-/* --- 4. Buttons & Actions --- */
+/* --- 4. Buttons & Interactive Links --- */
 .button,
 button.button,
 input[type="submit"].button {
@@ -159,6 +187,11 @@ button.button:active {
   box-shadow: 1px 1px 0 var(--ink);
 }
 
+.button-small {
+  padding: 0.5rem 1rem;
+  font-size: 0.85rem;
+}
+
 .button-secondary {
   background-color: var(--paper);
   color: var(--ink);
@@ -169,166 +202,395 @@ button.button:active {
   color: var(--ink);
 }
 
-/* --- 5. Hero Section & Profile Types --- */
-.hero {
+.text-link {
+  font-family: var(--font-mono);
+  font-weight: 800;
+  font-size: 0.95rem;
+  color: var(--ink);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.text-link:hover {
+  color: var(--red);
+}
+
+.text-button {
+  background: none;
+  border: none;
+  font-family: var(--font-mono);
+  font-weight: 800;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  text-decoration: underline;
+  cursor: pointer;
+  color: var(--ink);
+  padding: 0.25rem 0.5rem;
+}
+
+.text-button:hover {
+  color: var(--red);
+}
+
+.text-button.danger {
+  color: var(--red);
+}
+
+.text-button.danger:hover {
+  background: var(--red);
+  color: #ffffff;
+  text-decoration: none;
+}
+
+/* --- 5. Phase 2 Banner --- */
+.phase-two {
+  border: var(--line);
+  box-shadow: var(--shadow);
+  padding: 2.5rem;
+  background: var(--surface-color);
   margin-bottom: 4rem;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+.phase-signal {
+  font-family: var(--font-mono);
+  font-size: 3.5rem;
+  font-weight: 900;
+  color: var(--red);
+  line-height: 1;
+  border: var(--line);
+  padding: 0.5rem 1rem;
+  background: var(--paper);
+}
+
+.phase-copy h1 em {
+  font-style: normal;
+  color: var(--red);
+}
+
+.phase-route {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+
+.phase-route a {
+  border: var(--line);
+  padding: 1rem;
+  background: var(--paper);
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  box-shadow: var(--shadow-small);
+  transition: transform 0.1s ease;
+}
+
+.phase-route a:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 4px 4px 0 var(--ink);
+}
+
+.phase-route span {
+  font-family: var(--font-mono);
+  font-weight: 900;
+  color: var(--red);
+  font-size: 0.85rem;
+}
+
+.phase-route strong {
+  font-size: 1.05rem;
+  color: var(--ink);
+}
+
+.phase-route small {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.fiction-notice {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  border-top: 1px dashed var(--ink);
+  padding-top: 1rem;
+  margin-top: 1rem;
+}
+
+/* --- 6. Hero & Manifesto Section --- */
+.hero {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 3rem;
+  align-items: start;
+  margin-bottom: 5rem;
+}
+
+.hero h1 em {
+  font-style: normal;
+  color: var(--red);
 }
 
 .hero-actions {
   margin-top: 2rem;
   display: flex;
-  gap: 1rem;
+  gap: 1.25rem;
   align-items: center;
   flex-wrap: wrap;
 }
 
-.profile-types {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.5rem;
-  margin-top: 3rem;
+.manifesto {
+  border: var(--line);
+  box-shadow: var(--shadow);
+  padding: 2rem;
+  background: #f0ebd8;
 }
 
-.profile-types article {
+.manifesto .issue {
+  font-family: var(--font-mono);
+  font-weight: 900;
+  font-size: 0.8rem;
+  color: var(--red);
+  letter-spacing: 0.1em;
+  margin-bottom: 1rem;
+  border-bottom: var(--line-thin);
+  padding-bottom: 0.5rem;
+}
+
+.manifesto ol {
+  list-style: none;
+  display: grid;
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+}
+
+.manifesto li {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.manifesto li span {
+  font-family: var(--font-mono);
+  font-weight: 900;
+  color: var(--red);
+}
+
+/* --- 7. Directory Section & Cards --- */
+.directory {
+  margin: 5rem 0;
+}
+
+.section-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 1rem;
+  border-bottom: var(--line);
+  padding-bottom: 1rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.result-count {
+  font-family: var(--font-mono);
+  font-weight: 800;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.filters {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+
+.filter {
+  background: var(--paper);
+  border: var(--line);
+  padding: 0.5rem 1rem;
+  font-family: var(--font-mono);
+  font-weight: 800;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  cursor: pointer;
+  box-shadow: var(--shadow-small);
+}
+
+.filter.active,
+.filter[aria-pressed="true"] {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 2rem;
+}
+
+.profile-card {
+  background: var(--surface-color);
+  border: var(--line);
+  box-shadow: var(--shadow);
+  padding: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.profile-card.invitation {
+  background: #fbf9f0;
+  border-style: dashed;
+}
+
+.card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 800;
+}
+
+.status {
+  padding: 0.25rem 0.6rem;
+  border: var(--line-thin);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.status-open {
+  background: var(--acid);
+  color: var(--ink);
+}
+
+.status-reference {
+  background: var(--paper);
+  color: var(--text-muted);
+}
+
+.profile-card h3 {
+  font-size: 1.3rem;
+}
+
+.profile-card .role {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--red);
+  text-transform: uppercase;
+}
+
+.profile-card .notice {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  border-top: 1px solid #e0ddd5;
+  padding-top: 0.5rem;
+  margin-top: auto;
+}
+
+.tags {
+  list-style: none;
+  display: flex;
+  gap: 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--text-muted);
+}
+
+.directory-note {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-top: 2rem;
+  padding: 1rem;
+  border: var(--line-thin);
+  background: var(--paper);
+}
+
+/* --- 8. System & Sessions Sections --- */
+.system, .sessions {
+  margin: 5rem 0;
+}
+
+.sessions {
+  background: var(--surface-color);
+  border: var(--line);
+  box-shadow: var(--shadow);
+  padding: 2.5rem;
+}
+
+.system-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.system-grid article {
   background: var(--surface-color);
   border: var(--line);
   box-shadow: var(--shadow);
   padding: 1.5rem;
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 0.75rem;
 }
 
-.profile-types strong {
-  font-size: 1.15rem;
-  color: var(--ink);
-}
-
-.profile-types span {
-  color: var(--text-muted);
-  font-size: 0.95rem;
-}
-
-/* --- 6. Learn & Accordion Section --- */
-.learn {
-  margin: 5rem 0;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 3rem;
-  align-items: start;
-}
-
-.accordion {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
-.accordion details {
-  background: var(--surface-color);
-  border: var(--line);
-  box-shadow: var(--shadow);
-  padding: 1.25rem 1.5rem;
-}
-
-.accordion summary {
-  font-weight: 800;
-  font-size: 1.05rem;
-  cursor: pointer;
-  list-style: none;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.accordion summary::-webkit-details-marker {
-  display: none;
-}
-
-.accordion summary span {
+.step {
   font-family: var(--font-mono);
   font-weight: 900;
+  font-size: 0.8rem;
   color: var(--red);
-  font-size: 1.2rem;
-}
-
-.accordion details[open] summary {
-  margin-bottom: 0.85rem;
-  border-bottom: 2px dashed var(--ink);
-  padding-bottom: 0.5rem;
-}
-
-.accordion p {
-  color: var(--text-muted);
-  font-size: 0.95rem;
-}
-
-/* --- 7. Creator Ownership Map --- */
-.ownership-map {
-  background: var(--surface-color);
-  border: var(--line);
-  box-shadow: var(--shadow);
-  padding: 2.5rem;
-  margin: 4rem 0;
-}
-
-.ownership-map figcaption {
-  font-family: var(--font-mono);
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  font-weight: 900;
-  font-size: 0.9rem;
-  letter-spacing: 0.05em;
-  color: var(--red);
-  margin-bottom: 2rem;
 }
 
-.owner-node {
-  display: inline-flex;
-  align-items: center;
-  gap: 1rem;
-  background: var(--ink);
-  color: var(--paper);
-  border: var(--line);
-  padding: 0.75rem 1.5rem;
-  font-weight: 800;
-  font-family: var(--font-mono);
-  margin-bottom: 2rem;
-}
-
-.owner-node span {
-  font-weight: 700;
-  font-size: 0.85rem;
-  color: var(--acid);
-}
-
-.ownership-path {
+.session-steps {
   list-style: none;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 1.5rem;
+  margin: 2rem 0;
 }
 
-.ownership-path li {
+.session-steps li {
   display: flex;
-  flex-direction: column;
-  gap: 0.4rem;
-  font-size: 0.95rem;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.session-steps span {
+  font-family: var(--font-mono);
+  font-size: 1.25rem;
+  font-weight: 900;
+  color: var(--red);
+}
+
+.session-steps strong {
+  display: block;
+  font-size: 1.05rem;
+  margin-bottom: 0.25rem;
+}
+
+.session-steps p {
+  font-size: 0.9rem;
   color: var(--text-muted);
 }
 
-.map-number {
+.support-note {
+  font-size: 0.8rem;
+  color: var(--text-muted);
   font-family: var(--font-mono);
-  color: var(--red);
-  font-size: 0.9rem;
-  font-weight: 900;
+  margin-top: 1rem;
 }
 
-.ownership-path strong {
-  color: var(--ink);
-  font-size: 1.05rem;
-}
-
-/* --- 8. Pilot Section & Identity Card --- */
+/* --- 9. Pilot Section & Refined Right-Side Console Form --- */
 .pilot {
   margin: 5rem 0;
 }
@@ -380,7 +642,7 @@ button.button:active {
 }
 
 .identity-card dl {
-  margin: 0;
+  margin: 0 0 1.5rem;
   display: grid;
   gap: 1rem;
 }
@@ -400,7 +662,7 @@ button.button:active {
   word-break: break-all;
 }
 
-/* --- 9. Refined Pilot Console & Right-Side Form Controls --- */
+/* Right Panel: Pilot Console Form (Adjusted Spacing) */
 .pilot-console {
   border: var(--line);
   padding: 2rem;
@@ -435,7 +697,7 @@ button.button:active {
   color: var(--red);
 }
 
-/* Fieldset Checkbox Row Alignment & Styling */
+/* Fieldset Checkbox Row Alignment */
 .pilot-console fieldset label,
 .germ-settings fieldset label,
 .pixie-checkin fieldset label,
@@ -473,7 +735,6 @@ button.button:active {
   position: relative;
   margin: 0;
   flex-shrink: 0;
-  vertical-align: middle;
 }
 
 .pilot-console input[type="checkbox"]:checked,
@@ -531,13 +792,14 @@ button.button:active {
   background: var(--red);
 }
 
-/* Session Text Inputs & Field Layout */
+/* Session Text Inputs & Form Layout */
 .session-fields {
   display: grid;
   gap: 1.2rem;
 }
 
-.session-fields label {
+.session-fields label,
+.pixie-checkin label {
   display: grid;
   gap: 0.4rem;
   font-weight: 800;
@@ -545,7 +807,8 @@ button.button:active {
   font-family: var(--font-sans);
 }
 
-.session-fields label span {
+.session-fields label span,
+.pixie-checkin label span {
   font-family: var(--font-mono);
   font-size: 0.8rem;
   font-weight: 700;
@@ -558,7 +821,9 @@ button.button:active {
 .session-fields textarea,
 .pixie-checkin input[type="text"],
 #session-id,
-#session-note {
+#session-note,
+#pixie-cue,
+#pixie-action {
   border: var(--line) !important;
   padding: 0.85rem 1rem !important;
   font-family: var(--font-mono) !important;
@@ -579,7 +844,6 @@ button.button:active {
   outline: none !important;
 }
 
-/* Action Controls Row */
 .pilot-actions {
   display: flex;
   gap: 1rem;
@@ -590,7 +854,6 @@ button.button:active {
   margin-top: 0.5rem;
 }
 
-/* Status Message Alert Box */
 .pilot-message {
   font-family: var(--font-mono);
   font-size: 0.9rem;
@@ -603,7 +866,145 @@ button.button:active {
   box-shadow: var(--shadow-small);
 }
 
-/* Germ Care Checkbox Utility */
+/* --- 10. ATmosphere Desk Window System --- */
+.atmosphere-desk {
+  border: var(--line);
+  box-shadow: var(--shadow);
+  background: var(--surface-color);
+  margin-top: 4rem;
+}
+
+.desk-bar {
+  background: var(--ink);
+  color: var(--paper);
+  padding: 0.75rem 1.25rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--font-mono);
+}
+
+.desk-bar strong {
+  color: var(--paper);
+  font-size: 0.95rem;
+}
+
+.desk-bar p {
+  font-size: 0.8rem;
+  color: var(--acid);
+}
+
+.desk-mark {
+  background: var(--red);
+  color: #ffffff;
+  font-weight: 900;
+  padding: 0.2rem 0.5rem;
+  margin-right: 0.75rem;
+  font-size: 0.8rem;
+}
+
+.desk-body {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  min-height: 480px;
+}
+
+.tool-dock {
+  background: #edeae0;
+  border-right: var(--line);
+  display: flex;
+  flex-direction: column;
+}
+
+.tool-icon {
+  background: none;
+  border: none;
+  border-bottom: 1px solid var(--ink);
+  padding: 1rem;
+  font-family: var(--font-mono);
+  font-weight: 800;
+  font-size: 0.85rem;
+  text-align: left;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: var(--ink);
+}
+
+.tool-icon span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  background: var(--ink);
+  color: var(--paper);
+  font-size: 0.75rem;
+}
+
+.tool-icon.active,
+.tool-icon[aria-pressed="true"] {
+  background: var(--paper);
+  border-right: 4px solid var(--red);
+}
+
+.tool-window {
+  padding: 2rem;
+  background: var(--paper);
+}
+
+.tool-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.tool-panel[hidden] {
+  display: none !important;
+}
+
+.window-title {
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  font-weight: 800;
+  border-bottom: var(--line-thin);
+  padding-bottom: 0.5rem;
+  color: var(--red);
+}
+
+.record-proof {
+  background: #edeae0;
+  border: var(--line-thin);
+  padding: 0.75rem 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+}
+
+.document-card {
+  border: var(--line);
+  padding: 1.25rem;
+  background: var(--surface-color);
+  box-shadow: var(--shadow-small);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.stream-gate {
+  border: var(--line);
+  padding: 1.5rem;
+  background: #fbf9f0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
 .germ-check {
   display: flex !important;
   align-items: flex-start !important;
@@ -615,59 +1016,93 @@ button.button:active {
   background: #f4f8fb;
 }
 
-/* --- 10. Footer --- */
-footer {
-  border-top: var(--line);
-  padding-top: 3rem;
-  margin-top: 6rem;
+.germ-handoff {
+  border: var(--line);
+  padding: 1.25rem;
+  background: #f0ebd8;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 1rem;
   flex-wrap: wrap;
-  gap: 1.5rem;
 }
 
-.footer-mark {
+.desk-footer {
+  background: #edeae0;
+  border-top: var(--line);
+  padding: 0.75rem 1.25rem;
   font-family: var(--font-mono);
-  font-weight: 900;
-  letter-spacing: 0.15em;
-  font-size: 1.1rem;
-}
-
-footer p {
+  font-size: 0.75rem;
   color: var(--text-muted);
-  font-size: 0.9rem;
-  font-family: var(--font-mono);
 }
 
-footer nav {
-  display: flex;
+/* --- 11. Participation Principles & Mission Pathways --- */
+.participate, .care-boundary {
+  margin: 5rem 0;
+}
+
+.principles {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 1.5rem;
+  margin-top: 2rem;
 }
 
-footer nav a {
-  color: var(--ink);
-  text-decoration: none;
-  font-size: 0.9rem;
-  font-family: var(--font-mono);
-  font-weight: 700;
+.principles p {
+  background: var(--surface-color);
+  border: var(--line);
+  padding: 1.25rem;
+  box-shadow: var(--shadow-small);
+  font-size: 0.95rem;
 }
 
-footer nav a:hover {
+.principles strong {
+  display: block;
+  font-size: 1.05rem;
   color: var(--red);
-  text-decoration: underline;
+  margin-bottom: 0.25rem;
 }
 
-/* --- 11. Responsive Breakpoints --- */
+.care-intro {
+  background: var(--surface-color);
+  border: var(--line);
+  box-shadow: var(--shadow);
+  padding: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* --- 12. Responsive Breakpoints --- */
 @media (max-width: 868px) {
+  .hero {
+    grid-template-columns: 1fr;
+  }
+
+  .phase-two {
+    grid-template-columns: 1fr;
+  }
+
   .pilot-grid {
     grid-template-columns: 1fr;
     gap: 2rem;
   }
 
-  .learn {
+  .desk-body {
     grid-template-columns: 1fr;
-    gap: 2rem;
+  }
+
+  .tool-dock {
+    flex-direction: row;
+    border-right: none;
+    border-bottom: var(--line);
+    overflow-x: auto;
+  }
+
+  .tool-icon {
+    border-bottom: none;
+    border-right: 1px solid var(--ink);
+    white-space: nowrap;
   }
 }
 
@@ -676,10 +1111,9 @@ footer nav a:hover {
     padding: 1.25rem 1rem;
   }
 
-  header {
+  .site-header {
     flex-direction: column;
     align-items: flex-start;
-    gap: 1rem;
   }
 
   .pilot-console {
