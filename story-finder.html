@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Search and review a public Bluesky diary feed without sharing credentials or uploading an archive.">
+<title>Story Finder — Made Sick</title>
+<style>
+:root{--ink:#111;--paper:#f4f0e7;--acid:#b5cc18;--muted:#655f56;--line:#b8b0a3;--panel:#fffdf7;--danger:#8b2635}
+*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:17px/1.55 ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+a{color:inherit}.skip{position:absolute;left:-9999px}.skip:focus{left:1rem;top:1rem;background:#fff;padding:.75rem;z-index:9}
+header,main,footer{max-width:1120px;margin:auto;padding:1.25rem}.mast{display:flex;gap:1rem;align-items:center;justify-content:space-between;border-bottom:3px solid var(--ink)}
+.brand{font-weight:950;letter-spacing:.08em;text-decoration:none}.brand span:last-child{color:#657300}.back{font-weight:750}
+.hero{padding:4rem 0 2rem}.eyebrow{text-transform:uppercase;font-size:.78rem;font-weight:900;letter-spacing:.14em;color:#657300}
+h1{font-size:clamp(2.7rem,8vw,6rem);line-height:.88;letter-spacing:-.055em;margin:.2rem 0 1.25rem;max-width:850px}
+.lede{font-size:1.2rem;max-width:760px}.notice{border-left:6px solid var(--acid);padding:.8rem 1rem;background:var(--panel);max-width:850px}
+.panel{background:var(--panel);border:2px solid var(--ink);padding:clamp(1rem,3vw,2rem);box-shadow:8px 8px 0 var(--ink);margin:2rem 0}
+form{display:grid;gap:1rem}.row{display:grid;grid-template-columns:2fr 1fr 1fr;gap:1rem}.checks{display:flex;flex-wrap:wrap;gap:1rem}
+label{font-weight:800}label span{display:block;font-weight:500;color:var(--muted);font-size:.86rem}
+input[type=text],input[type=search],input[type=date]{width:100%;font:inherit;padding:.75rem;border:2px solid var(--ink);background:white}
+input:focus,button:focus,a:focus{outline:4px solid #4967d6;outline-offset:3px}
+button,.button{appearance:none;border:2px solid var(--ink);background:var(--acid);color:var(--ink);padding:.7rem 1rem;font:800 1rem/1.2 inherit;cursor:pointer;text-decoration:none;display:inline-block}
+button.secondary{background:white}.actions{display:flex;gap:.75rem;flex-wrap:wrap}.status{min-height:1.6em;font-weight:750}
+.results-head{display:flex;justify-content:space-between;align-items:end;gap:1rem;border-bottom:3px solid var(--ink);margin-top:3rem}
+.results{display:grid;gap:1rem;padding:1.5rem 0}.post{background:var(--panel);border:1px solid var(--line);padding:1rem}
+.post-top{display:flex;gap:.75rem;justify-content:space-between;align-items:flex-start}.post time{font-weight:800}.post p{white-space:pre-wrap;overflow-wrap:anywhere}.post-links{display:flex;gap:1rem;flex-wrap:wrap;font-size:.9rem;font-weight:800}
+.badges{display:flex;gap:.4rem;flex-wrap:wrap}.badge{font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;border:1px solid;padding:.15rem .35rem}
+.empty{padding:2rem;border:2px dashed var(--line);color:var(--muted)}footer{border-top:1px solid var(--line);margin-top:4rem;color:var(--muted)}
+@media(max-width:760px){.row{grid-template-columns:1fr}.mast,.results-head{align-items:flex-start;flex-direction:column}h1{font-size:3.2rem}.panel{box-shadow:5px 5px 0 var(--ink)}}
+@media(prefers-reduced-motion:no-preference){button{transition:transform .12s}button:hover{transform:translate(-2px,-2px)}}
+</style>
+</head>
+<body>
+<a class="skip" href="#finder">Skip to search</a>
+<header class="mast"><a class="brand" href="./"><span>MADE</span> <span>SICK</span></a><a class="back" href="./">← Directory</a></header>
+<main>
+<section class="hero">
+<p class="eyebrow">Public archive · device-local review</p>
+<h1>Find the story in your feed.</h1>
+<p class="lede">Story Finder reads one public Bluesky author feed chronologically, then searches the posts already loaded in this browser. It is designed for people who use social media as a diary, notebook, or distributed story archive.</p>
+<p class="notice"><strong>Privacy boundary:</strong> no password, Bluesky sign-in, DMs, likes, private data, analytics, or server-side archive. Your search terms and selections stay in this tab. A public post is never added to Made Sick without human review and consent.</p>
+</section>
+<section class="panel" id="finder" aria-labelledby="finder-title">
+<p class="eyebrow">Step 1 · choose an archive</p><h2 id="finder-title">Load public posts</h2>
+<form id="search-form">
+<div class="row">
+<label>Bluesky handle<span>Default pilot identity</span><input id="handle" name="handle" type="text" value="ibloud.xyz" autocomplete="off" required></label>
+<label>From date<span>Optional</span><input id="date-from" name="from" type="date"></label>
+<label>Through date<span>Optional</span><input id="date-to" name="to" type="date"></label>
+</div>
+<label>Words or phrase<span>Leave empty to browse chronologically. Multiple words must all appear.</span><input id="query" name="query" type="search" placeholder="Jamie Tompkins, startup, hacker…"></label>
+<div class="checks">
+<label><input id="exact" type="checkbox"> Exact phrase</label>
+<label><input id="replies" type="checkbox" checked> Include replies</label>
+<label><input id="reposts" type="checkbox"> Include reposts</label>
+<label><input id="links-only" type="checkbox"> Posts with links only</label>
+</div>
+<div class="actions">
+<button type="submit" id="load">Load latest 100</button>
+<button type="button" class="secondary" id="more" disabled>Load 100 older posts</button>
+<button type="button" class="secondary" id="clear">Clear this tab</button>
+</div>
+<p class="status" id="status" role="status" aria-live="polite">Nothing loaded yet.</p>
+</form>
+</section>
+<section aria-labelledby="results-title">
+<div class="results-head"><div><p class="eyebrow">Step 2 · review and preserve</p><h2 id="results-title">Matches</h2></div><div class="actions"><button type="button" class="secondary" id="select-visible" disabled>Select visible</button><button type="button" class="secondary" id="export" disabled>Export selected ledger</button></div></div>
+<div id="results" class="results"><p class="empty">Load a public feed to begin. Older diary entries become searchable as you load more pages.</p></div>
+</section>
+</main>
+<footer><p>Independent Made Sick research tool. Bluesky and AT Protocol are external services and do not endorse this project. Public API data remains subject to the author's deletions and current Bluesky availability.</p></footer>
+<script>
+"use strict";
+const API="https://public.api.bsky.app/xrpc/";
+const state={actor:"",cursor:null,posts:[],selected:new Set(),loading:false};
+const $=id=>document.getElementById(id);
+const form=$("search-form"),results=$("results"),status=$("status"),more=$("more"),exportButton=$("export"),selectVisible=$("select-visible");
+function cleanHandle(value){return value.trim().replace(/^@/,"").toLowerCase()}
+function normalize(value){return (value||"").normalize("NFKD").replace(/[\u0300-\u036f]/g,"").toLowerCase()}
+function postKey(post){return post.post.uri}
+function postUrl(item){const rkey=item.post.uri.split("/").pop();return "https://bsky.app/profile/"+encodeURIComponent(item.post.author.handle)+"/post/"+encodeURIComponent(rkey)}
+function hasLinks(item){const r=item.post.record||{};return Boolean((r.facets||[]).some(f=>(f.features||[]).some(x=>x.uri)))||Boolean(item.post.embed)}
+function isReply(item){return Boolean(item.post.record&&item.post.record.reply)}
+function isRepost(item){return Boolean(item.reason&&item.reason.$type==="app.bsky.feed.defs#reasonRepost")}
+function created(item){return new Date((item.post.record&&item.post.record.createdAt)||item.post.indexedAt)}
+function matches(item){
+ if(!$("replies").checked&&isReply(item))return false;
+ if(!$("reposts").checked&&isRepost(item))return false;
+ if($("links-only").checked&&!hasLinks(item))return false;
+ const d=created(item),from=$("date-from").value,to=$("date-to").value;
+ if(from&&d<new Date(from+"T00:00:00"))return false;
+ if(to&&d>new Date(to+"T23:59:59.999"))return false;
+ const q=normalize($("query").value.trim()),text=normalize(item.post.record&&item.post.record.text);
+ if(!q)return true;
+ return $("exact").checked?text.includes(q):q.split(/\s+/).every(word=>text.includes(word));
+}
+function badge(text){const span=document.createElement("span");span.className="badge";span.textContent=text;return span}
+function render(){
+ const visible=state.posts.filter(matches);
+ results.replaceChildren();
+ if(!visible.length){const p=document.createElement("p");p.className="empty";p.textContent=state.posts.length?"No loaded posts match these filters. Try a wider search or load older posts.":"Load a public feed to begin.";results.append(p)}
+ visible.forEach(item=>{
+  const card=document.createElement("article");card.className="post";
+  const top=document.createElement("div");top.className="post-top";
+  const label=document.createElement("label");const check=document.createElement("input");check.type="checkbox";check.checked=state.selected.has(postKey(item));check.addEventListener("change",()=>{check.checked?state.selected.add(postKey(item)):state.selected.delete(postKey(item));updateButtons()});label.append(check," Preserve in ledger");
+  const time=document.createElement("time");time.dateTime=created(item).toISOString();time.textContent=created(item).toLocaleString();
+  top.append(label,time);
+  const text=document.createElement("p");text.textContent=(item.post.record&&item.post.record.text)||"[No text]";
+  const badges=document.createElement("div");badges.className="badges";if(isReply(item))badges.append(badge("reply"));if(isRepost(item))badges.append(badge("repost"));if(hasLinks(item))badges.append(badge("links"));
+  const links=document.createElement("div");links.className="post-links";const open=document.createElement("a");open.href=postUrl(item);open.target="_blank";open.rel="noreferrer";open.textContent="Open original ↗";links.append(open);
+  card.append(top,text,badges,links);results.append(card);
+ });
+ status.textContent=state.posts.length+" public posts loaded · "+visible.length+" visible match"+(visible.length===1?"":"es")+".";
+ selectVisible.disabled=!visible.length;updateButtons();
+}
+function updateButtons(){exportButton.disabled=!state.selected.size}
+async function resolveActor(handle){
+ const url=API+"com.atproto.identity.resolveHandle?handle="+encodeURIComponent(handle);
+ const response=await fetch(url);if(!response.ok)throw new Error("That public handle could not be resolved.");
+ return (await response.json()).did;
+}
+async function loadPage(reset){
+ if(state.loading)return;state.loading=true;$("load").disabled=true;more.disabled=true;status.textContent="Loading public posts…";
+ try{
+  const handle=cleanHandle($("handle").value);if(!handle)throw new Error("Enter a Bluesky handle.");
+  if(reset||state.actor!==handle){state.actor=handle;state.cursor=null;state.posts=[];state.selected.clear()}
+  const did=await resolveActor(handle);
+  const params=new URLSearchParams({actor:did,limit:"100",filter:"posts_with_replies",includePins:"true"});
+  if(state.cursor)params.set("cursor",state.cursor);
+  const response=await fetch(API+"app.bsky.feed.getAuthorFeed?"+params);if(!response.ok)throw new Error("Bluesky did not return this public feed.");
+  const data=await response.json(),known=new Set(state.posts.map(postKey));
+  (data.feed||[]).forEach(item=>{if(!known.has(postKey(item))){state.posts.push(item);known.add(postKey(item))}});
+  state.cursor=data.cursor||null;render();more.disabled=!state.cursor;
+ }catch(error){status.textContent=error.message;results.replaceChildren();const p=document.createElement("p");p.className="empty";p.textContent="Nothing was changed. Check the handle or try again when Bluesky is available.";results.append(p)}
+ finally{state.loading=false;$("load").disabled=false;if(state.cursor)more.disabled=false}
+}
+form.addEventListener("submit",event=>{event.preventDefault();loadPage(true)});
+more.addEventListener("click",()=>loadPage(false));
+["query","date-from","date-to","exact","replies","reposts","links-only"].forEach(id=>$(id).addEventListener("input",render));
+$("clear").addEventListener("click",()=>{state.actor="";state.cursor=null;state.posts=[];state.selected.clear();$("query").value="";$("date-from").value="";$("date-to").value="";results.innerHTML='<p class="empty">Load a public feed to begin.</p>';status.textContent="This tab was cleared.";more.disabled=true;selectVisible.disabled=true;updateButtons()});
+selectVisible.addEventListener("click",()=>{state.posts.filter(matches).forEach(item=>state.selected.add(postKey(item)));render()});
+exportButton.addEventListener("click",()=>{
+ const chosen=state.posts.filter(item=>state.selected.has(postKey(item))).map(item=>({createdAt:created(item).toISOString(),url:postUrl(item),uri:item.post.uri,text:(item.post.record&&item.post.record.text)||"",reply:isReply(item),repost:isRepost(item)}));
+ const payload={title:"Made Sick Story Finder research ledger",actor:state.actor,exportedAt:new Date().toISOString(),notice:"Creator review record only. Selection does not grant directory enrollment or publication consent.",posts:chosen};
+ const blob=new Blob([JSON.stringify(payload,null,2)],{type:"application/json"}),url=URL.createObjectURL(blob),a=document.createElement("a");a.href=url;a.download="made-sick-story-ledger-"+new Date().toISOString().slice(0,10)+".json";a.click();URL.revokeObjectURL(url);
+ status.textContent=chosen.length+" selected post"+(chosen.length===1?"":"s")+" exported to your device.";
+});
+</script>
+</body>
+</html>
