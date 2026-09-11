@@ -10,6 +10,12 @@ If you want practical education about creativity, business, personal branding, p
 
 Made Sick is an independent project and is not affiliated with or endorsed by Chris Do or The Futur. The referral is optional and separate from PIXIE’s health features: no gated access, urgency language, automatic enrollment, or suggestion that earning money is a condition of recovery.
 
+## Story Finder
+
+[Story Finder](https://made-sick.org/story-finder.html) is a device-local research interface for people who use a public Bluesky feed as a diary, notebook, or distributed story archive. It resolves a public AT Protocol handle, loads the author's feed in chronological pages of up to 100 posts, and provides local text, exact-phrase, date, reply, repost, and link filters.
+
+Selected posts can be exported as a creator-controlled JSON research ledger containing source URLs, timestamps, AT URIs, and text. The tool requires no Bluesky password or sign-in and does not read DMs, likes, private records, or other accounts' timelines. Search terms, loaded feed data, and selections are not sent to Made Sick or persisted by default. Export is not publication consent or directory enrollment.
+
 ## Product model
 
 - **Identity:** an AT Protocol DID and handle controlled by the creator.
