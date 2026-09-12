@@ -42,6 +42,12 @@ Germ handles private communication rather than Made Sick. The interface reflects
 
 The PIXIE panel demonstrates the project's intended care behavior with one voluntary, user-authored habit cue. A person may mark a full version, a smaller version, or rest; all are neutral check-ins and there is no streak or score. The record stays in browser storage and can be paused or deleted. This is an interaction prototype, not a notification service, health monitor, diagnosis tool, or caregiver channel.
 
+## PIXIE Device Stewardship
+
+[PIXIE Device Stewardship](https://github.com/ibloud/pixie-device-stewardship) is Made Sick's Technology & Creative Access research program. It asks operating-system and creative-tool providers to reduce avoidable filename, folder, version, retrieval, and interruption-recovery burdens.
+
+The initial campaign begins with musicians, filmmakers, designers, photographers, and game developers. It is a consent-first accessibility hypothesis—not a diagnostic, monitoring, therapy, or caregiver service. Research cases separate observed behavior, participant accounts, interpretation, and untested claims.
+
 ## Principles
 
 1. No profile without affirmative creator consent.
