@@ -1149,3 +1149,20 @@ button.button:active {
   background-color: #b5cc18 !important;
   color: #0f0f0f !important;
 }
+
+/* --- 13. The Remedy Ward --- */
+.remedy-ward {
+  border-left: 6px solid var(--acid);
+  padding-left: 2rem;
+}
+
+.remedy-ward .lede {
+  margin-bottom: 0;
+}
+
+@media (max-width: 520px) {
+  .remedy-ward {
+    border-left: 4px solid var(--acid);
+    padding-left: 1rem;
+  }
+}
