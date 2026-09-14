@@ -78,10 +78,6 @@
       const localeRegion = (locale.match(/[-_]([A-Z]{2})$/i) || [])[1]?.toUpperCase() || '';
       const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone || '';
 
-      // Locale/timezone can establish a country in some cases, but cannot safely establish
-      // a U.S. state. For U.S. visitors we therefore request browser geolocation and verify
-      // the resulting state through the U.S. Census geocoder before showing state-specific
-      // links. If permission is denied or verification fails, the section stays hidden.
       const countryByLocale = { US:'US', CA:'CA', GB:'GB' };
       const countryByTimezone = {
         'Europe/London':'GB',
@@ -148,13 +144,15 @@
           navigator.geolocation.getCurrentPosition(async position => {
             try {
               const { latitude, longitude } = position.coords;
-              const url = `https://geocoding.geo.census.gov/geocoder/geographies/coordinates?x=${encodeURIComponent(longitude)}&y=${encodeURIComponent(latitude)}&benchmark=Public_AR_Current&vintage=Current_Current&format=json`;
-              const response = await fetch(url, { headers: { Accept: 'application/json' } });
+              // BigDataCloud reverse geocode — CORS-enabled, no key required for client-side use
+              const url = `https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${latitude}&longitude=${longitude}&localityLanguage=en`;
+              const response = await fetch(url);
               if (!response.ok) return resolve(false);
               const data = await response.json();
-              const state = data?.result?.geographies?.States?.[0]?.STUSAB;
-              if (state === 'MN') render(resourceSets.US_MN);
-              else if (state) render(resourceSets.US);
+              const country = data?.countryCode;                                    // e.g. "US"
+              const state   = data?.principalSubdivisionCode?.replace('US-', '');  // e.g. "MN"
+              if (country === 'US' && state === 'MN') render(resourceSets.US_MN);
+              else if (country === 'US' && state)     render(resourceSets.US);
               resolve(Boolean(state));
             } catch { resolve(false); }
           }, () => resolve(false), { enableHighAccuracy: false, maximumAge: 300000, timeout: 7000 });
