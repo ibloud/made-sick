@@ -47,10 +47,10 @@
       <div class="voting-box">
         <p class="eyebrow">Voting Edition</p>
         <h2 id="vote-title">Your voice, where you are.</h2>
-        <p id="vote-description">Official voting resources for your detected jurisdiction.</p>
+        <p id="vote-description">Official voting resources for your verified jurisdiction.</p>
         <p id="jurisdiction" class="jurisdiction"></p>
         <div id="resources" class="resource-grid"></div>
-        <p class="voting-note">Made Sick does not tell you who or what to vote for. These links go directly to official election resources. Eligibility and voting rules vary by jurisdiction.</p>
+        <p class="voting-note">Made Sick does not tell you who or what to vote for. These links go directly to official election resources. Eligibility and voting rules vary by jurisdiction. Location is used only in this browser session to select the closest verified resource; it is not stored by Made Sick.</p>
       </div>
     </section>
 
@@ -75,23 +75,35 @@
       if (!section || !jurisdiction || !resources) return;
 
       const locale = navigator.language || '';
-      const regionFromLocale = (locale.match(/[-_]([A-Z]{2})$/i) || [])[1]?.toUpperCase() || '';
+      const localeRegion = (locale.match(/[-_]([A-Z]{2})$/i) || [])[1]?.toUpperCase() || '';
       const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone || '';
 
-      // Browser locale is used only to choose a jurisdiction-level official resource set.
-      // We never infer individual voter eligibility, store location, or ask for an address.
-      const region = regionFromLocale || ({
-        'America/Toronto':'CA','America/Vancouver':'CA','America/Edmonton':'CA','America/Winnipeg':'CA','America/Halifax':'CA','America/St_Johns':'CA',
-        'Europe/London':'GB'
-      }[timezone] || '');
+      // Locale/timezone can establish a country in some cases, but cannot safely establish
+      // a U.S. state. For U.S. visitors we therefore request browser geolocation and verify
+      // the resulting state through the U.S. Census geocoder before showing state-specific
+      // links. If permission is denied or verification fails, the section stays hidden.
+      const countryByLocale = { US:'US', CA:'CA', GB:'GB' };
+      const countryByTimezone = {
+        'Europe/London':'GB',
+        'America/Toronto':'CA','America/Vancouver':'CA','America/Edmonton':'CA','America/Winnipeg':'CA','America/Halifax':'CA','America/St_Johns':'CA'
+      };
 
       const resourceSets = {
+        US_MN: {
+          name: 'Minnesota, United States',
+          links: [
+            ['Register / update', 'Register or update your Minnesota voter registration', 'https://www.sos.mn.gov/elections-voting/register-to-vote/'],
+            ['Check registration', 'Check your Minnesota voter registration', 'https://mnvotes.sos.mn.gov/'],
+            ['Find where to vote', 'Find your polling place and Election Day information', 'https://www.sos.mn.gov/elections-voting/election-day-voting/'],
+            ['Vote another way', 'Absentee, early, mail, and overseas voting options', 'https://www.sos.mn.gov/elections-voting/other-ways-to-vote/']
+          ]
+        },
         US: {
           name: 'United States',
           links: [
-            ['Register / update', 'Register to vote or update your registration', 'https://vote.gov/register'],
-            ['Voting guide', 'Official guide to voting and state rules', 'https://vote.gov/guide-to-voting'],
-            ['Outside the U.S.', 'U.S. citizens voting from abroad', 'https://vote.gov/voting-outside-of-us']
+            ['Register / update', 'Register or update your voter registration', 'https://vote.gov/register'],
+            ['Voting guide', 'Official voting guide and state rules', 'https://vote.gov/guide-to-voting'],
+            ['Find your state', 'Choose your state for official election resources', 'https://vote.gov/']
           ]
         },
         CA: {
@@ -112,20 +124,45 @@
         }
       };
 
-      const set = resourceSets[region];
-      if (!set) return; // No verified voting pathway for the detected jurisdiction: omit section entirely.
+      function render(set) {
+        if (!set) return;
+        jurisdiction.textContent = set.name;
+        resources.replaceChildren(...set.links.map(([label, description, href]) => {
+          const link = document.createElement('a');
+          link.className = 'resource';
+          link.href = href;
+          link.target = '_blank';
+          link.rel = 'noopener noreferrer';
+          link.innerHTML = `<small>${label}</small><strong>${description} ↗</strong>`;
+          return link;
+        }));
+        section.classList.add('is-visible');
+      }
 
-      jurisdiction.textContent = set.name;
-      resources.replaceChildren(...set.links.map(([label, description, href]) => {
-        const link = document.createElement('a');
-        link.className = 'resource';
-        link.href = href;
-        link.target = '_blank';
-        link.rel = 'noopener noreferrer';
-        link.innerHTML = `<small>${label}</small><strong>${description} ↗</strong>`;
-        return link;
-      }));
-      section.classList.add('is-visible');
+      async function verifyStateFromBrowserLocation() {
+        if (!navigator.geolocation) return false;
+        return new Promise(resolve => {
+          navigator.geolocation.getCurrentPosition(async position => {
+            try {
+              const { latitude, longitude } = position.coords;
+              const url = `https://geocoding.geo.census.gov/geocoder/geographies/coordinates?x=${encodeURIComponent(longitude)}&y=${encodeURIComponent(latitude)}&benchmark=Public_AR_Current&vintage=Current_Current&format=json`;
+              const response = await fetch(url, { headers: { Accept: 'application/json' } });
+              if (!response.ok) return resolve(false);
+              const data = await response.json();
+              const state = data?.result?.geographies?.States?.[0]?.STUSAB;
+              if (state === 'MN') render(resourceSets.US_MN);
+              else if (state) render(resourceSets.US);
+              resolve(Boolean(state));
+            } catch { resolve(false); }
+          }, () => resolve(false), { enableHighAccuracy: false, maximumAge: 300000, timeout: 7000 });
+        });
+      }
+
+      const localeCountry = countryByLocale[localeRegion] || countryByTimezone[timezone] || '';
+      if (localeCountry === 'CA') render(resourceSets.CA);
+      else if (localeCountry === 'GB') render(resourceSets.GB);
+      else if (localeCountry === 'US') verifyStateFromBrowserLocation();
+      // If no supported jurisdiction can be verified, the voting section remains absent.
     })();
   </script>
 </body>
