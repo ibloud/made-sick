@@ -78,12 +78,14 @@
       const regionFromLocale = (locale.match(/[-_]([A-Z]{2})$/i) || [])[1]?.toUpperCase() || '';
       const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone || '';
 
-      // Browser locale is used only to choose a jurisdiction-level official resource set.
-      // We never infer individual voter eligibility, store location, or ask for an address.
-      const region = regionFromLocale || ({
+      // Use browser locale first. If the browser only reports a language (for example
+      // "en"), use timezone as a jurisdiction-level fallback. We do not infer personal
+      // eligibility, collect an address, or store location data.
+      const timezoneRegion = {
         'America/Toronto':'CA','America/Vancouver':'CA','America/Edmonton':'CA','America/Winnipeg':'CA','America/Halifax':'CA','America/St_Johns':'CA',
         'Europe/London':'GB'
-      }[timezone] || '');
+      }[timezone];
+      const region = regionFromLocale || timezoneRegion || (timezone.startsWith('America/') ? 'US' : '');
 
       const resourceSets = {
         US: {
@@ -91,7 +93,7 @@
           links: [
             ['Register / update', 'Register to vote or update your registration', 'https://vote.gov/register'],
             ['Voting guide', 'Official guide to voting and state rules', 'https://vote.gov/guide-to-voting'],
-            ['Outside the U.S.', 'U.S. citizens voting from abroad', 'https://vote.gov/voting-outside-of-us']
+            ['Find your state', 'Choose your state for official election resources', 'https://vote.gov/']
           ]
         },
         CA: {
@@ -113,7 +115,7 @@
       };
 
       const set = resourceSets[region];
-      if (!set) return; // No verified voting pathway for the detected jurisdiction: omit section entirely.
+      if (!set) return; // No supported voting jurisdiction detected: omit the section entirely.
 
       jurisdiction.textContent = set.name;
       resources.replaceChildren(...set.links.map(([label, description, href]) => {
