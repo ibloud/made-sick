@@ -130,19 +130,59 @@
           link.href = href;
           link.target = '_blank';
           link.rel = 'noopener noreferrer';
-          link.innerHTML = `<small>${label}</small><strong>${description} ↗</strong>`;
+          const small = document.createElement('small');
+          small.textContent = label;
+          const strong = document.createElement('strong');
+          strong.textContent = `${description} ↗`;
+          link.append(small, strong);
           return link;
         }));
         area.classList.add('is-visible');
         btn.style.display = 'none';
+        btn.disabled = false;
         status.textContent = '';
       }
 
-      function fallbackByLocale() {
-        const locale   = navigator.language || '';
-        const region   = (locale.match(/[-_]([A-Z]{2})$/i) || [])[1]?.toUpperCase() || '';
-        const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone || '';
-        const countryByLocale   = { US:'US', CA:'CA', GB:'GB' };
+      function showVoteGovFallback(message) {
+        jurisEl.textContent = 'Official U.S. voting resources';
+        resourceEl.replaceChildren();
+
+        const card = document.createElement('a');
+        card.className = 'resource';
+        card.href = 'https://vote.gov/';
+        card.target = '_blank';
+        card.rel = 'noopener noreferrer';
+
+        const small = document.createElement('small');
+        small.textContent = 'Official fallback';
+        const strong = document.createElement('strong');
+        strong.textContent = 'Open Vote.gov →';
+        card.append(small, strong);
+        resourceEl.append(card);
+
+        area.classList.add('is-visible');
+        btn.style.display = 'none';
+        btn.disabled = false;
+        status.textContent = message || '';
+      }
+
+      function detectCountryFromLocale() {
+        const locales = [
+          ...(Array.isArray(navigator.languages) ? navigator.languages : []),
+          navigator.language || ''
+        ].filter(Boolean);
+
+        const countryByLocale = { US: 'US', CA: 'CA', GB: 'GB' };
+        for (const locale of locales) {
+          const region = (locale.match(/[-_]([A-Z]{2})(?:$|[-_])/i) || [])[1]?.toUpperCase() || '';
+          if (countryByLocale[region]) return countryByLocale[region];
+        }
+
+        let timezone = '';
+        try {
+          timezone = Intl.DateTimeFormat().resolvedOptions().timeZone || '';
+        } catch {}
+
         const countryByTimezone = {
           'Europe/London':'GB',
           'America/Toronto':'CA','America/Vancouver':'CA','America/Edmonton':'CA','America/Winnipeg':'CA','America/Halifax':'CA','America/St_Johns':'CA',
@@ -150,27 +190,46 @@
           'America/Phoenix':'US','America/Anchorage':'US','Pacific/Honolulu':'US','America/Indiana/Indianapolis':'US',
           'America/Detroit':'US','America/Kentucky/Louisville':'US','America/Boise':'US','America/Nome':'US'
         };
-        const country = countryByLocale[region] || countryByTimezone[timezone] || '';
+        return countryByTimezone[timezone] || '';
+      }
+
+      function renderLocaleFallback(country) {
         if (country === 'CA') { render(resourceSets.CA); return true; }
         if (country === 'GB') { render(resourceSets.GB); return true; }
-        // For US, still need geolocation for state — signal caller to proceed
         return country === 'US' ? 'US' : false;
       }
 
-      btn.addEventListener('click', async () => {
+      async function reverseGeocode(position) {
+        const { latitude, longitude } = position.coords;
+        const controller = new AbortController();
+        const timeout = setTimeout(() => controller.abort(), 8000);
+
+        try {
+          const url = `https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${encodeURIComponent(latitude)}&longitude=${encodeURIComponent(longitude)}&localityLanguage=en`;
+          const response = await fetch(url, { signal: controller.signal });
+          if (!response.ok) throw new Error('reverse geocode failed');
+          return await response.json();
+        } finally {
+          clearTimeout(timeout);
+        }
+      }
+
+      btn.addEventListener('click', () => {
         btn.disabled = true;
         status.textContent = 'Detecting location…';
 
-        // Try locale/timezone first for CA and GB (no geolocation needed)
-        const localeResult = fallbackByLocale();
-        if (localeResult === true) return; // CA or GB rendered
+        // First use non-sensitive browser signals. CA/GB can resolve without GPS.
+        const localeCountry = detectCountryFromLocale();
+        const localeResult = renderLocaleFallback(localeCountry);
+        if (localeResult === true) return;
 
-        // For US (or unknown locale), request geolocation
+        // Geolocation is deliberately requested only from this user gesture so iPad Safari can show permission UI.
         if (!navigator.geolocation) {
-          // No geolocation available — show generic US if locale says US, else fail
-          if (localeResult === 'US') { render(resourceSets.US); return; }
-          status.textContent = 'Location unavailable. Visit vote.gov directly.';
-          btn.disabled = false;
+          if (localeResult === 'US') {
+            render(resourceSets.US);
+          } else {
+            showVoteGovFallback('Location is unavailable.');
+          }
           return;
         }
 
@@ -178,32 +237,34 @@
           async position => {
             try {
               status.textContent = 'Verifying jurisdiction…';
-              const { latitude, longitude } = position.coords;
-              const url = `https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${latitude}&longitude=${longitude}&localityLanguage=en`;
-              const response = await fetch(url);
-              if (!response.ok) throw new Error('fetch failed');
-              const data = await response.json();
+              const data = await reverseGeocode(position);
               const country = data?.countryCode;
-              const state   = data?.principalSubdivisionCode?.replace('US-', '');
+              const state = data?.principalSubdivisionCode?.replace(/^US-/, '');
+
               if (country === 'US' && state === 'MN') { render(resourceSets.US_MN); return; }
-              if (country === 'US' && state)           { render(resourceSets.US);    return; }
-              if (country === 'CA')                    { render(resourceSets.CA);    return; }
-              if (country === 'GB')                    { render(resourceSets.GB);    return; }
-              // Unrecognised jurisdiction
-              status.textContent = 'No verified resource for your jurisdiction.';
-              btn.disabled = false;
+              if (country === 'US' && state)           { render(resourceSets.US); return; }
+              if (country === 'CA')                    { render(resourceSets.CA); return; }
+              if (country === 'GB')                    { render(resourceSets.GB); return; }
+
+              if (localeResult === 'US') {
+                render(resourceSets.US);
+              } else {
+                showVoteGovFallback('We could not verify your jurisdiction.');
+              }
             } catch {
-              // API failed — fall back to locale
-              if (localeResult === 'US') { render(resourceSets.US); return; }
-              status.textContent = 'Could not verify location. Try again or visit vote.gov.';
-              btn.disabled = false;
+              if (localeResult === 'US') {
+                render(resourceSets.US);
+              } else {
+                showVoteGovFallback('We could not verify your location.');
+              }
             }
           },
           () => {
-            // Permission denied or timed out — fall back to locale
-            if (localeResult === 'US') { render(resourceSets.US); return; }
-            status.textContent = 'Location access denied. Visit vote.gov for U.S. resources.';
-            btn.disabled = false;
+            if (localeResult === 'US') {
+              render(resourceSets.US);
+            } else {
+              showVoteGovFallback('Location access was unavailable.');
+            }
           },
           { enableHighAccuracy: false, maximumAge: 300000, timeout: 10000 }
         );
