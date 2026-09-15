@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Made Sick Future Vision — a human-centered technology thesis, roadmap, evidence ledger, and personal origin story.">
+  <title>Made Sick — Future Vision</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .vision-hero,
+    .vision-section,
+    .origin-card,
+    .case-card {
+      border: var(--line);
+      box-shadow: var(--shadow);
+      background: var(--surface-color);
+    }
+    .vision-hero {
+      padding: 3rem;
+      margin-bottom: 4rem;
+      background: #f0ebd8;
+    }
+    .vision-hero h1 em { color: var(--red); font-style: normal; }
+    .vision-kicker {
+      display: inline-block;
+      font-family: var(--font-mono);
+      font-weight: 900;
+      border: var(--line-thin);
+      padding: .35rem .6rem;
+      margin-bottom: 1.25rem;
+      background: var(--paper);
+    }
+    .vision-section { padding: 2.5rem; margin: 4rem 0; }
+    .vision-grid,
+    .future-grid,
+    .roadmap-grid,
+    .ask-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+    .vision-card {
+      border: var(--line);
+      padding: 1.5rem;
+      background: var(--paper);
+    }
+    .vision-card .number,
+    .roadmap-card .number {
+      font-family: var(--font-mono);
+      font-weight: 900;
+      color: var(--red);
+      display: block;
+      margin-bottom: .5rem;
+    }
+    .origin-card {
+      padding: 2.5rem;
+      background: var(--ink);
+      color: var(--paper);
+      margin: 4rem 0;
+    }
+    .origin-card h2,
+    .origin-card p,
+    .origin-card strong { color: var(--paper); }
+    .origin-card h2 { font-size: clamp(2rem, 4vw, 3rem); }
+    .origin-card em { color: #f7f5ed; }
+    .origin-question {
+      font-family: var(--font-mono);
+      font-size: clamp(1.8rem, 5vw, 3.5rem);
+      font-weight: 900;
+      color: var(--red) !important;
+      margin: 1.5rem 0;
+    }
+    .origin-note {
+      border-top: 1px solid rgba(247,245,237,.45);
+      padding-top: 1rem;
+      margin-top: 2rem;
+      font-size: .82rem;
+      color: #d7d5ce !important;
+    }
+    .roadmap-card { border-left: var(--line); padding: 1.25rem; background: var(--paper); }
+    .ledger { width: 100%; border-collapse: collapse; margin-top: 2rem; }
+    .ledger th, .ledger td { border: var(--line-thin); padding: 1rem; text-align: left; vertical-align: top; }
+    .ledger th { background: var(--ink); color: var(--paper); font-family: var(--font-mono); text-transform: uppercase; font-size: .78rem; }
+    .ledger td { background: var(--paper); }
+    .status-chip { font-family: var(--font-mono); font-weight: 800; font-size: .78rem; text-transform: uppercase; }
+    .case-card { padding: 2rem; margin-top: 2rem; }
+    .xprize-note { border: var(--line-thin); padding: 1.25rem; margin-top: 2rem; background: var(--paper); font-size: .9rem; }
+    .footer-nav { display:flex; gap:1rem; flex-wrap:wrap; margin-top:2rem; }
+    @media (max-width: 720px) {
+      .vision-hero, .vision-section, .origin-card { padding: 1.5rem; }
+      .ledger { display:block; overflow-x:auto; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#vision">Skip to Future Vision</a>
+  <header class="site-header">
+    <a class="wordmark" href="index.html" aria-label="Made Sick home"><span>MADE</span><span>SICK</span></a>
+    <nav aria-label="Primary navigation">
+      <a href="index.html">Directory</a>
+      <a href="story-finder.html">Story Finder</a>
+      <a href="#vision">Future Vision</a>
+      <a href="#evidence">Evidence</a>
+      <a href="influences.html">Influences</a>
+    </nav>
+    <a class="button button-small" href="index.html#participate">Participate</a>
+  </header>
+
+  <main id="vision">
+    <section class="vision-hero" aria-labelledby="vision-title">
+      <span class="vision-kicker">FUTURE VISION · 2035–2040 THESIS</span>
+      <h1 id="vision-title">The future should adapt to people.<br><em>Not the other way around.</em></h1>
+      <p class="lede">Made Sick explores what happens when technology is designed around human capacity instead of demanding that humans continuously adapt themselves to technology.</p>
+      <div class="footer-nav">
+        <a class="button" href="#moonshot">Read the moonshot</a>
+        <a class="text-link" href="#roadmap">See the roadmap ↗</a>
+        <a class="text-link" href="#evidence">Inspect the evidence ↗</a>
+      </div>
+    </section>
+
+    <section class="vision-section" id="moonshot" aria-labelledby="moonshot-title">
+      <p class="eyebrow">The moonshot</p>
+      <h2 id="moonshot-title">Make participation accessible by default.</h2>
+      <p class="lede">The goal is not to build a prettier platform. It is to test whether creative and civic technology can reduce avoidable cognitive friction while preserving identity, ownership, consent, and agency.</p>
+      <div class="future-grid">
+        <article class="vision-card"><span class="number">01</span><h3>Human capacity first</h3><p>Creative tools can respond to cognitive diversity without requiring surveillance, diagnosis, or a person to repeatedly explain their needs.</p></article>
+        <article class="vision-card"><span class="number">02</span><h3>Identity follows the creator</h3><p>A creator's identity and relationships should not become disposable whenever a platform changes.</p></article>
+        <article class="vision-card"><span class="number">03</span><h3>Consent travels with the work</h3><p>Publication, discovery, contact, collaboration, and reuse should have clear permission boundaries instead of relying on ambiguity.</p></article>
+        <article class="vision-card"><span class="number">04</span><h3>Access is infrastructure</h3><p>Accessibility should be an acceptance criterion for systems, not a late-stage feature request.</p></article>
+        <article class="vision-card"><span class="number">05</span><h3>Information becomes usable</h3><p>Public information—including civic resources—should be easier to understand and reach without requiring institutional expertise.</p></article>
+        <article class="vision-card"><span class="number">06</span><h3>AI serves agency</h3><p>Automation can assist people without silently taking authorship, identity, consent, or decision-making away from them.</p></article>
+      </div>
+    </section>
+
+    <section class="origin-card" aria-labelledby="origin-title">
+      <p class="eyebrow">Why this exists</p>
+      <h2 id="origin-title">It started at a crossroads in Minneapolis.</h2>
+      <p style="margin-top:1rem;max-width:70ch;">Made Sick did not begin as a conventional product plan. It began with a deeply personal vision: trying to help a sick boi find meaning and purpose, while finding meaning and purpose in my own life again.</p>
+      <p style="margin-top:1rem;max-width:70ch;">Every step since then has required confronting a fear—uncertainty, failure, visibility, responsibility, technology, and the possibility that something that mattered deeply to me might not matter to anyone else.</p>
+      <p style="margin-top:1rem;max-width:70ch;"><strong>I kept going anyway.</strong></p>
+      <p class="origin-question">Why stop now?</p>
+      <p style="max-width:70ch;">The title and mood of the movie <em>Why Stop Now?</em> fit this chapter of the experience: a crossroads, a difficult road, and the decision to keep moving rather than abandon a vision because it became frightening.</p>
+      <p style="margin-top:1rem;max-width:70ch;">What began as one personal act of trying to restore meaning became an experiment in building something useful for many people: a place where creativity, accessibility, identity, consent, civic participation, and technology can meet without asking people to surrender themselves to the system.</p>
+      <p class="origin-note">This is an account of the creator's experience and motivation. It does not claim that any person named in the project's public references endorsed, joined, funded, advised, or partnered with Made Sick.</p>
+    </section>
+
+    <section class="vision-section" aria-labelledby="proof-title">
+      <p class="eyebrow">Prototype → proof</p>
+      <h2 id="proof-title">Small today. Testable tomorrow.</h2>
+      <p class="lede">Made Sick should not ask anyone to believe that the whole thesis is already proven. The current work is a set of concrete experiments that can be challenged, tested, and improved.</p>
+      <div class="vision-grid">
+        <article class="vision-card"><h3>PIXIE Device Stewardship</h3><p>A consent-first research hypothesis about avoidable cognitive labor in operating systems and creative tools, with an interaction prototype rather than a diagnostic or health service.</p></article>
+        <article class="vision-card"><h3>Creator-owned identity</h3><p>Experiments with AT Protocol identity and public writing aim to keep the creator at the center of identity and publication decisions.</p></article>
+        <article class="vision-card"><h3>Story Finder</h3><p>A device-local research interface for public Bluesky feeds. It does not use passwords, private messages, or private records.</p></article>
+        <article class="vision-card"><h3>Civic access</h3><p>The voting-resource flow is a concrete accessibility experiment: reduce friction between a person and authoritative voting information without turning the project into a political organization.</p></article>
+      </div>
+    </section>
+
+    <section class="vision-section" id="roadmap" aria-labelledby="roadmap-title">
+      <p class="eyebrow">The path</p>
+      <h2 id="roadmap-title">A roadmap from prototype to evidence.</h2>
+      <div class="roadmap-grid">
+        <article class="roadmap-card"><span class="number">NOW</span><h3>Build the foundation</h3><p>Static prototype, consent architecture, PIXIE research, creator identity experiments, Story Finder, and concrete accessibility flows.</p></article>
+        <article class="roadmap-card"><span class="number">NEXT</span><h3>Test with creators</h3><p>Participatory stories, accessibility review, stronger AT Protocol integration, and documented user research with real workflows.</p></article>
+        <article class="roadmap-card"><span class="number">PILOT</span><h3>Measure friction</h3><p>Test whether the proposed interaction patterns actually reduce cognitive effort, improve clarity, or preserve agency compared with ordinary workflows.</p></article>
+        <article class="roadmap-card"><span class="number">SCALE</span><h3>Open the method</h3><p>Publish methodology, findings, failures, and interoperable patterns so others can reproduce or challenge the work.</p></article>
+        <article class="roadmap-card"><span class="number">LONG HORIZON</span><h3>Change the default</h3><p>Explore whether human-centered participation infrastructure can work across creative disciplines and civic contexts without centralizing ownership of the people using it.</p></article>
+      </div>
+    </section>
+
+    <section class="vision-section" id="evidence" aria-labelledby="evidence-title">
+      <p class="eyebrow">Research ledger</p>
+      <h2 id="evidence-title">Claims should have receipts.</h2>
+      <p class="lede">This ledger deliberately distinguishes demonstrated work from hypotheses and future research. “Unproven” is a valid status.</p>
+      <div style="overflow-x:auto;">
+        <table class="ledger">
+          <thead><tr><th>Claim / question</th><th>Current evidence</th><th>Status</th></tr></thead>
+          <tbody>
+            <tr><td>Cognitive friction can be a meaningful accessibility problem.</td><td>PIXIE research hypothesis, methodology, and case-ledger work.</td><td class="status-chip">Researching</td></tr>
+            <tr><td>A low-friction habit cue can be designed without streaks, scores, guilt, or surveillance.</td><td>PIXIE interaction prototype using voluntary browser-local state.</td><td class="status-chip">Prototype</td></tr>
+            <tr><td>Creator-controlled identity can support portable participation.</td><td>AT Protocol identity and public-writing experiments.</td><td class="status-chip">Demonstrated / testing</td></tr>
+            <tr><td>Public story research can be separated from private account access.</td><td>Story Finder uses public Bluesky feeds and keeps research local to the device.</td><td class="status-chip">Prototype</td></tr>
+            <tr><td>Voting-resource discovery can be made easier without partisan framing.</td><td>Browser-session location flow with official-resource fallbacks.</td><td class="status-chip">Prototype</td></tr>
+            <tr><td>These patterns scale across creative disciplines and civic contexts.</td><td>Future creator research and comparative testing.</td><td class="status-chip">Unproven</td></tr>
+            <tr><td>The larger thesis improves participation at measurable scale.</td><td>No scale evidence yet; this is the moonshot to test.</td><td class="status-chip">Unproven</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="vision-section" aria-labelledby="ask-title">
+      <p class="eyebrow">What we need from the future</p>
+      <h2 id="ask-title">Don't just believe it. Stress-test it.</h2>
+      <div class="ask-grid">
+        <article class="vision-card"><h3>Creators</h3><p>Use the system. Tell us where it adds friction instead of removing it.</p></article>
+        <article class="vision-card"><h3>Researchers</h3><p>Challenge the assumptions and help design measurements that could falsify the thesis.</p></article>
+        <article class="vision-card"><h3>Accessibility experts</h3><p>Find the places where “accessible” language still produces inaccessible behavior.</p></article>
+        <article class="vision-card"><h3>Technologists</h3><p>Help make identity, permissions, portability, and privacy interoperable rather than proprietary.</p></article>
+        <article class="vision-card"><h3>Filmmakers & storytellers</h3><p>Show what a humane technology future could feel like before it exists.</p></article>
+        <article class="vision-card"><h3>People with lived experience</h3><p>Identify the quiet failures that technical teams routinely miss.</p></article>
+      </div>
+    </section>
+
+    <section class="vision-section" aria-labelledby="case-title">
+      <p class="eyebrow">The case for Made Sick</p>
+      <h2 id="case-title">One screen. One argument.</h2>
+      <div class="case-card">
+        <p><strong>Problem:</strong> Technology increasingly asks humans to adapt themselves to systems that were not designed around cognitive diversity.</p>
+        <p style="margin-top:1rem;"><strong>Why now:</strong> AI, automation, decentralized identity, and increasingly digital civic and creative participation are changing how people work, publish, and make decisions.</p>
+        <p style="margin-top:1rem;"><strong>What's different:</strong> Made Sick treats consent, identity, accessibility, and creator ownership as infrastructure rather than decoration.</p>
+        <p style="margin-top:1rem;"><strong>What exists:</strong> PIXIE research, creator-identity experiments, Story Finder, voting-resource accessibility work, and a public prototype.</p>
+        <p style="margin-top:1rem;"><strong>If it works:</strong> participation becomes easier without requiring people to surrender agency.</p>
+      </div>
+      <div class="xprize-note"><strong>Future-facing context:</strong> The page is designed for conversations with people working on ambitious, technology-enabled visions of the future, including the ecosystem around XPRIZE's Future Vision and Moonshots Live. Made Sick is independent and is not affiliated with, endorsed by, sponsored by, or representing XPRIZE or any related event.</div>
+    </section>
+  </main>
+
+  <footer class="site-footer" style="margin-top:5rem;">
+    <p><strong>Made Sick</strong> · Independent prototype by Loptr Lab.</p>
+    <p>Build something useful. Keep the human in the loop.</p>
+    <div class="footer-nav">
+      <a class="text-link" href="index.html">Return to Made Sick ↗</a>
+      <a class="text-link" href="influences.html">Influences & professional respect ↗</a>
+      <a class="text-link" href="story-finder.html">Story Finder ↗</a>
+    </div>
+  </footer>
+</body>
+</html>
