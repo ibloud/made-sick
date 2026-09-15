@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+<title id="title">Made Sick prototype directory — evidence plate</title>
+<desc id="desc">A faithful vector reconstruction of the current Made Sick directory surface: phase-two signal, creator-owned directory, filters, and profile cards.</desc>
+<rect width="1600" height="900" fill="#f5efe3"/>
+<rect x="36" y="32" width="1528" height="836" fill="none" stroke="#151515" stroke-width="4"/>
+<text x="72" y="82" font-family="Courier New, monospace" font-size="22" fill="#151515" letter-spacing="4">MADE SICK // PROTOTYPE EVIDENCE PLATE 01</text>
+<text x="72" y="145" font-family="Georgia, serif" font-size="58" fill="#151515">You found the door.</text>
+<text x="72" y="205" font-family="Georgia, serif" font-size="58" font-style="italic" fill="#151515">Choose what happens next.</text>
+<text x="72" y="250" font-family="Arial, sans-serif" font-size="20" fill="#555">Phase 2 · the signal is open</text>
+<rect x="72" y="285" width="1456" height="82" fill="#151515"/>
+<text x="105" y="320" font-family="Courier New, monospace" font-size="18" fill="#f5efe3">01  RECOGNIZE     PUBLIC EVIDENCE</text>
+<text x="105" y="348" font-family="Courier New, monospace" font-size="18" fill="#f5efe3">02  PARTICIPATE   YOUR PERMISSIONS</text>
+<text x="760" y="320" font-family="Courier New, monospace" font-size="18" fill="#f5efe3">03  TRANSMIT      CREATOR-CONTROLLED TOOLS</text>
+<text x="72" y="425" font-family="Courier New, monospace" font-size="20" fill="#151515">THE DIRECTORY</text>
+<text x="72" y="463" font-family="Georgia, serif" font-size="34" fill="#151515">People making the impossible visible.</text>
+<g font-family="Arial, sans-serif">
+<rect x="72" y="505" width="330" height="280" fill="#fffaf0" stroke="#151515" stroke-width="3"/>
+<text x="96" y="540" font-size="15" fill="#8b1e3f">OPEN INVITATION</text>
+<text x="96" y="585" font-family="Georgia, serif" font-size="27" fill="#151515">Your milestone</text>
+<text x="96" y="618" font-family="Georgia, serif" font-size="27" fill="#151515">belongs here.</text>
+<text x="96" y="660" font-size="17" fill="#444">Connect an AT identity,</text>
+<text x="96" y="685" font-size="17" fill="#444">tell the story in your own</text>
+<text x="96" y="710" font-size="17" fill="#444">words, decide who may reach you.</text>
+<text x="96" y="754" font-family="Courier New, monospace" font-size="15" fill="#151515">#MadeSick  #ShareTheJoy</text>
+<rect x="430" y="505" width="520" height="280" fill="#fffaf0" stroke="#151515" stroke-width="3"/>
+<text x="454" y="540" font-size="15" fill="#8b1e3f">CREATOR-SUBMITTED PILOT · PILOT</text>
+<text x="454" y="582" font-family="Georgia, serif" font-size="28" fill="#151515">I. B. Loud · The Rift Report</text>
+<text x="454" y="618" font-size="17" fill="#444">Vision disability · Worldbuilding after treatment</text>
+<text x="454" y="656" font-size="16" fill="#444">Creator-authorized context is kept separate</text>
+<text x="454" y="681" font-size="16" fill="#444">from account verification and directory status.</text>
+<text x="454" y="732" font-family="Courier New, monospace" font-size="14" fill="#555">SELF-REPORTED · PENDING DID VERIFICATION</text>
+<rect x="978" y="505" width="550" height="280" fill="#fffaf0" stroke="#151515" stroke-width="3"/>
+<text x="1002" y="540" font-size="15" fill="#555">PUBLIC RECORD EXAMPLE</text>
+<text x="1002" y="582" font-family="Georgia, serif" font-size="28" fill="#151515">Reference, not enrollment.</text>
+<text x="1002" y="625" font-size="17" fill="#444">The prototype distinguishes:</text>
+<text x="1002" y="655" font-size="17" fill="#444">• public evidence</text>
+<text x="1002" y="685" font-size="17" fill="#444">• creator-submitted participation</text>
+<text x="1002" y="715" font-size="17" fill="#444">• allies and external resources</text>
+<text x="1002" y="758" font-family="Courier New, monospace" font-size="14" fill="#555">NO PROFILE WITHOUT AFFIRMATIVE CONSENT</text>
+</g>
+</svg>
