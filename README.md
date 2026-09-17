@@ -2,13 +2,22 @@
 
 Made Sick is an early, consent-first creator directory for celebrating meaningful milestones, publishing creator-owned stories, listing verified events, and sharing carefully labeled wellness practices.
 
-## Make a living doing what you love
+## Verified profile gate
 
-Made Sick is Dominique Devereaux’s independent expression of the spirit behind Chris Do’s **“1 Billion Mission”**: helping more people make a living doing what they love.
+Made Sick does **not** create AT Protocol accounts or onboard people to the protocol. Participation starts with an existing AT Protocol identity.
 
-If you want practical education about creativity, business, personal branding, pricing, and building a sustainable creative career, visit [The Futur](https://thefutur.com/).
+The new verified-profile model separates five things that must not be collapsed:
 
-Made Sick is an independent project and is not affiliated with or endorsed by Chris Do or The Futur. The referral is optional and separate from PIXIE’s health features: no gated access, urgency language, automatic enrollment, or suggestion that earning money is a condition of recovery.
+`AT IDENTITY → AUTHENTICATION → VERIFICATION → CREATOR CONSENT → DIRECTORY PARTICIPATION`
+
+A **verified profile** requires an authenticated AT Protocol identity plus at least one validated verification method:
+
+- **Email verified:** the participant explicitly grants the `account:email` OAuth permission and the authoritative account record reports a confirmed email.
+- **Domain verified:** the participant proves control of a domain through a single-use DNS TXT challenge.
+
+The profile shows which method or methods were verified. Verification does not establish legal identity, authorship, employment, diagnosis, or ownership of creative work. It also does not enroll a person in the directory; affirmative creator consent remains required.
+
+The repository contains `verified-profile.js`, a small state model that evaluates trusted verification evidence. It deliberately does not pretend that browser code can authenticate an identity or perform authoritative verification by itself. Production OAuth and verification must run through an appropriate deployed service using the official AT Protocol OAuth client libraries.
 
 ## Story Finder
 
@@ -26,71 +35,28 @@ Selected posts can be exported as a creator-controlled JSON research ledger cont
 
 The current release is a static product prototype. It does not create accounts, issue verification badges, collect private health information, or claim that any editorially referenced artist has joined the campaign. Named public-record examples and their evidence boundaries are documented in [SOURCE_REGISTER.md](SOURCE_REGISTER.md).
 
-## Technology & Creative Access
-
-[PIXIE Device Stewardship](https://github.com/ibloud/pixie-device-stewardship) is a consent-first research project from Loptr Lab and Made Sick examining how operating systems and creative tools transfer avoidable cognitive labor to people with attention, memory, and executive-function needs.
-
-Made Sick is the public campaign and participation surface. The research hypothesis, methodology, specification, and case ledger are maintained in the standalone PIXIE repository.
-
 ## Functional pilot
 
 The creator-controlled AT Protocol identity `ibloud.xyz` (`did:plc:b5uem672ci23lqrcz6j6bs2c`) is the first functional test fixture. The pilot interface demonstrates separate consent for directory presence, preparing a Duet invitation, and keeping a player-owned session reference. Records remain in the participant's browser and can be exported or deleted. The prototype does not send invitations, receive gameplay, or operate a production consent service.
-
-The pilot's ATmosphere desk also connects the same DID to its public `pixie.pckt.blog` publication and Streamplace profile. Writing is linked from verified `site.standard.*` records. The Streamplace iframe has no `src` until a visitor affirmatively chooses to connect, and it can be unloaded immediately. Germ contact remains closed in accordance with the identity's public contact declaration. The app-and-window organization is inspired by Aether OS as an interface example; no Aether OS code, assets, branding, or implied affiliation are included.
-
-## Phase 2: participatory story layer
-
-Phase 2 reframes the ATmosphere desk as an in-world recruitment surface: audiences move from public evidence to voluntary participation and creator-controlled communication. It draws on the feeling of dystopian collective storytelling and the audience participation surrounding Ren's earlier Money Game treasure hunt while remaining an independent Loptr Lab prototype. It is not affiliated with or endorsed by Ren, Sick Boi, *Mr. Robot*, fsociety, Aether OS, or their rights holders.
-
-The ARG boundary is explicit: no impersonation, secrecy about sponsorship or provenance, trespass, dangerous tasks, urgent payment, credential collection, health disclosure, or contacting artists through private channels. Fictional clues must remain distinguishable from emergency, medical, financial, or legal instructions.
-
-Germ handles private communication rather than Made Sick. The interface reflects the subject's current closed contact declaration, offers a device-local policy draft, requires a care-boundary acknowledgement before drafting broader access, and hands configuration to Germ. Made Sick never receives Germ cards, encryption keys, contact relationships, or message content.
-
-The PIXIE panel demonstrates the project's intended care behavior with one voluntary, user-authored habit cue. A person may mark a full version, a smaller version, or rest; all are neutral check-ins and there is no streak or score. The record stays in browser storage and can be paused or deleted. This is an interaction prototype, not a notification service, health monitor, diagnosis tool, or caregiver channel.
-
-## PIXIE Device Stewardship
-
-[PIXIE Device Stewardship](https://github.com/ibloud/pixie-device-stewardship) is Made Sick's Technology & Creative Access research program. It asks operating-system and creative-tool providers to reduce avoidable filename, folder, version, retrieval, and interruption-recovery burdens.
-
-The initial campaign begins with musicians, filmmakers, designers, photographers, and game developers. It is a consent-first accessibility hypothesis—not a diagnostic, monitoring, therapy, or caregiver service. Research cases separate observed behavior, participant accounts, interpretation, and untested claims.
 
 ## Principles
 
 1. No profile without affirmative creator consent.
 2. Public evidence supports commentary, not enrollment.
 3. Identity, work, event, credential, and lived-experience claims are verified separately.
-4. Wellness routines are personal experience, not medical advice.
-5. Creators can leave the directory without losing their identity or writing.
-6. Sponsorships and material relationships must be disclosed.
-
-## Contributing
-
-This covers proposing code, feature, or copy changes — for content moderation and profile disputes, see [GOVERNANCE.md](GOVERNANCE.md) instead.
-
-**Before opening a PR or issue:**
-
-1. Check it against the product test sentence in [PIXIE_HANDOFF.md](PIXIE_HANDOFF.md): *"PIXIE gently reminds me of a care action I chose, accepts the capacity I have today, and lets me stop without penalty."* If a proposed feature makes that sentence less true, it needs to be reworked before it's proposed, not after.
-2. Run the existing test suite (`npm install && node --test tests/`) and confirm it still passes. If your change touches `app.js` behavior, add a test for it in the same PR rather than after.
-3. No PR will be accepted that adds, even opt-in, any of: streaks, leaderboards, guilt/urgency/scarcity language, age-based defaults, capacity inferred from missed check-ins, or a default-on data-sharing/notification/tracking capability. This list isn't exhaustive — if a change moves data or attention toward the product and away from the person's own judgment, flag it in the PR description and expect it to be discussed, not merged quietly.
-4. Accessibility is acceptance criteria, not a follow-up task: keyboard operability, visible focus states, `aria-live` announcements for status changes, and WCAG 2.2 AA contrast/target-size apply to new UI the same as existing UI.
-5. Any change that adds a new data field, new third-party connection, or new consent screen should say plainly, in the PR description: what data it touches, why, and how a person leaves or deletes it.
-
-**Small fixes** (copy corrections, contrast/target-size tweaks, dependency bumps) can skip the full discussion above — just note in the PR which of the five points it doesn't apply to and why.
-
-
-
-## Run locally
-
-Serve the repository with any static HTTP server, or open `index.html` directly.
+4. Verification labels must identify the evidence actually checked.
+5. Wellness routines are personal experience, not medical advice.
+6. Creators can leave the directory without losing their identity or writing.
+7. Sponsorships and material relationships must be disclosed.
 
 ## Proposed next phase
 
-- Define a Made Sick AT Protocol Lexicon for consent and directory metadata.
-- Add OAuth sign-in using AT Protocol.
+- Deploy the AT Protocol OAuth authentication service using the official OAuth client libraries.
+- Request only the minimum identity scope plus `account:email` when email verification is needed.
+- Persist verified-profile evidence separately from directory consent.
+- Implement single-use DNS TXT challenges for domain verification.
 - Build an AppView that indexes approved DIDs and `standard.site` posts.
 - Add field-level evidence and expiration dates for event verification.
-- Integrate an opt-in Germ launch link after the creator enables private messages.
-- Pilot one consented Streamplace session using [STREAMPLACE_INTEGRATION.md](STREAMPLACE_INTEGRATION.md).
 - Add moderation, correction, removal, and appeal workflows before accepting public submissions.
 
 ## Status
@@ -98,5 +64,3 @@ Serve the repository with any static HTTP server, or open `index.html` directly.
 Independent prototype by Loptr Lab. No affiliation with pckt.blog, standard.site, Germ Network, Bluesky, or their respective teams is implied.
 
 See [GOVERNANCE.md](GOVERNANCE.md), [DISCLOSURE_STANDARD.md](DISCLOSURE_STANDARD.md), [PRIVACY.md](PRIVACY.md), and [LICENSE](LICENSE).
-
-Developers can find official repositories, documentation, community support links, and integration boundaries for Germ and Streamplace in [BUILDER_RESOURCES.md](BUILDER_RESOURCES.md).
