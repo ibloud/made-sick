@@ -137,3 +137,11 @@ Creators and authorized representatives may request correction, narrower wording
 - **Integration explanation:** Germ Network, “Integrating Germ with AT Protocol.” https://www.germnetwork.com/blog/integrating-germ-atproto
 - **Supported statements:** Germ describes card exchange as the permission mechanism for new contact, stores user-produced information on participant devices, and encrypts message content end to end using Messaging Layer Security. Its AT Protocol integration publishes a recipient policy so other apps can set expectations about whether a connection request may be received.
 - **Boundary:** Made Sick does not independently audit Germ's cryptography or guarantee confidentiality against endpoint compromise, recipients, screenshots, exports, impersonation, or device loss. Current Germ documentation remains authoritative.
+
+## AbleGamers
+
+- **Displayed statement:** AbleGamers works with players with disabilities, game developers, and other organizations to improve accessible gaming experiences. Its public programs include player research, professional development, and adaptive gaming support.
+- **Sources:** AbleGamers, “Our Work” and “Player Panels.” https://ablegamers.org/our-work/ and https://ablegamers.org/player-panels/
+- **Evidence class:** Organization's public program descriptions.
+- **Directory state:** External accessibility reference; not a Made Sick participant or established partner.
+- **Boundary:** Listing AbleGamers here does not imply sponsorship, partnership, endorsement, employment, evaluation, or authorization to speak for the organization. Any future relationship would be described separately and only if established.
