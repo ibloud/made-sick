@@ -5,7 +5,7 @@
   "redirect_uris": ["https://made-sick.org/join.html"],
   "grant_types": ["authorization_code", "refresh_token"],
   "response_types": ["code"],
-  "scope": "atproto repo:org.made-sick.participant?action=create&action=update&action=delete",
+  "scope": "atproto repo:org.made-sick.participant?action=read&action=create&action=update&action=delete",
   "token_endpoint_auth_method": "none",
   "application_type": "web",
   "dpop_bound_access_tokens": true
