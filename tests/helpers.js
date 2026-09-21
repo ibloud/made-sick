@@ -10,6 +10,8 @@ const { JSDOM } = require('jsdom');
 const ROOT = path.resolve(__dirname, '..');
 const HTML = fs.readFileSync(path.join(ROOT, 'index.html'), 'utf8');
 const APP_JS = fs.readFileSync(path.join(ROOT, 'app.js'), 'utf8');
+const PIXIE_HTML = fs.readFileSync(path.join(ROOT, 'pixie-care.html'), 'utf8');
+const PIXIE_JS = fs.readFileSync(path.join(ROOT, 'pixie-care.js'), 'utf8');
 
 // Creates a fresh window WITHOUT running app.js yet. Call loadApp(win)
 // once you're ready (immediately, or after seeding localStorage for a
@@ -30,10 +32,23 @@ function loadApp(win) {
   win.document.body.appendChild(scriptEl);
 }
 
+function makePixieWindow() {
+  const dom = new JSDOM(PIXIE_HTML, {
+    url: 'https://made-sick.org/pixie-care.html',
+    runScripts: 'dangerously',
+    pretendToBeVisual: true
+  });
+  return dom.window;
+}
+
+function loadPixie(win) {
+  const scriptEl = win.document.createElement('script');
+  scriptEl.textContent = PIXIE_JS;
+  win.document.body.appendChild(scriptEl);
+}
+
 function openPixiePanel(win) {
-  loadApp(win);
-  const toggle = win.document.querySelector('[data-tool="pixie"]');
-  toggle.click();
+  loadPixie(win);
   return win.document.querySelector('#pixie-checkin');
 }
 
@@ -47,4 +62,4 @@ function fillAndSubmit(win, { cue, action, response }) {
   form.dispatchEvent(new win.Event('submit', { bubbles: true, cancelable: true }));
 }
 
-module.exports = { makeWindow, loadApp, openPixiePanel, fillAndSubmit };
+module.exports = { makeWindow, loadApp, makePixieWindow, loadPixie, openPixiePanel, fillAndSubmit };

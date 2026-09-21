@@ -16,7 +16,7 @@ Every proposed change must pass the repository test workflow. The suite verifies
 - Story Finder can load a public AT Protocol feed without a password and keeps search state in the browser tab.
 - PIXIE remains voluntary and device-local; the site does not send health data or notifications.
 - Duet and Streamplace are closed by default and require a deliberate participant or viewer action.
-- The PIXIE ecosystem launcher opens the existing Holdings desktop without replacing the local Made Sick care panel.
+- The PIXIE launcher opens the existing Holdings desktop as an in-page dialog; the working care cue opens inside that OS while Made Sick retains a clearly labeled example.
 
 ## Boundaries still requiring human acceptance testing
 
