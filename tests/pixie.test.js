@@ -2,12 +2,12 @@
 
 const test = require('node:test');
 const assert = require('node:assert/strict');
-const { makeWindow, loadApp, openPixiePanel, fillAndSubmit } = require('./helpers');
+const { makePixieWindow, loadPixie, openPixiePanel, fillAndSubmit } = require('./helpers');
 
 const STORAGE_KEY = 'made-sick:pixie-cue:v1';
 
 test('saves a cue to localStorage on submit', () => {
-  const win = makeWindow();
+  const win = makePixieWindow();
   openPixiePanel(win);
   fillAndSubmit(win, { cue: 'when my stream break starts', action: 'drink water', response: 'done' });
 
@@ -25,7 +25,7 @@ test('saves a cue to localStorage on submit', () => {
 });
 
 test('restores a previously saved cue into the form on load', () => {
-  const win = makeWindow();
+  const win = makePixieWindow();
   win.localStorage.setItem(STORAGE_KEY, JSON.stringify({
     schema: 'org.made-sick.pixie-cue/1',
     cue: 'when I sit down to stream',
@@ -38,7 +38,7 @@ test('restores a previously saved cue into the form on load', () => {
 
   // Seed localStorage BEFORE app.js runs, since restoreCue() only runs
   // once, at script load — this matches how a real page load behaves.
-  loadApp(win);
+  loadPixie(win);
 
   const form = win.document.querySelector('#pixie-checkin');
   assert.equal(form.elements.cue.value, 'when I sit down to stream');
@@ -50,7 +50,7 @@ test('restores a previously saved cue into the form on load', () => {
 });
 
 test('pause sets paused:true and keeps the record (does not delete it)', () => {
-  const win = makeWindow();
+  const win = makePixieWindow();
   openPixiePanel(win);
   fillAndSubmit(win, { cue: 'evening wind-down', action: 'dim the lights', response: 'done' });
 
@@ -62,7 +62,7 @@ test('pause sets paused:true and keeps the record (does not delete it)', () => {
 });
 
 test('pause with no saved cue shows a message and does not throw', () => {
-  const win = makeWindow();
+  const win = makePixieWindow();
   openPixiePanel(win);
   assert.doesNotThrow(() => {
     win.document.querySelector('#pause-pixie').click();
@@ -74,7 +74,7 @@ test('pause with no saved cue shows a message and does not throw', () => {
 });
 
 test('delete removes the record from localStorage and resets the form', () => {
-  const win = makeWindow();
+  const win = makePixieWindow();
   openPixiePanel(win);
   fillAndSubmit(win, { cue: 'morning routine', action: 'hip mobility flow', response: 'done' });
   assert.ok(win.localStorage.getItem(STORAGE_KEY), 'sanity check: record was saved');
@@ -90,11 +90,11 @@ test('delete removes the record from localStorage and resets the form', () => {
 });
 
 test('corrupt localStorage data does not crash the panel on load', () => {
-  const win = makeWindow();
+  const win = makePixieWindow();
   win.localStorage.setItem(STORAGE_KEY, '{not valid json::');
 
   assert.doesNotThrow(() => {
-    loadApp(win);
+    loadPixie(win);
   });
 
   // Form should be left blank/default rather than populated with garbage
@@ -103,7 +103,7 @@ test('corrupt localStorage data does not crash the panel on load', () => {
 });
 
 test('empty required fields: browser-level "required" prevents submission with no cue', () => {
-  const win = makeWindow();
+  const win = makePixieWindow();
   openPixiePanel(win);
   const form = win.document.querySelector('#pixie-checkin');
 
@@ -121,7 +121,7 @@ test('empty required fields: browser-level "required" prevents submission with n
 
 for (const response of ['done', 'smaller', 'rest']) {
   test(`response choice "${response}" saves correctly and is treated as valid`, () => {
-    const win = makeWindow();
+    const win = makePixieWindow();
     openPixiePanel(win);
     fillAndSubmit(win, { cue: 'a cue', action: 'an action', response });
 
@@ -134,7 +134,7 @@ for (const response of ['done', 'smaller', 'rest']) {
 }
 
 test('submitting with no response selected still saves (response is optional, not gated)', () => {
-  const win = makeWindow();
+  const win = makePixieWindow();
   openPixiePanel(win);
   fillAndSubmit(win, { cue: 'a cue', action: 'an action' });
 
