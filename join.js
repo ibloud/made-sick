@@ -144,7 +144,7 @@ async function renderSession() {
   const adminDid = await resolveHandle(ADMIN_HANDLE);
   if (session.did === adminDid) {
     status.textContent = "Made Sick administrative identity detected · opening PIXIE OS admin workspace.";
-    openPixie({ role: "admin", card: "none" });
+    openPixie({ role: "admin", card: "none", did: session.did });
     return;
   }
   const existing = await fetchRecord();
@@ -153,13 +153,14 @@ async function renderSession() {
     openPixie({
       role: "participant",
       card: "existing",
+      did: session.did,
       displayName: existing.value.displayName || "",
       milestone: existing.value.milestone || ""
     });
     return;
   }
   status.textContent = "No participant card found · opening PIXIE OS onboarding."; 
-  openPixie({ role: "participant", card: "missing", onboarding: "1" });
+  openPixie({ role: "participant", card: "missing", onboarding: "1", did: session.did });
 }
 
 async function signIn(handle, prompt) {
