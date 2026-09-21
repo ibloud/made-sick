@@ -40,6 +40,7 @@
         <p class="support-note">Authentication happens with your identity provider. Made Sick never asks for your AT Protocol password.</p>
       </div>
       <div id="signed-in" hidden>
+        <div class="session-actions" id="session-actions" hidden><button class="text-button" type="button" id="switch-button">Switch account</button><button class="text-button danger" type="button" id="logout-button">Log out</button></div>
         <div class="identity-proof">
           <span class="step">CONNECTED IDENTITY</span>
           <strong id="identity-did"></strong>
@@ -66,6 +67,7 @@
           <span id="record-uri"></span>
         </div>
         <p class="support-note">Joining does not verify a diagnosis, legal identity, employment, authorship, or any other claim. It establishes identity control and affirmative directory participation only.</p>
+        <p class="support-note">If you see a 400 after changing permissions, use <strong>Log out</strong> and reconnect. OAuth grants are attached to the session; reconnecting is required to receive the updated permission set.</p>
       </div>
       <p class="join-error" id="join-error" role="alert" hidden></p>
     </section>

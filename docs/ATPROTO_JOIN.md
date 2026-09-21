@@ -7,7 +7,7 @@ Made Sick uses AT Protocol OAuth to authenticate a participant's DID. After auth
 The join page requests:
 
 - `atproto` — required AT Protocol authentication scope.
-- `repo:org.made-sick.participant?action=create&action=update&action=delete` — permission to create, update, and delete only the Made Sick participant record collection.
+- `repo:org.made-sick.participant?action=read&action=create&action=update&action=delete` — permission to read, create, update, and delete only the Made Sick participant record collection.
 
 The app does not request a password, `repo:*`, private messages, Bluesky DMs, health records, email, or broad repository access.
 
@@ -55,3 +55,12 @@ The participant record deliberately excludes diagnoses, health details, email ad
 ## Deployment requirement
 
 This is designed for the existing static `made-sick.org` deployment. The exact public client metadata URL and HTTPS redirect URI must remain stable. If the site is moved to another host, update the metadata, redirect URI, and OAuth client before deploying.
+
+
+## If the join page shows a 400
+
+OAuth grants are attached to the authorization session. If the requested permission set changes, an existing browser session may still have the older grant.
+
+The join page therefore provides **Log out** and **Switch account** controls. Logging out revokes the current OAuth grant and clears the page session. Switching accounts does the same and returns to the handle field so a different AT Protocol identity can be entered.
+
+If a user sees an error such as `Could not read the participant record (400)` after a deployment that changes OAuth permissions, they should log out and reconnect. The reconnect will request the current scope set.

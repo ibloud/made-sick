@@ -2,7 +2,7 @@ import { BrowserOAuthClient } from "https://esm.sh/@atproto/oauth-client-browser
 
 const CLIENT_ID = "https://made-sick.org/oauth-client-metadata.json";
 const COLLECTION = "org.made-sick.participant";
-const SCOPE = "atproto repo:org.made-sick.participant?action=create&action=update&action=delete";
+const SCOPE = "atproto repo:org.made-sick.participant?action=read&action=create&action=update&action=delete";
 const ENTRYWAY = "https://bsky.social";
 
 const signedOut = document.querySelector("#signed-out");
@@ -14,6 +14,8 @@ const createButton = document.querySelector("#create-button");
 const participantForm = document.querySelector("#participant-form");
 const joinButton = document.querySelector("#join-button");
 const withdrawButton = document.querySelector("#withdraw-button");
+const logoutButton = document.querySelector("#logout-button");
+const switchButton = document.querySelector("#switch-button");
 const status = document.querySelector("#join-status");
 const errorBox = document.querySelector("#join-error");
 const didEl = document.querySelector("#identity-did");
@@ -72,6 +74,7 @@ async function renderSession() {
   signedIn.hidden = false;
   didEl.textContent = session.did;
   status.textContent = "Identity authenticated · directory participation still requires your choice.";
+  document.querySelector("#session-actions").hidden = false;
   await loadExistingRecord();
 }
 
@@ -107,7 +110,10 @@ async function fetchRecord() {
   });
   const response = await session.fetchHandler("/xrpc/com.atproto.repo.getRecord?" + query.toString());
   if (response.status === 404) return null;
-  if (!response.ok) throw new Error("Could not read the participant record (" + response.status + ").");
+  if (!response.ok) {
+    const detail = await response.text().catch(() => "");
+    throw new Error("Could not read the participant record (" + response.status + ")" + (detail ? ": " + detail.slice(0, 180) : "."));
+  }
   return response.json();
 }
 
@@ -163,7 +169,10 @@ participantForm.addEventListener("submit", async (event) => {
         body: JSON.stringify({ repo: session.did, collection: COLLECTION, rkey: "self", record: record })
       });
     }
-    if (!response.ok) throw new Error("The PDS rejected the participant record (" + response.status + ").");
+    if (!response.ok) {
+      const detail = await response.text().catch(() => "");
+      throw new Error("The PDS rejected the participant record (" + response.status + ")" + (detail ? ": " + detail.slice(0, 180) : "."));
+    }
     const saved = await response.json();
     resultBox.hidden = false;
     recordUri.textContent = saved.uri || existing.uri;
@@ -189,7 +198,10 @@ withdrawButton.addEventListener("click", async () => {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ repo: session.did, collection: COLLECTION, rkey: rkey })
     });
-    if (!response.ok) throw new Error("The PDS rejected the withdrawal (" + response.status + ").");
+    if (!response.ok) {
+      const detail = await response.text().catch(() => "");
+      throw new Error("The PDS rejected the withdrawal (" + response.status + ")" + (detail ? ": " + detail.slice(0, 180) : "."));
+    }
     participantForm.reset();
     resultBox.hidden = true;
     withdrawButton.hidden = true;
@@ -202,3 +214,29 @@ withdrawButton.addEventListener("click", async () => {
 });
 
 init();
+
+
+async function clearSession({ focusHandle = false } = {}) {
+  clearError();
+  if (!session) return;
+  try {
+    await client.revoke(session.did);
+  } catch (error) {
+    console.warn("OAuth revoke failed; clearing local session anyway.", error);
+  }
+  session = undefined;
+  signedIn.hidden = true;
+  signedOut.hidden = false;
+  document.querySelector("#session-actions").hidden = true;
+  participantForm.reset();
+  resultBox.hidden = true;
+  withdrawButton.hidden = true;
+  status.textContent = "Not connected.";
+  if (focusHandle) {
+    handleInput.value = "";
+    handleInput.focus();
+  }
+}
+
+logoutButton?.addEventListener("click", () => clearSession());
+switchButton?.addEventListener("click", () => clearSession({ focusHandle: true }));
