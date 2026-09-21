@@ -1,3 +1,4 @@
+import { Agent } from "https://esm.sh/@atproto/api@0.20.44?bundle";
 import { BrowserOAuthClient } from "https://esm.sh/@atproto/oauth-client-browser@0.5.7?bundle";
 
 const CLIENT_ID = "https://made-sick.org/oauth-client-metadata.json";
@@ -14,6 +15,8 @@ const createButton = document.querySelector("#create-button");
 const participantForm = document.querySelector("#participant-form");
 const joinButton = document.querySelector("#join-button");
 const withdrawButton = document.querySelector("#withdraw-button");
+const logoutButton = document.querySelector("#logout-button");
+const switchButton = document.querySelector("#switch-button");
 const status = document.querySelector("#join-status");
 const errorBox = document.querySelector("#join-error");
 const didEl = document.querySelector("#identity-did");
@@ -37,6 +40,7 @@ const client = new BrowserOAuthClient({
 });
 
 let session;
+let agent;
 
 function showError(error) {
   console.error(error);
@@ -71,8 +75,9 @@ async function renderSession() {
   signedOut.hidden = true;
   signedIn.hidden = false;
   didEl.textContent = session.did;
+  agent = new Agent(session);
   status.textContent = "Identity authenticated · directory participation still requires your choice.";
-  await loadExistingRecord();
+  document.querySelector("#session-actions").hidden = false;
 }
 
 async function signIn(handle, prompt) {
@@ -99,106 +104,42 @@ identityForm.addEventListener("submit", async (event) => {
 
 createButton.addEventListener("click", () => signIn(ENTRYWAY, "create"));
 
-async function fetchRecord() {
-  const query = new URLSearchParams({
-    repo: session.did,
-    collection: COLLECTION,
-    rkey: "self"
-  });
-  const response = await session.fetchHandler("/xrpc/com.atproto.repo.getRecord?" + query.toString());
-  if (response.status === 404) return null;
-  if (!response.ok) throw new Error("Could not read the participant record (" + response.status + ").");
-  return response.json();
+async function getParticipantRecordPublic() {
+  // Reading a repo record does not require a repo OAuth read grant.
+  // The join OAuth scope is intentionally limited to create/update/delete.
+  return null;
 }
 
-async function loadExistingRecord() {
-  try {
-    const existing = await fetchRecord();
-    if (!existing || !existing.value) return;
-    document.querySelector("#display-name").value = existing.value.displayName || "";
-    document.querySelector("#milestone").value = existing.value.milestone || "";
-    document.querySelector("#directory-consent").checked = Boolean(existing.value.directory);
-    document.querySelector("#public-record-consent").checked = true;
-    resultBox.hidden = false;
-    recordUri.textContent = existing.uri;
-    withdrawButton.hidden = false;
-    status.textContent = existing.value.directory
-      ? "Participant record found · Made Sick participation is active."
-      : "Participant record found · directory participation is paused.";
-  } catch (error) {
-    showError(error);
-  }
-}
 
-participantForm.addEventListener("submit", async (event) => {
-  event.preventDefault();
+
+async function logoutAndReload() {
   clearError();
   if (!session) return;
-  setBusy(joinButton, true, "Publishing participant record…");
+  setBusy(logoutButton, true, "Logging out…");
   try {
-    const displayName = document.querySelector("#display-name").value.trim();
-    const milestone = document.querySelector("#milestone").value.trim();
-    const record = {
-      $type: COLLECTION,
-      version: 1,
-      directory: true,
-      displayName: displayName,
-      consentedAt: new Date().toISOString()
-    };
-    if (milestone) record.milestone = milestone;
-
-    const existing = await fetchRecord();
-    let response;
-    if (existing && existing.uri) {
-      const rkey = existing.uri.split("/").pop();
-      response = await session.fetchHandler("/xrpc/com.atproto.repo.putRecord", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ repo: session.did, collection: COLLECTION, rkey: rkey, record: record })
-      });
-    } else {
-      response = await session.fetchHandler("/xrpc/com.atproto.repo.createRecord", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ repo: session.did, collection: COLLECTION, rkey: "self", record: record })
-      });
-    }
-    if (!response.ok) throw new Error("The PDS rejected the participant record (" + response.status + ").");
-    const saved = await response.json();
-    resultBox.hidden = false;
-    recordUri.textContent = saved.uri || existing.uri;
-    withdrawButton.hidden = false;
-    status.textContent = "Participant record is active.";
+    await session.signOut();
   } catch (error) {
     showError(error);
   } finally {
-    setBusy(joinButton, false);
+    window.location.reload();
   }
-});
+}
 
-withdrawButton.addEventListener("click", async () => {
+async function switchAccount() {
   clearError();
-  if (!session || !confirm("Withdraw your Made Sick participant record from your AT Protocol repository?")) return;
-  setBusy(withdrawButton, true, "Withdrawing…");
+  if (!session) {
+    await signIn(ENTRYWAY, "login");
+    return;
+  }
+  setBusy(switchButton, true, "Switching…");
   try {
-    const existing = await fetchRecord();
-    if (!existing || !existing.uri) return;
-    const rkey = existing.uri.split("/").pop();
-    const response = await session.fetchHandler("/xrpc/com.atproto.repo.deleteRecord", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ repo: session.did, collection: COLLECTION, rkey: rkey })
-    });
-    if (!response.ok) throw new Error("The PDS rejected the withdrawal (" + response.status + ").");
-    participantForm.reset();
-    resultBox.hidden = true;
-    withdrawButton.hidden = true;
-    status.textContent = "Withdrawn · the participant record was deleted from your repository.";
+    await session.signOut();
+    await client.signIn(ENTRYWAY, { prompt: "login", scope: SCOPE });
   } catch (error) {
     showError(error);
-  } finally {
-    setBusy(withdrawButton, false);
+    setBusy(switchButton, false);
   }
-});
+}
 
-init();
+logoutButton?.addEventListener("click", logoutAndReload);
+switchButton?.addEventListener("click", switchAccount);
