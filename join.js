@@ -242,3 +242,59 @@ participantForm.addEventListener("submit", async (event) => {
   }
 });
 
+
+ 
+withdrawButton.addEventListener("click", async () => {
+  clearError();
+  if (!session || !confirm("Withdraw your Made Sick participant record from your AT Protocol repository?")) return;
+  setBusy(withdrawButton, true, "Withdrawing…");
+  try {
+    const existing = await fetchRecord();
+    if (!existing || !existing.uri) return;
+    const rkey = existing.uri.split("/").pop();
+    const response = await session.fetchHandler("/xrpc/com.atproto.repo.deleteRecord", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ repo: session.did, collection: COLLECTION, rkey })
+    });
+    if (!response.ok) {
+      const detail = await response.text().catch(() => "");
+      throw new Error("The PDS rejected the withdrawal (" + response.status + ")" + (detail ? ": " + detail.slice(0, 180) : "."));
+    }
+    participantForm.reset();
+    resultBox.hidden = true;
+    withdrawButton.hidden = true;
+    status.textContent = "Withdrawn · the participant record was deleted from your repository.";
+  } catch (error) {
+    showError(error);
+  } finally {
+    setBusy(withdrawButton, false);
+  }
+});
+
+async function clearSession({ focusHandle = false } = {}) {
+  clearError();
+  if (!session) return;
+  try {
+    await client.revoke(session.did);
+  } catch (error) {
+    console.warn("OAuth revoke failed; clearing local session anyway.", error);
+  }
+  session = undefined;
+  signedIn.hidden = true;
+  signedOut.hidden = false;
+  document.querySelector("#session-actions").hidden = true;
+  participantForm.reset();
+  resultBox.hidden = true;
+  withdrawButton.hidden = true;
+  status.textContent = "Not connected.";
+  if (focusHandle) {
+    handleInput.value = "";
+    handleInput.focus();
+  }
+}
+
+logoutButton?.addEventListener("click", () => clearSession());
+switchButton?.addEventListener("click", () => clearSession({ focusHandle: true }));
+
+init();
