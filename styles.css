@@ -1168,53 +1168,5 @@ button.button:active {
 }
 
 
-/* PIXIE persistent launcher */
-.pixie-launcher{
-  position:fixed;
-  left:50%;
-  bottom:max(18px, env(safe-area-inset-bottom));
-  transform:translateX(-50%);
-  z-index:9999;
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  gap:.55rem;
-  min-width:92px;
-  height:42px;
-  padding:.35rem .85rem;
-  border:2px solid #0f0f0f;
-  background:#0f0f0f;
-  color:#b5cc18;
-  box-shadow:5px 5px 0 rgba(15,15,15,.25);
-  font:900 .72rem/1 var(--font-mono,monospace);
-  letter-spacing:.12em;
-  text-transform:uppercase;
-  text-decoration:none;
-  cursor:pointer;
-  animation:pixie-launcher-breathe 3.2s ease-in-out infinite;
-}
-.pixie-launcher::before{
-  content:"✦";
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  width:20px;
-  height:20px;
-  border:1px solid #b5cc18;
-  font-size:.8rem;
-}
-.pixie-launcher:hover,.pixie-launcher:focus-visible{
-  color:#0f0f0f;
-  background:#b5cc18;
-  outline:3px solid rgba(181,204,24,.3);
-  outline-offset:3px;
-}
-.pixie-launcher:hover::before,.pixie-launcher:focus-visible::before{border-color:#0f0f0f}
-@keyframes pixie-launcher-breathe{
-  0%,100%{transform:translateX(-50%) scale(1);box-shadow:5px 5px 0 rgba(15,15,15,.25),0 0 0 rgba(181,204,24,0)}
-  50%{transform:translateX(-50%) scale(1.045);box-shadow:5px 5px 0 rgba(15,15,15,.2),0 0 24px rgba(181,204,24,.35)}
-}
-@media(prefers-reduced-motion:reduce){.pixie-launcher{animation:none}}
-@media(max-width:520px){
-  .pixie-launcher{bottom:max(12px,env(safe-area-inset-bottom));min-width:84px;height:40px}
-}
+/* PIXIE OS launcher — matches Holdings desktop trigger */
+.pixie-launcher{position:fixed;right:18px;bottom:18px;z-index:9998;background:#071015;color:var(--lime,#b5cc18);border:2px solid var(--lime,#b5cc18);padding:10px 14px;font:900 12px ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;letter-spacing:1px;cursor:pointer;box-shadow:6px 6px 0 #020406;display:inline-flex;align-items:center;gap:8px;text-decoration:none;animation:pixie-breathe 3.2s ease-in-out infinite}.pixie-launcher:hover,.pixie-launcher:focus-visible{background:var(--lime,#b5cc18);color:#071015;outline:0}.pixie-launcher-icon{width:20px;height:20px;display:block;border-radius:4px;object-fit:cover}@keyframes pixie-breathe{0%,100%{transform:translateZ(0) scale(1);box-shadow:6px 6px 0 #020406}50%{transform:translateZ(0) scale(1.035);box-shadow:6px 6px 0 #020406,0 0 18px rgba(181,204,24,.28)}}.pixie-radar-overlay{position:fixed;inset:0;z-index:9999;background:rgba(2,4,6,.92);display:none}.pixie-radar-overlay.open{display:block}.pixie-radar-shell{position:absolute;inset:0;background:#020406;display:flex;flex-direction:column}.pixie-radar-head{height:44px;flex:0 0 44px;display:flex;align-items:center;justify-content:space-between;padding:0 14px;background:#071015;border-bottom:1px solid var(--lime,#b5cc18);color:var(--lime,#b5cc18);letter-spacing:2px}.pixie-radar-close{background:transparent;color:var(--lime,#b5cc18);border:1px solid var(--lime,#b5cc18);padding:5px 10px;font:inherit;cursor:pointer}.pixie-radar-close:hover{background:var(--lime,#b5cc18);color:#071015}.pixie-radar-frame{width:100%;height:calc(100vh - 44px);border:0;background:#08080f}@media(max-width:800px){.pixie-launcher{right:10px;bottom:10px}.pixie-radar-head{font-size:10px}}@media(prefers-reduced-motion:reduce){.pixie-launcher{animation:none}}
