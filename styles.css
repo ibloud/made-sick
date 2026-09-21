@@ -1166,3 +1166,55 @@ button.button:active {
     padding-left: 1rem;
   }
 }
+
+
+/* PIXIE persistent launcher */
+.pixie-launcher{
+  position:fixed;
+  left:50%;
+  bottom:max(18px, env(safe-area-inset-bottom));
+  transform:translateX(-50%);
+  z-index:9999;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:.55rem;
+  min-width:92px;
+  height:42px;
+  padding:.35rem .85rem;
+  border:2px solid #0f0f0f;
+  background:#0f0f0f;
+  color:#b5cc18;
+  box-shadow:5px 5px 0 rgba(15,15,15,.25);
+  font:900 .72rem/1 var(--font-mono,monospace);
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  text-decoration:none;
+  cursor:pointer;
+  animation:pixie-launcher-breathe 3.2s ease-in-out infinite;
+}
+.pixie-launcher::before{
+  content:"✦";
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:20px;
+  height:20px;
+  border:1px solid #b5cc18;
+  font-size:.8rem;
+}
+.pixie-launcher:hover,.pixie-launcher:focus-visible{
+  color:#0f0f0f;
+  background:#b5cc18;
+  outline:3px solid rgba(181,204,24,.3);
+  outline-offset:3px;
+}
+.pixie-launcher:hover::before,.pixie-launcher:focus-visible::before{border-color:#0f0f0f}
+@keyframes pixie-launcher-breathe{
+  0%,100%{transform:translateX(-50%) scale(1);box-shadow:5px 5px 0 rgba(15,15,15,.25),0 0 0 rgba(181,204,24,0)}
+  50%{transform:translateX(-50%) scale(1.045);box-shadow:5px 5px 0 rgba(15,15,15,.2),0 0 24px rgba(181,204,24,.35)}
+}
+@media(prefers-reduced-motion:reduce){.pixie-launcher{animation:none}}
+@media(max-width:520px){
+  .pixie-launcher{bottom:max(12px,env(safe-area-inset-bottom));min-width:84px;height:40px}
+}
