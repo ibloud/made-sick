@@ -1,9 +1,8 @@
-import { Agent } from "https://esm.sh/@atproto/api@0.20.44?bundle";
 import { BrowserOAuthClient } from "https://esm.sh/@atproto/oauth-client-browser@0.5.7?bundle";
 
 const CLIENT_ID = "https://made-sick.org/oauth-client-metadata.json";
 const COLLECTION = "org.made-sick.participant";
-const SCOPE = "atproto repo:org.made-sick.participant?action=create&action=update&action=delete";
+const SCOPE = "atproto repo:org.made-sick.participant?action=read&action=create&action=update&action=delete";
 const ENTRYWAY = "https://bsky.social";
 
 const signedOut = document.querySelector("#signed-out");
@@ -40,7 +39,6 @@ const client = new BrowserOAuthClient({
 });
 
 let session;
-let agent;
 
 function showError(error) {
   console.error(error);
@@ -75,9 +73,9 @@ async function renderSession() {
   signedOut.hidden = true;
   signedIn.hidden = false;
   didEl.textContent = session.did;
-  agent = new Agent(session);
   status.textContent = "Identity authenticated · directory participation still requires your choice.";
   document.querySelector("#session-actions").hidden = false;
+
 }
 
 async function signIn(handle, prompt) {
@@ -104,42 +102,60 @@ identityForm.addEventListener("submit", async (event) => {
 
 createButton.addEventListener("click", () => signIn(ENTRYWAY, "create"));
 
-async function getParticipantRecordPublic() {
-  // Reading a repo record does not require a repo OAuth read grant.
-  // The join OAuth scope is intentionally limited to create/update/delete.
-  return null;
+async function fetchRecord() {
+  const query = new URLSearchParams({
+    repo: session.did,
+    collection: COLLECTION,
+    rkey: "self"
+  });
+  const response = await session.fetchHandler("/xrpc/com.atproto.repo.getRecord?" + query.toString());
+  if (response.status === 404) return null;
+  if (!response.ok) {
+    const detail = await response.text().catch(() => "");
+    throw new Error("Could not read the participant record (" + response.status + ")" + (detail ? ": " + detail.slice(0, 180) : "."));
+  }
+  return response.json();
 }
 
-
-
-async function logoutAndReload() {
+async function loadExistingRecord() {
+  try {
+    const existing = await fetchRecord();
+    if (!existing || !existing.value) return;
+    document.querySelector("#display-name").value = existing.value.displayName || "";
+    document.querySelector("#milestone").value = existing.value.milestone || "";
+    document.querySelector("#directory-consent").checked = Boolean(existing.value.directory);
+    document.querySelector("#public-record-consent").checked = true;
+    resultBox.hidden = false;
+    recordUri.textContent = existing.uri;
+    withdrawButton.hidden = false;
+    status.textContent = existing.value.directory
+      ? "Participant record found · Made Sick participation is active."
+      : "Participant record found · directory participation is paused.";
+  } catch (error) {
+    showError(error);
+  }
+}
+async function clearSession({ focusHandle = false } = {}) {
   clearError();
   if (!session) return;
-  setBusy(logoutButton, true, "Logging out…");
   try {
-    await session.signOut();
+    await client.revoke(session.did);
   } catch (error) {
-    showError(error);
-  } finally {
-    window.location.reload();
+    console.warn("OAuth revoke failed; clearing local session anyway.", error);
+  }
+  session = undefined;
+  signedIn.hidden = true;
+  signedOut.hidden = false;
+  document.querySelector("#session-actions").hidden = true;
+  participantForm.reset();
+  resultBox.hidden = true;
+  withdrawButton.hidden = true;
+  status.textContent = "Not connected.";
+  if (focusHandle) {
+    handleInput.value = "";
+    handleInput.focus();
   }
 }
 
-async function switchAccount() {
-  clearError();
-  if (!session) {
-    await signIn(ENTRYWAY, "login");
-    return;
-  }
-  setBusy(switchButton, true, "Switching…");
-  try {
-    await session.signOut();
-    await client.signIn(ENTRYWAY, { prompt: "login", scope: SCOPE });
-  } catch (error) {
-    showError(error);
-    setBusy(switchButton, false);
-  }
-}
-
-logoutButton?.addEventListener("click", logoutAndReload);
-switchButton?.addEventListener("click", switchAccount);
+logoutButton?.addEventListener("click", () => clearSession());
+switchButton?.addEventListener("click", () => clearSession({ focusHandle: true }));
