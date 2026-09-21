@@ -75,7 +75,7 @@ async function renderSession() {
   didEl.textContent = session.did;
   status.textContent = "Identity authenticated · directory participation still requires your choice.";
   document.querySelector("#session-actions").hidden = false;
-
+  await loadExistingRecord();
 }
 
 async function signIn(handle, prompt) {
@@ -135,6 +135,87 @@ async function loadExistingRecord() {
     showError(error);
   }
 }
+
+participantForm.addEventListener("submit", async (event) => {
+  event.preventDefault();
+  clearError();
+  if (!session) return;
+  setBusy(joinButton, true, "Publishing participant record…");
+  try {
+    const displayName = document.querySelector("#display-name").value.trim();
+    const milestone = document.querySelector("#milestone").value.trim();
+    const record = {
+      $type: COLLECTION,
+      version: 1,
+      directory: true,
+      displayName: displayName,
+      consentedAt: new Date().toISOString()
+    };
+    if (milestone) record.milestone = milestone;
+
+    const existing = await fetchRecord();
+    let response;
+    if (existing && existing.uri) {
+      const rkey = existing.uri.split("/").pop();
+      response = await session.fetchHandler("/xrpc/com.atproto.repo.putRecord", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ repo: session.did, collection: COLLECTION, rkey: rkey, record: record })
+      });
+    } else {
+      response = await session.fetchHandler("/xrpc/com.atproto.repo.createRecord", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ repo: session.did, collection: COLLECTION, rkey: "self", record: record })
+      });
+    }
+    if (!response.ok) {
+      const detail = await response.text().catch(() => "");
+      throw new Error("The PDS rejected the participant record (" + response.status + ")" + (detail ? ": " + detail.slice(0, 180) : "."));
+    }
+    const saved = await response.json();
+    resultBox.hidden = false;
+    recordUri.textContent = saved.uri || existing.uri;
+    withdrawButton.hidden = false;
+    status.textContent = "Participant record is active.";
+  } catch (error) {
+    showError(error);
+  } finally {
+    setBusy(joinButton, false);
+  }
+});
+
+withdrawButton.addEventListener("click", async () => {
+  clearError();
+  if (!session || !confirm("Withdraw your Made Sick participant record from your AT Protocol repository?")) return;
+  setBusy(withdrawButton, true, "Withdrawing…");
+  try {
+    const existing = await fetchRecord();
+    if (!existing || !existing.uri) return;
+    const rkey = existing.uri.split("/").pop();
+    const response = await session.fetchHandler("/xrpc/com.atproto.repo.deleteRecord", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ repo: session.did, collection: COLLECTION, rkey: rkey })
+    });
+    if (!response.ok) {
+      const detail = await response.text().catch(() => "");
+      throw new Error("The PDS rejected the withdrawal (" + response.status + ")" + (detail ? ": " + detail.slice(0, 180) : "."));
+    }
+    participantForm.reset();
+    resultBox.hidden = true;
+    withdrawButton.hidden = true;
+    status.textContent = "Withdrawn · the participant record was deleted from your repository.";
+  } catch (error) {
+    showError(error);
+  } finally {
+    setBusy(withdrawButton, false);
+  }
+});
+
+init();
+
+
 async function clearSession({ focusHandle = false } = {}) {
   clearError();
   if (!session) return;
