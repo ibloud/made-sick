@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Join Made Sick with your AT Protocol identity.">
+  <title>Join Made Sick — AT Protocol</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="join.css">
+</head>
+<body>
+  <a class="skip-link" href="#join">Skip to join</a>
+  <header class="site-header">
+    <a class="wordmark" href="index.html" aria-label="Made Sick home"><span>MADE</span><span>SICK</span></a>
+    <nav aria-label="Join navigation">
+      <a href="index.html">Directory</a>
+      <a href="index.html#how-it-works">How it works</a>
+      <a href="PRIVACY.md">Privacy</a>
+    </nav>
+  </header>
+  <main id="join" class="join-page">
+    <section class="join-hero">
+      <p class="eyebrow">AT Protocol · creator-controlled</p>
+      <h1>Join Made Sick.<br><em>Keep your identity yours.</em></h1>
+      <p class="lede">Made Sick does not create a separate password account. You authenticate with an AT Protocol identity, then choose whether to publish a participant record in your own repository.</p>
+    </section>
+    <section class="join-card" aria-labelledby="join-title">
+      <div class="join-status" id="join-status" role="status" aria-live="polite">Not connected.</div>
+      <div id="signed-out">
+        <h2 id="join-title">Connect an AT Protocol identity</h2>
+        <p class="join-copy">Already have an identity? Enter your handle. If you do not have one yet, you can ask your PDS to take you through account creation.</p>
+        <form id="identity-form">
+          <label for="handle">Your handle <span>example: alice.bsky.social</span></label>
+          <input id="handle" name="handle" inputmode="text" autocomplete="username" placeholder="alice.bsky.social">
+          <div class="join-actions">
+            <button class="button" id="connect-button" type="submit">Connect identity</button>
+            <button class="button button-secondary" id="create-button" type="button">Create an AT Protocol identity</button>
+          </div>
+        </form>
+        <p class="support-note">Authentication happens with your identity provider. Made Sick never asks for your AT Protocol password.</p>
+      </div>
+      <div id="signed-in" hidden>
+        <div class="identity-proof">
+          <span class="step">CONNECTED IDENTITY</span>
+          <strong id="identity-did"></strong>
+          <span id="identity-handle">Authenticated AT Protocol identity</span>
+        </div>
+        <form id="participant-form">
+          <h2>Choose what joining means</h2>
+          <label for="display-name">Public display name <span>Shown in your participant record</span></label>
+          <input id="display-name" name="displayName" maxlength="80" autocomplete="name" required placeholder="The name you want people to see">
+          <label for="milestone">Milestone or short description <span>Optional · public</span></label>
+          <textarea id="milestone" name="milestone" maxlength="500" rows="5" placeholder="What are you celebrating, making, learning, or sharing?"></textarea>
+          <fieldset>
+            <legend>Before you join</legend>
+            <label class="check"><input type="checkbox" id="directory-consent" required> I want Made Sick to publish/index this participant record.</label>
+            <label class="check"><input type="checkbox" id="public-record-consent" required> I understand this record is public in my AT Protocol repository and can be copied by others.</label>
+          </fieldset>
+          <div class="join-actions">
+            <button class="button" type="submit" id="join-button">Join Made Sick</button>
+            <button class="text-button danger" type="button" id="withdraw-button" hidden>Withdraw my participant record</button>
+          </div>
+        </form>
+        <div class="join-result" id="join-result" hidden>
+          <strong>Participant record is live.</strong>
+          <span id="record-uri"></span>
+        </div>
+        <p class="support-note">Joining does not verify a diagnosis, legal identity, employment, authorship, or any other claim. It establishes identity control and affirmative directory participation only.</p>
+      </div>
+      <p class="join-error" id="join-error" role="alert" hidden></p>
+    </section>
+    <section class="join-explainer">
+      <article><span class="step">01</span><h3>Authenticate</h3><p>AT Protocol OAuth identifies the DID controlled by the participant. The browser SDK handles PKCE, DPoP, callback processing, and session storage.</p></article>
+      <article><span class="step">02</span><h3>Consent</h3><p>The participant separately agrees to directory publication. Authentication alone never enrolls anyone.</p></article>
+      <article><span class="step">03</span><h3>Publish to your repo</h3><p>Made Sick writes one <code>org.made-sick.participant</code> record to the participant's own repository. The participant can withdraw it from this page.</p></article>
+    </section>
+  </main>
+  <script type="module" src="join.js"></script>
+</body>
+</html>

@@ -1,0 +1,12 @@
+{
+  "client_id": "https://made-sick.org/oauth-client-metadata.json",
+  "client_name": "Made Sick",
+  "client_uri": "https://made-sick.org",
+  "redirect_uris": ["https://made-sick.org/join.html"],
+  "grant_types": ["authorization_code", "refresh_token"],
+  "response_types": ["code"],
+  "scope": "atproto repo:org.made-sick.participant?action=create&action=update&action=delete",
+  "token_endpoint_auth_method": "none",
+  "application_type": "web",
+  "dpop_bound_access_tokens": true
+}

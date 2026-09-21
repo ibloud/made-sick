@@ -17,7 +17,7 @@ A **verified profile** requires an authenticated AT Protocol identity plus at le
 
 The profile shows which method or methods were verified. Verification does not establish legal identity, authorship, employment, diagnosis, or ownership of creative work. It also does not enroll a person in the directory; affirmative creator consent remains required.
 
-The repository contains `verified-profile.js`, a small state model that evaluates trusted verification evidence. It deliberately does not pretend that browser code can authenticate an identity or perform authoritative verification by itself. Production OAuth and verification must run through an appropriate deployed service using the official AT Protocol OAuth client libraries.
+The repository contains `verified-profile.js`, a small state model that evaluates trusted verification evidence. The participant join flow now uses the official browser OAuth client for AT Protocol authentication and writes a narrowly scoped participant record to the participant's own repository. Verification evidence remains a separate step.
 
 ## Story Finder
 
@@ -51,7 +51,7 @@ The creator-controlled AT Protocol identity `ibloud.xyz` (`did:plc:b5uem672ci23l
 
 ## Proposed next phase
 
-- Deploy the AT Protocol OAuth authentication service using the official OAuth client libraries.
+- Expand the deployed AT Protocol OAuth join flow into the verification service when field-level verification is ready.
 - Request only the minimum identity scope plus `account:email` when email verification is needed.
 - Persist verified-profile evidence separately from directory consent.
 - Implement single-use DNS TXT challenges for domain verification.
@@ -64,3 +64,8 @@ The creator-controlled AT Protocol identity `ibloud.xyz` (`did:plc:b5uem672ci23l
 Independent prototype by Loptr Lab. No affiliation with pckt.blog, standard.site, Germ Network, Bluesky, or their respective teams is implied.
 
 See [GOVERNANCE.md](GOVERNANCE.md), [DISCLOSURE_STANDARD.md](DISCLOSURE_STANDARD.md), [PRIVACY.md](PRIVACY.md), and [LICENSE](LICENSE).
+
+
+## Participant join
+
+The live join path is [`join.html`](join.html). It supports existing AT Protocol identities and provider-side account creation, then requires explicit directory consent before writing `org.made-sick.participant` to the participant's own repository. The OAuth client requests only the participant collection's create/update/delete permission in addition to the required `atproto` scope. Withdrawal deletes that record. See [docs/ATPROTO_JOIN.md](docs/ATPROTO_JOIN.md).
