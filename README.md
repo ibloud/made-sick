@@ -35,6 +35,8 @@ Selected posts can be exported as a creator-controlled JSON research ledger cont
 
 The current release is a static product prototype. It does not create accounts, issue verification badges, collect private health information, or claim that any editorially referenced artist has joined the campaign. Named public-record examples and their evidence boundaries are documented in [SOURCE_REGISTER.md](SOURCE_REGISTER.md).
 
+The public build, verified interactions, and features that still require authenticated acceptance testing are recorded in [PUBLIC_TESTING.md](PUBLIC_TESTING.md).
+
 ## Functional pilot
 
 The creator-controlled AT Protocol identity `ibloud.xyz` (`did:plc:b5uem672ci23lqrcz6j6bs2c`) is the first functional test fixture. The pilot interface demonstrates separate consent for directory presence, preparing a Duet invitation, and keeping a player-owned session reference. Records remain in the participant's browser and can be exported or deleted. The prototype does not send invitations, receive gameplay, or operate a production consent service.
