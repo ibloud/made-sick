@@ -53,7 +53,9 @@ async function resolveHandle(handle) {
 
 function openPixie(params) {
   const query = new URLSearchParams({ source: "made-sick", return_to: JOIN_RETURN_URL, ...params });
-  window.location.assign(PIXIE_OS + "?" + query.toString());
+  // Participant onboarding lives in the PIXIE desktop, not the Holdings landing page.
+  const destination = params.role === "participant" ? PIXIE_OS + "radar-core.html" : PIXIE_OS;
+  window.location.assign(destination + "?" + query.toString());
 }
 
 async function saveParticipantRecord(displayName, milestone) {
@@ -90,6 +92,12 @@ async function saveParticipantRecord(displayName, milestone) {
 
 async function handlePixieReturn() {
   const params = new URLSearchParams(window.location.search);
+  if (params.get("pixie_return") === "1") {
+    window.history.replaceState({}, document.title, window.location.pathname);
+    status.textContent = "Back from PIXIE OS. No new participant record was published.";
+    await loadExistingRecord();
+    return true;
+  }
   if (params.get("pixie_onboarding") !== "1") return false;
   const displayName = params.get("displayName") || "";
   const milestone = params.get("milestone") || "";
