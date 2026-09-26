@@ -197,6 +197,10 @@ async function fetchRecord() {
   if (response.status === 404) return null;
   if (!response.ok) {
     const detail = await response.text().catch(() => "");
+    let errorCode;
+    try { errorCode = JSON.parse(detail).error; } catch { /* Keep the original response for other errors. */ }
+    // Some PDS implementations return 400 rather than 404 for an absent record.
+    if (response.status === 400 && errorCode === "RecordNotFound") return null;
     throw new Error("Could not read the participant record (" + response.status + ")" + (detail ? ": " + detail.slice(0, 180) : "."));
   }
   return response.json();
