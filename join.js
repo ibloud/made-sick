@@ -53,7 +53,9 @@ async function resolveHandle(handle) {
 
 function openPixie(params) {
   const query = new URLSearchParams({ source: "made-sick", return_to: JOIN_RETURN_URL, ...params });
-  window.location.assign(PIXIE_OS + "?" + query.toString());
+  // Participant onboarding lives in the PIXIE desktop, not the Holdings landing page.
+  const destination = params.role === "participant" ? PIXIE_OS + "radar-core.html" : PIXIE_OS;
+  window.location.assign(destination + "?" + query.toString());
 }
 
 async function saveParticipantRecord(displayName, milestone) {
