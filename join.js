@@ -92,6 +92,12 @@ async function saveParticipantRecord(displayName, milestone) {
 
 async function handlePixieReturn() {
   const params = new URLSearchParams(window.location.search);
+  if (params.get("pixie_return") === "1") {
+    window.history.replaceState({}, document.title, window.location.pathname);
+    status.textContent = "Back from PIXIE OS. No new participant record was published.";
+    await loadExistingRecord();
+    return true;
+  }
   if (params.get("pixie_onboarding") !== "1") return false;
   const displayName = params.get("displayName") || "";
   const milestone = params.get("milestone") || "";
