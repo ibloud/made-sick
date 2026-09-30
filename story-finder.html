@@ -65,14 +65,16 @@ button.secondary{background:white}.actions{display:flex;gap:.75rem;flex-wrap:wra
 </section>
 <section aria-labelledby="results-title">
 <div class="results-head"><div><p class="eyebrow">Step 2 · review and preserve</p><h2 id="results-title">Matches</h2></div><div class="actions"><button type="button" class="secondary" id="select-visible" disabled>Select visible</button><button type="button" class="secondary" id="export" disabled>Export selected ledger</button></div></div>
+<p>Ledger v2 keeps source identity and selection time. Text is exported only for posts authored by the searched account; other authors remain references. Exporting does not publish or grant consent.</p>
 <div id="results" class="results"><p class="empty">Load a public feed to begin. Older diary entries become searchable as you load more pages.</p></div>
 </section>
 </main>
 <footer><p>Independent Made Sick research tool. Bluesky and AT Protocol are external services and do not endorse this project. Public API data remains subject to the author's deletions and current Bluesky availability.</p></footer>
+<script src="story-ledger.js"></script>
 <script>
 "use strict";
 const API="https://public.api.bsky.app/xrpc/";
-const state={actor:"",cursor:null,posts:[],selected:new Set(),loading:false};
+const state={actor:"",actorDid:"",cursor:null,posts:[],selected:new Map(),loading:false};
 const $=id=>document.getElementById(id);
 const form=$("search-form"),results=$("results"),status=$("status"),more=$("more"),exportButton=$("export"),selectVisible=$("select-visible");
 function cleanHandle(value){return value.trim().replace(/^@/,"").toLowerCase()}
@@ -102,7 +104,7 @@ function render(){
  visible.forEach(item=>{
   const card=document.createElement("article");card.className="post";
   const top=document.createElement("div");top.className="post-top";
-  const label=document.createElement("label");const check=document.createElement("input");check.type="checkbox";check.checked=state.selected.has(postKey(item));check.addEventListener("change",()=>{check.checked?state.selected.add(postKey(item)):state.selected.delete(postKey(item));updateButtons()});label.append(check," Preserve in ledger");
+  const label=document.createElement("label");const check=document.createElement("input");check.type="checkbox";check.checked=state.selected.has(postKey(item));check.addEventListener("change",()=>{check.checked?state.selected.set(postKey(item),state.selected.get(postKey(item))||new Date().toISOString()):state.selected.delete(postKey(item));updateButtons()});label.append(check," Preserve in ledger");
   const time=document.createElement("time");time.dateTime=created(item).toISOString();time.textContent=created(item).toLocaleString();
   top.append(label,time);
   const text=document.createElement("p");text.textContent=(item.post.record&&item.post.record.text)||"[No text]";
@@ -123,8 +125,10 @@ async function loadPage(reset){
  if(state.loading)return;state.loading=true;$("load").disabled=true;more.disabled=true;status.textContent="Loading public posts…";
  try{
   const handle=cleanHandle($("handle").value);if(!handle)throw new Error("Enter a Bluesky handle.");
-  if(reset||state.actor!==handle){state.actor=handle;state.cursor=null;state.posts=[];state.selected.clear()}
+  if(reset||state.actor!==handle){state.actor=handle;state.actorDid="";state.cursor=null;state.posts=[];state.selected.clear()}
   const did=await resolveActor(handle);
+  if(state.actorDid&&state.actorDid!==did){state.posts=[];state.selected.clear();state.cursor=null}
+  state.actorDid=did;
   const params=new URLSearchParams({actor:did,limit:"100",filter:"posts_with_replies",includePins:"true"});
   if(state.cursor)params.set("cursor",state.cursor);
   const response=await fetch(API+"app.bsky.feed.getAuthorFeed?"+params);if(!response.ok)throw new Error("Bluesky did not return this public feed.");
@@ -137,15 +141,17 @@ async function loadPage(reset){
 form.addEventListener("submit",event=>{event.preventDefault();loadPage(true)});
 more.addEventListener("click",()=>loadPage(false));
 ["query","date-from","date-to","exact","replies","reposts","links-only"].forEach(id=>$(id).addEventListener("input",render));
-$("clear").addEventListener("click",()=>{state.actor="";state.cursor=null;state.posts=[];state.selected.clear();$("query").value="";$("date-from").value="";$("date-to").value="";results.innerHTML='<p class="empty">Load a public feed to begin.</p>';status.textContent="This tab was cleared.";more.disabled=true;selectVisible.disabled=true;updateButtons()});
-selectVisible.addEventListener("click",()=>{state.posts.filter(matches).forEach(item=>state.selected.add(postKey(item)));render()});
+$("clear").addEventListener("click",()=>{state.actor="";state.actorDid="";state.cursor=null;state.posts=[];state.selected.clear();$("query").value="";$("date-from").value="";$("date-to").value="";results.innerHTML='<p class="empty">Load a public feed to begin.</p>';status.textContent="This tab was cleared.";more.disabled=true;selectVisible.disabled=true;updateButtons()});
+selectVisible.addEventListener("click",()=>{state.posts.filter(matches).forEach(item=>state.selected.set(postKey(item),state.selected.get(postKey(item))||new Date().toISOString()));render()});
 exportButton.addEventListener("click",()=>{
- const chosen=state.posts.filter(item=>state.selected.has(postKey(item))).map(item=>({createdAt:created(item).toISOString(),url:postUrl(item),uri:item.post.uri,text:(item.post.record&&item.post.record.text)||"",reply:isReply(item),repost:isRepost(item)}));
- const payload={title:"Made Sick Story Finder research ledger",actor:state.actor,exportedAt:new Date().toISOString(),notice:"Creator review record only. Selection does not grant directory enrollment or publication consent.",posts:chosen};
- const blob=new Blob([JSON.stringify(payload,null,2)],{type:"application/json"}),url=URL.createObjectURL(blob),a=document.createElement("a");a.href=url;a.download="made-sick-story-ledger-"+new Date().toISOString().slice(0,10)+".json";a.click();URL.revokeObjectURL(url);
- status.textContent=chosen.length+" selected post"+(chosen.length===1?"":"s")+" exported to your device.";
+ let payload;
+ try{payload=STORY_LEDGER.exportLedger({actor:{handle:state.actor,did:state.actorDid},items:state.posts.filter(item=>state.selected.has(postKey(item))),selectedAt:state.selected})}
+ catch(error){status.textContent=error.message;return}
+ const blob=new Blob([JSON.stringify(payload,null,2)],{type:"application/json"}),url=URL.createObjectURL(blob),a=document.createElement("a");a.href=url;a.download="made-sick-story-ledger-"+new Date().toISOString().slice(0,10)+".json";a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);
+ status.textContent=payload.posts.length+" selected post"+(payload.posts.length===1?"":"s")+" exported to your device.";
 });
 </script>
 <script src="pixie-launcher.js" defer></script>
 </body>
 </html>
+
