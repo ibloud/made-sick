@@ -1,0 +1,12 @@
+/* Standalone launcher styles for pages that do not load the directory stylesheet. */
+.pixie-launcher{position:fixed;right:calc(1rem + env(safe-area-inset-right,0px));bottom:calc(1rem + env(safe-area-inset-bottom,0px));z-index:9998;display:inline-flex;align-items:center;gap:.5rem;width:auto;max-width:calc(100vw - 2rem);min-height:48px;padding:.65rem .9rem;background:var(--paper,#f4f0e7);color:var(--ink,#111);border:2px solid var(--ink,#111);box-shadow:4px 4px 0 var(--acid,#b5cc18);font:900 .8rem/1.2 ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;letter-spacing:.06em;cursor:pointer}
+.pixie-launcher .pixie-launcher-icon{display:block;flex:0 0 24px;width:24px;height:24px;max-width:24px;max-height:24px;object-fit:contain;border-radius:4px}
+.pixie-launcher:focus-visible,.pixie-radar-close:focus-visible{outline:4px solid #4967d6;outline-offset:3px}
+body.pixie-overlay-open{overflow:hidden}
+.pixie-radar-overlay[hidden]{display:none}
+.pixie-radar-overlay{position:fixed;inset:0;z-index:9999;background:rgba(15,15,15,.82);padding:clamp(.5rem,2vw,1.5rem);box-sizing:border-box}
+.pixie-radar-shell{height:100%;width:100%;background:#0b0d0c;border:2px solid var(--ink,#111);display:flex;flex-direction:column;box-sizing:border-box}
+.pixie-radar-head{width:100%;max-width:none;margin:0;min-height:56px;display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.5rem .75rem;background:var(--paper,#f4f0e7);border-bottom:2px solid var(--ink,#111);color:var(--ink,#111);font:900 .75rem/1.4 ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;letter-spacing:.06em;box-sizing:border-box}
+.pixie-radar-close{flex:none;min-height:44px;padding:.5rem .75rem;background:var(--acid,#b5cc18);color:var(--ink,#111);border:2px solid var(--ink,#111);font:inherit;cursor:pointer}
+.pixie-radar-frame{display:block;width:100%;min-height:0;flex:1;border:0;background:#08080f}
+@media(max-width:600px){.pixie-radar-head{font-size:.65rem;gap:.5rem}}
