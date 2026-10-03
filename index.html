@@ -18,62 +18,19 @@
   <meta name="twitter:image" content="https://made-sick.org/assets/social-preview.png">
   <meta name="twitter:image:alt" content="Made Sick — Share the Joy project artwork">
   <link rel="stylesheet" href="styles.css">
-  <style>
-    .site-header nav { display: flex; gap: 1.1rem; flex-wrap: nowrap; overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; max-width: 100%; }
-    .site-header nav::-webkit-scrollbar { display: none; }
-    .site-header nav a { flex: 0 0 auto; white-space: nowrap; }
-    .site-header nav a.nav-vote { color: var(--red); border-bottom: 3px solid var(--red); padding-bottom: 0.15rem; }
-    @media (max-width: 760px) { .site-header { align-items: flex-start; } .site-header nav { order: 3; width: 100%; padding-bottom: 0.35rem; } }
-  </style>
+<link rel="stylesheet" href="navigation.css">
 </head>
 <body>
-  <a class="skip-link" href="#directory">Skip to directory</a>
-  <header class="site-header">
-    <a class="wordmark" href="#top" aria-label="Made Sick home"><span>MADE</span><span>SICK</span></a>
-    <nav aria-label="Primary navigation">
-      <a href="#directory">Directory</a>
-      <a href="story-finder.html">Story Finder</a>
-      <a href="#adventures">Adventures · Pre-alpha</a>
-      <a href="voting-edition.html" class="nav-vote">Vote</a>
-      <a href="future-vision.html">Future Vision</a>
-      <a href="influences.html">Influences</a>
-      <a href="#how-it-works">How it works</a>
-      <a href="#participate">Participate</a>
-    </nav>
-    <a class="button button-small" href="join.html">Join Made Sick ↗</a>
-  </header>
+  <a class="skip-link" href="#top">Skip to content</a>
+  <header class="site-header grouped-header"><a class="wordmark" href="index.html" aria-label="Made Sick home"><span>MADE</span><span>SICK</span></a><button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-menu" hidden>Menu</button><nav id="primary-menu" aria-label="Primary navigation"><details class="nav-group"><summary>Explore</summary><div class="nav-links"><a href="index.html#directory">Directory</a><a href="index.html#stories">Stories</a><a href="https://adventure.made-sick.org/travel.html">Travel &amp; Access</a><a href="influences.html">Influences</a></div></details><details class="nav-group"><summary>Participate</summary><div class="nav-links"><a href="join.html">Join Made Sick</a><a href="index.html#how-it-works">How it works</a><a href="voting-edition.html">Vote</a></div></details><details class="nav-group"><summary>Projects</summary><div class="nav-links"><a href="index.html#pixie">PIXIE</a><a href="index.html#remedy-ward">Remedy Ward</a><a href="index.html#sessions">Made Sick Sessions</a><a href="https://adventure.made-sick.org/">Adventures · Pre-alpha</a></div></details><details class="nav-group"><summary>About</summary><div class="nav-links"><a href="index.html#about-made-sick">About Made Sick</a><a href="future-vision.html">Future Vision</a><a href="index.html#loptr-mission">Mission</a><a href="index.html#trust">Independence &amp; affiliations</a></div></details><a href="search.html">Search</a></nav><a class="button button-small nav-join" href="join.html">Join</a></header>
 
   <main id="top">
-    <section class="phase-two" aria-labelledby="phase-two-title">
-      <div class="phase-signal" aria-hidden="true"><span>02</span></div>
-      <div class="phase-copy">
-        <p class="eyebrow">Phase 2 · the signal is open</p>
-        <h1 id="phase-two-title">You found the door.<br><em>Choose what happens next.</em></h1>
-        <p class="lede">Read the public archive. Enter the game. Witness the live signal. Open a private channel only when both people choose it.</p>
-        <div class="phase-route" aria-label="Phase 2 route">
-          <a href="#directory"><span>01</span><strong>Recognize</strong><small>Public evidence</small></a>
-          <a href="#pilot"><span>02</span><strong>Participate</strong><small>Your permissions</small></a>
-          <a href="#pilot"><span>03</span><strong>Transmit</strong><small>Creator-controlled tools</small></a>
-        </div>
-        <p class="fiction-notice"><strong>Story layer:</strong> an independent Loptr Lab participatory prototype inspired by dystopian collective storytelling and Ren's earlier Money Game treasure-hunt experience. It is not an official Ren, Sick Boi, Mr. Robot, or fsociety experience.</p>
-      </div>
-    </section>
-<section id="loptr-mission" aria-labelledby="loptr-mission-title" style="max-width:72rem;margin:2rem auto;padding:1.5rem"><h2 id="loptr-mission-title">People over profit. Accessibility first.</h2><p>Loptr Lab is a pre-seed, people-over-profit, accessibility-first venture working toward a self-sustaining model within a capitalist economy. Money sustains the work; meaningful change for people is its purpose. We accept funding only on terms that keep people and accessibility first. Our long-term vision includes universal basic income. We aim to bring change to life and leave a transparent record of what we tried, what worked, and what failed so others can carry it forward. This mission governs our projects, funding decisions, and partnerships; it is not a temporary marketing position.</p><p>Current open review and contribution opportunities are voluntary and unpaid. Before work begins, agree in writing on scope, time, what will be public, credit preferences, and an exit path. You can stop at any point. Participation does not promise employment, ownership, revenue share, academic credit, or future pay. Any paid commission or other formal arrangement requires a separate signed agreement before work begins. External assistance or benefits belong to the participant and are not compensation from Loptr Lab.</p><p><a href="https://github.com/ibloud/ibloud.github.io/blob/main/MISSION.md">Read the full mission and participation terms</a></p></section>
-
-
-    <section class="hero" aria-labelledby="hero-title">
+<section class="hero" aria-labelledby="hero-title">
       <div class="hero-copy">
         <p class="eyebrow">A creator-owned directory in the ATmosphere</p>
         <h1 id="hero-title">You made it.<br><em>Share the joy.</em></h1>
         <p class="lede">Made Sick celebrates creators who crossed something meaningful off the list—and makes room for the work, habits, and people that helped them get there.</p>
-        <div class="hero-actions">
-          <a class="button" href="#directory">Explore the directory</a>
-          <a class="text-link" href="story-finder.html">Search a public story archive <span aria-hidden="true">↗</span></a>
-          <a class="text-link" href="#participate">How to participate <span aria-hidden="true">↗</span></a>
-          <a class="text-link" href="voting-edition.html">Open voting resources <span aria-hidden="true">↗</span></a>
-          <button class="button button-secondary" data-share-bsky data-share-text="Made Sick — a creator-owned directory celebrating meaningful milestones across the ATmosphere." data-share-url="https://made-sick.org">
-          Spread the Signal ↗</button>
-        </div>
+        <div class="hero-actions"><a class="button" href="#directory">Explore the directory</a><a class="button button-secondary" href="join.html">Join Made Sick</a></div>
       </div>
       <aside class="manifesto" aria-label="Made Sick meanings">
         <p class="issue">ISSUE 001 · OPEN CALL</p>
@@ -85,15 +42,9 @@
         <p>No diagnosis required. No suffering contest.</p>
       </aside>
     </section>
-
-    <section class="system" id="adventures" aria-labelledby="adventures-title">
-      <div class="section-heading"><div><p class="eyebrow">Made Sick Adventures · Pre-alpha</p><h2 id="adventures-title">Adventure, with room for the day you’re having.</h2></div></div>
-      <p class="lede">Plan around your dates, your energy and the breaks you need. Our first featured guide is RENSpace Adventure in Brighton, with Halloween featured, original scavenger-hunt clues, places to eat and rest, shopping and downloadable phone-map pins.</p>
-      <div class="system-grid"><article><h3>Explore RENSpace Adventure</h3><p>Choose a shorter outing or spread the trail across your visit. Every clue is optional, and you can explore from home.</p><a class="button" href="https://adventure.made-sick.org/">Open the public pre-alpha ↗</a><p class="support-note">Visit <strong>adventure.made-sick.org</strong> · Public pre-alpha.</p></article><article><h3>Growing into sick-friendly travel</h3><p>Vetted events, accommodations and travel options are planned. Future listings will show specific details about rest, physical access, sensory conditions, flexibility and costs, with sources and review dates.</p><p class="notice">Current venues are researched suggestions. Access has not been surveyed locally; no accommodation is vetted yet. No diagnosis or health disclosure is needed to explore.</p></article></div>
-      <p class="directory-note">Independent Loptr Lab / Made Sick project. Artist references do not imply participation or endorsement. <a href="https://github.com/ibloud/made-sick/blob/main/docs/ADVENTURES.md">Read the pre-alpha status and next steps ↗</a></p>
-    </section>
-
-    <section class="directory" id="directory" aria-labelledby="directory-title">
+<section class="system" id="about-made-sick" aria-labelledby="about-title"><div class="section-heading"><h2 id="about-title">What is Made Sick?</h2></div><p class="lede">An independent, consent-first community directory celebrating creative work, meaningful milestones and the people who help us continue.</p><div class="system-grid"><article><h3>Discover</h3><p>Find creators, their work and the stories behind it.</p></article><article><h3>Share</h3><p>Tell your story in your own words. Choose what becomes public.</p></article><article><h3>Connect</h3><p>Explore community and creative projects at your own pace. No diagnosis required.</p></article></div></section>
+<section class="system" id="stories" aria-labelledby="stories-title"><div class="section-heading"><h2 id="stories-title">Featured stories</h2></div><div class="system-grid"><article><h3>The Rift Report</h3><p>A creator-submitted story of worldbuilding after treatment.</p><a href="https://bsky.app/profile/the-rift.bsky.social">Read the creator’s public posts</a></article><article><h3>Ren: creation through illness</h3><p>A public interview about making work while seriously ill. Editorial reference; not enrolled.</p><a href="https://www.nme.com/features/ren-interview-sick-boi-glastonbury-hi-ren-3514688">Read the interview</a></article><article><h3>Stories behind the work</h3><p>Explore the directory’s attributed milestones and public accounts. Referenced artists are not presumed participants.</p><a href="#directory">View all directory stories</a></article></div></section>
+<section class="directory" id="directory" aria-labelledby="directory-title">
       <div class="section-heading">
         <div>
           <p class="eyebrow">The directory</p>
@@ -285,23 +236,57 @@
       </div>
       <p class="directory-note"><strong>Why “public record example”?</strong> These entries repeat limited, attributed statements that creators made publicly. They are not diagnoses, endorsements, enrollment, or authorization for private contact. Creators may request correction or removal.</p>
     </section>
-
-    <section class="system" aria-labelledby="uniform-title">
+<section class="system" id="travel-access" aria-labelledby="travel-title"><div class="section-heading"><h2 id="travel-title">Travel &amp; Access</h2></div><p class="lede">Plan the journey around your energy, rest breaks and access needs.</p><div class="system-grid"><article><h3>Airports, stays and assistance</h3><p>Explore Gatwick and Heathrow transfers, accommodation information and assistance resources.</p><a class="button" href="https://adventure.made-sick.org/travel.html">Open Travel &amp; Access</a></article><article><h3>Different needs, different resources</h3><p>Find wheelchair information, venue reviews, chronic-illness and invisible-disability resources, and fatigue planning.</p><a href="https://adventure.made-sick.org/travel.html#access-resources">Browse accessibility resources</a></article></div><p class="directory-note">Check specific needs with the provider before booking. Current adventure stops are researched suggestions; access has not been surveyed locally.</p></section>
+<section class="participate" id="how-it-works" aria-labelledby="participate-title">
       <div class="section-heading">
-        <div><p class="eyebrow">A story you can recognize</p><h2 id="uniform-title">The uniform is a signal—not a diagnosis.</h2></div>
+        <div>
+          <p class="eyebrow">How to participate</p>
+          <h2 id="participate-title">Consent, clarity, and creator-controlled visibility.</h2>
+        </div>
       </div>
-      <p class="directory-note">Ren's official Sick Boi episodes turn a clothing line into a dystopian narrative about subjects, systems, and agency. Made Sick reads the uniform as a voluntary sign of recognition and community. Wearing it does not disclose illness or enroll anyone in this independent prototype.</p>
       <div class="system-grid">
-        <article><span class="step">01</span><h3>The Flame of Prometheus</h3><p>Episode 1 establishes the cinematic world and its institutional language.</p><a href="https://www.youtube.com/watch?v=47UW7nNzI2U" target="_blank" rel="noreferrer">Watch the official episode ↗</a></article>
-        <article><span class="step">02</span><h3>Pandora's Box</h3><p>Episode 2 extends the world around the second Sick Boi clothing drop.</p><a href="https://www.youtube.com/watch?v=Ohy0GtuxXWg" target="_blank" rel="noreferrer">Watch the official episode ↗</a></article>
-        <article><span class="step">03</span><h3>Sick Boi</h3><p>The official film anchors the wider creative language in Ren's work.</p><a href="https://www.youtube.com/watch?v=gTxTyZglwAY" target="_blank" rel="noreferrer">Watch the official film ↗</a></article>
-        <article><span class="step">04</span><h3>An accessible route</h3><p>Ren publicly distinguished the boutique clothing project from lower-priced tees, beanies, vinyl, and other official merchandise.</p><a href="https://renmakesmerch.com/" target="_blank" rel="noreferrer">Visit the official merch store ↗</a></article>
+        <article>
+          <span class="step">01</span>
+          <h3>Join with AT Protocol</h3>
+          <p>Authenticate the identity you control, review the public-record boundary, and explicitly publish your participant record.</p>
+        </article>
+        <article>
+          <span class="step">02</span>
+          <h3>Choose what to share</h3>
+          <p>Review what will be public and give explicit directory consent before publishing. Your provider handles sign-in; Made Sick never asks for your password.</p>
+        </article>
+        <article>
+          <span class="step">03</span>
+          <h3>Withdraw anytime</h3>
+          <p>Your participant record lives in your own AT Protocol repository and can be deleted from the join page.</p>
+        </article>
       </div>
-      <p class="directory-note">Independent interpretation by Loptr Lab · No affiliation, endorsement, or participation by Ren, Sick Boi Ltd, or their teams is implied.</p>
-    </section>
-
-
-    <section class="system" id="technology-access" aria-labelledby="technology-access-title">
+    </section><div id="participate" class="hero-actions"><a class="button" href="join.html">Join Made Sick</a><a href="voting-edition.html">Explore voting resources</a></div>
+<section class="system" id="projects" aria-labelledby="projects-title"><div class="section-heading"><h2 id="projects-title">Projects</h2></div><div class="system-grid"><article><h3>PIXIE</h3><p>Research into creative tools that remember context and act with permission.</p><a href="#pixie">Explore PIXIE</a></article><article><h3>Remedy Ward</h3><p>A place to turn creative inspiration into shared work.</p><a href="#remedy-ward">Explore Remedy Ward</a></article><article><h3>Made Sick Sessions</h3><p>Proposed creator-owned conversations. No sessions are scheduled yet.</p><a href="#sessions">Explore Sessions</a></article></div><details class="content-details"><summary>PIXIE</summary><section id="pixie" class="system" aria-labelledby="pixie-heading">
+  <div class="section-heading">
+    <div>
+      <p class="eyebrow">Technology &amp; Creative Access</p>
+      <h2 id="pixie-heading">PIXIE: the system should remember</h2>
+    </div>
+  </div>
+  <div class="system-grid">
+    <article>
+      <span class="step">The problem</span>
+      <h3>Tools that forget you</h3>
+      <p>Creative tools ask people to remember filenames, folders, versions, and recovery steps while they are trying to make something. PIXIE is a consent-first research project asking technology to carry more of that administrative burden.</p>
+    </article>
+    <article>
+      <span class="step">Who it's for</span>
+      <h3>Makers first</h3>
+      <p>Beginning with musicians, filmmakers, designers, and game developers. The goal is not to monitor people or diagnose how they feel — it is to help devices understand human intent, preserve provenance, suggest reversible organization, and make interrupted work easier to resume.</p>
+    </article>
+    <article>
+      <span class="step">Get involved</span>
+      <h3>Help change the system</h3>
+      <a href="https://github.com/ibloud/pixie-device-stewardship">Explore the research. Share a workflow barrier. Help us ask operating-system providers to change. →</a>
+    </article>
+  </div>
+  </section></details><details class="content-details"><summary>Technology & creative access</summary><section class="system" id="technology-access" aria-labelledby="technology-access-title">
       <div class="section-heading">
         <div>
           <p class="eyebrow">PIXIE · Technology & Creative Access</p>
@@ -331,21 +316,48 @@
         <a class="button" href="https://github.com/ibloud/pixie-device-stewardship" target="_blank" rel="noreferrer">Explore the PIXIE research ↗</a>
         <a class="text-link" href="https://github.com/ibloud/pixie-device-stewardship/issues/new/choose" target="_blank" rel="noreferrer">Share a workflow barrier ↗</a>
       </div>
-    </section>
-
-    <section class="system" id="how-it-works" aria-labelledby="system-title">
+    </section></details><details class="content-details"><summary>Remedy Ward</summary><section class="system remedy-ward" id="remedy-ward" aria-labelledby="remedy-ward-title">
       <div class="section-heading">
-        <div><p class="eyebrow">One identity, distinct layers</p><h2 id="system-title">Public work. Curated context. Private conversation.</h2></div>
+        <div>
+          <p class="eyebrow">The Remedy Ward · Fandom as infrastructure</p>
+          <h2 id="remedy-ward-title">When the music kept you alive,<br>the ward is where you build something with that.</h2>
+        </div>
       </div>
-      <div class="system-grid">
-        <article><span class="step">01</span><h3>Write on pckt.blog</h3><p>Creators publish under an identity they control and keep their voice at the source.</p><a href="https://pckt.blog/" target="_blank" rel="noreferrer">Visit pckt.blog ↗</a></article>
-        <article><span class="step">02</span><h3>Travel via standard.site</h3><p>Compatible long-form records make writing portable and discoverable across AT Protocol apps.</p><a href="https://standard.site/" target="_blank" rel="noreferrer">See the standard ↗</a></article>
-        <article><span class="step">03</span><h3>Appear here by consent</h3><p>Made Sick indexes approved identities, selected posts, milestones, events, and field-level evidence.</p></article>
-        <article><span class="step">04</span><h3>Talk privately with Germ</h3><p>An optional, creator-enabled route to end-to-end encrypted messages. Closed unless invited.</p><a href="https://www.germnetwork.com/" target="_blank" rel="noreferrer">Visit Germ ↗</a></article>
-      </div>
-    </section>
 
-    <section class="sessions" id="sessions" aria-labelledby="sessions-title">
+      <p class="lede">Some music doesn't just move people — it holds them together through illness, isolation, and the specific grief of not being believed. The Remedy Ward is Made Sick's framework for turning that energy into something structural: consent-first, community-built, and replicable by any fandom.</p>
+
+      <div class="system-grid">
+        <article>
+          <span class="step">The worked example</span>
+          <h3>Ren's community</h3>
+          <p>Ren's fanbase — r/ren, the Sick Boi community — has organically produced exactly the conditions the Ward is designed to support: fans organizing local screenings, peer support sessions, and mutual aid around music that addressed chronic illness and systemic failure directly. That existing energy is the proof of concept.</p>
+          <p class="notice">Not enrolled · Artist's public account · Independent Loptr Lab interpretation only · No affiliation, endorsement, or participation by Ren or his team is implied</p>
+          <a href="https://www.nme.com/features/ren-interview-sick-boi-glastonbury-hi-ren-3514688" target="_blank" rel="noreferrer">Read the public interview ↗</a>
+        </article>
+
+        <article>
+          <span class="step">The framework</span>
+          <h3>What any fandom can replicate</h3>
+          <p>The Ward asks three questions of any fan community: Does your artist's work address illness, survival, or systemic harm? Has that work generated real mutual support among fans — not just admiration? Are fans ready to make that support visible and structured, with consent as the foundation?</p>
+          <p>If yes to all three, the Ward gives you the infrastructure: a consent-first directory, a story archive, a live session model, and a private channel that opens only when both people choose it.</p>
+        </article>
+
+        <article>
+          <span class="step">The mechanics</span>
+          <h3>How to bring your fandom here</h3>
+          <p>Fandom ward-building follows the same path as any Made Sick participant: request an invite, verify your AT Protocol identity, and propose your community as a ward within the directory. The fandom's artist is listed as a public record example — not enrolled — until and unless they choose to participate on their own terms.</p>
+          <a href="https://github.com/ibloud/made-sick/issues/new" target="_blank" rel="noreferrer">Request an invite ↗</a>
+          <a href="https://github.com/ibloud/inpatient-corridors-review" target="_blank" rel="noreferrer">Read the Inpatient Corridors prototype ↗</a>
+        </article>
+      </div>
+
+      <p class="directory-note">
+        <strong>Structural inspiration:</strong> The Remedy Ward's community-care model draws from <a href="https://www.heartsupport.com/" target="_blank" rel="noreferrer">HeartSupport</a> — a non-profit founded by Jake Luhrs to bring peer mental health support directly to music fans at shows and festivals. HeartSupport is not affiliated with Made Sick and has not endorsed this project. Their model — born in the scene, built for the fans — is cited here as the kind of structural thinking the Ward aims to extend into consent-first, decentralized fandom infrastructure.<br><br>
+        <strong>Thematic backbone:</strong> The ward/remedy framing grows from <a href="https://github.com/ibloud/inpatient-corridors-review" target="_blank" rel="noreferrer">Inpatient Corridors / Break the Grid</a> — an independent Loptr Lab prototype exploring institutional pressure, community care, and system redesign. That project is not affiliated with or endorsed by any artist whose work informed its themes.
+      </p>
+
+      <p class="support-note">The Remedy Ward is a community infrastructure framework, not therapy, crisis response, clinical care, or emergency support. For urgent needs, use an appropriate local professional or emergency service.</p>
+    </section></details><details class="content-details"><summary>Made Sick Sessions</summary><section class="sessions" id="sessions" aria-labelledby="sessions-title">
       <div>
         <p class="eyebrow">Made Sick Sessions · Proposed pilot</p>
         <h2 id="sessions-title">Creator-owned stories, live.</h2>
@@ -365,9 +377,36 @@
         <a class="text-link" href="STREAMPLACE_INTEGRATION.md">Read the integration standard ↗</a>
       </div>
       <p class="support-note">Independent prototype · Made Sick is not affiliated with or endorsed by Streamplace. Public livestream chat is not private support, therapy, or emergency care.</p>
-    </section>
-
-    <section class="pilot" id="pilot" aria-labelledby="pilot-title">
+    </section></details><details class="content-details"><summary>Made Sick Adventures · Pre-alpha</summary><section class="system" id="adventures" aria-labelledby="adventures-title">
+      <div class="section-heading"><div><p class="eyebrow">Made Sick Adventures · Pre-alpha</p><h2 id="adventures-title">Adventure, with room for the day you’re having.</h2></div></div>
+      <p class="lede">Plan around your dates, your energy and the breaks you need. Our first featured guide is RENSpace Adventure in Brighton, with Halloween featured, original scavenger-hunt clues, places to eat and rest, shopping and downloadable phone-map pins.</p>
+      <div class="system-grid"><article><h3>Explore RENSpace Adventure</h3><p>Choose a shorter outing or spread the trail across your visit. Every clue is optional, and you can explore from home.</p><a class="button" href="https://adventure.made-sick.org/">Open the public pre-alpha ↗</a><p class="support-note">Visit <strong>adventure.made-sick.org</strong> · Public pre-alpha.</p></article><article><h3>Growing into sick-friendly travel</h3><p>Vetted events, accommodations and travel options are planned. Future listings will show specific details about rest, physical access, sensory conditions, flexibility and costs, with sources and review dates.</p><p class="notice">Current venues are researched suggestions. Access has not been surveyed locally; no accommodation is vetted yet. No diagnosis or health disclosure is needed to explore.</p></article></div>
+      <p class="directory-note">Independent Loptr Lab / Made Sick project. Artist references do not imply participation or endorsement. <a href="https://github.com/ibloud/made-sick/blob/main/docs/ADVENTURES.md">Read the pre-alpha status and next steps ↗</a></p>
+    </section></details></section>
+<section class="system" id="tools" aria-labelledby="tools-title"><div class="section-heading"><h2 id="tools-title">Story Finder &amp; tools</h2></div><p>Search your public story archive or explore the optional prototype tools.</p><div class="hero-actions"><a class="button" href="story-finder.html">Open Story Finder</a></div><details class="content-details"><summary>Publishing, identity & private contact</summary><section class="system" id="identity-layers" aria-labelledby="system-title">
+      <div class="section-heading">
+        <div><p class="eyebrow">One identity, distinct layers</p><h2 id="system-title">Public work. Curated context. Private conversation.</h2></div>
+      </div>
+      <div class="system-grid">
+        <article><span class="step">01</span><h3>Write on pckt.blog</h3><p>Creators publish under an identity they control and keep their voice at the source.</p><a href="https://pckt.blog/" target="_blank" rel="noreferrer">Visit pckt.blog ↗</a></article>
+        <article><span class="step">02</span><h3>Travel via standard.site</h3><p>Compatible long-form records make writing portable and discoverable across AT Protocol apps.</p><a href="https://standard.site/" target="_blank" rel="noreferrer">See the standard ↗</a></article>
+        <article><span class="step">03</span><h3>Appear here by consent</h3><p>Made Sick indexes approved identities, selected posts, milestones, events, and field-level evidence.</p></article>
+        <article><span class="step">04</span><h3>Talk privately with Germ</h3><p>An optional, creator-enabled route to end-to-end encrypted messages. Closed unless invited.</p><a href="https://www.germnetwork.com/" target="_blank" rel="noreferrer">Visit Germ ↗</a></article>
+      </div>
+    </section></details><details class="content-details"><summary>Phase 2 story layer</summary><section class="phase-two" aria-labelledby="phase-two-title">
+      <div class="phase-signal" aria-hidden="true"><span>02</span></div>
+      <div class="phase-copy">
+        <p class="eyebrow">Phase 2 · the signal is open</p>
+        <h2 id="phase-two-title">You found the door.<br><em>Choose what happens next.</em></h2>
+        <p class="lede">Read the public archive. Enter the game. Witness the live signal. Open a private channel only when both people choose it.</p>
+        <div class="phase-route" aria-label="Phase 2 route">
+          <a href="#directory"><span>01</span><strong>Recognize</strong><small>Public evidence</small></a>
+          <a href="#pilot"><span>02</span><strong>Participate</strong><small>Your permissions</small></a>
+          <a href="#pilot"><span>03</span><strong>Transmit</strong><small>Creator-controlled tools</small></a>
+        </div>
+        <p class="fiction-notice"><strong>Story layer:</strong> an independent Loptr Lab participatory prototype inspired by dystopian collective storytelling and Ren's earlier Money Game treasure-hunt experience. It is not an official Ren, Sick Boi, Mr. Robot, or fsociety experience.</p>
+      </div>
+    </section></details><details class="content-details"><summary>Duet, Streamplace & private-contact pilot</summary><section class="pilot" id="pilot" aria-labelledby="pilot-title">
       <div class="pilot-heading">
         <div>
           <p class="eyebrow">Functional test case · creator-controlled</p>
@@ -530,8 +569,20 @@
           </div>
         </div>
       </section>
-    </section>
-  <section id="mission-statement" class="system" aria-labelledby="mission-title">
+    </section></details></section>
+<section class="system" id="trust" aria-labelledby="trust-title"><div class="section-heading"><h2 id="trust-title">Independent, with consent at the center</h2></div><p>Made Sick is an independent Loptr Lab prototype. Artist references do not imply enrollment, endorsement or affiliation. Wellness stories are personal experience, not medical advice.</p><p>Participation is optional. Financial support does not buy participation, influence, ownership or employment. Sponsorship should come from financial stability, with no expectation of return beyond the stated perk.</p><div class="hero-actions"><a href="PRIVACY.md">Privacy &amp; consent</a><a href="GOVERNANCE.md">Governance</a><a href="future-vision.html">Future Vision</a><a href="#loptr-mission">Mission &amp; participation terms</a></div></section><section id="loptr-mission" aria-labelledby="loptr-mission-title" style="max-width:72rem;margin:2rem auto;padding:1.5rem"><h2 id="loptr-mission-title">People over profit. Accessibility first.</h2><p>Loptr Lab is a pre-seed, people-over-profit, accessibility-first venture working toward a self-sustaining model within a capitalist economy. Money sustains the work; meaningful change for people is its purpose. We accept funding only on terms that keep people and accessibility first. Our long-term vision includes universal basic income. We aim to bring change to life and leave a transparent record of what we tried, what worked, and what failed so others can carry it forward. This mission governs our projects, funding decisions, and partnerships; it is not a temporary marketing position.</p><p>Current open review and contribution opportunities are voluntary and unpaid. Before work begins, agree in writing on scope, time, what will be public, credit preferences, and an exit path. You can stop at any point. Participation does not promise employment, ownership, revenue share, academic credit, or future pay. Any paid commission or other formal arrangement requires a separate signed agreement before work begins. External assistance or benefits belong to the participant and are not compensation from Loptr Lab.</p><p><a href="https://github.com/ibloud/ibloud.github.io/blob/main/MISSION.md">Read the full mission and participation terms</a></p></section><details class="content-details"><summary>Creative references: Sick Boi</summary><section class="system" aria-labelledby="uniform-title">
+      <div class="section-heading">
+        <div><p class="eyebrow">A story you can recognize</p><h2 id="uniform-title">The uniform is a signal—not a diagnosis.</h2></div>
+      </div>
+      <p class="directory-note">Ren's official Sick Boi episodes turn a clothing line into a dystopian narrative about subjects, systems, and agency. Made Sick reads the uniform as a voluntary sign of recognition and community. Wearing it does not disclose illness or enroll anyone in this independent prototype.</p>
+      <div class="system-grid">
+        <article><span class="step">01</span><h3>The Flame of Prometheus</h3><p>Episode 1 establishes the cinematic world and its institutional language.</p><a href="https://www.youtube.com/watch?v=47UW7nNzI2U" target="_blank" rel="noreferrer">Watch the official episode ↗</a></article>
+        <article><span class="step">02</span><h3>Pandora's Box</h3><p>Episode 2 extends the world around the second Sick Boi clothing drop.</p><a href="https://www.youtube.com/watch?v=Ohy0GtuxXWg" target="_blank" rel="noreferrer">Watch the official episode ↗</a></article>
+        <article><span class="step">03</span><h3>Sick Boi</h3><p>The official film anchors the wider creative language in Ren's work.</p><a href="https://www.youtube.com/watch?v=gTxTyZglwAY" target="_blank" rel="noreferrer">Watch the official film ↗</a></article>
+        <article><span class="step">04</span><h3>An accessible route</h3><p>Ren publicly distinguished the boutique clothing project from lower-priced tees, beanies, vinyl, and other official merchandise.</p><a href="https://renmakesmerch.com/" target="_blank" rel="noreferrer">Visit the official merch store ↗</a></article>
+      </div>
+      <p class="directory-note">Independent interpretation by Loptr Lab · No affiliation, endorsement, or participation by Ren, Sick Boi Ltd, or their teams is implied.</p>
+    </section></details><details class="content-details"><summary>Creative inspiration</summary><section id="mission-statement" class="system" aria-labelledby="mission-title">
   <div class="section-heading">
     <div>
       <p class="eyebrow">Creative Inspiration</p>
@@ -554,103 +605,9 @@
   </div>
 
   <p class="directory-note">Made Sick is an independent project and is not affiliated with or endorsed by Chris Do or The Futur. The referral is optional and separate from PIXIE's health features: no gated access, urgency language, automatic enrollment, or suggestion that earning money is a condition of recovery.</p>
-</section>
-    <section class="system remedy-ward" id="remedy-ward" aria-labelledby="remedy-ward-title">
-      <div class="section-heading">
-        <div>
-          <p class="eyebrow">The Remedy Ward · Fandom as infrastructure</p>
-          <h2 id="remedy-ward-title">When the music kept you alive,<br>the ward is where you build something with that.</h2>
-        </div>
-      </div>
-
-      <p class="lede">Some music doesn't just move people — it holds them together through illness, isolation, and the specific grief of not being believed. The Remedy Ward is Made Sick's framework for turning that energy into something structural: consent-first, community-built, and replicable by any fandom.</p>
-
-      <div class="system-grid">
-        <article>
-          <span class="step">The worked example</span>
-          <h3>Ren's community</h3>
-          <p>Ren's fanbase — r/ren, the Sick Boi community — has organically produced exactly the conditions the Ward is designed to support: fans organizing local screenings, peer support sessions, and mutual aid around music that addressed chronic illness and systemic failure directly. That existing energy is the proof of concept.</p>
-          <p class="notice">Not enrolled · Artist's public account · Independent Loptr Lab interpretation only · No affiliation, endorsement, or participation by Ren or his team is implied</p>
-          <a href="https://www.nme.com/features/ren-interview-sick-boi-glastonbury-hi-ren-3514688" target="_blank" rel="noreferrer">Read the public interview ↗</a>
-        </article>
-
-        <article>
-          <span class="step">The framework</span>
-          <h3>What any fandom can replicate</h3>
-          <p>The Ward asks three questions of any fan community: Does your artist's work address illness, survival, or systemic harm? Has that work generated real mutual support among fans — not just admiration? Are fans ready to make that support visible and structured, with consent as the foundation?</p>
-          <p>If yes to all three, the Ward gives you the infrastructure: a consent-first directory, a story archive, a live session model, and a private channel that opens only when both people choose it.</p>
-        </article>
-
-        <article>
-          <span class="step">The mechanics</span>
-          <h3>How to bring your fandom here</h3>
-          <p>Fandom ward-building follows the same path as any Made Sick participant: request an invite, verify your AT Protocol identity, and propose your community as a ward within the directory. The fandom's artist is listed as a public record example — not enrolled — until and unless they choose to participate on their own terms.</p>
-          <a href="https://github.com/ibloud/made-sick/issues/new" target="_blank" rel="noreferrer">Request an invite ↗</a>
-          <a href="https://github.com/ibloud/inpatient-corridors-review" target="_blank" rel="noreferrer">Read the Inpatient Corridors prototype ↗</a>
-        </article>
-      </div>
-
-      <p class="directory-note">
-        <strong>Structural inspiration:</strong> The Remedy Ward's community-care model draws from <a href="https://www.heartsupport.com/" target="_blank" rel="noreferrer">HeartSupport</a> — a non-profit founded by Jake Luhrs to bring peer mental health support directly to music fans at shows and festivals. HeartSupport is not affiliated with Made Sick and has not endorsed this project. Their model — born in the scene, built for the fans — is cited here as the kind of structural thinking the Ward aims to extend into consent-first, decentralized fandom infrastructure.<br><br>
-        <strong>Thematic backbone:</strong> The ward/remedy framing grows from <a href="https://github.com/ibloud/inpatient-corridors-review" target="_blank" rel="noreferrer">Inpatient Corridors / Break the Grid</a> — an independent Loptr Lab prototype exploring institutional pressure, community care, and system redesign. That project is not affiliated with or endorsed by any artist whose work informed its themes.
-      </p>
-
-      <p class="support-note">The Remedy Ward is a community infrastructure framework, not therapy, crisis response, clinical care, or emergency support. For urgent needs, use an appropriate local professional or emergency service.</p>
-    </section>
-
-    <section class="participate" id="participate" aria-labelledby="participate-title">
-      <div class="section-heading">
-        <div>
-          <p class="eyebrow">How to participate</p>
-          <h2 id="participate-title">Consent, clarity, and creator-controlled visibility.</h2>
-        </div>
-      </div>
-      <div class="system-grid">
-        <article>
-          <span class="step">01</span>
-          <h3>Join with AT Protocol</h3>
-          <p>Authenticate the identity you control, review the public-record boundary, and explicitly publish your participant record.</p>
-        </article>
-        <article>
-          <span class="step">02</span>
-          <h3>Authenticate</h3>
-          <p>Made Sick uses AT Protocol OAuth. Your PDS handles authentication; Made Sick never asks for your password.</p>
-        </article>
-        <article>
-          <span class="step">03</span>
-          <h3>Withdraw anytime</h3>
-          <p>Your participant record lives in your own AT Protocol repository and can be deleted from the join page.</p>
-        </article>
-      </div>
-    </section>
-
-  <section id="pixie" class="system" aria-labelledby="pixie-heading">
-  <div class="section-heading">
-    <div>
-      <p class="eyebrow">Technology &amp; Creative Access</p>
-      <h2 id="pixie-heading">PIXIE: the system should remember</h2>
-    </div>
-  </div>
-  <div class="system-grid">
-    <article>
-      <span class="step">The problem</span>
-      <h3>Tools that forget you</h3>
-      <p>Creative tools ask people to remember filenames, folders, versions, and recovery steps while they are trying to make something. PIXIE is a consent-first research project asking technology to carry more of that administrative burden.</p>
-    </article>
-    <article>
-      <span class="step">Who it's for</span>
-      <h3>Makers first</h3>
-      <p>Beginning with musicians, filmmakers, designers, and game developers. The goal is not to monitor people or diagnose how they feel — it is to help devices understand human intent, preserve provenance, suggest reversible organization, and make interrupted work easier to resume.</p>
-    </article>
-    <article>
-      <span class="step">Get involved</span>
-      <h3>Help change the system</h3>
-      <a href="https://github.com/ibloud/pixie-device-stewardship">Explore the research. Share a workflow barrier. Help us ask operating-system providers to change. →</a>
-    </article>
-  </div>
-  </section>
-    
-  </main>
+</section></details>
+<section class="system" id="next-step" aria-labelledby="next-title"><h2 id="next-title">Choose your next step.</h2><div class="hero-actions"><a class="button" href="#directory">Explore</a><a class="button button-secondary" href="join.html">Participate</a></div></section>
+</main>
 
   <footer class="site-footer">
     <div class="footer-content">
@@ -661,5 +618,6 @@
 
   <script src="app.js"></script>
 <script src="pixie-launcher.js" defer></script>
+<script src="navigation.js" defer></script>
 </body>
 </html>
