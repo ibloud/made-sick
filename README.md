@@ -30,6 +30,10 @@ The profile shows which method or methods were verified. Verification does not e
 
 The repository contains `verified-profile.js`, a small state model that evaluates trusted verification evidence. The participant join flow now uses the official browser OAuth client for AT Protocol authentication and writes a narrowly scoped participant record to the participant's own repository. Verification evidence remains a separate step.
 
+## Stories and community resources
+
+[Stories](https://made-sick.org/stories.html) features a manually curated collection from the founder’s Made Sick pckt.blog publication, with topic filters and Load more. The homepage previews three articles. Direct links connect the publication and `@made-sick.org` on Bluesky. Five independent resource cards are labeled as unconfirmed partners. Other creators require per-story permission; enrollment is not publication permission. See [story sharing and removal](docs/STORY_SHARING.md). Automatic feed indexing and cross-posting remain unimplemented.
+
 ## Story Finder
 
 [Story Finder](https://made-sick.org/story-finder.html) is a device-local research interface for people who use a public Bluesky feed as a diary, notebook, or distributed story archive. It resolves a public AT Protocol handle, loads the author's feed in chronological pages of up to 100 posts, and provides local text, exact-phrase, date, reply, repost, and link filters.

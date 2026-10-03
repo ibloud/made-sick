@@ -1,0 +1,48 @@
+'use strict';
+const test = require('node:test');
+const assert = require('node:assert/strict');
+const fs = require('node:fs');
+const path = require('node:path');
+const {JSDOM} = require('jsdom');
+const root = path.resolve(__dirname, '..');
+const read = name => fs.readFileSync(path.join(root, name), 'utf8');
+test('homepage stays bounded while the directory retains all entries and five resource cards', () => {
+ const home = new JSDOM(read('index.html')).window.document;
+ const directory = new JSDOM(read('directory.html')).window.document;
+ const stories = new JSDOM(read('stories.html')).window.document;
+ assert.equal(home.querySelectorAll('.profile-card').length, 3);
+ assert.equal(home.querySelectorAll('.story-card').length, 3);
+ assert.ok(directory.querySelectorAll('.profile-card').length > 3);
+ assert.equal(directory.querySelectorAll('#resources article').length, 5);
+ assert.equal(stories.querySelector('#resources'), null);
+});
+test('directory filters distinguish participants from public references', () => {
+ const win = new JSDOM(read('directory.html'), {runScripts:'outside-only',url:'https://made-sick.org/directory.html'}).window;
+ win.eval(read('app.js'));
+ win.document.querySelector('[data-filter="participant"]').click();
+ const visible = [...win.document.querySelectorAll('.profile-card:not(.hidden)')];
+ assert.ok(visible.length > 0);
+ assert.ok(visible.every(card => card.dataset.kind.split(/\s+/).includes('participant')));
+ assert.equal(win.document.querySelectorAll('#resources article').length, 5);
+ win.close();
+});
+test('PIXIE stays unloaded until requested and closes without retaining its frame URL', () => {
+ const win = new JSDOM(read('directory.html'), {runScripts:'outside-only'}).window;
+ const d = win.document;
+ assert.equal(d.querySelector('#resources').nextElementSibling.id, 'pixie-demo');
+ const script = d.querySelector('script[src="directory-pixie.js"]');
+ assert.ok(script, 'Directory must actually include the PIXIE demo script');
+ const style = d.createElement('style'); style.textContent = read('styles.css'); d.head.appendChild(style);
+ assert.equal(win.getComputedStyle(d.getElementById('close-pixie-demo')).display, 'none');
+ win.eval(read(script.getAttribute('src')));
+ const frame = d.getElementById('pixie-demo-frame');
+ assert.equal(frame.hasAttribute('src'), false);
+ d.getElementById('load-pixie-demo').click();
+ assert.equal(frame.src, 'https://ibloud.github.io/50-ways-to-leave-another/pixie/demo/index.html');
+ assert.equal(d.getElementById('pixie-demo-panel').hidden, false);
+ d.getElementById('close-pixie-demo').click();
+ assert.equal(frame.hasAttribute('src'), false);
+ assert.equal(d.getElementById('pixie-demo-panel').hidden, true);
+ assert.equal(d.activeElement.id, 'load-pixie-demo');
+ win.close();
+});
