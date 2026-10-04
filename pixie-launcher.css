@@ -1,4 +1,4 @@
-/* Standalone launcher styles for pages that do not load the directory stylesheet. */
+/* Shared launcher and dialog styles for every Made Sick page. */
 .pixie-launcher{position:fixed;right:calc(1rem + env(safe-area-inset-right,0px));bottom:calc(1rem + env(safe-area-inset-bottom,0px));z-index:9998;display:inline-flex;align-items:center;gap:.5rem;width:auto;max-width:calc(100vw - 2rem);min-height:48px;padding:.65rem .9rem;background:var(--paper,#f4f0e7);color:var(--ink,#111);border:2px solid var(--ink,#111);box-shadow:4px 4px 0 var(--acid,#b5cc18);font:900 .8rem/1.2 ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;letter-spacing:.06em;cursor:pointer}
 .pixie-launcher .pixie-launcher-icon{display:block;flex:0 0 24px;width:24px;height:24px;max-width:24px;max-height:24px;object-fit:contain;border-radius:4px}
 .pixie-launcher:focus-visible,.pixie-radar-close:focus-visible{outline:4px solid #4967d6;outline-offset:3px}
@@ -10,3 +10,14 @@ body.pixie-overlay-open{overflow:hidden}
 .pixie-radar-close{flex:none;min-height:44px;padding:.5rem .75rem;background:var(--acid,#b5cc18);color:var(--ink,#111);border:2px solid var(--ink,#111);font:inherit;cursor:pointer}
 .pixie-radar-frame{display:block;width:100%;min-height:0;flex:1;border:0;background:#08080f}
 @media(max-width:600px){.pixie-radar-head{font-size:.65rem;gap:.5rem}}
+
+
+body { padding-bottom: calc(6rem + env(safe-area-inset-bottom, 0px)); }
+.pixie-launcher { box-sizing: border-box; }
+.pixie-launcher:hover { background: var(--ink,#111); color: var(--paper,#f4f0e7); }
+.pixie-radar-overlay { padding-top: calc(.5rem + env(safe-area-inset-top,0px)); padding-bottom: calc(.5rem + env(safe-area-inset-bottom,0px)); }
+.pixie-radar-head { flex-wrap: wrap; flex-shrink: 0; }
+.pixie-radar-help { margin:0; padding:.5rem .75rem; color:#f4f0e7; font: .85rem/1.4 system-ui,sans-serif; }
+.pixie-radar-head a { color:inherit; padding:.5rem; }
+.skip-link { position:absolute; top:-100px; left:1rem; padding:.75rem; background:#111; color:#fff; z-index:10000; }
+.skip-link:focus { top:1rem; }
