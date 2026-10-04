@@ -17,14 +17,16 @@
     .why{margin:48px 0}.why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:22px}.why article{border:var(--line);background:#fff;box-shadow:var(--shadow);padding:22px}.why h3{font:900 1rem var(--mono);margin-bottom:10px;color:var(--red)}.footer{border-top:var(--line);margin-top:64px;padding-top:18px;font:.72rem var(--mono);color:var(--muted);text-transform:uppercase}
     @media(max-width:700px){body{padding:16px}.why-grid{grid-template-columns:1fr}.signal{padding:10px}.play{width:66px;height:66px}.hero{margin-bottom:30px}}
   </style>
+<link rel="stylesheet" href="pixie-launcher.css">
 </head>
 <body>
+<a class="skip-link" href="#main">Skip to content</a>
   <header>
     <a class="brand" href="index.html" aria-label="Made Sick home">MADE <span>SICK</span></a>
-    <a class="back" href="index.html">← Back to directory</a>
+    <a class="back" href="directory.html">← Back to directory</a>
   </header>
 
-  <main>
+  <main id="main">
     <section class="hero" aria-labelledby="title">
       <p class="eyebrow">Featured Signal · Public Reference · Editorial Context</p>
       <h1 id="title">MasterClass Live<br><em>Voting Edition</em></h1>
@@ -274,3 +276,4 @@
 <script src="pixie-launcher.js" defer></script>
 </body>
 </html>
+
