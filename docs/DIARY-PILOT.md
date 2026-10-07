@@ -69,7 +69,10 @@ Independent fan commentary. Not affiliated with or authorized by the artist. Int
 - [Official artist links — music, social accounts and tour](https://linktr.ee/chinchilla_music)
 - [Listen to Viper — choose a music service](https://chinchilla.ffm.to/viper)
 - [Listen to Dog Eat Dog — choose a music service](https://chinchilla.ffm.to/dog-eat-dog)
-- [Ren X Chinchilla — Chalk Outlines (Live)](https://www.youtube.com/watch?v=35yALr_opeg)
+- [Ren with CHINCHILLA — Chalk Outlines, All Points East live (fan recording, Jack's Gig Content)](https://www.youtube.com/watch?v=N-F1HzmgW_E)
+- [Ren X Chinchilla — Chalk Outlines (original official live video, 2021)](https://www.youtube.com/watch?v=35yALr_opeg)
+
+Use the All Points East performance as the festival connection in the reader introduction. Its upload is a fan recording, not an official artist upload. The existing 2021 video is a separate performance. The festival recording was located through its indexed title and linked YouTube thumbnail; direct YouTube playback verification remains pending. Check playback on iPad before publishing; keep the official original as an alternative.
 
 Website and artist-linked music destinations checked on 7 October 2026 UTC. Listening links are optional; no subscription or purchase is required to read the diary.
 
