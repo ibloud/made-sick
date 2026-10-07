@@ -21,7 +21,7 @@ The diaries remain primary. Choose one stop, selected stops, or the entire tour.
 
 Tour dates and venues verified against https://www.samtompkins.com/tour-2/ on 6 October 2026 America/Chicago. A tour listing confirms neither correspondent attendance nor diary publication, backstage access or permission. France and Amsterdam are identified; their diary sources, publishing schedule and operators still need confirmation. The proposed France entry time is **19:00 Paris time (CEST)** on 15 October; confirm the publishing operator before scheduling.
 
-Operator word and letter order are kept out of this repository. Their placement in the private vault (10-Private) must be verified before publishing clues; a prepared private handoff file is not proof of vault import. Publish a reviewed answer key only after the Amsterdam entry closes. Earlier public commits exposed the previous key; the owner should treat it as disclosed and review whether to replace it privately before launch.
+Operator word and letter order are kept out of this repository. Their placement in the private vault (10-Private) must be verified before publishing clues; a prepared private handoff file is not proof of vault import. Publish a reviewed answer key only after the Amsterdam entry closes. Earlier public commits exposed the previous key; Dominique is replacing the word and landmarks privately before launch. Do not reuse the previous key or retired clue material.
 
 ## Publication and analytics decision
 
@@ -45,7 +45,9 @@ One stop is enough. Follow the whole tour if you want, or join from home.
 
 Keep your letter privately. A second clue arrives with the Köln diary on 14 October. No visit or purchase is needed.
 
-Editorial prerequisite: the actual diary must contain a factual note identifying Manchester Central Library as a library, without claiming a visit that did not occur. The council confirms its identity at https://www.manchester.gov.uk/online-directories/libraries-directories/libraries/all-libraries/central-library . No accessibility, opening-hour or attendance claim follows from this identity check. Rewrite the clue only after the diary exists, using its exact comparison phrase. Do not invent a comparison or quote.
+Required landmark fact: see operator key (10-Private).
+
+Editorial prerequisite: verify the privately selected landmark fact against an official source. Rewrite the clue only after the real diary exists, using its exact comparison phrase. Do not invent a comparison, quote or visit.
 
 ## Paste-ready Köln clue — no answer reveal
 
@@ -53,13 +55,15 @@ Editorial prerequisite: the actual diary must contain a factual note identifying
 
 Join this stop alone, continue from Manchester, or follow the whole tour from home.
 
-In the diary's chocolate-museum note, find the surname of its founder. Keep the first letter of that surname.
+**Draft placeholder — not ready to paste:** In today's entry, find [exact phrase from the actual diary about the privately selected landmark]. [Content-dependent question and extraction instruction from the private operator key.]
 
-**Hint:** Look for the person whose story connects chocolate-making with the museum.
+**Hint:** [A hint grounded in the diary that does not supply the answer.]
 
-Keep both letters in route order. The answer key comes after the Amsterdam entry, not here.
+Keep your collected letters in route order. The answer key comes after the Amsterdam entry, not here.
 
-Editorial prerequisite: the actual diary must identify founder Hans Imhoff. The museum's official history supports this name at https://www.schokoladenmuseum.de/en/hans-imhoff/ . “Imhoff Chocolate Museum” is not required as the museum's official title; the diary must include the founder fact. Do not invent a correspondent museum visit.
+Required landmark fact: see operator key (10-Private).
+
+Editorial prerequisite: verify the privately selected landmark fact against an official source. Complete the question and extraction instruction from the private operator key only after the diary exists. Do not invent a correspondent visit.
 
 The Paris and Amsterdam clues must be drafted from their real diary content against the private operator key. They are not ready merely because the tour dates are confirmed.
 
@@ -156,7 +160,7 @@ Replace placeholders, check final length and verify destinations before owner ap
 
 - [ ] Manchester clue uses a real, exact phrase from the completed diary and cannot be solved solely from generic wording.
 - [ ] No fabricated diary comparison, visit, attendance or access claim.
-- [ ] Private-vault placement of operator key verified; review replacing the previously disclosed key.
+- [ ] Dominique’s replacement operator key and landmarks are saved in 10-Private and excluded from public sync; do not reuse retired clues.
 - [ ] Copy only reader-facing sections under “Optional diary clue” into pckt, after replacing placeholders. Exclude editor notes.
 - [ ] Keep unidentified Liv out of reader copy.
 - [ ] Separate bot identity and repository controls resolved before any code PR; this documentation PR does not configure them.
