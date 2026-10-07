@@ -1,6 +1,6 @@
 # Made Sick diary pilot — revised review draft
 
-Status: PR #43 remains draft and documentation only. No diary, message, collection system or automation has been published. The supplied SuperMe.ai perspectives are a review brief, not evidence of artist, venue or reviewer endorsement. This file does not update the external note.
+Status: PR #43 is ready for review and documentation only. No diary, message, collection system or automation has been published. The supplied SuperMe.ai perspectives are a review brief, not evidence of artist, venue or reviewer endorsement. This file does not update the external note.
 
 ## Two questions
 
@@ -16,8 +16,8 @@ The diaries remain primary. Choose one stop, selected stops, or the entire tour.
 |---|---|---|
 | Manchester Academy, Manchester | 11 October 2026 | Written-only diary; first clue |
 | Club Volta, Köln | 14 October 2026 | Written-only diary; second clue appears with this entry |
-| Les Étoiles, Paris, France | 15 October 2026 | Proposed pre-written from-home continuation, operated by backup |
-| Melkweg, Amsterdam | 18 October 2026 | Proposed final clue; optional solver credit only with explicit consent |
+| Les Étoiles, Paris, France | 15 October 2026 | Proposed pre-written from-home continuation; manual publication only |
+| Melkweg, Amsterdam | 18 October 2026 | Proposed final clue; no solver submissions or credits in this pilot |
 
 Tour dates and venues verified against https://www.samtompkins.com/tour-2/ on 6 October 2026 America/Chicago. A tour listing confirms neither correspondent attendance nor diary publication, backstage access or permission. France and Amsterdam are identified; their diary sources, publishing schedule and operators still need confirmation. The proposed France entry time is **19:00 Paris time (CEST)** on 15 October; confirm the publishing operator before scheduling.
 
@@ -73,28 +73,22 @@ Independent fan commentary. Not affiliated with or authorized by the artist. Int
 
 Also state who paid for travel, tickets, lodging and production, and whether guest-list/backstage access was granted for this stop/date. Use “not yet confirmed” in a review draft, never invent a funder or access claim. If a grant is documented, disclose its scope separately; do not imply editorial approval.
 
-## Optional DM tally — accepted approach, not enabled
+## No-backup pilot mode — no DM tally
 
-Dominique accepted the anonymous tally for this pilot. No matched list is authorized. Reader line, only after an inbox operator is confirmed:
+Dominique cannot appoint another administrator by 8 October. Use the already defined fallback for this pilot: readers keep their letters privately. Do not invite answer DMs, record completion submissions, create a solver list, or offer solver credits.
 
-“If you want to report completing the clues, DM your collected letters in route order to [CONFIRMED PILOT ACCOUNT]. Participation is optional. DMs identify your account to the recipient. We record only anonymous totals, not a solver list; we cannot promise deletion of the underlying platform messages. Please do not send health details or private locations.”
+Reader line: “Keep your collected letters privately. You do not need to send us your answers. Choose one stop or follow the entire tour.”
 
-Acknowledgment template:
-
-“Thank you. We will count this as one completion message without copying your handle or quoting you. We are not confirming puzzle answers before the final entry. No further reply or purchase is required.”
-
-Count correct two-letter submissions privately against the operator key. Do not write the expected answer into reader copy. Record message totals, not “unique solvers.” Without retained identifiers, repeat submissions and matched return cannot be independently checked. A correct two-letter message is self-reported two-clue completion, not proof of reading, attendance or return.
-
-DM tally protocol has no named operator yet and is not live. Until one is approved, omit the DM invitation and allow private letter collection.
+No automated release or Repurpose workflow runs without an independently available backup. Written-only entries can be prepared from home and manually published by Dominique after review. No backup account or authority has been created.
 
 ## Proposed thresholds and evidence limits
 
-The anonymous completion tally is accepted for this pilot, with its duplicate/return limitations. The remaining checks are proposed operating thresholds, not results or implemented tracking.
+The no-backup fallback disables the previously accepted anonymous tally. Its minimum-count threshold is not applicable. Workload and any voluntary feedback remain observable; unavailable audience metrics remain unknown.
 
 | Proposed check | Threshold | Applicability |
 |---|---|---|
 | Matched solver return | Not measured in the accepted no-list pilot | No account-matching list is authorized. |
-| Anonymous completion signal | At least 10 correct two-letter completion messages; 5–9 inconclusive; fewer than 5 below proposed floor | Message count only; duplicate people cannot be excluded. Not a return rate or impact verdict. |
+| Anonymous completion signal | Not measured | No DM tally or solver submissions in this pilot. |
 | Made Sick work | At most 6 hours per stop; Köln lower than Manchester | Log categories and travel separately; show total both with and without travel and avoid double counting. |
 | Crew and venue burden | At most 30 minutes each per stop | Separate reported time and unknown time. |
 | Views ratio | Köln views / Manchester views at least 40% | Requires same tool, metric, window and bot handling. Views are not readers or returners. |
@@ -105,14 +99,14 @@ The anonymous completion tally is accepted for this pilot, with its duplicate/re
 
 Do not reinstate the superseded 15% return and go/shrink/stop schedule. Missing measurement is unknown, not a failed result. A small or unmeasurable sample guides a no-code rerun with an indie Bandcamp artist; it does not prove the format failed.
 
-The accepted choice is the anonymous tally. Do not build a matched list or claim a matched return rate. A future iteration could revisit that choice with separate consent and retention controls.
+The current choice is no submissions and no solver list. Do not claim a completion or return rate. A future iteration may revisit collection only after staffing and privacy decisions.
 
 ## PIXIE and operator logs
 
-| Stop | Writing min | Checking/corrections min | Clearance min | DM handling min | Publishing min | Travel min | Total work min | PIXIE-assisted tasks/elapsed | Comparable manual task |
-|---|---|---|---|---|---|---|---|---|---|
-| Manchester | Unknown | Unknown | Unknown | Unknown | Unknown | Unknown | Unknown | Not recorded | Not selected |
-| Köln | Unknown | Unknown | Unknown | Unknown | Unknown | Unknown | Unknown | Not recorded | Not selected |
+| Stop | Writing min | Checking/corrections min | Clearance min | Publishing min | Travel min | Total work min | PIXIE-assisted tasks/elapsed | Comparable manual task |
+|---|---|---|---|---|---|---|---|---|
+| Manchester | Unknown | Unknown | Unknown | Unknown | Unknown | Unknown | Not recorded | Not selected |
+| Köln | Unknown | Unknown | Unknown | Unknown | Unknown | Unknown | Not recorded | Not selected |
 
 For an all-from-home pilot, label every entry “written from home” and omit the travel column from the operating hours log; do not imply physical attendance. Record crew and venue time separately. Log requests, grantor, granted scope, approval time, cuts, fallback decision and unresolved checks. Keep correspondence, rights records and identifying DM information out of this public repo. Estimate time savings only when comparable tasks support the comparison.
 
@@ -122,7 +116,7 @@ Optional feedback asks about outing/from-home activity, another artist discovere
 
 Gate 1: story-feature permission under docs/STORY_SHARING.md plus separate case-study/sales permission. Use a private clearance record per clip with filmer, identifiable people, music owner, venue rules, excerpt/version, platforms, paid/free access, duration, written grant and withdrawal route. Unclear rights: cut the media and use an original written recap. Artist factual/privacy/safety review must not require a favourable edit.
 
-Gate 2: one named Made Sick approver checks every claim proposed for agents/venues, with a confirmation log. No current team, venue, grant, backstage access or endorsement is established here. Named approver, release owner and backup remain open; Dominique must not silently be assigned every role.
+Gate 2: one named Made Sick approver checks every claim proposed for agents/venues, with a confirmation log. No current team, venue, grant, backstage access or endorsement is established here. Pitch approval and any future automated release require named roles. No backup will be available by 8 October, so this pilot has no automated release. Manual owner-reviewed written publication remains separate from those future roles.
 
 Pilot: written-only diaries on 11/14 October, paper/private clearance, hours log and debrief. No Repurpose workflow, release manifest automation, plugin schema, tour data model, partners page or live connection is implemented by this PR. Keep future partner material on adventure.made-sick.org rather than building a separate pitch site; implementation waits for the source and review gates. Do not sync private materials to a redistribution folder.
 
@@ -152,7 +146,7 @@ Replace placeholders, check final length and verify destinations before owner ap
 
 | By | Required decision or check | Fallback |
 |---|---|---|
-| 8 October | Name inbox operator and backup release owner; do not assign both to Dominique | No DM tally; collect letters privately |
+| 8 October | No additional admin available; adopt no-backup mode now | No DM tally or automated release; readers collect letters privately |
 | 9 October | Confirm whether a correspondent will physically be in Manchester | All four stops written from home |
 | 9 October | Confirm publishing access to made-sick.pckt.blog | Reviewed fallback or later publication |
 | 10 October | Write Manchester text, rewrite its clue against actual text, and check iPad preview | Reviewed fallback without clue; record missing clue |
@@ -169,4 +163,4 @@ Replace placeholders, check final length and verify destinations before owner ap
 
 No separate handle list is created. On 21 October 2026, the operator should review evaluation notes and retain only anonymous totals. This is a proposed manual step, not an installed deletion automation. Platform DMs and public replies remain under platform/participant control; do not promise they disappear.
 
-Before launch: confirm publishing-account access, diary sources, private permissions, sources for remaining clues, analytics actually available, applicable thresholds, named inbox/release owner and backup, final tagged links, iPad preview and publication approval. No need to collect identifiers simply to satisfy an unavailable metric.
+Before launch: confirm publishing-account access, diary sources, private permissions, sources for remaining clues, analytics actually available, applicable thresholds, manual publication review, final tagged links, iPad preview and publication approval. No need to collect identifiers simply to satisfy an unavailable metric.
