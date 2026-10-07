@@ -12,7 +12,7 @@ function setup(run = true) {
 }
 test('all stories remain readable without JavaScript', () => {
   const win = setup(false);
-  assert.equal(win.document.querySelectorAll('.story-card:not([hidden])').length, 8);
+  assert.equal(win.document.querySelectorAll('.story-card:not([hidden])').length, 9);
   assert.equal(win.document.getElementById('story-filters').hidden, true);
   win.close();
 });
@@ -21,7 +21,7 @@ test('load more reveals the remaining stories and moves focus to the first new l
   assert.equal(d.querySelectorAll('.story-card:not([hidden])').length, 6);
   const firstNew = d.querySelector('.story-card[hidden] a');
   d.getElementById('load-stories').click();
-  assert.equal(d.querySelectorAll('.story-card:not([hidden])').length, 8);
+  assert.equal(d.querySelectorAll('.story-card:not([hidden])').length, 9);
   assert.equal(d.activeElement, firstNew);
   assert.equal(d.getElementById('load-stories').hidden, true);
   win.close();
