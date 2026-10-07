@@ -63,6 +63,16 @@ The proposed route is Los Angeles → Chicago → Toronto. Diaries will link her
 
 Independent fan commentary. Not affiliated with or authorized by the artist. Interpretations belong to the publisher and are not medical guidance.
 
+### Official website and music
+
+- [Official website](https://www.chinchilla-official.com/)
+- [Official artist links — music, social accounts and tour](https://linktr.ee/chinchilla_music)
+- [Listen to Viper — choose a music service](https://chinchilla.ffm.to/viper)
+- [Listen to Dog Eat Dog — choose a music service](https://chinchilla.ffm.to/dog-eat-dog)
+- [Ren X Chinchilla — Chalk Outlines (Live)](https://www.youtube.com/watch?v=35yALr_opeg)
+
+Website and artist-linked music destinations checked on 7 October 2026 UTC. Listening links are optional; no subscription or purchase is required to read the diary.
+
 ### Optional diary clue — template only
 
 In today's entry, find [exact phrase from the completed CHINCHILLA diary]. [Question and extraction instruction grounded in that diary.]
