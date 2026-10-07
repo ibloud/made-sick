@@ -1,0 +1,21 @@
+/* Extends Made Sick tokens; static, low-bandwidth, no animation or remote fonts. */
+.pitch-hero,.pitch-section{border:var(--line);background:var(--surface-color);padding:clamp(1.2rem,4vw,3rem);margin:0 0 2rem;box-shadow:var(--shadow)}
+.pitch-hero h1{max-width:20ch;margin:1rem 0 1.5rem;text-transform:none}
+.pitch-kicker{font:800 .9rem/1.6 var(--font-mono);letter-spacing:.03em}
+.pitch-meta{font-size:.95rem;color:var(--text-muted)}
+.disclosure{border:3px solid var(--ink);border-left:10px solid var(--ink);padding:1.25rem;margin:2rem 0;background:var(--paper)}
+.disclosure h2{font-size:1.5rem}
+.pitch-section p,.disclosure p{margin:1rem 0;max-width:78ch}
+.pitch-section h3{margin:1.5rem 0 .5rem;font-size:1.3rem}
+.pitch-nav,.pitch-footer nav{display:flex;gap:.7rem 1.4rem;flex-wrap:wrap;margin-top:1.5rem}
+.pitch-nav a,.pitch-footer a{padding:.4rem 0}
+.pitch-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.25rem;margin:1.5rem 0}
+.pitch-grid article{padding:1.2rem;border:var(--line-thin);background:var(--paper)}
+.pitch-grid h3{margin:0}
+.table-wrap{overflow-x:auto;margin:1.5rem 0;max-width:100%}
+table{border-collapse:collapse;width:100%;font-size:1rem;min-width:33rem}caption{text-align:left;font-weight:700;padding:0 0 .7rem}th,td{border:var(--line-thin);padding:.8rem;text-align:left;vertical-align:top}th{background:var(--ink);color:var(--paper)}
+.stage-list,.source-list{padding-left:1.5rem;margin:1.5rem 0}.stage-list li,.source-list li{margin:1rem 0;padding-left:.3rem}
+.pitch-footer{border-top:var(--line);padding:1.5rem 0;font-size:1rem}
+a{overflow-wrap:anywhere}a:focus-visible,.table-wrap:focus-visible{outline:3px solid var(--focus);outline-offset:4px}
+@media(max-width:850px){.pitch-grid{grid-template-columns:1fr}}
+@media print{body{padding:0;max-width:none}.grouped-header,.pitch-nav,.skip-link{display:none}.pitch-hero,.pitch-section{box-shadow:none;padding:1rem;margin:0 0 1rem}h1{font-size:2rem}h2{font-size:1.5rem}.pitch-grid{display:block}.table-wrap{overflow:visible}table{min-width:0}.disclosure{break-inside:avoid}a{color:inherit}}

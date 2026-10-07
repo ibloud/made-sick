@@ -86,3 +86,7 @@ See [GOVERNANCE.md](GOVERNANCE.md), [DISCLOSURE_STANDARD.md](DISCLOSURE_STANDARD
 ## Participant join
 
 The live join path is [`join.html`](join.html). It supports existing AT Protocol identities and provider-side account creation, then requires explicit directory consent before writing `org.made-sick.participant` to the participant's own repository. The OAuth client requests only the participant collection's create/update/delete permission in addition to the required `atproto` scope. Withdrawal deletes that record. See [docs/ATPROTO_JOIN.md](docs/ATPROTO_JOIN.md).
+
+## Travelling bard review proposal
+
+[Travelling bard · possible 2027–28 pitch](bard-tour.html) is Dominique / Loptr Lab’s independent, AI-assisted proposal for Ren’s optional review. No agreement, tour booking, guest or sponsorship is confirmed. Ren has no obligation to participate; execution requires his affirmative agreement and complete control. The static page separates historical evidence from proposals and financial estimates. It adds no enrollment, contact, payments or broadcast service. See [review and provenance notes](docs/BARD_TOUR_PITCH.md).
