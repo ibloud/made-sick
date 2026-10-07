@@ -25,9 +25,9 @@ Operator word: **LINK**, agreed by Dominique. Letters in route order: L, I, N, K
 
 ## Publication and analytics decision
 
-Working preference from Dominique: core diaries on Made Sick pckt.blog, promoted through Bluesky. Only pixie.pckt.blog has analytics according to the owner. Its numbers cannot measure Made Sick diary readership.
+Working preference from Dominique: core diaries on https://made-sick.pckt.blog/, promoted through Bluesky. The existing stories page supplied this address and its public publication was verified during this review. Publishing-account access remains unverified. Only pixie.pckt.blog has analytics according to the owner. Its numbers cannot measure Made Sick diary readership.
 
-Do not silently move diaries to PIXIE or duplicate the main experience for analytics. Confirm the exact Made Sick blog URL/account and choose before launch:
+Do not silently move diaries to PIXIE or duplicate the main experience for analytics. Confirm publishing-account access and choose before launch:
 - keep Made Sick as diary host and mark unavailable view/click/source metrics unknown; or
 - explicitly approve a different canonical diary host with verified analytics.
 
@@ -148,4 +148,4 @@ Replace placeholders, check final length and verify destinations before owner ap
 
 No separate handle list is created. On 21 October 2026, the operator should review evaluation notes and retain only anonymous totals. This is a proposed manual step, not an installed deletion automation. Platform DMs and public replies remain under platform/participant control; do not promise they disappear.
 
-Before launch: confirm host URL, diary sources, private permissions, sources for remaining clues, analytics actually available, applicable thresholds, named inbox/release owner and backup, final tagged links, iPad preview and publication approval. No need to collect identifiers simply to satisfy an unavailable metric.
+Before launch: confirm publishing-account access, diary sources, private permissions, sources for remaining clues, analytics actually available, applicable thresholds, named inbox/release owner and backup, final tagged links, iPad preview and publication approval. No need to collect identifiers simply to satisfy an unavailable metric.
