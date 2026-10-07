@@ -43,7 +43,7 @@ The PIXIE demonstration stores one user-authored cue, one user-authored action, 
 
 ## Diary adventure pilot — proposed anonymous evaluation
 
-The October 2026 diary pilot will not create a separate solver list or add tracking or cross-post reader identifiers. Participants may keep clue letters privately. A proposed optional Bluesky DM tally may be offered only after its receiving account, responsible operator and disclosure are confirmed. DMs identify senders to the recipient even if evaluation notes contain no handles. The evaluation would retain anonymous message totals, not matched or deduplicated reader records; such totals cannot establish unique solvers or diary return rate.
+The October 2026 diary pilot will not create a separate solver list or add tracking or cross-post reader identifiers. Participants may keep clue letters privately. No DM tally or solver submissions will be solicited in this pilot because an additional operator and backup will not be available. The evaluation will not measure unique solvers, matched diary return or clue completion. Optional public feedback may be summarized as anonymous counts, separately from the operator hours log.
 
 Do not copy handles, message text, personal details or identifiable quotations into evaluation records. Optional public feedback remains subject to platform controls and retention. On 21 October 2026, the pilot operator should review evaluation notes and retain only anonymous aggregate results. This proposed manual review does not promise deletion of platform DMs or public replies, and no collection or deletion automation is implemented by this draft. Identifiable case-study reuse requires separate permission.
 
