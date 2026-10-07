@@ -21,7 +21,21 @@ The diaries remain primary. Choose one stop, selected stops, or the entire tour.
 
 Tour dates and venues verified against https://www.samtompkins.com/tour-2/ on 6 October 2026 America/Chicago. A tour listing confirms neither correspondent attendance nor diary publication, backstage access or permission. France and Amsterdam are identified; their diary sources, publishing schedule and operators still need confirmation. The proposed France entry time is **19:00 Paris time (CEST)** on 15 October; confirm the publishing operator before scheduling.
 
-Operator word and letter order are kept out of this repository. Their placement in the private vault (10-Private) must be verified before publishing clues; a prepared private handoff file is not proof of vault import. Publish a reviewed answer key only after the Amsterdam entry closes. Earlier public commits exposed the previous key; Dominique is replacing the word and landmarks privately before launch. Do not reuse the previous key or retired clue material.
+## Adventure connection — reuse RENSpace
+
+Reuse RENSpace's existing optional clue, letter collection, from-home participation and answer-sheet approach. Each diary is an entry point, not a replacement for the adventure. Readers can choose one stop, selected stops or the entire tour; no completion gate locks the next diary.
+
+Reader flow:
+1. Read the diary.
+2. Optionally solve its content-dependent clue and keep a letter in personal notes.
+3. Follow the next-diary or tour-index link, or stop.
+4. Check a reviewed answer sheet after the final diary.
+
+The answer sheet is part of the reader experience, not a submission or verification system. Release it after the Amsterdam entry closes. No DM tally, solver account, answer submission, leaderboard or new tracking is required.
+
+The previously prepared operator key is an editorial answer sheet. It may remain in the private vault for drafting convenience, but its secrecy, import and replacement are not launch requirements for this no-tally pilot. Current public planning notes omit the answer to avoid unintended spoilers, not to secure a behavioural measure.
+
+This PR changes planning documents only. No diary, tour index, clue sheet, next-stop link or answer sheet has been integrated into the live adventure site. Site integration must reuse the existing source and review process; do not build another site or bypass repository controls.
 
 ## Publication and analytics decision
 
@@ -33,7 +47,7 @@ Do not silently move diaries to PIXIE or duplicate the main experience for analy
 
 Use one diary link per promotion channel. Record tag convention, source label, exact final URL and destination before posting. Suggested tags: utm_source=bluesky or reddit or youtube or artist; utm_medium=social or email; utm_campaign=made_sick_diary_oct2026; utm_content=manchester or koln. Verify that the actual tools preserve and report tags. Tags alone do not count readers or clickers. Use no affiliate codes or new tracking service.
 
-## Paste-ready Manchester clue — no answer reveal
+## Manchester clue template — no answer reveal
 
 ### Optional diary clue
 
@@ -45,27 +59,27 @@ One stop is enough. Follow the whole tour if you want, or join from home.
 
 Keep your letter privately. A second clue arrives with the Köln diary on 14 October. No visit or purchase is needed.
 
-Required landmark fact: see operator key (10-Private).
+Required landmark fact: use the editorial clue notes and verify the source before publication.
 
-Editorial prerequisite: verify the privately selected landmark fact against an official source. Rewrite the clue only after the real diary exists, using its exact comparison phrase. Do not invent a comparison, quote or visit.
+Editorial prerequisite: verify the selected landmark fact against an official source. Rewrite the clue only after the real diary exists, using its exact comparison phrase. Do not invent a comparison, quote or visit.
 
-## Paste-ready Köln clue — no answer reveal
+## Köln clue template — no answer reveal
 
 ### Optional diary clue
 
 Join this stop alone, continue from Manchester, or follow the whole tour from home.
 
-**Draft placeholder — not ready to paste:** In today's entry, find [exact phrase from the actual diary about the privately selected landmark]. [Content-dependent question and extraction instruction from the private operator key.]
+**Draft placeholder — not ready to paste:** In today's entry, find [exact phrase from the actual diary about the selected landmark]. [Content-dependent question and extraction instruction from the editorial answer sheet.]
 
 **Hint:** [A hint grounded in the diary that does not supply the answer.]
 
 Keep your collected letters in route order. The answer key comes after the Amsterdam entry, not here.
 
-Required landmark fact: see operator key (10-Private).
+Required landmark fact: use the editorial clue notes and verify the source before publication.
 
-Editorial prerequisite: verify the privately selected landmark fact against an official source. Complete the question and extraction instruction from the private operator key only after the diary exists. Do not invent a correspondent visit.
+Editorial prerequisite: verify the selected landmark fact against an official source. Complete the question and extraction instruction from the editorial answer sheet only after the diary exists. Do not invent a correspondent visit.
 
-The Paris and Amsterdam clues must be drafted from their real diary content against the private operator key. They are not ready merely because the tour dates are confirmed.
+The Paris and Amsterdam clues must be drafted from their real diary content against the editorial answer sheet. They are not ready merely because the tour dates are confirmed.
 
 ## Reader disclosure — include in each entry
 
@@ -154,7 +168,8 @@ Replace placeholders, check final length and verify destinations before owner ap
 
 - [ ] Manchester clue uses a real, exact phrase from the completed diary and cannot be solved solely from generic wording.
 - [ ] No fabricated diary comparison, visit, attendance or access claim.
-- [ ] Dominique’s replacement operator key and landmarks are saved in 10-Private and excluded from public sync; do not reuse retired clues.
+- [ ] Diary text, clue extraction and editorial answer sheet agree. A private-vault import is optional and does not block the no-tally pilot.
+- [ ] Provide a next-diary/tour-index link and a reviewed answer sheet released after the final diary; confirm these exist on the actual publishing surfaces before claiming integration.
 - [ ] Copy only reader-facing sections under “Optional diary clue” into pckt, after replacing placeholders. Exclude editor notes.
 - [ ] Keep unidentified Liv out of reader copy.
 - [ ] Separate bot identity and repository controls resolved before any code PR; this documentation PR does not configure them.
