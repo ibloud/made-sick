@@ -32,7 +32,7 @@ The repository contains `verified-profile.js`, a small state model that evaluate
 
 ## Stories and community resources
 
-[Stories](https://made-sick.org/stories.html) features a manually curated collection from the founder’s Made Sick pckt.blog publication, with topic filters and Load more. The homepage previews three articles. Direct links connect the publication and `@made-sick.org` on Bluesky. Five independent resource cards are labeled as unconfirmed partners. Other creators require per-story permission; enrollment is not publication permission. See [story sharing and removal](docs/STORY_SHARING.md). Automatic feed indexing and cross-posting remain unimplemented.
+[Stories](https://made-sick.org/stories.html) features a manually curated collection from the founder’s Made Sick pckt.blog publication, with topic filters and Load more. The homepage previews three articles. Direct links connect the publication and `@made-sick.org` on Bluesky. Six independent resource cards are labeled as unconfirmed partners or educational references, including The Venus Project as an Ideas & Systems resource. Other creators require per-story permission; enrollment is not publication permission. See [story sharing and removal](docs/STORY_SHARING.md). Automatic feed indexing and cross-posting remain unimplemented.
 
 ## Story Finder
 
