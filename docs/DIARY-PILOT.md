@@ -10,7 +10,7 @@ Status: PR #43 is ready for review and documentation only. No diary, message, co
 
 The diaries remain primary. Choose one stop, selected stops, or the entire tour. Each clue must be solvable from the diary at home. No purchase, travel, public answer, follow or DM is required to read any entry.
 
-## Route and dates
+## Sam — route and dates
 
 | Stop | Tour date | Pilot treatment |
 |---|---|---|
@@ -31,11 +31,56 @@ Reader flow:
 3. Follow the next-diary or tour-index link, or stop.
 4. Check a reviewed answer sheet after the final diary.
 
-The answer sheet is part of the reader experience, not a submission or verification system. Release it after the Amsterdam entry closes. No DM tally, solver account, answer submission, leaderboard or new tracking is required.
+The answer sheet is part of the reader experience, not a submission or verification system. Release Sam’s sheet after the Amsterdam entry closes; each additional artist route has its own final entry and answer sheet. No DM tally, solver account, answer submission, leaderboard or new tracking is required.
 
 The previously prepared operator key is an editorial answer sheet. It may remain in the private vault for drafting convenience, but its secrecy, import and replacement are not launch requirements for this no-tally pilot. Current public planning notes omit the answer to avoid unintended spoilers, not to secure a behavioural measure.
 
 This PR changes planning documents only. No diary, tour index, clue sheet, next-stop link or answer sheet has been integrated into the live adventure site. Site integration must reuse the existing source and review process; do not build another site or bypass repository controls.
+
+## CHINCHILLA — additional artist adventure
+
+CHINCHILLA joins Sam as a separate artist route using the same diary-first, optional-clue, from-home format. The Ren connection is [Ren X Chinchilla — Chalk Outlines (Live)](https://www.youtube.com/watch?v=35yALr_opeg). Link to the official performance; do not copy footage or lyrics without the required permission. These are CHINCHILLA's own shows; the listings do not announce a Ren appearance.
+
+### Confirmed October shows — proposed diary stops
+
+| Date (2026) | City and venue | Official event source |
+|---|---|---|
+| 19 October | Los Angeles — Pacific Electric | [Live Nation](https://www.livenation.com/event/vvG10Z_2j4xnYY/chinchilla) |
+| 21 October | Chicago — Lincoln Hall | [Jam Productions](https://www.jamusa.com/events/detail/chinchilla) |
+| 26 October | Toronto — The Drake Hotel | [Ticketmaster](https://www.ticketmaster.co.uk/chinchilla-tickets/artist/784757) |
+
+Sources checked on 7 October 2026. This is a selected route, not a claim to list every tour date. Recheck event details before publication. Show dates are confirmed; diaries, attendance, access and publication times are not.
+
+Start with one written-from-home entry for Los Angeles. Chicago and Toronto are optional continuations, subject to the same workload limit and review. Do not commit to three additional diaries before checking capacity for Sam's pilot.
+
+### Reader introduction — review draft
+
+**CHINCHILLA: another voice, another adventure**
+
+You may know CHINCHILLA through “Chalk Outlines” with Ren. This adventure follows her own music and selected October shows. Join from home, choose one stop, or continue through the route. Start with the official performance above, then explore her own releases through her [artist links](https://linktr.ee/chinchilla_music).
+
+The proposed route is Los Angeles → Chicago → Toronto. Diaries will link here once reviewed and published. You do not need a ticket, a purchase or a journey to participate.
+
+Independent fan commentary. Not affiliated with or authorized by the artist. Interpretations belong to the publisher and are not medical guidance.
+
+### Optional diary clue — template only
+
+In today's entry, find [exact phrase from the completed CHINCHILLA diary]. [Question and extraction instruction grounded in that diary.]
+
+Hint: [A diary-based hint that does not reveal the answer.]
+
+Keep any letters privately. No answer DMs or submissions are requested. Each entry works alone.
+
+Editor: choose original city material after the diary is written, verify it against an official source, and keep draft landmark names, letters and answer words out of this repository. Do not reuse Sam's operator key. If the clue is not ready, publish the reviewed written entry without it and log the omission.
+
+### Route links and review
+
+- Artist navigation should offer Sam, CHINCHILLA and the existing Violet/Webby adventure; Webby remains in that existing adventure.
+- Add actual diary URLs and next-entry links only when they exist. The live adventure has not been updated by this document.
+- CHINCHILLA has its own reviewed answer sheet after its final published diary, provisionally Toronto on 26 October if all three entries run. Sam's answer sheet still follows Amsterdam. One route does not gate another.
+- Apply the existing disclosure, clearance, manual publication, privacy and workload rules to each entry. Log CHINCHILLA preparation separately; do not combine it with the Manchester/Köln comparison.
+- The 21 October review of Sam pilot notes remains separate from any later CHINCHILLA debrief. No solver list is created for either route.
+- Before the first CHINCHILLA entry: confirm account access, completed text, official links, any media rights, final navigation, owner review and iPad preview. No new administrator, tracking service or automation is required for this written-only route.
 
 ## Publication and analytics decision
 
