@@ -6,14 +6,14 @@ const path = require('node:path');
 const {JSDOM} = require('jsdom');
 const root = path.resolve(__dirname, '..');
 const read = name => fs.readFileSync(path.join(root, name), 'utf8');
-test('homepage stays bounded while the directory retains all entries and five resource cards', () => {
+test('homepage stays bounded while the directory retains all entries and six resource cards', () => {
  const home = new JSDOM(read('index.html')).window.document;
  const directory = new JSDOM(read('directory.html')).window.document;
  const stories = new JSDOM(read('stories.html')).window.document;
  assert.equal(home.querySelectorAll('.profile-card').length, 3);
  assert.equal(home.querySelectorAll('.story-card').length, 3);
  assert.ok(directory.querySelectorAll('.profile-card').length > 3);
- assert.equal(directory.querySelectorAll('#resources article').length, 5);
+ assert.equal(directory.querySelectorAll('#resources article').length, 6);
  assert.equal(stories.querySelector('#resources'), null);
 });
 test('directory filters distinguish participants from public references', () => {
@@ -23,7 +23,7 @@ test('directory filters distinguish participants from public references', () => 
  const visible = [...win.document.querySelectorAll('.profile-card:not(.hidden)')];
  assert.ok(visible.length > 0);
  assert.ok(visible.every(card => card.dataset.kind.split(/\s+/).includes('participant')));
- assert.equal(win.document.querySelectorAll('#resources article').length, 5);
+ assert.equal(win.document.querySelectorAll('#resources article').length, 6);
  win.close();
 });
 test('PIXIE stays unloaded until requested and closes without retaining its frame URL', () => {
