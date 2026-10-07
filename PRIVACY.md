@@ -41,4 +41,10 @@ The Phase 2 interface may store a contact-policy draft in the creator's browser 
 
 The PIXIE demonstration stores one user-authored cue, one user-authored action, and an optional check-in response in that browser's local storage. It does not send notifications, read HealthKit, collect location or age, create an account, transmit the record, infer a diagnosis, or share a consistency history. Pause and delete controls are always available. A production reminder service would require a new, explicit permission and a separate privacy review before any device notification, health integration, caregiver contact, analytics, or synchronization is added.
 
+## Diary adventure pilot — proposed no-list approach
+
+The October 2026 diary pilot will not create a separate solver list, collect clue submissions, or add tracking or cross-post reader identifiers. Participants may keep collected letters in their own notes. Optional feedback through the existing publishing channel may be public and remains subject to that platform's controls and retention. Made Sick's evaluation will record anonymous aggregate counts without copying handles, personal details, or identifiable quotations; public replies are not promised to be deleted on 21 October 2026. On that date, the pilot evaluation record will be reviewed to retain only anonymous aggregate results. Identifiable case-study reuse requires separate permission.
+
+If a future iteration needs a solver list, collection must wait until its purpose, minimum fields, storage, responsible owner, consent process and enforceable deletion date are documented and approved. This draft does not establish that any collection or deletion mechanism has been implemented.
+
 This document is a product-design baseline, not a final privacy policy. A production launch requires jurisdiction-specific privacy and platform counsel.
