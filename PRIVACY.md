@@ -42,3 +42,8 @@ The Phase 2 interface may store a contact-policy draft in the creator's browser 
 The PIXIE demonstration stores one user-authored cue, one user-authored action, and an optional check-in response in that browser's local storage. It does not send notifications, read HealthKit, collect location or age, create an account, transmit the record, infer a diagnosis, or share a consistency history. Pause and delete controls are always available. A production reminder service would require a new, explicit permission and a separate privacy review before any device notification, health integration, caregiver contact, analytics, or synchronization is added.
 
 This document is a product-design baseline, not a final privacy policy. A production launch requires jurisdiction-specific privacy and platform counsel.
+
+## Made Sick account hosting — 7 October 2026
+
+The @made-sick.org account is hosted on Eurosky; account, website, participant PDS and AppView boundaries are recorded in the [canonical ecosystem hosting note](https://github.com/ibloud/ibloud.github.io/blob/main/docs/ECOSYSTEM_ARCHITECTURE.md#made-sick-account-hosting--7-october-2026), including PLC evidence and the dated policy baseline.
+

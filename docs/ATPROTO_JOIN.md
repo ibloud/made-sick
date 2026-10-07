@@ -64,3 +64,9 @@ OAuth grants are attached to the authorization session. If the requested permiss
 The join page therefore provides **Log out** and **Switch account** controls. Logging out revokes the current OAuth grant and clears the page session. Switching accounts does the same and returns to the handle field so a different AT Protocol identity can be entered.
 
 If a user sees an error such as `Could not read the participant record (400)` after a deployment that changes OAuth permissions, they should log out and reconnect. The reconnect will request the current scope set.
+
+## Made Sick account hosting — 7 October 2026
+
+The @made-sick.org account is hosted on Eurosky; account, website, participant PDS and AppView boundaries are recorded in the [canonical ecosystem hosting note](https://github.com/ibloud/ibloud.github.io/blob/main/docs/ECOSYSTEM_ARCHITECTURE.md#made-sick-account-hosting--7-october-2026), including PLC evidence and the dated policy baseline.
+
+Participant records remain in each participant's own chosen PDS; the studio account's migration does not migrate participant accounts. Discover the participant's current PDS and authorization service from their identity rather than hardcoding Eurosky or Bluesky. Revalidate OAuth, read/create/update/delete and withdrawal after migrations before claiming interoperability; these checks have not been performed by this documentation change.
