@@ -145,3 +145,13 @@ Creators and authorized representatives may request correction, narrower wording
 - **Evidence class:** Organization's public program descriptions.
 - **Directory state:** External accessibility reference; not a Made Sick participant or established partner.
 - **Boundary:** Listing AbleGamers here does not imply sponsorship, partnership, endorsement, employment, evaluation, or authorization to speak for the organization. Any future relationship would be described separately and only if established.
+
+## The Venus Project
+
+- **Displayed statement:** The Venus Project explores habitat design and resource management in pursuit of human well-being within ecological limits. Its Jacque Fresco page discusses scarcity, human behavior, and sustainable resource management.
+- **Sources:** The Venus Project, current homepage and “Jacque Fresco.” https://www.thevenusproject.com/ and https://www.thevenusproject.com/jacque-fresco/
+- **Evidence class:** Organization’s public descriptions of its mission and founder’s ideas; not independent validation of outcomes.
+- **Reviewed:** October 7, 2026, by the AI assistant for this directory addition.
+- **Directory state:** Independent educational resource in Tools & communities; not enrolled or an established partner.
+- **Interpretation:** The invitation to discuss environments and resource access is Made Sick’s editorial framing, not a statement of shared policy or organizational agreement.
+- **Boundary:** The organization’s homepage describes its hypotheses as requiring testing. The card does not establish proven social or health outcomes, medical authority, AT Protocol participation, affiliation, endorsement, or agreement with Loptr Lab’s economic mission. No third-party images or logos are reproduced.
