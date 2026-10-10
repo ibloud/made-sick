@@ -110,8 +110,11 @@ async function handlePixieReturn() {
   if (params.get("pixie_onboarding") !== "1") return false;
   const displayName = params.get("displayName") || "";
   const milestone = params.get("milestone") || "";
-  const consent = params.get("consent") === "1";
-  if (!consent || !displayName.trim()) throw new Error("PIXIE OS returned without the required participant consent and display name.");
+  const directoryConsent = params.get("consent") === "1";
+  const publicRecordConsent = params.get("public_record_consent") === "1";
+  if (!directoryConsent || !publicRecordConsent || !displayName.trim()) {
+    throw new Error("Joining now requires both directory consent and public-record consent on Made Sick. Return to the join form to review both choices.");
+  }
   const saved = await saveParticipantRecord(displayName, milestone);
   window.history.replaceState({}, document.title, window.location.pathname);
   resultBox.hidden = false;
