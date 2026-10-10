@@ -41,6 +41,14 @@ The Phase 2 interface may store a contact-policy draft in the creator's browser 
 
 The PIXIE demonstration stores one user-authored cue, one user-authored action, and an optional check-in response in that browser's local storage. It does not send notifications, read HealthKit, collect location or age, create an account, transmit the record, infer a diagnosis, or share a consistency history. Pause and delete controls are always available. A production reminder service would require a new, explicit permission and a separate privacy review before any device notification, health integration, caregiver contact, analytics, or synchronization is added.
 
+## Diary adventure pilot — proposed anonymous evaluation
+
+The October 2026 diary pilot will not create a separate solver list or add tracking or cross-post reader identifiers. Participants may keep clue letters privately. No DM tally or solver submissions will be solicited in this pilot because an additional operator and backup will not be available. The evaluation will not measure unique solvers, matched diary return or clue completion. Optional public feedback may be summarized as anonymous counts, separately from the operator hours log.
+
+Do not copy handles, message text, personal details or identifiable quotations into evaluation records. Optional public feedback remains subject to platform controls and retention. On 21 October 2026, the pilot operator should review evaluation notes and retain only anonymous aggregate results. This proposed manual review does not promise deletion of platform DMs or public replies, and no collection or deletion automation is implemented by this draft. Identifiable case-study reuse requires separate permission.
+
+Matched-return measurement or a solver list would require a separately approved purpose, minimum fields, storage, responsible owner, consent process and enforceable deletion procedure before collection. A no-list tally must not be described as that measurement.
+
 This document is a product-design baseline, not a final privacy policy. A production launch requires jurisdiction-specific privacy and platform counsel.
 
 ## Made Sick account hosting — 7 October 2026
