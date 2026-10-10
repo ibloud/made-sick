@@ -1,0 +1,23 @@
+[hidden]{display:none!important}
+.admin-page{max-width:1180px;margin:0 auto;padding:3rem 1.5rem 6rem}
+.admin-intro{max-width:800px;margin-bottom:2rem}
+.admin-intro h1{font-size:clamp(2.8rem,7vw,5.8rem);line-height:.98;letter-spacing:-.055em;margin:.5rem 0 1.25rem}
+.admin-intro h1 span{color:#e02d22}
+.admin-status{display:inline-block;padding:.7rem .9rem;border:2px solid #0d0e12;background:#f5f1e8;font-weight:800}
+.admin-error{border:2px solid #a00;background:#fff;padding:1rem;overflow-wrap:anywhere}
+.admin-identity{display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;padding:1.2rem;margin:2rem 0;border:2px solid #0d0e12;background:#f5f1e8}
+.admin-identity>div{display:grid;gap:.35rem;min-width:0}
+.admin-identity strong{font:700 .9rem ui-monospace,monospace;overflow-wrap:anywhere}
+.admin-kicker{font:800 .75rem ui-monospace,monospace;letter-spacing:.09em;text-transform:uppercase}
+.admin-link,.admin-action,.admin-secondary{color:inherit;font-weight:800;text-underline-offset:.2em}
+.admin-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.2rem}
+.admin-card{display:flex;flex-direction:column;align-items:flex-start;min-height:245px;padding:clamp(1.25rem,3vw,2rem);border:2px solid #0d0e12;background:#fff;box-shadow:6px 6px 0 #0d0e12}
+.admin-card h2{font-size:clamp(1.4rem,3vw,2rem);line-height:1.1;margin:.8rem 0}
+.admin-card p:not(.admin-kicker){line-height:1.6;max-width:62ch}
+.admin-action{display:inline-flex;gap:.6rem;margin-top:auto;padding-top:1.2rem}
+.admin-secondary{display:inline-block;margin-top:.8rem;font-size:.92rem}
+.admin-feature{background:#f5f1e8}
+.admin-note{background:#eff2d8}
+.admin-footer{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;margin-top:2rem;padding-top:1rem;border-top:2px solid #0d0e12;font-size:.9rem}
+.admin-page a:focus-visible{outline:3px solid #2463eb;outline-offset:4px}
+@media(max-width:700px){.admin-page{padding-top:2rem}.admin-grid{grid-template-columns:1fr}.admin-card{min-height:0}.admin-identity{align-items:flex-start;flex-direction:column}}
