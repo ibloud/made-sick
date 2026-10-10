@@ -151,24 +151,19 @@ async function renderSession() {
   if (returned) return;
   const adminDid = await resolveHandle(ADMIN_HANDLE);
   if (session.did === adminDid) {
-    status.textContent = "Made Sick administrative identity detected · opening PIXIE OS admin workspace.";
-    openPixie({ role: "admin", card: "none", did: session.did });
+    status.textContent = "Administrative identity verified. Opening the Made Sick admin workspace.";
+    window.location.assign("admin.html");
     return;
   }
-  const existing = await fetchRecord();
-  if (existing && existing.value) {
-    status.textContent = "Participant card found · opening PIXIE OS."; 
-    openPixie({
-      role: "participant",
-      card: "existing",
-      did: session.did,
-      displayName: existing.value.displayName || "",
-      milestone: existing.value.milestone || ""
-    });
-    return;
-  }
-  status.textContent = "No participant card found · opening PIXIE OS onboarding."; 
-  openPixie({ role: "participant", card: "missing", onboarding: "1", did: session.did });
+
+  // Keep enrollment on Made Sick: opening PIXIE is never treated as joining.
+  // A participant record is only confirmed after the PDS accepts the write.
+  await loadExistingRecord();
+  if (!errorBox.hidden) return;
+  status.textContent = resultBox.hidden
+    ? "Identity connected. Review the consent choices and publish your participant record when ready."
+    : "Identity connected. Your existing participant record is shown below; save changes only when you choose.";
+
 }
 
 async function signIn(handle, prompt) {
