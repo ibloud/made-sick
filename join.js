@@ -24,6 +24,7 @@ const errorBox = document.querySelector("#join-error");
 const didEl = document.querySelector("#identity-did");
 const resultBox = document.querySelector("#join-result");
 const recordUri = document.querySelector("#record-uri");
+const openPixieLink = document.querySelector("#open-pixie-link");
 
 const client = new BrowserOAuthClient({
   clientMetadata: {
@@ -51,11 +52,19 @@ async function resolveHandle(handle) {
   return data.did;
 }
 
-function openPixie(params) {
-  const query = new URLSearchParams({ source: "made-sick", return_to: JOIN_RETURN_URL, ...params });
-  // Participant onboarding lives in the PIXIE desktop, not the Holdings landing page.
-  const destination = params.role === "participant" ? PIXIE_OS + "radar-core.html" : PIXIE_OS;
-  window.location.assign(destination + "?" + query.toString());
+function configurePixieLink(record) {
+  if (!openPixieLink || !session || !record) return;
+  const query = new URLSearchParams({
+    source: "made-sick",
+    role: "participant",
+    card: "existing",
+    did: session.did,
+    displayName: record.displayName || "",
+    milestone: record.milestone || "",
+    return_to: JOIN_RETURN_URL
+  });
+  openPixieLink.href = PIXIE_OS + "radar-core.html?" + query.toString();
+  openPixieLink.hidden = false;
 }
 
 async function saveParticipantRecord(displayName, milestone) {
@@ -108,6 +117,7 @@ async function handlePixieReturn() {
   resultBox.hidden = false;
   recordUri.textContent = saved.uri || "Participant record saved.";
   withdrawButton.hidden = false;
+  configurePixieLink({ displayName, milestone });
   participantForm.reset();
   status.textContent = "Participant card created through PIXIE OS and published to your AT Protocol repository.";
   return true;
@@ -220,6 +230,7 @@ async function loadExistingRecord() {
     resultBox.hidden = false;
     recordUri.textContent = existing.uri;
     withdrawButton.hidden = false;
+    configurePixieLink(existing.value);
     status.textContent = existing.value.directory
       ? "Participant record found · Made Sick participation is active."
       : "Participant record found · directory participation is paused.";
@@ -241,7 +252,8 @@ participantForm.addEventListener("submit", async (event) => {
     resultBox.hidden = false;
     recordUri.textContent = saved.uri || "Participant record saved.";
     withdrawButton.hidden = false;
-    status.textContent = "Participant record is active."; 
+    configurePixieLink({ displayName, milestone });
+    status.textContent = "Participant record saved and active. You can now open PIXIE OS."; 
   } catch (error) {
     showError(error);
   } finally {
@@ -271,6 +283,7 @@ withdrawButton.addEventListener("click", async () => {
     participantForm.reset();
     resultBox.hidden = true;
     withdrawButton.hidden = true;
+    if (openPixieLink) openPixieLink.hidden = true;
     status.textContent = "Withdrawn · the participant record was deleted from your repository.";
   } catch (error) {
     showError(error);
@@ -294,6 +307,7 @@ async function clearSession({ focusHandle = false } = {}) {
   participantForm.reset();
   resultBox.hidden = true;
   withdrawButton.hidden = true;
+  if (openPixieLink) openPixieLink.hidden = true;
   status.textContent = "Not connected.";
   if (focusHandle) {
     handleInput.value = "";
