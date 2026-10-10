@@ -24,6 +24,7 @@ const errorBox = document.querySelector("#join-error");
 const didEl = document.querySelector("#identity-did");
 const resultBox = document.querySelector("#join-result");
 const recordUri = document.querySelector("#record-uri");
+const openPixieLink = document.querySelector("#open-pixie-link");
 
 const client = new BrowserOAuthClient({
   clientMetadata: {
@@ -51,11 +52,19 @@ async function resolveHandle(handle) {
   return data.did;
 }
 
-function openPixie(params) {
-  const query = new URLSearchParams({ source: "made-sick", return_to: JOIN_RETURN_URL, ...params });
-  // Participant onboarding lives in the PIXIE desktop, not the Holdings landing page.
-  const destination = params.role === "participant" ? PIXIE_OS + "radar-core.html" : PIXIE_OS;
-  window.location.assign(destination + "?" + query.toString());
+function configurePixieLink(record) {
+  if (!openPixieLink || !session || !record) return;
+  const query = new URLSearchParams({
+    source: "made-sick",
+    role: "participant",
+    card: "existing",
+    did: session.did,
+    displayName: record.displayName || "",
+    milestone: record.milestone || "",
+    return_to: JOIN_RETURN_URL
+  });
+  openPixieLink.href = PIXIE_OS + "radar-core.html?" + query.toString();
+  openPixieLink.hidden = false;
 }
 
 async function saveParticipantRecord(displayName, milestone) {
@@ -101,13 +110,17 @@ async function handlePixieReturn() {
   if (params.get("pixie_onboarding") !== "1") return false;
   const displayName = params.get("displayName") || "";
   const milestone = params.get("milestone") || "";
-  const consent = params.get("consent") === "1";
-  if (!consent || !displayName.trim()) throw new Error("PIXIE OS returned without the required participant consent and display name.");
+  const directoryConsent = params.get("consent") === "1";
+  const publicRecordConsent = params.get("public_record_consent") === "1";
+  if (!directoryConsent || !publicRecordConsent || !displayName.trim()) {
+    throw new Error("Joining now requires both directory consent and public-record consent on Made Sick. Return to the join form to review both choices.");
+  }
   const saved = await saveParticipantRecord(displayName, milestone);
   window.history.replaceState({}, document.title, window.location.pathname);
   resultBox.hidden = false;
   recordUri.textContent = saved.uri || "Participant record saved.";
   withdrawButton.hidden = false;
+  configurePixieLink({ displayName, milestone });
   participantForm.reset();
   status.textContent = "Participant card created through PIXIE OS and published to your AT Protocol repository.";
   return true;
@@ -151,24 +164,19 @@ async function renderSession() {
   if (returned) return;
   const adminDid = await resolveHandle(ADMIN_HANDLE);
   if (session.did === adminDid) {
-    status.textContent = "Made Sick administrative identity detected · opening PIXIE OS admin workspace.";
-    openPixie({ role: "admin", card: "none", did: session.did });
+    status.textContent = "Administrative identity verified. Opening the Made Sick admin workspace.";
+    window.location.assign("admin.html");
     return;
   }
-  const existing = await fetchRecord();
-  if (existing && existing.value) {
-    status.textContent = "Participant card found · opening PIXIE OS."; 
-    openPixie({
-      role: "participant",
-      card: "existing",
-      did: session.did,
-      displayName: existing.value.displayName || "",
-      milestone: existing.value.milestone || ""
-    });
-    return;
-  }
-  status.textContent = "No participant card found · opening PIXIE OS onboarding."; 
-  openPixie({ role: "participant", card: "missing", onboarding: "1", did: session.did });
+
+  // Keep enrollment on Made Sick: opening PIXIE is never treated as joining.
+  // A participant record is only confirmed after the PDS accepts the write.
+  await loadExistingRecord();
+  if (!errorBox.hidden) return;
+  status.textContent = resultBox.hidden
+    ? "Identity connected. Review the consent choices and publish your participant record when ready."
+    : "Identity connected. Your existing participant record is shown below; save changes only when you choose.";
+
 }
 
 async function signIn(handle, prompt) {
@@ -225,6 +233,7 @@ async function loadExistingRecord() {
     resultBox.hidden = false;
     recordUri.textContent = existing.uri;
     withdrawButton.hidden = false;
+    configurePixieLink(existing.value);
     status.textContent = existing.value.directory
       ? "Participant record found · Made Sick participation is active."
       : "Participant record found · directory participation is paused.";
@@ -246,7 +255,8 @@ participantForm.addEventListener("submit", async (event) => {
     resultBox.hidden = false;
     recordUri.textContent = saved.uri || "Participant record saved.";
     withdrawButton.hidden = false;
-    status.textContent = "Participant record is active."; 
+    configurePixieLink({ displayName, milestone });
+    status.textContent = "Participant record saved and active. You can now open PIXIE OS."; 
   } catch (error) {
     showError(error);
   } finally {
@@ -276,6 +286,7 @@ withdrawButton.addEventListener("click", async () => {
     participantForm.reset();
     resultBox.hidden = true;
     withdrawButton.hidden = true;
+    if (openPixieLink) openPixieLink.hidden = true;
     status.textContent = "Withdrawn · the participant record was deleted from your repository.";
   } catch (error) {
     showError(error);
@@ -299,6 +310,7 @@ async function clearSession({ focusHandle = false } = {}) {
   participantForm.reset();
   resultBox.hidden = true;
   withdrawButton.hidden = true;
+  if (openPixieLink) openPixieLink.hidden = true;
   status.textContent = "Not connected.";
   if (focusHandle) {
     handleInput.value = "";

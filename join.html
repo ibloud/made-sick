@@ -29,7 +29,7 @@
     <section class="join-hero">
       <p class="eyebrow">AT Protocol · creator-controlled</p>
       <h1>Join Made Sick.<br><em>Keep your identity yours.</em></h1>
-      <p class="lede">Made Sick does not create a separate password account. You authenticate with an AT Protocol identity, then choose whether to publish a participant record in your own repository. After connecting, the Made Sick card opens in PIXIE OS; you return here to confirm publication. Nothing is published by opening PIXIE.</p>
+      <p class="lede">Made Sick does not create a separate password account. You authenticate with an AT Protocol identity, then choose whether to publish a participant record in your own repository. After connecting, review both consent choices and publish your participant record here. Only after the record is saved will you be offered a link to PIXIE OS. Opening PIXIE does not enroll you.</p>
     </section>
     <section class="join-card" aria-labelledby="join-title">
       <div class="join-status" id="join-status" role="status" aria-live="polite">Not connected.</div>
@@ -72,6 +72,7 @@
         <div class="join-result" id="join-result" hidden>
           <strong>Participant record is live.</strong>
           <span id="record-uri"></span>
+          <a class="button" id="open-pixie-link" href="https://holdings.loptrlab.com/" hidden>Open PIXIE OS</a>
         </div>
         <p class="support-note">Joining does not verify a diagnosis, legal identity, employment, authorship, or any other claim. It establishes identity control and affirmative directory participation only.</p>
         <p class="support-note">If you see a permission error after permissions change, use <strong>Log out</strong> and reconnect. OAuth grants are attached to the session; reconnecting is required to receive the updated permission set.</p>

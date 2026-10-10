@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Admin workspace — Made Sick</title>
+<meta name="robots" content="noindex,nofollow">
+<meta name="description" content="Private administrative workspace for Made Sick.">
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="navigation.css">
+<link rel="stylesheet" href="admin.css">
+<link rel="stylesheet" href="pixie-launcher.css">
+</head>
+<body>
+<a class="skip-link" href="#admin-main">Skip to admin workspace</a>
+<header class="site-header grouped-header">
+<a class="wordmark" href="index.html" aria-label="Made Sick home"><span>MADE</span><span>SICK</span></a>
+<nav aria-label="Admin navigation"><a href="index.html">Public site</a><a href="directory.html">Directory</a><a href="join.html">Participant join</a></nav>
+</header>
+<main id="admin-main" class="admin-page">
+<section class="admin-intro">
+<p class="eyebrow">MADE SICK · OPERATIONS</p>
+<h1>Admin workspace<span aria-hidden="true">.</span></h1>
+<p class="lede">A focused home for stewardship, participation, and site operations. Administrative access is verified against the <code>made-sick.org</code> AT Protocol identity.</p>
+<div id="admin-status" class="admin-status" role="status" aria-live="polite">Verifying administrative identity…</div>
+<p id="admin-error" class="admin-error" role="alert" hidden></p>
+</section>
+<section id="admin-content" hidden>
+<div class="admin-identity">
+<div><span class="admin-kicker">SIGNED IN AS</span><strong id="admin-did">—</strong></div>
+<a class="admin-link" href="join.html">Participant record controls ↗</a>
+</div>
+<div class="admin-grid">
+<article class="admin-card admin-feature">
+<p class="admin-kicker">01 / PARTICIPATION</p>
+<h2>Join flow &amp; participant records</h2>
+<p>Review the participant-facing join page, consent language, and record withdrawal controls. Enrollment is complete only after the participant's repository accepts the record.</p>
+<a class="admin-action" href="join.html">Open join controls <span aria-hidden="true">↗</span></a>
+</article>
+<article class="admin-card">
+<p class="admin-kicker">02 / DIRECTORY</p>
+<h2>Public directory</h2>
+<p>Review what visitors can currently see. Public directory entries are not a private membership database.</p>
+<a class="admin-action" href="directory.html">Review directory <span aria-hidden="true">↗</span></a>
+</article>
+<article class="admin-card">
+<p class="admin-kicker">03 / EDITORIAL</p>
+<h2>Stories &amp; resources</h2>
+<p>Inspect published stories, public references, and creator-facing resources before making changes.</p>
+<a class="admin-action" href="stories.html">Review stories <span aria-hidden="true">↗</span></a>
+<a class="admin-secondary" href="search.html">Search site content</a>
+</article>
+<article class="admin-card">
+<p class="admin-kicker">04 / GOVERNANCE</p>
+<h2>Policies &amp; disclosure</h2>
+<p>Use the published governance, privacy, and disclosure documents as the operational baseline.</p>
+<a class="admin-action" href="GOVERNANCE.md">Governance <span aria-hidden="true">↗</span></a>
+<a class="admin-secondary" href="PRIVACY.md">Privacy</a>
+<a class="admin-secondary" href="DISCLOSURE_STANDARD.md">Disclosure standard</a>
+</article>
+<article class="admin-card">
+<p class="admin-kicker">05 / PIXIE</p>
+<h2>Open PIXIE OS</h2>
+<p>Launch the separate PIXIE environment. Opening it does not create or change a Made Sick participant record.</p>
+<a class="admin-action" href="https://holdings.loptrlab.com/">Open PIXIE OS <span aria-hidden="true">↗</span></a>
+</article>
+<article class="admin-card admin-note">
+<p class="admin-kicker">OPERATING BOUNDARY</p>
+<h2>Creator control comes first.</h2>
+<p>This workspace currently provides authenticated navigation and review shortcuts. It does not claim live enrollment counts, moderation powers, or cross-repository access. Participant records live in participant-controlled AT Protocol repositories.</p>
+</article>
+</div>
+<div class="admin-footer"><a href="join.html">Return to identity controls</a><span>Made Sick · Admin access is not participant enrollment.</span></div>
+</section>
+</main>
+<script type="module" src="admin.js"></script>
+<script src="pixie-launcher.js" defer></script>
+</body>
+</html>
