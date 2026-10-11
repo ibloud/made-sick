@@ -24,10 +24,10 @@ All shop inventory and opening hours can change. The listed retailers are leads,
 **Story clue:** A white candle represents a light carried for remembrance, not proof of a supernatural claim. Do not light candles in public streets, parks, historic sites, or other places unless explicitly permitted; an unlit candle or phone-light alternative works just as well.
 
 ### 2. Field-hockey stick — Decathlon Brighton (check stock first)
-- **Address:** 136 North Street, Brighton BN1 1RG.
+- **Address:** Unit 3, 134 North Street, Brighton BN1 1RG.
 - **Why here:** A general sporting-goods shop; current field-hockey-stick stock is **not verified**.
 - [Google Maps / Street View search](https://www.google.com/maps/search/?api=1&query=Decathlon+136+North+Street+Brighton)
-- [Walking directions](https://www.google.com/maps/dir/?api=1&destination=Decathlon%2C+136+North+Street%2C+Brighton)
+- [Walking directions](https://www.google.com/maps/dir/?api=1&destination=Decathlon%2C+Unit+3%2C+134+North+Street%2C+Brighton)
 
 **Fallback:** [Fuel Hockey](https://www.fuelsports.co.uk/) is a hockey specialist at 32 Roberts Road, Lancing BN15 8AR, outside Brighton. Confirm current opening, stock, and travel before making the detour.
 
