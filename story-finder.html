@@ -78,7 +78,7 @@ button.secondary{background:white}button:disabled{opacity:.55;cursor:not-allowed
 <label><input id="links-only" type="checkbox"> Posts with links only</label>
 </div>
 <div class="actions">
-<button type="submit" id="load">Load latest 100</button>
+<button type="submit" id="load">Load posts</button>
 <button type="button" class="secondary" id="more" disabled>Load 100 older posts</button>
 <button type="button" class="secondary" id="clear">Clear this tab</button>
 </div>
@@ -96,7 +96,7 @@ button.secondary{background:white}button:disabled{opacity:.55;cursor:not-allowed
 <script>
 "use strict";
 const API="https://public.api.bsky.app/xrpc/";
-const state={actor:"",actorDid:"",cursor:null,posts:[],selected:new Map(),loading:false};
+const state={actor:"",actorDid:"",cursor:null,posts:[],selected:new Map(),loading:false,dateSearch:false};
 const $=id=>document.getElementById(id);
 const form=$("search-form"),results=$("results"),status=$("status"),more=$("more"),exportButton=$("export"),selectVisible=$("select-visible");
 function cleanHandle(value){return value.trim().replace(/^@/,"").toLowerCase()}
@@ -143,27 +143,44 @@ async function resolveActor(handle){
  const response=await fetch(url);if(!response.ok)throw new Error("That public handle could not be resolved.");
  return (await response.json()).did;
 }
-async function loadPage(reset){
- if(state.loading)return;state.loading=true;$("load").disabled=true;more.disabled=true;status.textContent="Loading public posts…";
+async function loadPage(reset,dateSearch=false){
+ if(state.loading)return;state.loading=true;$("load").disabled=true;more.disabled=true;
+ const from=$("date-from").value,to=$("date-to").value;
+ state.dateSearch=dateSearch;
+ status.textContent=dateSearch?"Searching the selected date range…":"Loading public posts…";
  try{
   const handle=cleanHandle($("handle").value);if(!handle)throw new Error("Enter a Bluesky handle.");
   if(reset||state.actor!==handle){state.actor=handle;state.actorDid="";state.cursor=null;state.posts=[];state.selected.clear()}
   const did=await resolveActor(handle);
   if(state.actorDid&&state.actorDid!==did){state.posts=[];state.selected.clear();state.cursor=null}
   state.actorDid=did;
-  const params=new URLSearchParams({actor:did,limit:"100",filter:"posts_with_replies",includePins:"true"});
-  if(state.cursor)params.set("cursor",state.cursor);
-  const response=await fetch(API+"app.bsky.feed.getAuthorFeed?"+params);if(!response.ok)throw new Error("Bluesky did not return this public feed.");
-  const data=await response.json(),known=new Set(state.posts.map(postKey));
-  (data.feed||[]).forEach(item=>{if(!known.has(postKey(item))){state.posts.push(item);known.add(postKey(item))}});
-  state.cursor=data.cursor||null;render();more.disabled=!state.cursor;
+  let pagesLoaded=0,reachedBoundary=false;
+  do{
+   const params=new URLSearchParams({actor:did,limit:"100",filter:"posts_with_replies",includePins:"true"});
+   if(state.cursor)params.set("cursor",state.cursor);
+   const response=await fetch(API+"app.bsky.feed.getAuthorFeed?"+params);if(!response.ok)throw new Error("Bluesky did not return this public feed.");
+   const data=await response.json(),known=new Set(state.posts.map(postKey));
+   (data.feed||[]).forEach(item=>{if(!known.has(postKey(item))){state.posts.push(item);known.add(postKey(item))}});
+   state.cursor=data.cursor||null;pagesLoaded++;
+   const oldest=state.posts.reduce((min,item)=>{const time=created(item).getTime();return min===null||time<min?time:min},null);
+   if(from&&oldest!==null&&oldest<new Date(from+"T00:00:00").getTime())reachedBoundary=true;
+   render();
+   if(dateSearch&&state.cursor&&!reachedBoundary)status.textContent=state.posts.length+" public posts loaded; searching backward to cover the selected date range…";
+  }while(dateSearch&&state.cursor&&!reachedBoundary&&pagesLoaded<25);
+  if(dateSearch){
+   if(reachedBoundary)status.textContent=state.posts.length+" public posts loaded. Reached the start of the selected date range; results below are filtered to your dates.";
+   else if(!state.cursor)status.textContent=state.posts.length+" public posts loaded. Reached the beginning of the available feed; results below are filtered to your dates.";
+   else status.textContent=state.posts.length+" public posts loaded so far. Select Continue date search to keep searching backward.";
+   more.textContent="Continue date search";
+  }else{more.textContent="Load 100 older posts"}
+  more.disabled=!state.cursor;
  }catch(error){status.textContent=error.message;results.replaceChildren();const p=document.createElement("p");p.className="empty";p.textContent="Nothing was changed. Check the handle or try again when Bluesky is available.";results.append(p)}
  finally{state.loading=false;$("load").disabled=false;if(state.cursor)more.disabled=false}
 }
-form.addEventListener("submit",event=>{event.preventDefault();loadPage(true)});
-more.addEventListener("click",()=>loadPage(false));
+form.addEventListener("submit",event=>{event.preventDefault();const hasDates=Boolean($("date-from").value||$("date-to").value);loadPage(true,hasDates)});
+more.addEventListener("click",()=>loadPage(false,state.dateSearch));
 ["query","date-from","date-to","exact","replies","reposts","links-only"].forEach(id=>$(id).addEventListener("input",render));
-$("clear").addEventListener("click",()=>{state.actor="";state.actorDid="";state.cursor=null;state.posts=[];state.selected.clear();$("query").value="";$("date-from").value="";$("date-to").value="";results.innerHTML='<p class="empty">Load a public feed to begin.</p>';status.textContent="This tab was cleared.";more.disabled=true;selectVisible.disabled=true;updateButtons()});
+$("clear").addEventListener("click",()=>{state.actor="";state.actorDid="";state.cursor=null;state.posts=[];state.selected.clear();state.dateSearch=false;more.textContent="Load 100 older posts";$("query").value="";$("date-from").value="";$("date-to").value="";results.innerHTML='<p class="empty">Load a public feed to begin.</p>';status.textContent="This tab was cleared.";more.disabled=true;selectVisible.disabled=true;updateButtons()});
 selectVisible.addEventListener("click",()=>{state.posts.filter(matches).forEach(item=>state.selected.set(postKey(item),state.selected.get(postKey(item))||new Date().toISOString()));render()});
 exportButton.addEventListener("click",()=>{
  let payload;
