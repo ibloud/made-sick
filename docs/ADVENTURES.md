@@ -12,7 +12,7 @@ The hostname is attached to the published adventure Site. DNS verification is pe
 
 The guide includes date and pace planning, original optional scavenger-hunt clues, food and rest breaks, shopping suggestions, KML/GPX bookmarks and an offline clue sheet. It does not reserve services or take payments. Physical-phone import and local walking/access surveys are outstanding.
 
-The existing Minneapolis adventure remains [Violet’s Revenge: The Forensics Trail](https://github.com/ibloud/inpatient-corridors-review/blob/main/EVENT-PHASE-IN-PROCESS.md#violets-revenge-the-forensics-trail). It is separate from the Brighton planner.
+The existing Minneapolis adventure remains [Violet’s Revenge: The Forensics Trail](https://ibloud.github.io/inpatient-corridors-review/event/). It is separate from the Brighton planner.
 
 ## Domain activation
 
