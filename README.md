@@ -90,3 +90,7 @@ The live join path is [`join.html`](join.html). It supports existing AT Protocol
 ## Travelling bard review proposal
 
 [Travelling bard · possible 2027–28 pitch](bard-tour.html) is Dominique / Loptr Lab’s independent, AI-assisted proposal for Ren’s optional review. No agreement, tour booking, guest or sponsorship is confirmed. Ren has no obligation to participate; execution requires his affirmative agreement and complete control. The static page separates historical evidence from proposals and financial estimates. It adds no enrollment, contact, payments or broadcast service. See [review and provenance notes](docs/BARD_TOUR_PITCH.md).
+
+## Published work on Sifa
+
+The Stories page includes an explicit, read-only Standard.site document lookup and links to pckt.blog publishing and Sifa. It reuses existing creator-owned records rather than adding a custom Made Sick publishing collection. Schema support, live retrieval evidence, and remaining release checks are documented in [Sifa published work](docs/SIFA_PUBLISHED_WORK.md). A record found here is not proof of its display on Sifa.
