@@ -12,3 +12,11 @@ screens. Check heading-to-body, paragraph, link and section gaps together.
 Code/link tests are separate from visual verification. Report the exact viewport
 and interactions checked. Do not claim physical iPad or screen-reader testing
 without performing it. Keep cache versions current when changing page CSS.
+
+Site-wide consistency is mandatory, not homepage-only. Every root HTML page must
+load site-theme.css last and use made-sick-site on body. Keep the canonical header
+identical across pages. Check every page at desktop and narrow widths before
+reporting a site-wide visual change complete; record exactly what was inspected.
+The shared theme owns palette, typography, page edges, controls and navigation;
+page styles may define functional grids, forms and consent states. Never override
+hidden states or remove existing accessibility and privacy behavior for styling.

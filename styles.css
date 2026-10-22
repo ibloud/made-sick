@@ -5,16 +5,16 @@
 
 /* --- 1. Root Design Tokens --- */
 :root {
-  --paper: #f7f5ed;
-  --bg-color: #f7f5ed;
-  --ink: #0d0e12;
-  --surface-color: #ffffff;
-  --surface-border: #0d0e12;
-  --text-main: #0d0e12;
-  --text-muted: #555d69;
-  --red: #e02d22;
-  --acid: #b5cc18;
-  --focus: #3b82f6;
+  --paper: #f4ebdd;
+  --bg-color: #f4ebdd;
+  --ink: #242321;
+  --surface-color: #faf6ee;
+  --surface-border: #242321;
+  --text-main: #242321;
+  --text-muted: #53524b;
+  --red: #285653;
+  --acid: #e8b949;
+  --focus: #285653;
   --line: 3px solid var(--ink);
   --line-thin: 1px solid var(--ink);
   --shadow: 4px 4px 0 var(--ink);
@@ -176,7 +176,7 @@ input[type="submit"].button {
 .button:hover,
 button.button:hover {
   background-color: var(--red);
-  color: #ffffff;
+  color: #faf6ee;
   transform: translate(-2px, -2px);
   box-shadow: 6px 6px 0 var(--ink);
 }
@@ -238,7 +238,7 @@ button.button:active {
 
 .text-button.danger:hover {
   background: var(--red);
-  color: #ffffff;
+  color: #faf6ee;
   text-decoration: none;
 }
 
@@ -346,7 +346,7 @@ button.button:active {
   border: var(--line);
   box-shadow: var(--shadow);
   padding: 2rem;
-  background: #f0ebd8;
+  background: var(--surface-color);
 }
 
 .manifesto .issue {
@@ -444,7 +444,7 @@ button.button:active {
 }
 
 .profile-card.invitation {
-  background: #fbf9f0;
+  background: var(--surface-color);
   border-style: dashed;
 }
 
@@ -628,7 +628,7 @@ button.button:active {
 .identity-card {
   border: var(--line);
   padding: 1.75rem;
-  background: #f4f8fb;
+  background: var(--surface-color);
   box-shadow: var(--shadow);
 }
 
@@ -858,7 +858,7 @@ button.button:active {
   font-family: var(--font-mono);
   font-size: 0.9rem;
   font-weight: 800;
-  background: #f0ebd8;
+  background: var(--surface-color);
   border: var(--line);
   border-left: 8px solid var(--acid);
   padding: 1rem 1.25rem;
@@ -896,7 +896,7 @@ button.button:active {
 
 .desk-mark {
   background: var(--red);
-  color: #ffffff;
+  color: #faf6ee;
   font-weight: 900;
   padding: 0.2rem 0.5rem;
   margin-right: 0.75rem;
@@ -910,7 +910,7 @@ button.button:active {
 }
 
 .tool-dock {
-  background: #edeae0;
+  background: var(--paper);
   border-right: var(--line);
   display: flex;
   flex-direction: column;
@@ -976,7 +976,7 @@ button.button:active {
 }
 
 .record-proof {
-  background: #edeae0;
+  background: var(--paper);
   border: var(--line-thin);
   padding: 0.75rem 1rem;
   display: flex;
@@ -999,7 +999,7 @@ button.button:active {
 .stream-gate {
   border: var(--line);
   padding: 1.5rem;
-  background: #fbf9f0;
+  background: var(--surface-color);
   display: flex;
   flex-direction: column;
   gap: 1rem;
@@ -1013,13 +1013,13 @@ button.button:active {
   font-weight: 600 !important;
   border: 2px dashed var(--ink) !important;
   padding: 1rem !important;
-  background: #f4f8fb;
+  background: var(--surface-color);
 }
 
 .germ-handoff {
   border: var(--line);
   padding: 1.25rem;
-  background: #f0ebd8;
+  background: var(--surface-color);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -1028,7 +1028,7 @@ button.button:active {
 }
 
 .desk-footer {
-  background: #edeae0;
+  background: var(--paper);
   border-top: var(--line);
   padding: 0.75rem 1.25rem;
   font-family: var(--font-mono);
@@ -1139,9 +1139,9 @@ button.button:active {
 
 /* Fix visibility for buttons inside the tool window document card */
 .document-card .button {
-  background-color: #0f0f0f !important;
-  color: #b5cc18 !important;
-  border: 2px solid #0f0f0f !important;
+  background-color: var(--ink) !important;
+  color: var(--acid) !important;
+  border: 2px solid var(--ink) !important;
   text-decoration: none;
   display: inline-block;
   padding: 10px 18px;
@@ -1153,8 +1153,8 @@ button.button:active {
 
 .document-card .button:hover,
 .document-card .button:focus {
-  background-color: #b5cc18 !important;
-  color: #0f0f0f !important;
+  background-color: var(--acid) !important;
+  color: var(--ink) !important;
 }
 
 /* --- 13. The Remedy Ward --- */
@@ -1176,7 +1176,7 @@ button.button:active {
 
 
 /* PIXIE OS launcher — Made Sick palette; only the icon breathes. */
-.pixie-example{display:grid;grid-template-columns:max-content 1fr;gap:.45rem 1rem;margin:1.25rem 0;padding:1rem;border:var(--line);background:#f0ebd8}.pixie-example span{font:800 .75rem var(--font-mono);color:var(--red)}.pixie-example strong{font-size:.95rem}@media(max-width:800px){.pixie-example{grid-template-columns:1fr;gap:.2rem}}
+.pixie-example{display:grid;grid-template-columns:max-content 1fr;gap:.45rem 1rem;margin:1.25rem 0;padding:1rem;border:var(--line);background:var(--surface-color)}.pixie-example span{font:800 .75rem var(--font-mono);color:var(--red)}.pixie-example strong{font-size:.95rem}@media(max-width:800px){.pixie-example{grid-template-columns:1fr;gap:.2rem}}
 
 /* PIXIE demo controls must respect their hidden state despite button display styles. */
 #pixie-demo [hidden] { display: none !important; }

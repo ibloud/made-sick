@@ -1,20 +1,20 @@
 <!doctype html>
 <html lang="en">
 <head>
+<link rel="stylesheet" href="styles.css">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 
 <title>Story Finder — Made Sick</title>
 <link rel="stylesheet" href="pixie-launcher.css">
 <style>
-:root{--ink:#111;--paper:#f4f0e7;--acid:#b5cc18;--muted:#655f56;--line:#b8b0a3;--panel:#fffdf7;--danger:#8b2635}
 *{box-sizing:border-box}
 body{margin:0;background:var(--paper);color:var(--ink);font:17px/1.55 ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
 a{color:inherit}.skip{position:absolute;left:-9999px}.skip:focus{left:1rem;top:1rem;background:#fff;padding:.75rem;z-index:9}
 body>header,main,body>footer{width:100%;max-width:1120px;margin-inline:auto;padding:1.25rem clamp(1rem,3vw,2rem)}
 .mast{display:flex;gap:1rem;align-items:center;justify-content:space-between;border-bottom:3px solid var(--ink)}
-.brand{font-weight:950;letter-spacing:.08em;text-decoration:none}.brand span:last-child{color:#657300}.back{font-weight:750}
-.hero{padding:clamp(1.5rem,4vw,3rem) 0 1.5rem}.eyebrow{text-transform:uppercase;font-size:.78rem;font-weight:900;letter-spacing:.14em;color:#657300;margin:0 0 .65rem}
+.brand{font-weight:950;letter-spacing:.08em;text-decoration:none}.brand span:last-child{color:var(--red)}.back{font-weight:750}
+.hero{padding:clamp(1.5rem,4vw,3rem) 0 1.5rem}.eyebrow{text-transform:uppercase;font-size:.78rem;font-weight:900;letter-spacing:.14em;color:var(--red);margin:0 0 .65rem}
 h1{font-size:clamp(2.4rem,5.8vw,4.5rem);line-height:1.05;letter-spacing:-.045em;margin:0 0 1.25rem;max-width:20ch;text-wrap:balance}
 .lede{font-size:1.1rem;max-width:70ch;margin:0 0 1.25rem}.notice{border-left:6px solid var(--acid);padding:1rem 1.25rem;background:var(--panel);max-width:75ch;margin:0}
 .panel{background:var(--panel);border:2px solid var(--ink);padding:clamp(1rem,3vw,2rem);box-shadow:6px 6px 0 var(--ink);margin:0 0 2rem}
@@ -24,16 +24,16 @@ label{font-weight:800;line-height:1.4}label span{display:block;font-weight:500;c
 input[type=text],input[type=search],input[type=date]{display:block;width:100%;min-width:0;max-width:100%;min-inline-size:0;min-height:3rem;font:inherit;padding:.65rem .75rem;border:2px solid var(--ink);border-radius:0;background:white;color:var(--ink)}
 input[type=date]{appearance:none;-webkit-appearance:none;text-align:left}
 input[type=date]::-webkit-date-and-time-value{text-align:left;min-height:1.4em}
-input:focus-visible,button:focus-visible,a:focus-visible{outline:4px solid #4967d6;outline-offset:3px}
+input:focus-visible,button:focus-visible,a:focus-visible{outline:4px solid var(--focus);outline-offset:3px}
 .checks{display:flex;flex-wrap:wrap;gap:.5rem 1.25rem}.checks label{display:inline-flex;align-items:center;gap:.5rem;min-height:44px}.checks input{width:1.15rem;height:1.15rem;margin:0;flex:none}
 button,.button{appearance:none;border:2px solid var(--ink);background:var(--acid);color:var(--ink);min-height:44px;padding:.75rem 1rem;font-family:inherit;font-size:1rem;font-weight:800;line-height:1.25;cursor:pointer;text-decoration:none;display:inline-block}
 button.secondary{background:white}button:disabled{opacity:.55;cursor:not-allowed}.actions{display:flex;gap:.75rem;flex-wrap:wrap}.status{min-height:1.6em;font-weight:750;margin:0}
 .results-head{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;border-bottom:3px solid var(--ink);padding-bottom:1rem}.results-head h2{margin:0}.results-head .eyebrow{margin-bottom:.5rem}
 .ledger-note{font-size:.95rem;color:var(--muted);max-width:80ch;margin:1rem 0}
-.results{display:grid;gap:1rem;padding:.5rem 0}.post{background:var(--panel);border:1px solid var(--line);padding:1rem}
+.results{display:grid;gap:1rem;padding:.5rem 0}.post{background:var(--panel);border:1px solid var(--surface-border);padding:1rem}
 .post-top{display:flex;flex-wrap:wrap;gap:.75rem;justify-content:space-between;align-items:center}.post-top label{display:inline-flex;align-items:center;gap:.5rem;min-height:44px}.post time{font-weight:800}.post p{white-space:pre-wrap;overflow-wrap:anywhere}.post-links{display:flex;gap:1rem;flex-wrap:wrap;font-size:.9rem;font-weight:800}
 .badges{display:flex;gap:.4rem;flex-wrap:wrap}.badge{font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;border:1px solid;padding:.15rem .35rem}
-.empty{margin:0;padding:1.25rem;border:2px dashed var(--line);color:var(--muted)}body>footer{border-top:1px solid var(--line);margin-top:2rem;padding-bottom:calc(6rem + env(safe-area-inset-bottom,0px));color:var(--muted)}body>footer p{margin:0}
+.empty{margin:0;padding:1.25rem;border:2px dashed var(--surface-border);color:var(--muted)}body>footer{border-top:1px solid var(--surface-border);margin-top:2rem;padding-bottom:calc(6rem + env(safe-area-inset-bottom,0px));color:var(--muted)}body>footer p{margin:0}
 @media(max-width:1000px){.row{grid-template-columns:repeat(2,minmax(0,1fr))}.row>label:first-child{grid-column:1/-1}}
 @media(max-width:600px){.row{grid-template-columns:minmax(0,1fr)}.mast{align-items:flex-start;flex-wrap:wrap}.results-head{align-items:flex-start;flex-direction:column}.panel{box-shadow:4px 4px 0 var(--ink)}.actions{width:100%}.actions>button{flex:1 1 12rem}.post-top{align-items:flex-start;flex-direction:column}}
 @media(prefers-reduced-motion:no-preference){button:not(:disabled){transition:background-color .12s}}
@@ -51,10 +51,11 @@ button.secondary{background:white}button:disabled{opacity:.55;cursor:not-allowed
 <meta name="twitter:title" content="Story Finder — Made Sick">
 <meta name="twitter:description" content="Search and review a public Bluesky diary feed without sharing credentials or uploading an archive.">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "name": "Story Finder — Made Sick", "url": "https://made-sick.org/story-finder.html", "description": "Search and review a public Bluesky diary feed without sharing credentials or uploading an archive."}</script>
+<link rel="stylesheet" href="site-theme.css?v=20261022-site">
 </head>
-<body>
-<a class="skip" href="#finder">Skip to search</a>
-<header class="site-header grouped-header"><a class="wordmark" href="index.html" aria-label="Made Sick home"><span>MADE</span><span>SICK</span></a><button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-menu" hidden>Menu</button><nav id="primary-menu" aria-label="Primary navigation"><details class="nav-group"><summary>Explore</summary><div class="nav-links"><a href="directory.html">Directory</a><a href="stories.html">Stories</a><a href="https://adventure.made-sick.org/travel.html">Travel &amp; Access</a><a href="influences.html">Influences</a></div></details><details class="nav-group"><summary>Participate</summary><div class="nav-links"><a href="join.html">Join Made Sick</a><a href="index.html#how-it-works">How it works</a><a href="voting-edition.html">Vote</a></div></details><details class="nav-group"><summary>Projects</summary><div class="nav-links"><a href="index.html#pixie">PIXIE</a><a href="index.html#remedy-ward">Remedy Ward</a><a href="index.html#sessions">Made Sick Sessions</a><a href="bard-tour.html">Travelling bard · Review pitch</a><a href="https://adventure.made-sick.org/">Adventures · Pre-alpha</a></div></details><details class="nav-group"><summary>About</summary><div class="nav-links"><a href="index.html#about-made-sick">About Made Sick</a><a href="future-vision.html">Future Vision</a><a href="index.html#loptr-mission">Mission</a><a href="index.html#trust">Independence &amp; affiliations</a></div></details><a href="search.html">Search</a></nav><a class="button button-small nav-join" href="join.html">Join</a></header>
+<body class="made-sick-site finder-page">
+<a class="skip-link" href="#finder">Skip to search</a>
+<header class="site-header grouped-header"><a class="wordmark" href="index.html" aria-label="Made Sick home"><span>MADE</span><span>SICK</span></a><button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-menu" hidden>Menu</button><nav id="primary-menu" aria-label="Primary navigation"><details class="nav-group"><summary>Explore</summary><div class="nav-links"><a href="directory.html">Directory</a><a href="stories.html">Stories</a><a href="https://adventure.made-sick.org/travel.html">Travel &amp; Access</a><a href="influences.html">Influences</a><a href="https://atmosphere.loptrlab.com/?from=made-sick">Atmosphere field guide</a></div></details><details class="nav-group"><summary>Participate</summary><div class="nav-links"><a href="join.html">Join Made Sick</a><a href="index.html#how-it-works">How it works</a><a href="voting-edition.html">Vote</a></div></details><details class="nav-group"><summary>Projects</summary><div class="nav-links"><a href="index.html#pixie">PIXIE</a><a href="index.html#remedy-ward">Remedy Ward</a><a href="index.html#sessions">Made Sick Sessions</a><a href="bard-tour.html">Travelling bard · Review pitch</a><a href="https://adventure.made-sick.org/">Adventures · Pre-alpha</a></div></details><details class="nav-group"><summary>About</summary><div class="nav-links"><a href="index.html#about-made-sick">About Made Sick</a><a href="future-vision.html">Future Vision</a><a href="index.html#loptr-mission">Mission</a><a href="index.html#trust">Independence &amp; affiliations</a></div></details><a href="search.html">Search</a></nav><a class="button button-small nav-join" href="join.html">Join</a></header>
 <main>
 <section class="hero">
 <p class="eyebrow">Public archive · device-local review</p>
