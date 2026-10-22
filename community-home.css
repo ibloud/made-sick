@@ -53,13 +53,17 @@ body.community-home{--paper:#f4ebdd;--ink:#242321;--surface-color:#faf6ee;--text
 /* Shared page rhythm: no inset mission section or stranded prose column. */
 .community-home main>.system{margin-block:clamp(2.25rem,4vw,3rem)}
 .community-home .section-heading{margin-bottom:1.25rem;padding-bottom:.75rem}
-.community-home :is(#music-play,#trust,#loptr-mission){display:grid;grid-template-columns:minmax(0,1fr);gap:1rem;padding:0;max-width:none}
-.community-home :is(#music-play,#trust,#loptr-mission)>:is(h2,.section-heading,.hero-actions){margin:0}
-.community-home :is(#music-play,#trust,#loptr-mission)>p{margin:0;max-width:none}
+.community-home :is(#music-play,#trust,#loptr-mission,#creative-process){display:grid;grid-template-columns:minmax(0,1fr);gap:1rem;padding:0;max-width:none}
+.community-home :is(#music-play,#trust,#loptr-mission,#creative-process)>:is(h2,.section-heading,.hero-actions){margin:0}
+.community-home :is(#music-play,#trust,#loptr-mission,#creative-process)>p{margin:0;max-width:none}
 .community-home #music-play>p:nth-last-child(-n+2),.community-home #loptr-mission>p:last-child{grid-column:1/-1}
 .community-home #music-play>p:last-child{font-size:.9rem;color:var(--text-muted)}
 .community-home #about-made-sick>.lede{max-width:85ch}
 @media(min-width:1000px){
- .community-home :is(#music-play,#trust,#loptr-mission){grid-template-columns:repeat(2,minmax(0,1fr));column-gap:clamp(1.5rem,3vw,2.5rem);align-items:start}
- .community-home :is(#music-play,#trust,#loptr-mission)>:is(h2,.section-heading,.hero-actions){grid-column:1/-1}
+ .community-home :is(#music-play,#trust,#loptr-mission,#creative-process){grid-template-columns:repeat(2,minmax(0,1fr));column-gap:clamp(1.5rem,3vw,2.5rem);align-items:start}
+ .community-home :is(#music-play,#trust,#loptr-mission,#creative-process)>:is(h2,.section-heading,.hero-actions){grid-column:1/-1}
 }
+
+.community-home #creative-process>:is(.eyebrow,details){grid-column:1/-1}
+
+.community-home #creative-process{padding-top:2rem}
