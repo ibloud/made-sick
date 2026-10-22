@@ -70,3 +70,7 @@ If a user sees an error such as `Could not read the participant record (400)` af
 The @made-sick.org account is hosted on Eurosky; account, website, participant PDS and AppView boundaries are recorded in the [canonical ecosystem hosting note](https://github.com/ibloud/ibloud.github.io/blob/main/docs/ECOSYSTEM_ARCHITECTURE.md#made-sick-account-hosting--7-october-2026), including PLC evidence and the dated policy baseline.
 
 Participant records remain in each participant's own chosen PDS; the studio account's migration does not migrate participant accounts. Discover the participant's current PDS and authorization service from their identity rather than hardcoding Eurosky or Bluesky. Revalidate OAuth, read/create/update/delete and withdrawal after migrations before claiming interoperability; these checks have not been performed by this documentation change.
+
+## Participant introduction versus published work
+
+The optional form field labeled **Profile introduction** continues using the existing `milestone` property. It is participant context, not a separately published achievement or verified credential. The successful join result links to `stories.html#published-work`, where creators can use the existing pckt.blog publishing route and inspect Standard.site records without additional OAuth permissions. See [Sifa published-work evidence](SIFA_PUBLISHED_WORK.md).
