@@ -43,3 +43,9 @@ Before merge, preview `stories.html#published-work` at desktop and iPad widths. 
 After merge, verify the same flow at https://made-sick.org/stories.html#published-work, then check the Sifa profile/organization page for a specific existing story. Record its visible title and source link before claiming end-to-end Sifa display. If a record is absent there, inspect Sifa activity settings/indexing rather than republishing the article or expanding OAuth scopes.
 
 Remaining ownership: Codex can finish preview/deployment checks when that environment is available; the owner can review and merge the PR. A consenting creator controls any new pckt.blog publication. Sifa controls downstream indexing. Safe to pause at the PR; do not report the integration as deployed or fully displayed on Sifa until those checks are complete.
+
+## Release verification update — 22 October 2026
+
+The Vercel preview for PR #57 was opened through Vercel’s temporary authorized preview access. In the desktop browser (1363 CSS pixels wide), `made-sick.org` returned 11 documents and the next page reached the collection end without duplicates. `ibloud.xyz` returned 20 documents on its first page with more available. Source links were displayed and no document-width overflow was observed at that viewport. GitHub Actions Public prototype checks run 85 passed.
+
+Still unverified: physical iPad/Safari, authenticated join create/update/withdraw with a disposable consenting identity, and current story display inside Sifa. The browser was denied permission to open sifa.id; this is an access limitation, not evidence that the accounts are absent or broken. The owner confirms both accounts already exist on Sifa. The public-work lookup and label/link changes do not require these account writes.
