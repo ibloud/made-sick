@@ -10,13 +10,11 @@
 <link rel="stylesheet" href="navigation.css">
 <link rel="stylesheet" href="admin.css">
 <link rel="stylesheet" href="pixie-launcher.css">
+<link rel="stylesheet" href="site-theme.css?v=20261022-site">
 </head>
-<body>
+<body class="made-sick-site">
 <a class="skip-link" href="#admin-main">Skip to admin workspace</a>
-<header class="site-header grouped-header">
-<a class="wordmark" href="index.html" aria-label="Made Sick home"><span>MADE</span><span>SICK</span></a>
-<nav aria-label="Admin navigation"><a href="index.html">Public site</a><a href="directory.html">Directory</a><a href="join.html">Participant join</a></nav>
-</header>
+<header class="site-header grouped-header"><a class="wordmark" href="index.html" aria-label="Made Sick home"><span>MADE</span><span>SICK</span></a><button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-menu" hidden>Menu</button><nav id="primary-menu" aria-label="Primary navigation"><details class="nav-group"><summary>Explore</summary><div class="nav-links"><a href="directory.html">Directory</a><a href="stories.html">Stories</a><a href="https://adventure.made-sick.org/travel.html">Travel &amp; Access</a><a href="influences.html">Influences</a><a href="https://atmosphere.loptrlab.com/?from=made-sick">Atmosphere field guide</a></div></details><details class="nav-group"><summary>Participate</summary><div class="nav-links"><a href="join.html">Join Made Sick</a><a href="index.html#how-it-works">How it works</a><a href="voting-edition.html">Vote</a></div></details><details class="nav-group"><summary>Projects</summary><div class="nav-links"><a href="index.html#pixie">PIXIE</a><a href="index.html#remedy-ward">Remedy Ward</a><a href="index.html#sessions">Made Sick Sessions</a><a href="bard-tour.html">Travelling bard · Review pitch</a><a href="https://adventure.made-sick.org/">Adventures · Pre-alpha</a></div></details><details class="nav-group"><summary>About</summary><div class="nav-links"><a href="index.html#about-made-sick">About Made Sick</a><a href="future-vision.html">Future Vision</a><a href="index.html#loptr-mission">Mission</a><a href="index.html#trust">Independence &amp; affiliations</a></div></details><a href="search.html">Search</a></nav><a class="button button-small nav-join" href="join.html">Join</a></header>
 <main id="admin-main" class="admin-page">
 <section class="admin-intro">
 <p class="eyebrow">MADE SICK · OPERATIONS</p>
@@ -55,7 +53,7 @@
 <h2>Policies &amp; disclosure</h2>
 <p>Use the published governance, privacy, and disclosure documents as the operational baseline.</p>
 <a class="admin-action" href="GOVERNANCE.md">Governance <span aria-hidden="true">↗</span></a>
-<a class="admin-secondary" href="PRIVACY.md">Privacy</a>
+<a class="admin-secondary" href="privacy.html">Privacy</a>
 <a class="admin-secondary" href="DISCLOSURE_STANDARD.md">Disclosure standard</a>
 </article>
 <article class="admin-card">
@@ -75,5 +73,6 @@
 </main>
 <script type="module" src="admin.js"></script>
 <script src="pixie-launcher.js" defer></script>
+<script src="navigation.js" defer></script>
 </body>
 </html>
