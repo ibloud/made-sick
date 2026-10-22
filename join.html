@@ -57,7 +57,7 @@
           <h2>Choose what joining means</h2>
           <label for="display-name">Public display name <span>Shown in your participant record</span></label>
           <input id="display-name" name="displayName" maxlength="80" autocomplete="name" required placeholder="The name you want people to see">
-          <label for="milestone">Milestone or short description <span>Optional · public</span></label>
+          <label for="milestone">Profile introduction <span>Optional · public. This describes you; it does not publish a story or milestone achievement.</span></label>
           <textarea id="milestone" name="milestone" maxlength="500" rows="5" placeholder="What are you celebrating, making, learning, or sharing?"></textarea>
           <fieldset>
             <legend>Before you join</legend>
@@ -71,6 +71,7 @@
         </form>
         <div class="join-result" id="join-result" hidden>
           <strong>Participant record is live.</strong>
+          <a href="stories.html#published-work">Publish or check your stories and milestone write-ups</a>
           <span id="record-uri"></span>
           <a class="button" id="open-pixie-link" href="https://holdings.loptrlab.com/" hidden>Open PIXIE OS</a>
         </div>
