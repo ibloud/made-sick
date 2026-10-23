@@ -1,0 +1,207 @@
+{
+  "schema": "made-sick-resources/v1",
+  "owner": "Made-Sick.org",
+  "directoryUrl": "https://made-sick.org/directory.html",
+  "resources": [
+    {
+      "id": "pckt-blog",
+      "name": "pckt.blog",
+      "kind": "resource",
+      "recordType": "resource",
+      "description": "A writing and reading platform for creative expression on the open social web.",
+      "url": "https://bsky.app/profile/pckt.blog",
+      "evidenceUrl": "https://bsky.app/profile/pckt.blog",
+      "tags": [
+        "pckt.blog",
+        "publishing"
+      ],
+      "jurisdiction": "",
+      "location": "",
+      "reviewedOn": null,
+      "verification": "Existing editorial reference; provider details not rechecked in this release.",
+      "relationship": "Independent resource; no partnership or endorsement established",
+      "fees": "Not checked",
+      "availability": "Not checked",
+      "accessibility": "Ask the provider about your specific needs"
+    },
+    {
+      "id": "germ-network",
+      "name": "Germ Network",
+      "kind": "resource",
+      "recordType": "resource",
+      "description": "Private conversations from an AT Protocol identity, with end-to-end encrypted messages and voice notes.",
+      "url": "https://bsky.app/profile/germnetwork.com",
+      "evidenceUrl": "https://bsky.app/profile/germnetwork.com",
+      "tags": [
+        "germ network",
+        "privacy"
+      ],
+      "jurisdiction": "",
+      "location": "",
+      "reviewedOn": null,
+      "verification": "Existing editorial reference; provider details not rechecked in this release.",
+      "relationship": "Independent resource; no partnership or endorsement established",
+      "fees": "Not checked",
+      "availability": "Not checked",
+      "accessibility": "Ask the provider about your specific needs"
+    },
+    {
+      "id": "streamplace",
+      "name": "Streamplace",
+      "kind": "resource",
+      "recordType": "resource",
+      "description": "Creator-owned livestreaming with licensing and consent information attached to video.",
+      "url": "https://bsky.app/profile/stream.place",
+      "evidenceUrl": "https://bsky.app/profile/stream.place",
+      "tags": [
+        "streamplace",
+        "video"
+      ],
+      "jurisdiction": "",
+      "location": "",
+      "reviewedOn": null,
+      "verification": "Existing editorial reference; provider details not rechecked in this release.",
+      "relationship": "Independent resource; no partnership or endorsement established",
+      "fees": "Not checked",
+      "availability": "Not checked",
+      "accessibility": "Ask the provider about your specific needs"
+    },
+    {
+      "id": "leaflet",
+      "name": "Leaflet",
+      "kind": "resource",
+      "recordType": "resource",
+      "description": "Publishing tools for writers and creatives on the open social web.",
+      "url": "https://bsky.app/profile/leaflet.pub",
+      "evidenceUrl": "https://bsky.app/profile/leaflet.pub",
+      "tags": [
+        "leaflet",
+        "publishing"
+      ],
+      "jurisdiction": "",
+      "location": "",
+      "reviewedOn": null,
+      "verification": "Existing editorial reference; provider details not rechecked in this release.",
+      "relationship": "Independent resource; no partnership or endorsement established",
+      "fees": "Not checked",
+      "availability": "Not checked",
+      "accessibility": "Ask the provider about your specific needs"
+    },
+    {
+      "id": "venus-project",
+      "name": "The Venus Project",
+      "kind": "resource",
+      "recordType": "resource",
+      "description": "The Venus Project explores habitat design and resource management in pursuit of human well-being within ecological limits. Jacque Fresco’s legacy offers a starting point for discussing how environments and access to resources shape our lives.",
+      "url": "https://www.thevenusproject.com/",
+      "evidenceUrl": "https://www.thevenusproject.com/",
+      "tags": [
+        "the venus project",
+        "systems"
+      ],
+      "jurisdiction": "",
+      "location": "",
+      "reviewedOn": null,
+      "verification": "Existing editorial reference; provider details not rechecked in this release.",
+      "relationship": "Independent resource; no partnership or endorsement established",
+      "fees": "Not checked",
+      "availability": "Not checked",
+      "accessibility": "Ask the provider about your specific needs"
+    },
+    {
+      "id": "axschat",
+      "name": "AXSChat",
+      "kind": "collaborator",
+      "recordType": "community",
+      "description": "A podcast and community conversation about disability, accessibility, innovation and social good.",
+      "url": "https://bsky.app/profile/axschat.bsky.social",
+      "evidenceUrl": "https://bsky.app/profile/axschat.bsky.social",
+      "tags": [
+        "axschat",
+        "accessibility"
+      ],
+      "jurisdiction": "",
+      "location": "",
+      "reviewedOn": null,
+      "verification": "Existing editorial reference; provider details not rechecked in this release.",
+      "relationship": "Independent resource; no partnership or endorsement established",
+      "fees": "Not checked",
+      "availability": "Not checked",
+      "accessibility": "Ask the provider about your specific needs"
+    },
+    {
+      "reviewedOn": "2026-10-23",
+      "relationship": "Independent professional resource; no partnership or endorsement established",
+      "fees": "Ask for a scoped quote",
+      "availability": "Not checked",
+      "accessibility": "Ask the provider about your specific needs",
+      "id": "smb-music",
+      "name": "Simons Muirhead Burton — Music",
+      "kind": "lawyer",
+      "recordType": "provider",
+      "description": "London music-law team whose public service page describes work with artists, songwriters, producers, labels and publishers, including publishing agreements and infringement disputes.",
+      "url": "https://www.smb.london/expertise/music/",
+      "evidenceUrl": "https://www.smb.london/expertise/music/",
+      "tags": [
+        "music",
+        "copyright",
+        "publishing",
+        "contracts",
+        "lawyer",
+        "solicitor"
+      ],
+      "jurisdiction": "England and Wales",
+      "location": "London",
+      "verification": "Provider service description checked; individual credentials, ethics, availability and suitability require separate checks."
+    },
+    {
+      "reviewedOn": "2026-10-23",
+      "relationship": "Independent professional resource; no partnership or endorsement established",
+      "fees": "Ask for a scoped quote",
+      "availability": "Not checked",
+      "accessibility": "Ask the provider about your specific needs",
+      "id": "law-society",
+      "name": "The Law Society — Find a Solicitor",
+      "kind": "lawyer",
+      "recordType": "directory",
+      "description": "Professional directory route for finding solicitors by practice area and location in England and Wales. Select and check a professional on the source service.",
+      "url": "https://solicitors.lawsociety.org.uk/",
+      "evidenceUrl": "https://www.lawsociety.org.uk/public/for-public-visitors/find-a-solicitor/",
+      "tags": [
+        "lawyer",
+        "solicitor",
+        "copyright",
+        "music",
+        "publishing",
+        "contracts"
+      ],
+      "jurisdiction": "England and Wales",
+      "location": "",
+      "verification": "Directory purpose checked on the Law Society website; no individual selected or credential checked."
+    },
+    {
+      "reviewedOn": "2026-10-23",
+      "relationship": "Independent professional resource; no partnership or endorsement established",
+      "fees": "Ask for a scoped quote",
+      "availability": "Not checked",
+      "accessibility": "Ask the provider about your specific needs",
+      "id": "icaew",
+      "name": "ICAEW — Find a Chartered Accountant",
+      "kind": "accountant",
+      "recordType": "directory",
+      "description": "ICAEW directory route for finding a chartered accountant or firm by specialism and location. Ask about experience with creative businesses and cross-border work.",
+      "url": "https://www.icaew.com/about-icaew/find-a-chartered-accountant",
+      "evidenceUrl": "https://www.icaew.com/about-icaew/find-a-chartered-accountant",
+      "tags": [
+        "accountant",
+        "accounting",
+        "tax",
+        "business",
+        "creative"
+      ],
+      "jurisdiction": "England and Wales",
+      "location": "",
+      "verification": "Official directory purpose checked; creative-sector expertise and individual credentials not checked."
+    }
+  ]
+}
