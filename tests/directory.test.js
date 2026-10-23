@@ -6,14 +6,14 @@ const path = require('node:path');
 const {JSDOM} = require('jsdom');
 const root = path.resolve(__dirname, '..');
 const read = name => fs.readFileSync(path.join(root, name), 'utf8');
-test('homepage stays bounded while the directory retains all entries and six resource cards', () => {
+test('homepage stays bounded while the directory retains all entries and source-owned resource cards', () => {
  const home = new JSDOM(read('index.html')).window.document;
  const directory = new JSDOM(read('directory.html')).window.document;
  const stories = new JSDOM(read('stories.html')).window.document;
  assert.equal(home.querySelectorAll('.profile-card').length, 3);
  assert.equal(home.querySelectorAll('.story-card').length, 3);
  assert.ok(directory.querySelectorAll('.profile-card').length > 3);
- assert.equal(directory.querySelectorAll('#resources article').length, 6);
+ assert.equal(directory.querySelectorAll('#resources article').length, JSON.parse(read('directory-resources.json')).resources.length);
  assert.equal(stories.querySelector('#resources'), null);
 });
 test('directory filters distinguish participants from public references', () => {
@@ -23,7 +23,7 @@ test('directory filters distinguish participants from public references', () => 
  const visible = [...win.document.querySelectorAll('.profile-card:not(.hidden)')];
  assert.ok(visible.length > 0);
  assert.ok(visible.every(card => card.dataset.kind.split(/\s+/).includes('participant')));
- assert.equal(win.document.querySelectorAll('#resources article').length, 6);
+ assert.equal(win.document.querySelectorAll('#resources article').length, JSON.parse(read('directory-resources.json')).resources.length);
  win.close();
 });
 test('PIXIE stays unloaded until requested and closes without retaining its frame URL', () => {
@@ -45,4 +45,11 @@ test('PIXIE stays unloaded until requested and closes without retaining its fram
  assert.equal(d.getElementById('pixie-demo-panel').hidden, true);
  assert.equal(d.activeElement.id, 'load-pixie-demo');
  win.close();
+});
+
+test('resource contract and visible cards stay aligned without enrolling professionals',()=>{
+ const data=JSON.parse(read('directory-resources.json'));const doc=new JSDOM(read('directory.html')).window.document;
+ assert.equal(data.schema,'made-sick-resources/v1');assert.equal(new Set(data.resources.map(r=>r.id)).size,data.resources.length);
+ for(const r of data.resources){const card=doc.getElementById('resource-'+r.id);assert.ok(card);assert.ok(card.textContent.includes(r.name));assert.ok(card.textContent.includes(r.verification));assert.ok([...card.querySelectorAll('a')].some(a=>a.href===r.evidenceUrl));assert.match(r.relationship,/no partnership|Not a confirmed partner/i);assert.equal(new URL(r.url).protocol,'https:');}
+ const law=data.resources.find(r=>r.id==='smb-music');assert.equal(law.location,'London');assert.match(law.verification,/require separate checks/);
 });
