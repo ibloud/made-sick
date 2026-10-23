@@ -102,11 +102,18 @@
       "jurisdiction": "",
       "location": "",
       "reviewedOn": null,
-      "verification": "Existing editorial reference; provider details not rechecked in this release.",
+      "verification": "Existing editorial reference; provider details not rechecked in this release. Educational proposals, not proven outcomes.",
       "relationship": "Independent resource; no partnership or endorsement established",
       "fees": "Not checked",
       "availability": "Not checked",
-      "accessibility": "Ask the provider about your specific needs"
+      "accessibility": "Ask the provider about your specific needs",
+      "legacyAnchor": "venus-project",
+      "additionalLinks": [
+        {
+          "url": "https://www.thevenusproject.com/jacque-fresco/",
+          "label": "Learn about Jacque Fresco"
+        }
+      ]
     },
     {
       "id": "axschat",
