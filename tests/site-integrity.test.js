@@ -35,3 +35,12 @@ for (const file of htmlFiles) {
     }
   });
 }
+
+test('PIXIE navigation never carries identity or consent in URLs', () => {
+  const join = fs.readFileSync(path.join(root, 'join.js'), 'utf8');
+  const markup = fs.readFileSync(path.join(root, 'join.html'), 'utf8');
+  assert.doesNotMatch(join, /did:\s*session\.did|displayName:\s*record\.displayName|milestone:\s*record\.milestone/);
+  assert.doesNotMatch(join, /params\.get\(["'](?:consent|public_record_consent|displayName|milestone)["']\)/);
+  assert.match(markup, /<meta name="referrer" content="no-referrer">/);
+  assert.match(markup, /id="open-pixie-link"[^>]*rel="noreferrer"/);
+});
