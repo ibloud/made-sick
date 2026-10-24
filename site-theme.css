@@ -27,12 +27,12 @@ body.made-sick-site{--paper:#f4ebdd;--ink:#242321;--surface-color:#faf6ee;--text
 .community-art figcaption{padding:.6rem 0;font-size:.8rem;color:var(--text-muted);line-height:1.6}
 .community-art figcaption a{color:var(--red)}
 .community-invitation{display:grid;grid-template-columns:1.25fr 1fr .65fr;gap:2rem;align-items:center;padding:1.75rem 0;border-block:2px solid var(--ink)}
-.community-invitation .lede{font:650 clamp(1.1rem,2vw,1.45rem)/1.45 system-ui,sans-serif;color:var(--ink);margin:0;max-width:35ch}
+.community-invitation .lede{font:650 clamp(1.1rem,2vw,1.45rem)/1.45 system-ui,sans-serif;color:var(--ink);margin:0;max-width:none}
 .community-actions{display:flex;flex-direction:column;align-items:center;gap:1rem}
 .community-actions .text-link{font:650 1rem/1.5 system-ui,sans-serif;color:var(--red);padding:.3rem}
 .community-note{font:500 .95rem/1.7 system-ui,sans-serif;padding-left:1.5rem;border-left:1px solid var(--ink)}
 .made-sick-site main>.system{margin-block:3.5rem}
-.made-sick-site main>.system>p,.made-sick-site #loptr-mission>p{max-width:70ch;margin-top:1rem}
+.made-sick-site main>.system>p,.made-sick-site #loptr-mission>p{max-width:none;margin-top:1rem}
 .made-sick-site .system-grid{gap:1.75rem}
 .made-sick-site .system-grid>article{box-shadow:none}
 .made-sick-site .hero-actions{gap:1rem;margin-top:1.5rem}
@@ -57,7 +57,7 @@ body.made-sick-site{--paper:#f4ebdd;--ink:#242321;--surface-color:#faf6ee;--text
 .made-sick-site :is(#music-play,#trust,#loptr-mission,#creative-process)>p{margin:0;max-width:none}
 .made-sick-site #music-play>p:nth-last-child(-n+2),.made-sick-site #loptr-mission>p:last-child{grid-column:1/-1}
 .made-sick-site #music-play>p:last-child{font-size:.9rem;color:var(--text-muted)}
-.made-sick-site #about-made-sick>.lede{max-width:85ch}
+.made-sick-site #about-made-sick>.lede{max-width:none}
 @media(min-width:1000px){
  .made-sick-site :is(#music-play,#trust,#loptr-mission,#creative-process){grid-template-columns:repeat(2,minmax(0,1fr));column-gap:clamp(1.5rem,3vw,2.5rem);align-items:start}
  .made-sick-site :is(#music-play,#trust,#loptr-mission,#creative-process)>:is(h2,.section-heading,.hero-actions){grid-column:1/-1}
@@ -145,3 +145,6 @@ body.made-sick-site{--mono:ui-monospace,monospace;--sans:system-ui,sans-serif;--
 /* Card titles remain smaller than section headings. */
 .made-sick-site .story-copy :is(h2,h3){font:750 1.35rem/1.3 system-ui,sans-serif;letter-spacing:0}
 .made-sick-site .admin-card h2{font-size:clamp(1.4rem,3vw,2rem)}
+
+/* Introductory prose fills its existing section or card on every page. */
+body.made-sick-site main p.lede{width:auto;max-width:none}

@@ -11,10 +11,10 @@
 }
 #stories-main > .system > p:not(.eyebrow) {
   margin-top: 1rem;
-  max-width: 75ch;
+  max-width: none;
 }
 #stories-main > .system > .lede {
-  max-width: 65ch;
+  max-width: none;
 }
 #stories-main .hero-actions {
   margin-block: 1.5rem;
@@ -26,7 +26,7 @@
   margin-top: 0;
 }
 #published-work > ol {
-  max-width: 75ch;
+  max-width: none;
   margin-block: 1.25rem;
   padding-inline-start: 1.5rem;
 }
