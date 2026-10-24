@@ -1415,7 +1415,7 @@ button.button:active {
 :where(body.page-future-vision) .origin-card { padding: 1.5rem; }
       :where(body.page-future-vision) .ledger { display:block; overflow-x:auto; }
     }
-  
+
 
 /* pixie-care functional layout */
 body:where(body.page-pixie-care){padding:clamp(1rem,4vw,2.5rem);max-width:900px;margin:auto}:where(body.page-pixie-care) .pixie-care-header{margin-bottom:1.25rem}:where(body.page-pixie-care) .pixie-care-header h1{font-size:clamp(2rem,6vw,4.5rem);margin:.25rem 0}:where(body.page-pixie-care) .pixie-checkin{border:var(--line);padding:clamp(1rem,3vw,2rem);box-shadow:var(--shadow);background:var(--paper);display:grid;gap:1rem}
@@ -1475,7 +1475,7 @@ body:where(body.page-story-finder)>footer{width:100%;max-width:1120px;margin-inl
     :where(body.page-voting-edition) #resources-area{display:none}:where(body.page-voting-edition) #resources-area.is-visible{display:block}
     :where(body.page-voting-edition) .why{margin:48px 0}:where(body.page-voting-edition) .why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:22px}:where(body.page-voting-edition) .why article{border:var(--line);background:#fff;box-shadow:var(--shadow);padding:22px}:where(body.page-voting-edition) .why h3{font:900 1rem var(--mono);margin-bottom:10px;color:var(--red)}:where(body.page-voting-edition) .footer{border-top:var(--line);margin-top:64px;padding-top:18px;font:.72rem var(--mono);color:var(--muted);text-transform:uppercase}
     @media(max-width:700px){body:where(body.page-voting-edition){padding:16px}:where(body.page-voting-edition) .why-grid{grid-template-columns:1fr}:where(body.page-voting-edition) .signal{padding:10px}:where(body.page-voting-edition) .play{width:66px;height:66px}:where(body.page-voting-edition) .hero{margin-bottom:30px}}
-  
+
 
 /* Shared navigation: touch and keyboard controls, no scrolling header. */
 .grouped-header { display:flex; align-items:center; flex-wrap:wrap; gap:1rem; position:relative; z-index:20; color:var(--ink); border-bottom:3px solid var(--ink); padding-bottom:1.5rem; margin-bottom:2rem; font-family:system-ui,sans-serif; }

@@ -11,16 +11,16 @@
 
 
 <link rel="canonical" href="https://made-sick.org/story-finder.html">
-<meta name="description" content="Search and review a public Bluesky diary feed without sharing credentials or uploading an archive.">
+<meta name="description" content="Search and review a public AT Protocol post archive without sharing credentials or uploading an archive.">
 <meta property="og:title" content="Story Finder — Made Sick">
-<meta property="og:description" content="Search and review a public Bluesky diary feed without sharing credentials or uploading an archive.">
+<meta property="og:description" content="Search and review a public AT Protocol post archive without sharing credentials or uploading an archive.">
 <meta property="og:url" content="https://made-sick.org/story-finder.html">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Made Sick">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Story Finder — Made Sick">
-<meta name="twitter:description" content="Search and review a public Bluesky diary feed without sharing credentials or uploading an archive.">
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "name": "Story Finder — Made Sick", "url": "https://made-sick.org/story-finder.html", "description": "Search and review a public Bluesky diary feed without sharing credentials or uploading an archive."}</script>
+<meta name="twitter:description" content="Search and review a public AT Protocol post archive without sharing credentials or uploading an archive.">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "name": "Story Finder — Made Sick", "url": "https://made-sick.org/story-finder.html", "description": "Search and review a public AT Protocol post archive without sharing credentials or uploading an archive."}</script>
 
 </head>
 <body class="made-sick-site finder-page page-story-finder">
@@ -30,14 +30,14 @@
 <section class="hero">
 <p class="eyebrow">Public archive · device-local review</p>
 <h1>Find the story in your feed.</h1>
-<p class="lede">Story Finder reads one public Bluesky author feed chronologically, then searches the posts already loaded in this browser. It is designed for people who use social media as a diary, notebook, or distributed story archive.</p>
+<p class="lede">Story Finder retrieves one author’s public AT Protocol posts through Bluesky’s public API, then searches the posts already loaded in this browser. It is designed for people who use social media as a diary, notebook, or distributed story archive.</p>
 <p class="notice"><strong>Privacy boundary:</strong> no password, Bluesky sign-in, DMs, likes, private data, analytics, or server-side archive. Your search terms and selections stay in this tab. A public post is never added to Made Sick without human review and consent.</p>
 </section>
 <section class="panel" id="finder" aria-labelledby="finder-title">
 <p class="eyebrow">Step 1 · choose an archive</p><h2 id="finder-title">Load public posts</h2>
 <form id="search-form">
 <div class="row">
-<label>Bluesky handle<span>Default pilot identity</span><input id="handle" name="handle" type="text" value="ibloud.xyz" autocomplete="off" required></label>
+<label>AT Protocol handle<span>Your public handle, such as ibloud.xyz. Posts are retrieved through Bluesky’s public API.</span><input id="handle" name="handle" type="text" value="ibloud.xyz" autocomplete="off" required></label>
 <label>From date<span>Optional</span><input id="date-from" name="from" type="date"></label>
 <label>Through date<span>Optional</span><input id="date-to" name="to" type="date"></label>
 </div>
@@ -134,7 +134,7 @@ async function loadPage(reset,dateSearch=false,batch=false){
  state.dateSearch=dateSearch;
  status.textContent=dateSearch?"Searching the selected date range…":"Loading public posts…";
  try{
-  const handle=cleanHandle($("handle").value);if(!handle)throw new Error("Enter a Bluesky handle.");
+  const handle=cleanHandle($("handle").value);if(!handle)throw new Error("Enter an AT Protocol handle.");
   if(reset||state.actor!==handle){state.actor=handle;state.actorDid="";state.cursor=null;state.posts=[];state.selected.clear()}
   const did=await resolveActor(handle);
   if(state.actorDid&&state.actorDid!==did){state.posts=[];state.selected.clear();state.cursor=null}
