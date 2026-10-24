@@ -12,7 +12,9 @@ test('every site page uses the shared theme and canonical working navigation', (
     const doc = new JSDOM(fs.readFileSync(path.join(root, file), 'utf8')).window.document;
     const sheets = [...doc.querySelectorAll('link[rel="stylesheet"]')];
     assert.ok(doc.body.classList.contains('made-sick-site'), `${file}: missing theme scope`);
-    assert.match(sheets.at(-1).getAttribute('href'), /^site-theme\.css\?/, `${file}: theme must load last`);
+    assert.equal(sheets.length, 1, `${file}: exactly one stylesheet`);
+    assert.match(sheets[0].getAttribute('href'), /^styles\.css\?/, `${file}: shared stylesheet`);
+    assert.equal(doc.querySelectorAll('style, [style]').length, 0, `${file}: no embedded CSS`);
     assert.equal(doc.querySelector('.grouped-header')?.outerHTML, canonical, `${file}: navigation drift`);
     assert.equal(doc.querySelectorAll('script[src="navigation.js"]').length, 1, `${file}: navigation must initialize once`);
   }

@@ -7,10 +7,10 @@ const { JSDOM } = require('jsdom');
 const root = path.resolve(__dirname, '..');
 const script = fs.readFileSync(path.join(root, 'pixie-launcher.js'), 'utf8');
 for (const file of fs.readdirSync(root).filter(file => file.endsWith('.html'))) {
-  test(`${file} includes exactly one shared PIXIE script and stylesheet`, () => {
+  test(`${file} includes exactly one PIXIE script and consolidated stylesheet`, () => {
     const doc = new JSDOM(fs.readFileSync(path.join(root, file), 'utf8')).window.document;
     assert.equal(doc.querySelectorAll('script[src="pixie-launcher.js"]').length, 1);
-    assert.equal(doc.querySelectorAll('link[href="pixie-launcher.css"]').length, 1);
+    assert.equal(doc.querySelectorAll('link[rel="stylesheet"][href^="styles.css?"]').length, 1);
   });
 }
 test('launcher is lazy, isolates the dialog, unloads on Close, and restores focus', () => {

@@ -5,95 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   
   <title>Made Sick — Future Vision</title>
-  <link rel="stylesheet" href="styles.css">
-  <style>
-    .vision-hero,
-    .vision-section,
-    .origin-card,
-    .case-card {
-      border: var(--line);
-      box-shadow: var(--shadow);
-      background: var(--surface-color);
-    }
-    .vision-hero {
-      padding: 3rem;
-      margin-bottom: 4rem;
-      background: var(--surface-color);
-    }
-    .vision-hero h1 em { color: var(--red); font-style: normal; }
-    .vision-kicker {
-      display: inline-block;
-      font-family: var(--font-mono);
-      font-weight: 900;
-      border: var(--line-thin);
-      padding: .35rem .6rem;
-      margin-bottom: 1.25rem;
-      background: var(--paper);
-    }
-    .vision-section { padding: 2.5rem; margin: 4rem 0; }
-    .vision-grid,
-    .future-grid,
-    .roadmap-grid,
-    .ask-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 1.5rem;
-      margin-top: 2rem;
-    }
-    .vision-card {
-      border: var(--line);
-      padding: 1.5rem;
-      background: var(--paper);
-    }
-    .vision-card .number,
-    .roadmap-card .number {
-      font-family: var(--font-mono);
-      font-weight: 900;
-      color: var(--red);
-      display: block;
-      margin-bottom: .5rem;
-    }
-    .origin-card {
-      padding: 2.5rem;
-      background: var(--ink);
-      color: var(--paper);
-      margin: 4rem 0;
-    }
-    .origin-card h2,
-    .origin-card p,
-    .origin-card strong { color: var(--paper); }
-    .origin-card h2 { font-size: clamp(2rem, 4vw, 3rem); }
-    .origin-card em { color: #f7f5ed; }
-    .origin-question {
-      font-family: var(--font-mono);
-      font-size: clamp(1.8rem, 5vw, 3.5rem);
-      font-weight: 900;
-      color: var(--red) !important;
-      margin: 1.5rem 0;
-    }
-    .origin-note {
-      border-top: 1px solid rgba(247,245,237,.45);
-      padding-top: 1rem;
-      margin-top: 2rem;
-      font-size: .82rem;
-      color: #d7d5ce !important;
-    }
-    .roadmap-card { border-left: var(--line); padding: 1.25rem; background: var(--paper); }
-    .ledger { width: 100%; border-collapse: collapse; margin-top: 2rem; }
-    .ledger th, .ledger td { border: var(--line-thin); padding: 1rem; text-align: left; vertical-align: top; }
-    .ledger th { background: var(--ink); color: var(--paper); font-family: var(--font-mono); text-transform: uppercase; font-size: .78rem; }
-    .ledger td { background: var(--paper); }
-    .status-chip { font-family: var(--font-mono); font-weight: 800; font-size: .78rem; text-transform: uppercase; }
-    .case-card { padding: 2rem; margin-top: 2rem; }
-    .xprize-note { border: var(--line-thin); padding: 1.25rem; margin-top: 2rem; background: var(--paper); font-size: .9rem; }
-    .footer-nav { display:flex; gap:1rem; flex-wrap:wrap; margin-top:2rem; }
-    @media (max-width: 720px) {
-      .vision-hero, .vision-section, .origin-card { padding: 1.5rem; }
-      .ledger { display:block; overflow-x:auto; }
-    }
-  </style>
-<link rel="stylesheet" href="navigation.css">
-<link rel="stylesheet" href="pixie-launcher.css">
+  <link rel="stylesheet" href="styles.css?v=20261024-consolidated">
+  
+
+
 
 <link rel="canonical" href="https://made-sick.org/future-vision.html">
 <meta name="description" content="Made Sick Future Vision — a human-centered technology thesis, roadmap, evidence ledger, and personal origin story.">
@@ -106,9 +21,9 @@
 <meta name="twitter:title" content="Made Sick — Future Vision">
 <meta name="twitter:description" content="Made Sick Future Vision — a human-centered technology thesis, roadmap, evidence ledger, and personal origin story.">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "name": "Made Sick — Future Vision", "url": "https://made-sick.org/future-vision.html", "description": "Made Sick Future Vision — a human-centered technology thesis, roadmap, evidence ledger, and personal origin story."}</script>
-<link rel="stylesheet" href="site-theme.css?v=20261024-prose">
+
 </head>
-<body class="made-sick-site">
+<body class="made-sick-site page-future-vision">
   <a class="skip-link" href="#vision">Skip to Future Vision</a>
   <header class="site-header grouped-header"><a class="wordmark" href="index.html" aria-label="Made Sick home"><span>MADE</span><span>SICK</span></a><button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-menu" hidden>Menu</button><nav id="primary-menu" aria-label="Primary navigation"><details class="nav-group"><summary>Explore</summary><div class="nav-links"><a href="directory.html">Directory</a><a href="stories.html">Stories</a><a href="https://adventure.made-sick.org/travel.html">Travel &amp; Access</a><a href="influences.html">Influences</a><a href="https://atmosphere.loptrlab.com/?from=made-sick">Atmosphere field guide</a></div></details><details class="nav-group"><summary>Participate</summary><div class="nav-links"><a href="join.html">Join Made Sick</a><a href="index.html#how-it-works">How it works</a><a href="voting-edition.html">Vote</a></div></details><details class="nav-group"><summary>Projects</summary><div class="nav-links"><a href="index.html#pixie">PIXIE</a><a href="index.html#remedy-ward">Remedy Ward</a><a href="index.html#sessions">Made Sick Sessions</a><a href="bard-tour.html">Travelling bard · Review pitch</a><a href="https://adventure.made-sick.org/">Adventures · Pre-alpha</a></div></details><details class="nav-group"><summary>About</summary><div class="nav-links"><a href="index.html#about-made-sick">About Made Sick</a><a href="future-vision.html">Future Vision</a><a href="index.html#loptr-mission">Mission</a><a href="index.html#trust">Independence &amp; affiliations</a></div></details><a href="search.html">Search</a></nav><a class="button button-small nav-join" href="join.html">Join</a></header>
 
@@ -141,12 +56,12 @@
     <section class="origin-card" aria-labelledby="origin-title">
       <p class="eyebrow">Why this exists</p>
       <h2 id="origin-title">It started at a crossroads in Minneapolis.</h2>
-      <p style="margin-top:1rem;">Made Sick did not begin as a conventional product plan. It began with a deeply personal vision: trying to help a sick boi find meaning and purpose, while finding meaning and purpose in my own life again.</p>
-      <p style="margin-top:1rem;">Every step since then has required confronting a fear—uncertainty, failure, visibility, responsibility, technology, and the possibility that something that mattered deeply to me might not matter to anyone else.</p>
-      <p style="margin-top:1rem;"><strong>I kept going anyway.</strong></p>
+      <p class="space-before">Made Sick did not begin as a conventional product plan. It began with a deeply personal vision: trying to help a sick boi find meaning and purpose, while finding meaning and purpose in my own life again.</p>
+      <p class="space-before">Every step since then has required confronting a fear—uncertainty, failure, visibility, responsibility, technology, and the possibility that something that mattered deeply to me might not matter to anyone else.</p>
+      <p class="space-before"><strong>I kept going anyway.</strong></p>
       <p class="origin-question">Why stop now?</p>
-      <p style="">The title and mood of the movie <em>Why Stop Now?</em> fit this chapter of the experience: a crossroads, a difficult road, and the decision to keep moving rather than abandon a vision because it became frightening.</p>
-      <p style="margin-top:1rem;">What began as one personal act of trying to restore meaning became an experiment in building something useful for many people: a place where creativity, accessibility, identity, consent, civic participation, and technology can meet without asking people to surrender themselves to the system.</p>
+      <p>The title and mood of the movie <em>Why Stop Now?</em> fit this chapter of the experience: a crossroads, a difficult road, and the decision to keep moving rather than abandon a vision because it became frightening.</p>
+      <p class="space-before">What began as one personal act of trying to restore meaning became an experiment in building something useful for many people: a place where creativity, accessibility, identity, consent, civic participation, and technology can meet without asking people to surrender themselves to the system.</p>
       <p class="origin-note">This is an account of the creator's experience and motivation. It does not claim that any person named in the project's public references endorsed, joined, funded, advised, or partnered with Made Sick.</p>
     </section>
 
@@ -178,7 +93,7 @@
       <p class="eyebrow">Research ledger</p>
       <h2 id="evidence-title">Claims should have receipts.</h2>
       <p class="lede">This ledger deliberately distinguishes demonstrated work from hypotheses and future research. “Unproven” is a valid status.</p>
-      <div style="overflow-x:auto;">
+      <div class="scroll-horizontal">
         <table class="ledger">
           <thead><tr><th>Claim / question</th><th>Current evidence</th><th>Status</th></tr></thead>
           <tbody>
@@ -212,16 +127,16 @@
       <h2 id="case-title">One screen. One argument.</h2>
       <div class="case-card">
         <p><strong>Problem:</strong> Technology increasingly asks humans to adapt themselves to systems that were not designed around cognitive diversity.</p>
-        <p style="margin-top:1rem;"><strong>Why now:</strong> AI, automation, decentralized identity, and increasingly digital civic and creative participation are changing how people work, publish, and make decisions.</p>
-        <p style="margin-top:1rem;"><strong>What's different:</strong> Made Sick treats consent, identity, accessibility, and creator ownership as infrastructure rather than decoration.</p>
-        <p style="margin-top:1rem;"><strong>What exists:</strong> PIXIE research, creator-identity experiments, Story Finder, voting-resource accessibility work, and a public prototype.</p>
-        <p style="margin-top:1rem;"><strong>If it works:</strong> participation becomes easier without requiring people to surrender agency.</p>
+        <p class="space-before"><strong>Why now:</strong> AI, automation, decentralized identity, and increasingly digital civic and creative participation are changing how people work, publish, and make decisions.</p>
+        <p class="space-before"><strong>What's different:</strong> Made Sick treats consent, identity, accessibility, and creator ownership as infrastructure rather than decoration.</p>
+        <p class="space-before"><strong>What exists:</strong> PIXIE research, creator-identity experiments, Story Finder, voting-resource accessibility work, and a public prototype.</p>
+        <p class="space-before"><strong>If it works:</strong> participation becomes easier without requiring people to surrender agency.</p>
       </div>
       <div class="xprize-note"><strong>Future-facing context:</strong> The page is designed for conversations with people working on ambitious, technology-enabled visions of the future, including the ecosystem around XPRIZE's Future Vision and Moonshots Live. Made Sick is independent and is not affiliated with, endorsed by, sponsored by, or representing XPRIZE or any related event.</div>
     </section>
   </main>
 
-  <footer class="site-footer" style="margin-top:5rem;">
+  <footer class="site-footer footer-space-before">
     <p><strong>Made Sick</strong> · Independent prototype by Loptr Lab.</p>
     <p>Build something useful. Keep the human in the loop.</p>
     <div class="footer-nav">

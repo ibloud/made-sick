@@ -12,7 +12,7 @@ Review and production are separate. Agree scope, compensation, ownership, privac
 
 ## Reused resources
 
-The page extends styles.css, navigation.css, navigation.js and the shared lazy PIXIE launcher and links existing Sessions, Streamplace planning, Story Finder and story-permission resources. No production broadcast, payment, invitation, directory record, tracker or clinical workflow was added. No artist images or recordings were copied. The page is marked noindex,follow as a review pitch; this is not access control and the public repository remains public.
+The page uses the consolidated styles.css, navigation.js and the shared lazy PIXIE launcher and links existing Sessions, Streamplace planning, Story Finder and story-permission resources. No production broadcast, payment, invitation, directory record, tracker or clinical workflow was added. No artist images or recordings were copied. The page is marked noindex,follow as a review pitch; this is not access control and the public repository remains public.
 
 ## Evidence and corrections
 

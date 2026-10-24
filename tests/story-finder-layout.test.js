@@ -8,10 +8,10 @@ const root = path.resolve(__dirname, '..');
 function page() {
   const dom = new JSDOM(fs.readFileSync(path.join(root, 'story-finder.html'), 'utf8'), { url: 'https://made-sick.org/story-finder.html', runScripts: 'outside-only' });
   const { window } = dom;
-  const link = window.document.querySelector('link[href="pixie-launcher.css"]');
+  const link = window.document.querySelector('link[rel="stylesheet"][href^="styles.css?"]');
   assert.ok(link, 'Standalone Finder must load launcher styles');
   const style = window.document.createElement('style');
-  style.textContent = fs.readFileSync(path.join(root, link.getAttribute('href')), 'utf8');
+  style.textContent = fs.readFileSync(path.join(root, link.getAttribute('href').split('?')[0]), 'utf8');
   window.document.head.appendChild(style);
   window.eval(fs.readFileSync(path.join(root, 'pixie-launcher.js'), 'utf8'));
   return dom;
@@ -30,7 +30,7 @@ test('date controls can shrink within the grid and action typography inherits th
     assert.equal(parseFloat(computed.minWidth), 0); assert.equal(computed.maxWidth, '100%');
     assert.equal(parseFloat(w.getComputedStyle(input.parentElement).minWidth), 0);
   }
-  assert.equal(w.getComputedStyle(w.document.getElementById('load')).fontWeight, '800');
+  assert.equal(w.getComputedStyle(w.document.getElementById('load')).fontWeight, '750');
   dom.window.close();
 });
 test('popup header is not constrained by the page header and Escape returns focus', () => {

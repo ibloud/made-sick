@@ -3,7 +3,7 @@
 Dominique requested consistent styling across the entire Made Sick site after
 Search still showed the old design. ChatGPT/Codex implemented the shared theme.
 
-Every root HTML page now loads `site-theme.css` last and uses `made-sick-site` on
+Every root HTML page now loads only versioned `styles.css` and uses `made-sick-site` on
 body. The approved paper, charcoal, ochre and petrol palette, Anton headings,
 controls, section rhythm and canonical navigation apply across all 14 pages.
 Page-specific CSS retains functional grids and forms. The former homepage-only
@@ -34,3 +34,15 @@ These checks are browser layout checks, not physical iPad/Safari or screen-reade
 testing. They do not certify every expanded tool state or authenticated workflow.
 Join sign-in, admin access, external workspaces and voting geolocation were not
 exercised as part of this visual change. No new authenticated data was published.
+
+## CSS consolidation, 24 October 2026
+
+All fourteen root pages use one stylesheet, `styles.css`. Separate page,
+navigation, launcher and theme stylesheets and four embedded style blocks were
+consolidated into that file. Inline style attributes became named classes.
+Unique functional layouts use page scopes; shared theme rules remain the final
+authority. The test suite checks single-file loading, absence of embedded CSS,
+lead widths, navigation, hidden states and launcher interactions. Physical iPad
+and rendered desktop/mobile acceptance remain unverified because browser origin
+access was declined. Other ecosystem repositories have not been migrated by
+this change. The two Story Finder conversation defects remain open.
