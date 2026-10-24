@@ -54,16 +54,9 @@ async function resolveHandle(handle) {
 
 function configurePixieLink(record) {
   if (!openPixieLink || !session || !record) return;
-  const query = new URLSearchParams({
-    source: "made-sick",
-    role: "participant",
-    card: "existing",
-    did: session.did,
-    displayName: record.displayName || "",
-    milestone: record.milestone || "",
-    return_to: JOIN_RETURN_URL
-  });
-  openPixieLink.href = PIXIE_OS + "radar-core.html?" + query.toString();
+  // Cross-origin navigation is not an authorization or consent handoff.
+  // Never put a DID, name, milestone or consent token in a URL.
+  openPixieLink.href = PIXIE_OS + "radar-core.html";
   openPixieLink.hidden = false;
 }
 
@@ -101,29 +94,13 @@ async function saveParticipantRecord(displayName, milestone) {
 
 async function handlePixieReturn() {
   const params = new URLSearchParams(window.location.search);
-  if (params.get("pixie_return") === "1") {
+  if (params.has("pixie_return") || params.has("pixie_onboarding")) {
     window.history.replaceState({}, document.title, window.location.pathname);
-    status.textContent = "Back from PIXIE OS. No new participant record was published.";
+    status.textContent = "Returned from PIXIE OS. No new participant record was published. Review the join form and consent choices here.";
     await loadExistingRecord();
     return true;
   }
-  if (params.get("pixie_onboarding") !== "1") return false;
-  const displayName = params.get("displayName") || "";
-  const milestone = params.get("milestone") || "";
-  const directoryConsent = params.get("consent") === "1";
-  const publicRecordConsent = params.get("public_record_consent") === "1";
-  if (!directoryConsent || !publicRecordConsent || !displayName.trim()) {
-    throw new Error("Joining now requires both directory consent and public-record consent on Made Sick. Return to the join form to review both choices.");
-  }
-  const saved = await saveParticipantRecord(displayName, milestone);
-  window.history.replaceState({}, document.title, window.location.pathname);
-  resultBox.hidden = false;
-  recordUri.textContent = saved.uri || "Participant record saved.";
-  withdrawButton.hidden = false;
-  configurePixieLink({ displayName, milestone });
-  participantForm.reset();
-  status.textContent = "Participant card created through PIXIE OS and published to your AT Protocol repository.";
-  return true;
+  return false;
 }
 
 function showError(error) {
