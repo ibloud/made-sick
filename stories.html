@@ -8,7 +8,7 @@
 
 <link rel="stylesheet" href="styles.css">
 <link rel="stylesheet" href="navigation.css">
-<link rel="stylesheet" href="stories.css">
+<link rel="stylesheet" href="stories.css?v=20261022-spacing">
 <link rel="stylesheet" href="pixie-launcher.css">
 
 <link rel="canonical" href="https://made-sick.org/stories.html">
@@ -22,54 +22,10 @@
 <meta name="twitter:title" content="Stories — Made Sick">
 <meta name="twitter:description" content="Explore creator-owned Made Sick stories about accessibility, creative work and participation.">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "name": "Stories — Made Sick", "url": "https://made-sick.org/stories.html", "description": "Explore creator-owned Made Sick stories about accessibility, creative work and participation."}</script>
+<link rel="stylesheet" href="site-theme.css?v=20261022-site">
 </head>
-<body>
-<a class="skip-link" href="#stories-main">Skip to stories</a>  <header class="site-header grouped-header">
-<a class="wordmark" href="index.html" aria-label="Made Sick home">
-<span>MADE</span>
-<span>SICK</span>
-</a>
-<button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-menu" hidden>Menu</button>
-<nav id="primary-menu" aria-label="Primary navigation">
-<details class="nav-group">
-<summary>Explore</summary>
-<div class="nav-links">
-<a href="directory.html">Directory</a>
-<a href="stories.html">Stories</a>
-<a href="https://adventure.made-sick.org/travel.html">Travel &amp; Access</a>
-<a href="influences.html">Influences</a>
-</div>
-</details>
-<details class="nav-group">
-<summary>Participate</summary>
-<div class="nav-links">
-<a href="join.html">Join Made Sick</a>
-<a href="index.html#how-it-works">How it works</a>
-<a href="voting-edition.html">Vote</a>
-</div>
-</details>
-<details class="nav-group">
-<summary>Projects</summary>
-<div class="nav-links">
-<a href="index.html#pixie">PIXIE</a>
-<a href="index.html#remedy-ward">Remedy Ward</a>
-<a href="index.html#sessions">Made Sick Sessions</a><a href="bard-tour.html">Travelling bard · Review pitch</a>
-<a href="https://adventure.made-sick.org/">Adventures · Pre-alpha</a>
-</div>
-</details>
-<details class="nav-group">
-<summary>About</summary>
-<div class="nav-links">
-<a href="index.html#about-made-sick">About Made Sick</a>
-<a href="future-vision.html">Future Vision</a>
-<a href="index.html#loptr-mission">Mission</a>
-<a href="index.html#trust">Independence &amp; affiliations</a>
-</div>
-</details>
-<a href="search.html">Search</a>
-</nav>
-<a class="button button-small nav-join" href="join.html">Join</a>
-</header>
+<body class="made-sick-site">
+<a class="skip-link" href="#stories-main">Skip to stories</a>  <header class="site-header grouped-header"><a class="wordmark" href="index.html" aria-label="Made Sick home"><span>MADE</span><span>SICK</span></a><button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-menu" hidden>Menu</button><nav id="primary-menu" aria-label="Primary navigation"><details class="nav-group"><summary>Explore</summary><div class="nav-links"><a href="directory.html">Directory</a><a href="stories.html">Stories</a><a href="https://adventure.made-sick.org/travel.html">Travel &amp; Access</a><a href="influences.html">Influences</a><a href="https://atmosphere.loptrlab.com/?from=made-sick">Atmosphere field guide</a></div></details><details class="nav-group"><summary>Participate</summary><div class="nav-links"><a href="join.html">Join Made Sick</a><a href="index.html#how-it-works">How it works</a><a href="voting-edition.html">Vote</a></div></details><details class="nav-group"><summary>Projects</summary><div class="nav-links"><a href="index.html#pixie">PIXIE</a><a href="index.html#remedy-ward">Remedy Ward</a><a href="index.html#sessions">Made Sick Sessions</a><a href="bard-tour.html">Travelling bard · Review pitch</a><a href="https://adventure.made-sick.org/">Adventures · Pre-alpha</a></div></details><details class="nav-group"><summary>About</summary><div class="nav-links"><a href="index.html#about-made-sick">About Made Sick</a><a href="future-vision.html">Future Vision</a><a href="index.html#loptr-mission">Mission</a><a href="index.html#trust">Independence &amp; affiliations</a></div></details><a href="search.html">Search</a></nav><a class="button button-small nav-join" href="join.html">Join</a></header>
 <main id="stories-main">
 <section class="system" aria-labelledby="page-title">
 <p class="eyebrow">Writing at the source</p>
@@ -182,6 +138,19 @@
 <button class="button" id="load-stories" type="button" hidden>Load more stories</button>
 </section>
 
+<section class="system" id="published-work" aria-labelledby="work-title">
+<p class="eyebrow">Your work across the ATmosphere</p>
+<h2 id="work-title">Let your work speak.</h2>
+<p>A story or milestone write-up published through <a href="https://pckt.blog/">pckt.blog</a> can live in your own AT Protocol repository. Sifa supports these Standard.site documents as creation activity. Your Made Sick participant record is separate: joining or adding a profile introduction does not publish an achievement.</p>
+<ol><li>Publish your own story or milestone write-up through pckt.blog using the identity you want credited. Keep an existing article at its source rather than publishing a duplicate.</li><li>Use the check below to inspect that identity’s public Standard.site documents.</li><li>Open Sifa to check your profile. Sifa controls indexing and visibility; finding a record here does not confirm it appears there.</li></ol>
+<p>This lookup reads public record titles, dates and source links from the identity’s provider. It does not sign you in, publish, save an archive, or add work to the featured collection above. Repository control does not independently verify authorship or claims. Do not publish private health details to test this flow.</p>
+<form id="work-form"><label for="work-handle">AT Protocol handle or DID</label><input id="work-handle" type="text" required autocomplete="off" placeholder="made-sick.org"><div class="hero-actions"><button class="button" id="work-load" type="submit">Check published work</button><button class="button" id="work-stop" type="button" disabled>Stop</button></div></form>
+<p id="work-status" role="status" aria-live="polite">Nothing fetched until you choose Check published work.</p>
+<a id="work-sifa" class="text-link" href="https://sifa.id/" target="_blank" rel="noreferrer noopener" hidden>Check this identity on Sifa ↗</a>
+<div id="work-list"></div><button id="work-more" class="button" type="button" hidden>Load 20 more documents</button>
+<noscript><p>Enable JavaScript for the public record check. You can still publish at pckt.blog and visit <a href="https://sifa.id/">Sifa</a> directly.</p></noscript>
+<p><a href="https://docs.sifa.id/docs/activity-feed/">How Sifa chooses activity</a> · <a href="https://docs.sifa.id/docs/supported-apps/">Sifa’s supported apps</a></p>
+</section>
 <section class="system" id="story-permission" aria-labelledby="permission-title">
 <h2 id="permission-title">Your story, your choice.</h2>
 <p>Directory participation and story featuring are separate choices. Other creators’ stories require permission for the specific title, excerpt, image, attribution and source link before a card is added. Joining Made Sick or exporting a Story Finder ledger does not grant that permission.</p>
@@ -191,11 +160,13 @@
 </main>
 <footer class="site-footer">
 <p>Made Sick is an independent Loptr Lab project. Participation does not require payment.</p>
-</footer>
+<p class="policy-links"><a href="privacy.html">Privacy &amp; your choices</a> · <a href="terms.html">Terms of Use</a></p></footer>
 <script src="navigation.js" defer>
 </script>
+<script src="published-work.js" defer></script>
 <script src="stories.js" defer>
 </script>
 <script src="pixie-launcher.js" defer></script>
 </body>
 </html>
+

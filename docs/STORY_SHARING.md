@@ -22,3 +22,7 @@ Public invitation drafts start with “Greetings”. Outreach remains a separate
 ## Validation
 
 Run `npm ci --prefix tests` and `npm test --prefix tests`. The existing link-integrity suite covers the new page, local cover files and navigation targets. Story tests cover the no-JavaScript collection, filter reset, pagination and focus after Load more. Device acceptance on iPad Safari remains a separate check.
+
+## Published work and Sifa
+
+The Stories page includes a separate, user-triggered public Standard.site record lookup and a link to check the same identity on Sifa. It does not add retrieved records to the curated story collection. Creators use their existing pckt.blog publication to publish substantive stories or milestone write-ups; the participant profile introduction is not a creative-work record. See [the Sifa evidence and release checks](SIFA_PUBLISHED_WORK.md). Sifa's recognition of a schema does not prove a specific record appears on its profile.

@@ -25,5 +25,7 @@ jobs:
           cache-dependency-path: tests/package-lock.json
       - name: Install test dependencies
         run: npm ci
+      - name: Check source-owned resource cards
+        run: python3 ../scripts/build-resources.py --check
       - name: Run consent and link checks
         run: npm test
