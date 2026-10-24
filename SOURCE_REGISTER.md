@@ -155,3 +155,16 @@ Creators and authorized representatives may request correction, narrower wording
 - **Directory state:** Independent educational resource in Tools & communities; not enrolled or an established partner.
 - **Interpretation:** The invitation to discuss environments and resource access is Made Sick’s editorial framing, not a statement of shared policy or organizational agreement.
 - **Boundary:** The organization’s homepage describes its hypotheses as requiring testing. The card does not establish proven social or health outcomes, medical authority, AT Protocol participation, affiliation, endorsement, or agreement with Loptr Lab’s economic mission. No third-party images or logos are reproduced.
+
+
+## Artist-rights and civic resources — 24 October 2026
+
+The five new entries in `directory-resources.json` were checked against provider/government pages, then rendered through the existing `scripts/build-resources.py` pipeline. Existing cards were inspected before additions; no matching entries were present.
+
+- The MLC: https://www.themlc.com/tools — musical-work data/claiming/matching tools; scope is U.S. digital mechanical royalties, not all rights or legal representation.
+- Musicians’ Union: https://musiciansunion.org.uk/contracts-and-agreements — UK contract guidance and examples; individual advice and membership eligibility require provider confirmation.
+- UK government: https://www.gov.uk/guidance/uk-voluntary-code-of-good-practice-on-transparency-in-music-streaming — voluntary streaming-transparency reference; not U.S. law or an adjudicated finding.
+- Artist Rights Alliance: https://artistrightsalliance.org/about_us — artist-led advocacy mission and Artists’ Bill of Rights; no project affiliation or endorsement established.
+- USAGov: https://www.usa.gov/elected-officials — elected-office contact routes; not a candidate directory or electoral recommendation.
+
+No provider was contacted, retained, credential-endorsed or enrolled. No user contract or financial record was collected. Public-source checks do not establish individual suitability, current appointment availability or accessibility acceptance.
