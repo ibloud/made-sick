@@ -1,90 +1,68 @@
 <!doctype html>
 <html lang="en">
 <head>
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="styles.css?v=20261024-consolidated">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 
 <title>Story Finder — Made Sick</title>
-<link rel="stylesheet" href="pixie-launcher.css">
-<style>
-*{box-sizing:border-box}
-body{margin:0;background:var(--paper);color:var(--ink);font:17px/1.55 ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
-a{color:inherit}.skip{position:absolute;left:-9999px}.skip:focus{left:1rem;top:1rem;background:#fff;padding:.75rem;z-index:9}
-body>header,main,body>footer{width:100%;max-width:1120px;margin-inline:auto;padding:1.25rem clamp(1rem,3vw,2rem)}
-.mast{display:flex;gap:1rem;align-items:center;justify-content:space-between;border-bottom:3px solid var(--ink)}
-.brand{font-weight:950;letter-spacing:.08em;text-decoration:none}.brand span:last-child{color:var(--red)}.back{font-weight:750}
-.hero{padding:clamp(1.5rem,4vw,3rem) 0 1.5rem}.eyebrow{text-transform:uppercase;font-size:.78rem;font-weight:900;letter-spacing:.14em;color:var(--red);margin:0 0 .65rem}
-h1{font-size:clamp(2.4rem,5.8vw,4.5rem);line-height:1.05;letter-spacing:-.045em;margin:0 0 1.25rem;max-width:20ch;text-wrap:balance}
-.lede{font-size:1.1rem;max-width:70ch;margin:0 0 1.25rem}.notice{border-left:6px solid var(--acid);padding:1rem 1.25rem;background:var(--panel);max-width:75ch;margin:0}
-.panel{background:var(--panel);border:2px solid var(--ink);padding:clamp(1rem,3vw,2rem);box-shadow:6px 6px 0 var(--ink);margin:0 0 2rem}
-h2{font-size:1.55rem;line-height:1.2;margin:0 0 1.25rem}
-form{display:grid;gap:1.25rem}.row{display:grid;grid-template-columns:minmax(0,2fr) minmax(0,1fr) minmax(0,1fr);gap:1rem}.row>label{min-width:0}
-label{font-weight:800;line-height:1.4}label span{display:block;font-weight:500;color:var(--muted);font-size:.86rem;margin:.2rem 0 .4rem}
-input[type=text],input[type=search],input[type=date]{display:block;width:100%;min-width:0;max-width:100%;min-inline-size:0;min-height:3rem;font:inherit;padding:.65rem .75rem;border:2px solid var(--ink);border-radius:0;background:white;color:var(--ink)}
-input[type=date]{appearance:none;-webkit-appearance:none;text-align:left}
-input[type=date]::-webkit-date-and-time-value{text-align:left;min-height:1.4em}
-input:focus-visible,button:focus-visible,a:focus-visible{outline:4px solid var(--focus);outline-offset:3px}
-.checks{display:flex;flex-wrap:wrap;gap:.5rem 1.25rem}.checks label{display:inline-flex;align-items:center;gap:.5rem;min-height:44px}.checks input{width:1.15rem;height:1.15rem;margin:0;flex:none}
-button,.button{appearance:none;border:2px solid var(--ink);background:var(--acid);color:var(--ink);min-height:44px;padding:.75rem 1rem;font-family:inherit;font-size:1rem;font-weight:800;line-height:1.25;cursor:pointer;text-decoration:none;display:inline-block}
-button.secondary{background:white}button:disabled{opacity:.55;cursor:not-allowed}.actions{display:flex;gap:.75rem;flex-wrap:wrap}.status{min-height:1.6em;font-weight:750;margin:0}
-.results-head{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;border-bottom:3px solid var(--ink);padding-bottom:1rem}.results-head h2{margin:0}.results-head .eyebrow{margin-bottom:.5rem}
-.ledger-note{font-size:.95rem;color:var(--muted);max-width:80ch;margin:1rem 0}
-.results{display:grid;gap:1rem;padding:.5rem 0}.post{background:var(--panel);border:1px solid var(--surface-border);padding:1rem}
-.post-top{display:flex;flex-wrap:wrap;gap:.75rem;justify-content:space-between;align-items:center}.post-top label{display:inline-flex;align-items:center;gap:.5rem;min-height:44px}.post time{font-weight:800}.post p{white-space:pre-wrap;overflow-wrap:anywhere}.post-links{display:flex;gap:1rem;flex-wrap:wrap;font-size:.9rem;font-weight:800}
-.badges{display:flex;gap:.4rem;flex-wrap:wrap}.badge{font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;border:1px solid;padding:.15rem .35rem}
-.empty{margin:0;padding:1.25rem;border:2px dashed var(--surface-border);color:var(--muted)}body>footer{border-top:1px solid var(--surface-border);margin-top:2rem;padding-bottom:calc(6rem + env(safe-area-inset-bottom,0px));color:var(--muted)}body>footer p{margin:0}
-@media(max-width:1000px){.row{grid-template-columns:repeat(2,minmax(0,1fr))}.row>label:first-child{grid-column:1/-1}}
-@media(max-width:600px){.row{grid-template-columns:minmax(0,1fr)}.mast{align-items:flex-start;flex-wrap:wrap}.results-head{align-items:flex-start;flex-direction:column}.panel{box-shadow:4px 4px 0 var(--ink)}.actions{width:100%}.actions>button{flex:1 1 12rem}.post-top{align-items:flex-start;flex-direction:column}}
-@media(prefers-reduced-motion:no-preference){button:not(:disabled){transition:background-color .12s}}
-</style>
-<link rel="stylesheet" href="navigation.css">
+
+
+
 
 <link rel="canonical" href="https://made-sick.org/story-finder.html">
-<meta name="description" content="Search and review a public Bluesky diary feed without sharing credentials or uploading an archive.">
+<meta name="description" content="Search and review a public AT Protocol post archive without sharing credentials or uploading an archive.">
 <meta property="og:title" content="Story Finder — Made Sick">
-<meta property="og:description" content="Search and review a public Bluesky diary feed without sharing credentials or uploading an archive.">
+<meta property="og:description" content="Search and review a public AT Protocol post archive without sharing credentials or uploading an archive.">
 <meta property="og:url" content="https://made-sick.org/story-finder.html">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Made Sick">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Story Finder — Made Sick">
-<meta name="twitter:description" content="Search and review a public Bluesky diary feed without sharing credentials or uploading an archive.">
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "name": "Story Finder — Made Sick", "url": "https://made-sick.org/story-finder.html", "description": "Search and review a public Bluesky diary feed without sharing credentials or uploading an archive."}</script>
-<link rel="stylesheet" href="site-theme.css?v=20261022-site">
+<meta name="twitter:description" content="Search and review a public AT Protocol post archive without sharing credentials or uploading an archive.">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "name": "Story Finder — Made Sick", "url": "https://made-sick.org/story-finder.html", "description": "Search and review a public AT Protocol post archive without sharing credentials or uploading an archive."}</script>
+
 </head>
-<body class="made-sick-site finder-page">
+<body class="made-sick-site finder-page page-story-finder">
 <a class="skip-link" href="#finder">Skip to search</a>
 <header class="site-header grouped-header"><a class="wordmark" href="index.html" aria-label="Made Sick home"><span>MADE</span><span>SICK</span></a><button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-menu" hidden>Menu</button><nav id="primary-menu" aria-label="Primary navigation"><details class="nav-group"><summary>Explore</summary><div class="nav-links"><a href="directory.html">Directory</a><a href="stories.html">Stories</a><a href="https://adventure.made-sick.org/travel.html">Travel &amp; Access</a><a href="influences.html">Influences</a><a href="https://atmosphere.loptrlab.com/?from=made-sick">Atmosphere field guide</a></div></details><details class="nav-group"><summary>Participate</summary><div class="nav-links"><a href="join.html">Join Made Sick</a><a href="index.html#how-it-works">How it works</a><a href="voting-edition.html">Vote</a></div></details><details class="nav-group"><summary>Projects</summary><div class="nav-links"><a href="index.html#pixie">PIXIE</a><a href="index.html#remedy-ward">Remedy Ward</a><a href="index.html#sessions">Made Sick Sessions</a><a href="bard-tour.html">Travelling bard · Review pitch</a><a href="https://adventure.made-sick.org/">Adventures · Pre-alpha</a></div></details><details class="nav-group"><summary>About</summary><div class="nav-links"><a href="index.html#about-made-sick">About Made Sick</a><a href="future-vision.html">Future Vision</a><a href="index.html#loptr-mission">Mission</a><a href="index.html#trust">Independence &amp; affiliations</a></div></details><a href="search.html">Search</a></nav><a class="button button-small nav-join" href="join.html">Join</a></header>
 <main>
 <section class="hero">
 <p class="eyebrow">Public archive · device-local review</p>
 <h1>Find the story in your feed.</h1>
-<p class="lede">Story Finder reads one public Bluesky author feed chronologically, then searches the posts already loaded in this browser. It is designed for people who use social media as a diary, notebook, or distributed story archive.</p>
+<p class="lede">Story Finder retrieves one author’s public AT Protocol posts through Bluesky’s public API, then searches the posts already loaded in this browser. It is designed for people who use social media as a diary, notebook, or distributed story archive.</p>
 <p class="notice"><strong>Privacy boundary:</strong> no password, Bluesky sign-in, DMs, likes, private data, analytics, or server-side archive. Your search terms and selections stay in this tab. A public post is never added to Made Sick without human review and consent.</p>
 </section>
 <section class="panel" id="finder" aria-labelledby="finder-title">
 <p class="eyebrow">Step 1 · choose an archive</p><h2 id="finder-title">Load public posts</h2>
 <form id="search-form">
 <div class="row">
-<label>Bluesky handle<span>Default pilot identity</span><input id="handle" name="handle" type="text" value="ibloud.xyz" autocomplete="off" required></label>
+<label>AT Protocol handle<span>Your public handle, such as ibloud.xyz. Posts are retrieved through Bluesky’s public API.</span><input id="handle" name="handle" type="text" value="ibloud.xyz" autocomplete="off" required></label>
 <label>From date<span>Optional</span><input id="date-from" name="from" type="date"></label>
 <label>Through date<span>Optional</span><input id="date-to" name="to" type="date"></label>
 </div>
-<label>Words or phrase<span>Leave empty to browse chronologically. Multiple words must all appear.</span><input id="query" name="query" type="search" placeholder="Jamie Tompkins, startup, hacker…"></label>
+<label>Words or phrase<span>Leave empty to browse chronologically. Multiple words must all appear. Searches post text, media descriptions and link titles; does not transcribe audio.</span><input id="query" name="query" type="search" placeholder="Jamie Tompkins, startup, hacker…"></label>
 <div class="checks">
 <label><input id="exact" type="checkbox"> Exact phrase</label>
 <label><input id="replies" type="checkbox" checked> Include replies</label>
 <label><input id="reposts" type="checkbox"> Include reposts</label>
+<label><input id="videos-only" type="checkbox"> Videos only</label>
 <label><input id="links-only" type="checkbox"> Posts with links only</label>
 </div>
 <div class="actions">
 <button type="submit" id="load">Load posts</button>
 <button type="button" class="secondary" id="more" disabled>Load 100 older posts</button>
+<button type="button" class="secondary" id="batch">Load up to 2,500 older posts</button>
+<button type="button" class="secondary" id="stop" disabled>Stop loading</button>
 <button type="button" class="secondary" id="clear">Clear this tab</button>
 </div>
 <p class="status" id="status" role="status" aria-live="polite">Nothing loaded yet.</p>
 </form>
+</section>
+<section class="panel" aria-labelledby="thread-title">
+<h2 id="thread-title">Read a post and its conversation</h2>
+<form id="thread-form"><label>Public post link<span>Bluesky or mu.social post URL</span><input type="text" id="post-link" required></label><button>Read conversation</button></form>
+<p id="thread-status" role="status" aria-live="polite"></p><div id="thread-results"></div>
 </section>
 <section aria-labelledby="results-title">
 <div class="results-head"><div><p class="eyebrow">Step 2 · review and preserve</p><h2 id="results-title">Matches</h2></div><div class="actions"><button type="button" class="secondary" id="select-visible" disabled>Select visible</button><button type="button" class="secondary" id="export" disabled>Export selected ledger</button></div></div>
@@ -97,7 +75,7 @@ button.secondary{background:white}button:disabled{opacity:.55;cursor:not-allowed
 <script>
 "use strict";
 const API="https://public.api.bsky.app/xrpc/";
-const state={actor:"",actorDid:"",cursor:null,posts:[],selected:new Map(),loading:false,dateSearch:false};
+const state={actor:"",actorDid:"",cursor:null,posts:[],selected:new Map(),loading:false,dateSearch:false,stop:false,controller:null};
 const $=id=>document.getElementById(id);
 const form=$("search-form"),results=$("results"),status=$("status"),more=$("more"),exportButton=$("export"),selectVisible=$("select-visible");
 function cleanHandle(value){return value.trim().replace(/^@/,"").toLowerCase()}
@@ -108,14 +86,20 @@ function hasLinks(item){const r=item.post.record||{};return Boolean((r.facets||[
 function isReply(item){return Boolean(item.post.record&&item.post.record.reply)}
 function isRepost(item){return Boolean(item.reason&&item.reason.$type==="app.bsky.feed.defs#reasonRepost")}
 function created(item){return new Date((item.post.record&&item.post.record.createdAt)||item.post.indexedAt)}
+function isVideo(item){const e=item.post.record?.embed;return e?.$type==="app.bsky.embed.video"||e?.media?.$type==="app.bsky.embed.video"}
+function searchable(item){
+ const r=item.post.record||{},e=r.embed||{},media=e.media||e;
+ return [r.text,media.alt,...(media.images||[]).map(i=>i.alt),media.external?.title,media.external?.description].filter(Boolean).join("\n");
+}
 function matches(item){
+ if($("videos-only").checked&&!isVideo(item))return false;
  if(!$("replies").checked&&isReply(item))return false;
  if(!$("reposts").checked&&isRepost(item))return false;
  if($("links-only").checked&&!hasLinks(item))return false;
  const d=created(item),from=$("date-from").value,to=$("date-to").value;
  if(from&&d<new Date(from+"T00:00:00"))return false;
  if(to&&d>new Date(to+"T23:59:59.999"))return false;
- const q=normalize($("query").value.trim()),text=normalize(item.post.record&&item.post.record.text);
+ const q=normalize($("query").value.trim()),text=normalize(searchable(item));
  if(!q)return true;
  return $("exact").checked?text.includes(q):q.split(/\s+/).every(word=>text.includes(word));
 }
@@ -131,7 +115,7 @@ function render(){
   const time=document.createElement("time");time.dateTime=created(item).toISOString();time.textContent=created(item).toLocaleString();
   top.append(label,time);
   const text=document.createElement("p");text.textContent=(item.post.record&&item.post.record.text)||"[No text]";
-  const badges=document.createElement("div");badges.className="badges";if(isReply(item))badges.append(badge("reply"));if(isRepost(item))badges.append(badge("repost"));if(hasLinks(item))badges.append(badge("links"));
+  const badges=document.createElement("div");badges.className="badges";if(isReply(item))badges.append(badge("reply"));if(isRepost(item))badges.append(badge("repost"));if(hasLinks(item))badges.append(badge("links"));if(isVideo(item))badges.append(badge("video"));
   const links=document.createElement("div");links.className="post-links";const open=document.createElement("a");open.href=postUrl(item);open.target="_blank";open.rel="noreferrer";open.textContent="Open original ↗";links.append(open);
   card.append(top,text,badges,links);results.append(card);
  });
@@ -141,33 +125,34 @@ function render(){
 function updateButtons(){exportButton.disabled=!state.selected.size}
 async function resolveActor(handle){
  const url=API+"com.atproto.identity.resolveHandle?handle="+encodeURIComponent(handle);
- const response=await fetch(url);if(!response.ok)throw new Error("That public handle could not be resolved.");
+ const response=await fetch(url,{signal:state.controller?.signal});if(!response.ok)throw new Error("That public handle could not be resolved.");
  return (await response.json()).did;
 }
-async function loadPage(reset,dateSearch=false){
- if(state.loading)return;state.loading=true;$("load").disabled=true;more.disabled=true;
+async function loadPage(reset,dateSearch=false,batch=false){
+ if(state.loading)return;state.loading=true;state.stop=false;state.controller=new AbortController();$("stop").disabled=false;$("batch").disabled=true;$("clear").disabled=true;$("load").disabled=true;more.disabled=true;
  const from=$("date-from").value,to=$("date-to").value;
  state.dateSearch=dateSearch;
  status.textContent=dateSearch?"Searching the selected date range…":"Loading public posts…";
  try{
-  const handle=cleanHandle($("handle").value);if(!handle)throw new Error("Enter a Bluesky handle.");
+  const handle=cleanHandle($("handle").value);if(!handle)throw new Error("Enter an AT Protocol handle.");
   if(reset||state.actor!==handle){state.actor=handle;state.actorDid="";state.cursor=null;state.posts=[];state.selected.clear()}
   const did=await resolveActor(handle);
   if(state.actorDid&&state.actorDid!==did){state.posts=[];state.selected.clear();state.cursor=null}
   state.actorDid=did;
   let pagesLoaded=0,reachedBoundary=false;
   do{
-   const params=new URLSearchParams({actor:did,limit:"100",filter:"posts_with_replies",includePins:"true"});
+   const params=new URLSearchParams({actor:did,limit:"100",filter:"posts_with_replies",includePins:"false"});
    if(state.cursor)params.set("cursor",state.cursor);
-   const response=await fetch(API+"app.bsky.feed.getAuthorFeed?"+params);if(!response.ok)throw new Error("Bluesky did not return this public feed.");
+   const response=await fetch(API+"app.bsky.feed.getAuthorFeed?"+params,{signal:state.controller.signal});if(!response.ok)throw new Error("Bluesky did not return this public feed.");
    const data=await response.json(),known=new Set(state.posts.map(postKey));
    (data.feed||[]).forEach(item=>{if(!known.has(postKey(item))){state.posts.push(item);known.add(postKey(item))}});
    state.cursor=data.cursor||null;pagesLoaded++;
-   const oldest=state.posts.reduce((min,item)=>{const time=created(item).getTime();return min===null||time<min?time:min},null);
+   const pageTimes=(data.feed||[]).filter(item=>!item.reason).map(item=>created(item).getTime()).filter(Number.isFinite);
+   const oldest=pageTimes.length?Math.max(...pageTimes):null;
    if(from&&oldest!==null&&oldest<new Date(from+"T00:00:00").getTime())reachedBoundary=true;
    render();
    if(dateSearch&&state.cursor&&!reachedBoundary)status.textContent=state.posts.length+" public posts loaded; searching backward to cover the selected date range…";
-  }while(dateSearch&&state.cursor&&!reachedBoundary&&pagesLoaded<25);
+  }while((dateSearch||batch)&&state.cursor&&!reachedBoundary&&pagesLoaded<25&&!state.stop);
   if(dateSearch){
    if(reachedBoundary)status.textContent=state.posts.length+" public posts loaded. Reached the start of the selected date range; results below are filtered to your dates.";
    else if(!state.cursor)status.textContent=state.posts.length+" public posts loaded. Reached the beginning of the available feed; results below are filtered to your dates.";
@@ -175,12 +160,14 @@ async function loadPage(reset,dateSearch=false){
    more.textContent="Continue date search";
   }else{more.textContent="Load 100 older posts"}
   more.disabled=!state.cursor;
- }catch(error){status.textContent=error.message;results.replaceChildren();const p=document.createElement("p");p.className="empty";p.textContent="Nothing was changed. Check the handle or try again when Bluesky is available.";results.append(p)}
- finally{state.loading=false;$("load").disabled=false;if(state.cursor)more.disabled=false}
+ }catch(error){render();status.textContent=error.name==="AbortError"?"Loading stopped. Loaded posts and selections are retained.":error.message+" Loaded posts and selections are retained."}
+ finally{state.loading=false;$("stop").disabled=true;$("batch").disabled=false;$("clear").disabled=false;$("load").disabled=false;if(state.cursor)more.disabled=false}
 }
-form.addEventListener("submit",event=>{event.preventDefault();const hasDates=Boolean($("date-from").value||$("date-to").value);loadPage(true,hasDates)});
+form.addEventListener("submit",event=>{event.preventDefault();if($("date-from").value&&$("date-to").value&&$("date-from").value>$("date-to").value){status.textContent="From date must be before the through date.";return;}const hasDates=Boolean($("date-from").value||$("date-to").value);loadPage(true,hasDates)});
 more.addEventListener("click",()=>loadPage(false,state.dateSearch));
-["query","date-from","date-to","exact","replies","reposts","links-only"].forEach(id=>$(id).addEventListener("input",render));
+$("batch").addEventListener("click",()=>loadPage(false,false,true));
+$("stop").addEventListener("click",()=>{state.stop=true;state.controller?.abort()});
+["query","date-from","date-to","exact","replies","reposts","links-only","videos-only"].forEach(id=>$(id).addEventListener("input",render));
 $("clear").addEventListener("click",()=>{state.actor="";state.actorDid="";state.cursor=null;state.posts=[];state.selected.clear();state.dateSearch=false;more.textContent="Load 100 older posts";$("query").value="";$("date-from").value="";$("date-to").value="";results.innerHTML='<p class="empty">Load a public feed to begin.</p>';status.textContent="This tab was cleared.";more.disabled=true;selectVisible.disabled=true;updateButtons()});
 selectVisible.addEventListener("click",()=>{state.posts.filter(matches).forEach(item=>state.selected.set(postKey(item),state.selected.get(postKey(item))||new Date().toISOString()));render()});
 exportButton.addEventListener("click",()=>{
@@ -189,6 +176,35 @@ exportButton.addEventListener("click",()=>{
  catch(error){status.textContent=error.message;return}
  const blob=new Blob([JSON.stringify(payload,null,2)],{type:"application/json"}),url=URL.createObjectURL(blob),a=document.createElement("a");a.href=url;a.download="made-sick-story-ledger-"+new Date().toISOString().slice(0,10)+".json";a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);
  status.textContent=payload.posts.length+" selected post"+(payload.posts.length===1?"":"s")+" exported to your device.";
+});
+function parsePostLink(value){
+ const url=new URL(value);
+ if(url.protocol!=="https:"||!["bsky.app","mu.social"].includes(url.hostname))throw new Error("Use an HTTPS Bluesky or mu.social post link.");
+ const match=url.pathname.match(/^\/profile\/([^/]+)\/post\/([a-zA-Z0-9]+)\/?$/);
+ if(!match)throw new Error("Paste a link to a specific post.");
+ return "at://"+decodeURIComponent(match[1])+"/app.bsky.feed.post/"+match[2];
+}
+$("thread-form").addEventListener("submit",async event=>{
+ event.preventDefault();const target=$("thread-results"),note=$("thread-status");note.textContent="Loading public conversation…";target.replaceChildren();
+ try{
+ const uri=parsePostLink($("post-link").value.trim());
+ const response=await fetch(API+"app.bsky.feed.getPostThread?"+new URLSearchParams({uri,depth:"2",parentHeight:"20"}));
+ if(!response.ok)throw new Error("This public conversation could not be retrieved.");
+ const data=await response.json(),seen=new Set();
+ function show(node){
+ if(!node?.post){const p=document.createElement("p");p.textContent="A post is unavailable or blocked.";target.append(p);return;}
+ if(seen.has(node.post.uri))return;
+ seen.add(node.post.uri);
+ if(node.parent)show(node.parent);
+ const card=document.createElement("article");card.className="post";
+ const who=document.createElement("strong");who.textContent="@"+node.post.author.handle;
+ const text=document.createElement("p");text.textContent=node.post.record?.text||"[No post text]";
+ const a=document.createElement("a");a.href=postUrl({post:node.post});a.target="_blank";a.rel="noreferrer";a.textContent="Open original ↗";
+ card.append(who,text,a);target.append(card);
+ (node.replies||[]).forEach(show);
+ }
+ show(data.thread);note.textContent="Public conversation retrieved. Replies are limited to two levels; open the original for more. This view does not add anyone to your ledger.";
+ }catch(error){note.textContent=error.message}
 });
 </script>
 <script src="pixie-launcher.js" defer></script>

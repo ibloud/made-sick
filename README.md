@@ -36,7 +36,7 @@ The repository contains `verified-profile.js`, a small state model that evaluate
 
 ## Story Finder
 
-[Story Finder](https://made-sick.org/story-finder.html) is a device-local research interface for people who use a public Bluesky feed as a diary, notebook, or distributed story archive. It resolves a public AT Protocol handle, loads the author's feed in chronological pages of up to 100 posts, and provides local text, exact-phrase, date, reply, repost, and link filters.
+[Story Finder](https://made-sick.org/story-finder.html) is a device-local research interface for people who use public AT Protocol posts as a diary, notebook, or distributed story archive. It resolves a public AT Protocol handle through Bluesky’s public API, loads the author's feed in chronological pages of up to 100 posts, and provides local text, exact-phrase, date, reply, repost, and link filters.
 
 Selected posts can be exported as a creator-controlled JSON research ledger containing source URLs, timestamps, AT URIs, and text. The tool requires no Bluesky password or sign-in and does not read DMs, likes, private records, or other accounts' timelines. Search terms, loaded feed data, and selections are not sent to Made Sick or persisted by default. Export is not publication consent or directory enrollment.
 
