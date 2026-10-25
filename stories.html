@@ -6,7 +6,7 @@
 <title>Stories — Made Sick</title>
 
 
-<link rel="stylesheet" href="styles.css?v=20261024-consolidated">
+<link rel="stylesheet" href="styles.css?v=20261024-accounts">
 
 
 
@@ -144,7 +144,7 @@
 <p>A story or milestone write-up published through <a href="https://pckt.blog/">pckt.blog</a> can live in your own AT Protocol repository. Sifa supports these Standard.site documents as creation activity. Your Made Sick participant record is separate: joining or adding a profile introduction does not publish an achievement.</p>
 <ol><li>Publish your own story or milestone write-up through pckt.blog using the identity you want credited. Keep an existing article at its source rather than publishing a duplicate.</li><li>Use the check below to inspect that identity’s public Standard.site documents.</li><li>Open Sifa to check your profile. Sifa controls indexing and visibility; finding a record here does not confirm it appears there.</li></ol>
 <p>This lookup reads public record titles, dates and source links from the identity’s provider. It does not sign you in, publish, save an archive, or add work to the featured collection above. Repository control does not independently verify authorship or claims. Do not publish private health details to test this flow.</p>
-<form id="work-form"><label for="work-handle">AT Protocol handle or DID</label><input id="work-handle" type="text" required autocomplete="off" placeholder="made-sick.org"><div class="hero-actions"><button class="button" id="work-load" type="submit">Check published work</button><button class="button" id="work-stop" type="button" disabled>Stop</button></div></form>
+<form id="work-form"><label for="work-handle">AT Protocol handle or DID</label><input id="work-handle" data-atproto-account type="text" required autocomplete="off" placeholder="made-sick.org"><div class="hero-actions"><button class="button" id="work-load" type="submit">Check published work</button><button class="button" id="work-stop" type="button" disabled>Stop</button></div></form>
 <p id="work-status" role="status" aria-live="polite">Nothing fetched until you choose Check published work.</p>
 <a id="work-sifa" class="text-link" href="https://sifa.id/" target="_blank" rel="noreferrer noopener" hidden>Check this identity on Sifa ↗</a>
 <div id="work-list"></div><button id="work-more" class="button" type="button" hidden>Load 20 more documents</button>
@@ -166,6 +166,7 @@
 <script src="published-work.js" defer></script>
 <script src="stories.js" defer>
 </script>
+<script src="shared/atproto-account.js?v=1"></script>
 <script src="pixie-launcher.js" defer></script>
 </body>
 </html>
