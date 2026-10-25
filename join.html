@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <title>Join Made Sick — AT Protocol</title>
-  <link rel="stylesheet" href="styles.css?v=20261024-consolidated">
+  <link rel="stylesheet" href="styles.css?v=20261024-accounts">
 
 
 
@@ -39,7 +39,7 @@
         <p class="join-copy">Already have an identity? Enter your handle. If you do not have one yet, you can ask your PDS to take you through account creation.</p>
         <form id="identity-form">
           <label for="handle">Your handle <span>example: alice.bsky.social</span></label>
-          <input id="handle" name="handle" inputmode="text" autocomplete="username" placeholder="alice.bsky.social">
+          <input id="handle" data-atproto-account name="handle" inputmode="text" autocomplete="username" placeholder="alice.bsky.social">
           <div class="join-actions">
             <button class="button" id="connect-button" type="submit">Connect identity</button>
             <button class="button button-secondary" id="create-button" type="button">Create an AT Protocol identity</button>
@@ -88,6 +88,7 @@
     </section>
   </main>
   <script type="module" src="join.js"></script>
+<script src="shared/atproto-account.js?v=1"></script>
 <script src="pixie-launcher.js" defer></script>
 <script src="navigation.js" defer></script>
 </body>

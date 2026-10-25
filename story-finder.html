@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-<link rel="stylesheet" href="styles.css?v=20261024-consolidated">
+<link rel="stylesheet" href="styles.css?v=20261024-accounts">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 
@@ -31,13 +31,13 @@
 <p class="eyebrow">Public archive · device-local review</p>
 <h1>Find the story in your feed.</h1>
 <p class="lede">Story Finder retrieves one author’s public AT Protocol posts through Bluesky’s public API, then searches the posts already loaded in this browser. It is designed for people who use social media as a diary, notebook, or distributed story archive.</p>
-<p class="notice"><strong>Privacy boundary:</strong> no password, Bluesky sign-in, DMs, likes, private data, analytics, or server-side archive. Your search terms and selections stay in this tab. A public post is never added to Made Sick without human review and consent.</p>
+<p class="notice"><strong>Privacy boundary:</strong> no password, Bluesky sign-in, DMs, likes, private data, analytics, or server-side archive. Your story-search terms and selections stay in this tab. Account-name prefixes are sent to the public API for suggestions. A public post is never added to Made Sick without human review and consent.</p>
 </section>
 <section class="panel" id="finder" aria-labelledby="finder-title">
 <p class="eyebrow">Step 1 · choose an archive</p><h2 id="finder-title">Load public posts</h2>
 <form id="search-form">
 <div class="row">
-<label>AT Protocol handle<span>Your public handle, such as ibloud.xyz. Posts are retrieved through Bluesky’s public API.</span><input id="handle" name="handle" type="text" value="ibloud.xyz" autocomplete="off" required></label>
+<div class="account-field"><label for="handle">AT Protocol handle<span>Your public handle, such as ibloud.xyz. Posts are retrieved through Bluesky’s public API.</span></label><input id="handle" data-atproto-account name="handle" type="text" value="ibloud.xyz" autocomplete="off" required></div>
 <label>From date<span>Optional</span><input id="date-from" name="from" type="date"></label>
 <label>Through date<span>Optional</span><input id="date-to" name="to" type="date"></label>
 </div>
@@ -207,6 +207,7 @@ $("thread-form").addEventListener("submit",async event=>{
  }catch(error){note.textContent=error.message}
 });
 </script>
+<script src="shared/atproto-account.js?v=1"></script>
 <script src="pixie-launcher.js" defer></script>
 <script src="navigation.js" defer></script>
 </body>
