@@ -21,7 +21,7 @@ for r in data['resources']:
 {evidence}</details>
 <a href="{e(r['url'])}" rel="noreferrer">Open resource ↗</a>
 {extra}
-<a href="https://pixie-project-companion.ibloud-ivxx.chatgpt.site/?resource={e(r['id'])}#find-help">Prepare an enquiry with PIXIE ↗</a>
+<a href="https://pixie-project-companion-production.up.railway.app/?resource={e(r['id'])}#find-help">Prepare an enquiry with PIXIE ↗</a>
 </article>''')
 block = '<!-- BEGIN GENERATED RESOURCES -->\n<div class="system-grid">\n' + '\n'.join(cards) + '\n</div>\n<!-- END GENERATED RESOURCES -->'
 p = root / 'directory.html'
