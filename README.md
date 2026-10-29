@@ -1,3 +1,5 @@
+Read [brand-guidelines.md](brand-guidelines.md) before any brand, copy, image or presentation change. This is the consolidated brand entry point; preserve source records and release gates.
+
 # Made Sick: Share the Joy
 
 ## Loptr Lab mission and participation
