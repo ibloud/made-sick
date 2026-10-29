@@ -1,3 +1,5 @@
+Read [brand-guidelines.md](brand-guidelines.md) before any brand, copy, image or presentation change. This is the consolidated brand entry point; preserve source records and release gates.
+
 # Made Sick visual fixes
 
 Dominique has repeatedly requested consistent spacing. For visual changes, do not
