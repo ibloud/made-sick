@@ -228,6 +228,9 @@ participantForm.addEventListener("submit", async (event) => {
     const displayName = document.querySelector("#display-name").value.trim();
     const milestone = document.querySelector("#milestone").value.trim();
     if (!displayName) throw new Error("A public display name is required.");
+    if (!document.querySelector("#directory-consent").checked || !document.querySelector("#public-record-consent").checked) {
+      throw new Error("Review and accept both directory and public-record consent before publishing.");
+    }
     const saved = await saveParticipantRecord(displayName, milestone);
     resultBox.hidden = false;
     recordUri.textContent = saved.uri || "Participant record saved.";
