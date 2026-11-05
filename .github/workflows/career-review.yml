@@ -49,6 +49,7 @@ jobs:
              p=Text();p.feed(source);text=re.sub(r'\s+',' ',' '.join(p.parts)).strip()
              title=re.search(r'<title[^>]*>(.*?)</title>',source,re.I|re.S);rec['title']=title.group(1).strip() if title else None
              rec['excerpt']=text[:2500]
+             rec['relevantExcerpts']=list(dict.fromkeys(text[max(0,m.start()-100):m.end()+350] for term in ['colleagues','relationships','problems','share','Career Sprint','Career Accelerator','Guild','free','subscribe','Programs'] for m in list(re.finditer(re.escape(term),text,re.I))[:2]))[:18]
              rec['coachingAndSubscriptionLinks']=list(dict.fromkeys(h for h in re.findall(r'href=[\"\x27]([^\"\x27]+)',source) if any(t in h.lower() for t in ['substack','calendly','coach','apply','waitlist'])))[:30]
              rec['substantiveReviewRequired']=True
            except urllib.error.HTTPError as error:rec.update(status=error.code,error=str(error))
