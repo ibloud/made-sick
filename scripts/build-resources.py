@@ -10,17 +10,18 @@ for r in data['resources']:
             raise ValueError('HTTPS resource required')
     anchor = f'<span id="{e(r["legacyAnchor"])}"></span>' if r.get('legacyAnchor') else ''
     extra = ''.join(f'<a href="{e(x["url"])}" rel="noreferrer">{e(x["label"])} ↗</a>' for x in r.get('additionalLinks', []))
+    detail_links = ''.join(f'<a href="{e(x["url"])}" rel="noreferrer">{e(x["label"])} ↗</a>' for x in r.get('detailLinks', []))
     evidence = f'<a href="{e(r["evidenceUrl"])}" rel="noreferrer">Source evidence ↗</a>' if r['evidenceUrl'] != r['url'] else ''
     audience = f'<p>{e(r["audience"])}</p>\n' if r.get('audience') else ''
     practice = f'<p>{e(r["practicalAction"])}</p>\n' if r.get('practicalAction') else ''
     cards.append(f'''<article id="resource-{e(r['id'])}">
 {anchor}<h3>{e(r['name'])}</h3>
 <p>{e(r['description'])}</p>
-{audience}{practice}<p class="notice">{e(r['relationship'])} · {e(r['recordType'])}</p>
+<p class="notice">{e(r['relationship'])} · {e(r['recordType'])}</p>
 <details><summary>Source, scope &amp; checks</summary>
-<p>{e(r['verification'])}</p>
+{audience}{practice}<p>{e(r['verification'])}</p>
 <p>Source review: {e(r['reviewedOn'] or 'Date unverified')} · Fees: {e(r['fees'])} · Availability: {e(r['availability'])}</p>
-{evidence}</details>
+{evidence}{detail_links}</details>
 <a href="{e(r['url'])}" rel="noreferrer">{e(r.get('actionLabel', 'Open resource'))} ↗</a>
 {extra}
 <a href="https://pixie-project-companion-production.up.railway.app/?resource={e(r['id'])}#find-help">Prepare an enquiry with PIXIE ↗</a>
