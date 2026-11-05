@@ -1,0 +1,80 @@
+name: Career resource review evidence
+on:
+  pull_request:
+    paths:
+      - directory-resources.json
+      - directory.html
+      - scripts/build-resources.py
+      - .github/workflows/career-review.yml
+permissions:
+  contents: read
+jobs:
+  preview-and-destinations:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          persist-credentials: false
+      - uses: actions/checkout@v4
+        with:
+          repository: Loptr-Lab/training
+          ref: a1d027d5028474d07155d650cdb5c0d658e636ae
+          path: _review/training
+          persist-credentials: false
+      - name: Read external destinations without submitting data
+        run: |
+          python3 - <<'PY'
+          import json, re, urllib.request, urllib.error
+          from html.parser import HTMLParser
+          from pathlib import Path
+          class Text(HTMLParser):
+           def __init__(self): super().__init__(); self.parts=[];self.skip=0
+           def handle_starttag(self,tag,attrs):
+            if tag in ('script','style'): self.skip+=1
+           def handle_endtag(self,tag):
+            if tag in ('script','style'): self.skip=max(0,self.skip-1)
+           def handle_data(self,data):
+            if not self.skip:self.parts.append(data)
+          data=json.loads(Path('directory-resources.json').read_text())
+          r=next(r for r in data['resources'] if r['id']=='chris-tran-career')
+          urls=list(dict.fromkeys([r['url'],r['evidenceUrl']]+[x['url'] for x in r['additionalLinks']]+['https://www.linkedin.com/in/chrisltran/','https://loptrlab.com/training/']))
+          results=[]
+          for url in urls:
+           rec={'url':url}
+           try:
+            req=urllib.request.Request(url,headers={'User-Agent':'Mozilla/5.0 (compatible; LoptrLabReview/1.0)'})
+            with urllib.request.urlopen(req,timeout=25) as response:
+             source=response.read(1500000).decode('utf-8',errors='replace');rec.update(status=response.status,finalUrl=response.url)
+             p=Text();p.feed(source);text=re.sub(r'\s+',' ',' '.join(p.parts)).strip()
+             title=re.search(r'<title[^>]*>(.*?)</title>',source,re.I|re.S);rec['title']=title.group(1).strip() if title else None
+             rec['excerpt']=text[:2500]
+             rec['coachingAndSubscriptionLinks']=list(dict.fromkeys(h for h in re.findall(r'href=[\"\x27]([^\"\x27]+)',source) if any(t in h.lower() for t in ['substack','calendly','coach','apply','waitlist'])))[:30]
+             rec['substantiveReviewRequired']=True
+           except urllib.error.HTTPError as error:rec.update(status=error.code,error=str(error))
+           except Exception as error:rec.update(status=None,error=str(error))
+           results.append(rec)
+          Path('external-destination-receipt.json').write_text(json.dumps(results,ensure_ascii=False,indent=2)+'\n')
+          print(json.dumps(results,ensure_ascii=False,indent=2))
+          PY
+      - name: Package review-only static preview
+        run: |
+          python3 - <<'PY'
+          import pathlib,subprocess,zipfile,json
+          root=pathlib.Path('.')
+          with zipfile.ZipFile('career-review-preview.zip','w',zipfile.ZIP_DEFLATED) as z:
+            for prefix,folder in [('made-sick',root),('training',root/'_review/training')]:
+              files=subprocess.check_output(['git','-C',str(folder),'ls-files','-z']).decode().split('\0')
+              for name in filter(None,files):
+                p=folder/name
+                if p.is_file():z.write(p,prefix+'/'+name)
+            z.writestr('index.html','<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Career resource review</title><h1>Review preview: unmerged source</h1><p>Static pages only; no Companion backend or automatic submission. Canonical product links still point to public destinations; use these local links for unmerged changes.</p><ul><li><a href="made-sick/directory.html#resource-chris-tran-career">Made-Sick career card</a></li><li><a href="training/docs/index.html">Training entry</a></li><li><a href="training/docs/pixie-contributors.html#work-to-evidence">Training evidence step</a></li></ul></html>')
+            z.writestr('REVIEW.txt','Extract and open index.html, or run python3 -m http.server in this folder. This is a review artifact, not a production deployment. Training source: a1d027d5028474d07155d650cdb5c0d658e636ae. Made-Sick source: '+subprocess.check_output(['git','rev-parse','HEAD']).decode())
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: career-resource-review
+          path: |
+            career-review-preview.zip
+            external-destination-receipt.json
+          retention-days: 14
