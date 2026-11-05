@@ -168,3 +168,60 @@ The five new entries in `directory-resources.json` were checked against provider
 - USAGov: https://www.usa.gov/elected-officials — elected-office contact routes; not a candidate directory or electoral recommendation.
 
 No provider was contacted, retained, credential-endorsed or enrolled. No user contract or financial record was collected. Public-source checks do not establish individual suitability, current appointment availability or accessibility acceptance.
+
+## Chris Tran career resource — review provenance, 5 November 2026
+
+The `chris-tran-career` record in `directory-resources.json` is the canonical
+resource; `scripts/build-resources.py` generates its existing directory card.
+Training links to that card rather than maintaining a second catalogue.
+
+Chris Tran is the author of the linked advice. The owner supplied a summary of
+the written edition “All five interviews came from referrals. Zero came from
+the 25 applications.” (26 August 2026), verified in the originating ChatGPT
+session. It describes one client's referral experience and advice to maintain
+professional relationships and share examples of work and problems solved.
+The text here is an original concise description, not a newsletter reproduction.
+The task/evidence exercise is Loptr Lab's own practical application.
+
+Owner-supplied destinations from that session: `https://christran.gg/`,
+`https://www.linkedin.com/in/chrisltran/`,
+`https://www.linkedin.com/newsletters/gg-work-and-play-7099280685223313408/`,
+`https://christrancoach.substack.com`, and
+`https://www.linkedin.com/pulse/all-five-interviews-came-from-referrals-zero-25-chris-tran-iimuc`.
+Coaching uses Chris's homepage, not an invented booking URL. The owner described
+Career Sprint, Career Accelerator, Unstoppable Guild group coaching and
+consulting, with application/waiting-list links; pricing and present availability
+were not captured. Free advice and optional commercial coaching are distinct.
+
+Initial independent rechecking on 5 November 2026 was blocked: the environment's HTTP
+proxy was unreachable; these destinations are also absent from its permitted
+host list. The owner authorized use of the originating-session verification.
+No video was reviewed. No partnership, endorsement, affiliate arrangement,
+qualified lead, interview, placement or revenue is established. No approved
+aggregate analytics integration was found; outcome measurement remains unavailable.
+
+### Networked follow-up, 5 November 2026
+
+GitHub Actions run [42014928241](https://github.com/ibloud/made-sick/actions/runs/42014928241)
+retrieved the homepage, LinkedIn article, newsletter listing, profile and both
+Training page destinations with HTTP 200. The reviewer read their substantive
+excerpts, including the article’s former-colleague/reputation examples and the
+homepage’s free essays and four coaching/consulting offers. These support the
+original concise description and free/commercial distinctions. No client story,
+tracker total, offer, response time or hiring outcome was independently validated.
+
+The article identifies its newsletter as free and links the supplied Substack
+destination. Direct retrieval of that destination returned HTTP 403; its intended
+purpose is source-supported, but subscription access/completion remains unverified.
+The canonical Training HTML resolves, but the new evidence fragment exists only
+on the paired review branch until separately approved publication. The Vercel
+preview is a static review of paired source, not release of those canonical pages.
+
+The GitHub Actions environment installed dependencies and ran the required suites.
+Made-Sick’s 72 tests and generated-card check pass. Training’s typecheck passes;
+24 exercise tests fail on unchanged Not implemented stubs, explicitly allowed
+by its existing starter-state workflow. A green workflow is not 24 passing tests.
+The existing 16px directory overflow at 320px does not obstruct this path: the
+resource jump and every visible Chris-card action are reachable within x=42–278
+with horizontal scroll remaining zero. No stylesheet change was required.
+Physical iPad Safari and VoiceOver remain untested.

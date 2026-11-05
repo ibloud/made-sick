@@ -334,6 +334,52 @@
       "verification": "Official contact-directory purpose reviewed. Lists officeholders, not election candidates or endorsements; contact forms may request constituent details on their own sites.",
       "availability": "Public directory; office response not guaranteed",
       "fees": "Free public directory"
+    },
+    {
+      "id": "chris-tran-career",
+      "name": "Chris Tran — career advice and coaching",
+      "kind": "resource",
+      "recordType": "resource",
+      "description": "Chris Tran’s GG: Work and Play advice encourages maintaining professional relationships and sharing work and problems solved before an urgent job search. His August 26, 2026 referral story is one client’s experience, not a universal hiring result.",
+      "audience": "For gaming professionals presenting work, seeking opportunities or navigating career transitions. Free written advice and optional commercial coaching are separate. New to projects? Build evidence through one contribution. Already have work? Use it directly.",
+      "practicalAction": "Our practical next step: choose a bounded task, follow project review, then explain the problem, your contribution, artifact, verification and outcome. Use the training link below. Distinguish exercises, voluntary contributions, paid work and employment; preserve credit, licensing and disclosure permissions.",
+      "url": "https://christran.gg/",
+      "evidenceUrl": "https://www.linkedin.com/pulse/all-five-interviews-came-from-referrals-zero-25-chris-tran-iimuc",
+      "reviewedOn": "2026-11-05",
+      "verification": "Written source: Chris Tran, “All five interviews came from referrals. Zero came from the 25 applications.”, August 26, 2026. Homepage, article, GG: Work and Play listing and LinkedIn profile independently retrieved through GitHub Actions and their substantive excerpts reviewed on November 5, 2026. The article identifies the newsletter as free and links christrancoach.substack.com; that destination returned HTTP 403, so access and subscription completion remain unverified. No videos reviewed. The contribution exercise is Loptr Lab’s application; no partnership is implied.",
+      "relationship": "Independent author and commercial coaching service; no partnership, endorsement or referral agreement established",
+      "fees": "Free written essays/newsletter per Chris’s homepage and article. Coaching and consulting are optional commercial services; current pricing was not captured. Loptr Lab’s free training is independent of coaching.",
+      "availability": "Website describes Career Sprint, Career Accelerator, Unstoppable Guild group coaching and consulting with waiting-list/application routes. Current openings and response times are not independently confirmed.",
+      "accessibility": "External services not independently tested; check your access needs with the provider",
+      "jurisdiction": "",
+      "location": "",
+      "tags": [
+        "career",
+        "gaming",
+        "portfolio",
+        "referrals",
+        "professional communication",
+        "coaching"
+      ],
+      "additionalLinks": [
+        {
+          "label": "Read Chris’s referral advice (August 26, 2026)",
+          "url": "https://www.linkedin.com/pulse/all-five-interviews-came-from-referrals-zero-25-chris-tran-iimuc"
+        },
+        {
+          "label": "Read GG: Work and Play on LinkedIn",
+          "url": "https://www.linkedin.com/newsletters/gg-work-and-play-7099280685223313408/"
+        },
+        {
+          "label": "Chris’s newsletter subscription site (optional; access may be restricted)",
+          "url": "https://christrancoach.substack.com"
+        },
+        {
+          "label": "Start or continue a Loptr Lab contribution",
+          "url": "https://loptr-lab.github.io/training/pixie-contributors.html#work-to-evidence"
+        }
+      ],
+      "actionLabel": "Explore Chris’s coaching"
     }
   ]
 }
