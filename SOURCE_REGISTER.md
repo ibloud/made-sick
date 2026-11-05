@@ -168,3 +168,34 @@ The five new entries in `directory-resources.json` were checked against provider
 - USAGov: https://www.usa.gov/elected-officials — elected-office contact routes; not a candidate directory or electoral recommendation.
 
 No provider was contacted, retained, credential-endorsed or enrolled. No user contract or financial record was collected. Public-source checks do not establish individual suitability, current appointment availability or accessibility acceptance.
+
+## Chris Tran career resource — review provenance, 5 November 2026
+
+The `chris-tran-career` record in `directory-resources.json` is the canonical
+resource; `scripts/build-resources.py` generates its existing directory card.
+Training links to that card rather than maintaining a second catalogue.
+
+Chris Tran is the author of the linked advice. The owner supplied a summary of
+the written edition “All five interviews came from referrals. Zero came from
+the 25 applications.” (26 August 2026), verified in the originating ChatGPT
+session. It describes one client's referral experience and advice to maintain
+professional relationships and share examples of work and problems solved.
+The text here is an original concise description, not a newsletter reproduction.
+The task/evidence exercise is Loptr Lab's own practical application.
+
+Owner-supplied destinations from that session: `https://christran.gg/`,
+`https://www.linkedin.com/in/chrisltran/`,
+`https://www.linkedin.com/newsletters/gg-work-and-play-7099280685223313408/`,
+`https://christrancoach.substack.com`, and
+`https://www.linkedin.com/pulse/all-five-interviews-came-from-referrals-zero-25-chris-tran-iimuc`.
+Coaching uses Chris's homepage, not an invented booking URL. The owner described
+Career Sprint, Career Accelerator, Unstoppable Guild group coaching and
+consulting, with application/waiting-list links; pricing and present availability
+were not captured. Free advice and optional commercial coaching are distinct.
+
+Independent rechecking on 5 November 2026 was blocked: the environment's HTTP
+proxy was unreachable; these destinations are also absent from its permitted
+host list. The owner authorized use of the originating-session verification.
+No video was reviewed. No partnership, endorsement, affiliate arrangement,
+qualified lead, interview, placement or revenue is established. No approved
+aggregate analytics integration was found; outcome measurement remains unavailable.
