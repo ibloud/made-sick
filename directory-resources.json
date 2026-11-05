@@ -345,11 +345,11 @@
       "practicalAction": "Our practical next step: choose a bounded task, follow project review, then explain the problem, your contribution, artifact, verification and outcome. Use the training link below. Distinguish exercises, voluntary contributions, paid work and employment; preserve credit, licensing and disclosure permissions.",
       "url": "https://christran.gg/",
       "evidenceUrl": "https://www.linkedin.com/pulse/all-five-interviews-came-from-referrals-zero-25-chris-tran-iimuc",
-      "reviewedOn": null,
-      "verification": "Written source: Chris Tran, “All five interviews came from referrals. Zero came from the 25 applications.”, August 26, 2026. Description based on the owner-supplied summary of sources verified in the originating ChatGPT session. This environment could not independently recheck the website, newsletter, subscription or coaching destinations on November 5, 2026. No videos reviewed. The contribution exercise is Loptr Lab’s application, not a claim about Chris’s training or a partnership.",
+      "reviewedOn": "2026-11-05",
+      "verification": "Written source: Chris Tran, “All five interviews came from referrals. Zero came from the 25 applications.”, August 26, 2026. Homepage, article, GG: Work and Play listing and LinkedIn profile independently retrieved through GitHub Actions and their substantive excerpts reviewed on November 5, 2026. The article identifies the newsletter as free and links christrancoach.substack.com; that destination returned HTTP 403, so access and subscription completion remain unverified. No videos reviewed. The contribution exercise is Loptr Lab’s application; no partnership is implied.",
       "relationship": "Independent author and commercial coaching service; no partnership, endorsement or referral agreement established",
-      "fees": "Career advice/newsletter: free reading route per originating-session verification. Coaching and consulting: optional commercial services; check current terms and pricing with Chris. Loptr Lab’s free training is independent of coaching.",
-      "availability": "Website lists Career Sprint, Career Accelerator, Unstoppable Guild group coaching and consulting per originating-session verification; check current applications/waiting lists. Availability not rechecked.",
+      "fees": "Free written essays/newsletter per Chris’s homepage and article. Coaching and consulting are optional commercial services; current pricing was not captured. Loptr Lab’s free training is independent of coaching.",
+      "availability": "Website describes Career Sprint, Career Accelerator, Unstoppable Guild group coaching and consulting with waiting-list/application routes. Current openings and response times are not independently confirmed.",
       "accessibility": "External services not independently tested; check your access needs with the provider",
       "jurisdiction": "",
       "location": "",
@@ -371,7 +371,7 @@
           "url": "https://www.linkedin.com/newsletters/gg-work-and-play-7099280685223313408/"
         },
         {
-          "label": "Subscribe through Chris’s newsletter site (optional)",
+          "label": "Chris’s newsletter subscription site (optional; access may be restricted)",
           "url": "https://christrancoach.substack.com"
         },
         {
