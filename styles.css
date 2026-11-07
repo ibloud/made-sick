@@ -433,7 +433,7 @@ button.button:active {
   gap: 2rem;
 }
 
-.profile-card {
+:is(.profile-card,.directory-card) {
   background: var(--surface-color);
   border: var(--line);
   box-shadow: var(--shadow);
@@ -474,11 +474,11 @@ button.button:active {
   color: var(--text-muted);
 }
 
-.profile-card h3 {
+:is(.profile-card,.directory-card) h3 {
   font-size: 1.3rem;
 }
 
-.profile-card .role {
+:is(.profile-card,.directory-card) .role {
   font-family: var(--font-mono);
   font-size: 0.85rem;
   font-weight: 700;
@@ -486,7 +486,7 @@ button.button:active {
   text-transform: uppercase;
 }
 
-.profile-card .notice {
+:is(.profile-card,.directory-card) .notice {
   font-size: 0.8rem;
   color: var(--text-muted);
   border-top: 1px solid #e0ddd5;
@@ -1715,3 +1715,14 @@ body.made-sick-site main p.lede{width:auto;max-width:none}
 .made-sick-site .cards{grid-template-columns:repeat(auto-fill,minmax(min(100%,320px),1fr))}
 .made-sick-site .desk-body,.made-sick-site .desk-body>*{min-width:0}
 .made-sick-site .jurisdiction-form button{background:var(--acid);color:var(--ink);border:2px solid var(--acid);padding:.75rem 1rem;justify-self:start}
+
+/* Resource and learning cards share the directory anatomy, separate from creator filters. */
+.made-sick-site .directory-card{box-shadow:none;min-width:0;overflow-wrap:anywhere}
+.made-sick-site .directory-card :is(h3,p,details){margin:0}
+.made-sick-site .directory-card .notice{margin-top:0}
+.made-sick-site .directory-card .card-top{flex-wrap:wrap;gap:.5rem}
+.made-sick-site .directory-card .status{white-space:normal;max-width:100%}
+.made-sick-site .directory-card details>summary{cursor:pointer;min-height:48px;display:list-item;align-content:center;padding-block:.65rem;font-weight:700}
+.made-sick-site .directory-card details[open]>:not(summary){margin-top:.85rem}
+.made-sick-site .directory-card .card-actions{display:grid;gap:.4rem;margin-top:auto;padding-top:.75rem;border-top:1px solid var(--surface-border)}
+.made-sick-site .directory-card .card-actions>a{min-height:48px;display:flex;align-items:center;gap:.35rem;overflow-wrap:anywhere}
