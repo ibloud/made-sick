@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-<link rel="stylesheet" href="styles.css?v=20261024-consolidated">
+<link rel="stylesheet" href="styles.css?v=20261107-voter-resources">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -52,16 +52,26 @@
       <div class="voting-box">
         <p class="eyebrow">Voting Edition</p>
         <h2 id="vote-title">Your voice, where you are.</h2>
-        <p>Tap below to find official voting resources. If browser location is requested, your coordinates are sent to BigDataCloud to identify your jurisdiction. Made Sick does not store them. For US resources without location lookup, <a href="https://vote.gov/" target="_blank" rel="noopener noreferrer">open Vote.gov directly</a>.</p>
-
-        <div class="locate-gate">
-          <button class="locate-btn" id="locate-btn" type="button">Find my voting resources →</button>
-          <span class="locate-status" id="locate-status" aria-live="polite"></span>
-        </div>
-
-        <div id="resources-area">
-          <p id="jurisdiction" class="jurisdiction"></p>
+        <p>Choose the jurisdiction where you are eligible to vote. Your current location may be different. No GPS, account or street address is needed here. Selection stays on this page and is not saved.</p>
+        <form id="jurisdiction-form" class="jurisdiction-form">
+          <label for="voting-country">Voting country</label>
+          <select id="voting-country" name="country" required>
+            <option value="">Choose a country</option><option value="US">United States</option><option value="CA">Canada</option><option value="GB">United Kingdom</option>
+          </select>
+          <div id="state-field" hidden><label for="voting-state">U.S. state or district</label><select id="voting-state" name="state"><option value="">Choose a state, or use the national lookup</option></select></div>
+          <button class="locate-btn" type="submit">Show official resources</button>
+        </form>
+        <details class="location-choice"><summary>Optional: suggest my current area</summary>
+          <p id="location-disclosure">Only if you press the button below and allow browser location, your coordinates will be sent to BigDataCloud to suggest a country and U.S. state. Made Sick does not save them. This cannot establish your voting residence; confirm the selection yourself before showing resources.</p>
+          <button class="locate-btn" id="locate-btn" type="button" aria-describedby="location-disclosure">Use browser location for a suggestion</button>
+        </details>
+        <p class="locate-status" id="locate-status" role="status" aria-live="polite"></p>
+        <noscript><p>Use <a href="https://vote.gov/">Vote.gov</a>, <a href="https://www.elections.ca/">Elections Canada</a> or <a href="https://www.electoralcommission.org.uk/voting-and-elections">the UK Electoral Commission</a> directly. No location permission is needed.</p></noscript>
+        <div id="resources-area" hidden>
+          <h3 id="jurisdiction" class="jurisdiction" tabindex="-1"></h3>
+          <p>Use the election authority for your voting residence to verify registration and status, dates and deadlines, polling places, early/absentee/mail options, assistance and accessibility. Ask your local office for the official candidate and office list, sample ballot, ballot questions or referendums, and local election administration. Made Sick does not generate a personalized ballot or reproduce live election dates.</p>
           <div id="resources" class="resource-grid"></div>
+          <p>Check the election year and update date on the official site. If a lookup is unavailable, contact that election office; missing data does not mean no election or no candidates. External lookup sites may ask for an address or postcode under their own privacy terms. We do not receive those entries.</p>
         </div>
 
         <p class="voting-note">Made Sick does not tell you who or what to vote for. These links go directly to official election resources. Eligibility and voting rules vary by jurisdiction.</p>
@@ -81,199 +91,7 @@
 
   <footer class="footer">Public reference · Editorial context · Neutral voting resources · Made Sick<p class="policy-links"><a href="privacy.html">Privacy &amp; your choices</a> · <a href="terms.html">Terms of Use</a></p></footer>
 
-  <script>
-    (() => {
-      const btn        = document.getElementById('locate-btn');
-      const status     = document.getElementById('locate-status');
-      const area       = document.getElementById('resources-area');
-      const jurisEl    = document.getElementById('jurisdiction');
-      const resourceEl = document.getElementById('resources');
-
-      const resourceSets = {
-        US_MN: {
-          name: 'Minnesota, United States',
-          links: [
-            ['Register / update', 'Register or update your Minnesota voter registration', 'https://www.sos.mn.gov/elections-voting/register-to-vote/'],
-            ['Check registration', 'Check your Minnesota voter registration', 'https://mnvotes.sos.mn.gov/'],
-            ['Find where to vote', 'Find your polling place and Election Day information', 'https://www.sos.mn.gov/elections-voting/election-day-voting/'],
-            ['Vote another way', 'Absentee, early, mail, and overseas voting options', 'https://www.sos.mn.gov/elections-voting/other-ways-to-vote/']
-          ]
-        },
-        US: {
-          name: 'United States',
-          links: [
-            ['Register / update', 'Register or update your voter registration', 'https://vote.gov/register'],
-            ['Voting guide', 'Official voting guide and state rules', 'https://vote.gov/guide-to-voting'],
-            ['Find your state', 'Choose your state for official election resources', 'https://vote.gov/']
-          ]
-        },
-        CA: {
-          name: 'Canada',
-          links: [
-            ['Register / check', 'Register or check your federal voter record', 'https://www.elections.ca/content.aspx?dir=reg&document=index&lang=e&section=vot'],
-            ['Ways to vote', 'Election Day, advance, office, and mail options', 'https://www.elections.ca/content.aspx?dir=vote&document=index&lang=e&section=vot'],
-            ['Elections Canada', 'Official federal election information', 'https://www.elections.ca/home.aspx?lang=eng']
-          ]
-        },
-        GB: {
-          name: 'United Kingdom',
-          links: [
-            ['Register to vote', 'Official registration service', 'https://www.gov.uk/register-to-vote'],
-            ['How to vote', 'Check eligibility and voting methods', 'https://www.gov.uk/vote-uk-election'],
-            ['Registration office', 'Find your local electoral registration office', 'https://www.gov.uk/contact-electoral-registration-office']
-          ]
-        }
-      };
-
-      function render(set) {
-        jurisEl.textContent = set.name;
-        resourceEl.replaceChildren(...set.links.map(([label, description, href]) => {
-          const link = document.createElement('a');
-          link.className = 'resource';
-          link.href = href;
-          link.target = '_blank';
-          link.rel = 'noopener noreferrer';
-          const small = document.createElement('small');
-          small.textContent = label;
-          const strong = document.createElement('strong');
-          strong.textContent = `${description} ↗`;
-          link.append(small, strong);
-          return link;
-        }));
-        area.classList.add('is-visible');
-        btn.style.display = 'none';
-        btn.disabled = false;
-        status.textContent = '';
-      }
-
-      function showVoteGovFallback(message) {
-        jurisEl.textContent = 'Official U.S. voting resources';
-        resourceEl.replaceChildren();
-
-        const card = document.createElement('a');
-        card.className = 'resource';
-        card.href = 'https://vote.gov/';
-        card.target = '_blank';
-        card.rel = 'noopener noreferrer';
-
-        const small = document.createElement('small');
-        small.textContent = 'Official fallback';
-        const strong = document.createElement('strong');
-        strong.textContent = 'Open Vote.gov →';
-        card.append(small, strong);
-        resourceEl.append(card);
-
-        area.classList.add('is-visible');
-        btn.style.display = 'none';
-        btn.disabled = false;
-        status.textContent = message || '';
-      }
-
-      function detectCountryFromLocale() {
-        const locales = [
-          ...(Array.isArray(navigator.languages) ? navigator.languages : []),
-          navigator.language || ''
-        ].filter(Boolean);
-
-        const countryByLocale = { US: 'US', CA: 'CA', GB: 'GB' };
-        for (const locale of locales) {
-          const region = (locale.match(/[-_]([A-Z]{2})(?:$|[-_])/i) || [])[1]?.toUpperCase() || '';
-          if (countryByLocale[region]) return countryByLocale[region];
-        }
-
-        let timezone = '';
-        try {
-          timezone = Intl.DateTimeFormat().resolvedOptions().timeZone || '';
-        } catch {}
-
-        const countryByTimezone = {
-          'Europe/London':'GB',
-          'America/Toronto':'CA','America/Vancouver':'CA','America/Edmonton':'CA','America/Winnipeg':'CA','America/Halifax':'CA','America/St_Johns':'CA',
-          'America/New_York':'US','America/Chicago':'US','America/Denver':'US','America/Los_Angeles':'US',
-          'America/Phoenix':'US','America/Anchorage':'US','Pacific/Honolulu':'US','America/Indiana/Indianapolis':'US',
-          'America/Detroit':'US','America/Kentucky/Louisville':'US','America/Boise':'US','America/Nome':'US'
-        };
-        return countryByTimezone[timezone] || '';
-      }
-
-      function renderLocaleFallback(country) {
-        if (country === 'CA') { render(resourceSets.CA); return true; }
-        if (country === 'GB') { render(resourceSets.GB); return true; }
-        return country === 'US' ? 'US' : false;
-      }
-
-      async function reverseGeocode(position) {
-        const { latitude, longitude } = position.coords;
-        const controller = new AbortController();
-        const timeout = setTimeout(() => controller.abort(), 8000);
-
-        try {
-          const url = `https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${encodeURIComponent(latitude)}&longitude=${encodeURIComponent(longitude)}&localityLanguage=en`;
-          const response = await fetch(url, { signal: controller.signal });
-          if (!response.ok) throw new Error('reverse geocode failed');
-          return await response.json();
-        } finally {
-          clearTimeout(timeout);
-        }
-      }
-
-      btn.addEventListener('click', () => {
-        btn.disabled = true;
-        status.textContent = 'Detecting location…';
-
-        // First use non-sensitive browser signals. CA/GB can resolve without GPS.
-        const localeCountry = detectCountryFromLocale();
-        const localeResult = renderLocaleFallback(localeCountry);
-        if (localeResult === true) return;
-
-        // Geolocation is deliberately requested only from this user gesture so iPad Safari can show permission UI.
-        if (!navigator.geolocation) {
-          if (localeResult === 'US') {
-            render(resourceSets.US);
-          } else {
-            showVoteGovFallback('Location is unavailable.');
-          }
-          return;
-        }
-
-        navigator.geolocation.getCurrentPosition(
-          async position => {
-            try {
-              status.textContent = 'Verifying jurisdiction…';
-              const data = await reverseGeocode(position);
-              const country = data?.countryCode;
-              const state = data?.principalSubdivisionCode?.replace(/^US-/, '');
-
-              if (country === 'US' && state === 'MN') { render(resourceSets.US_MN); return; }
-              if (country === 'US' && state)           { render(resourceSets.US); return; }
-              if (country === 'CA')                    { render(resourceSets.CA); return; }
-              if (country === 'GB')                    { render(resourceSets.GB); return; }
-
-              if (localeResult === 'US') {
-                render(resourceSets.US);
-              } else {
-                showVoteGovFallback('We could not verify your jurisdiction.');
-              }
-            } catch {
-              if (localeResult === 'US') {
-                render(resourceSets.US);
-              } else {
-                showVoteGovFallback('We could not verify your location.');
-              }
-            }
-          },
-          () => {
-            if (localeResult === 'US') {
-              render(resourceSets.US);
-            } else {
-              showVoteGovFallback('Location access was unavailable.');
-            }
-          },
-          { enableHighAccuracy: false, maximumAge: 300000, timeout: 10000 }
-        );
-      });
-    })();
-  </script>
+  <script src="voting-resources.js" defer></script>
 <script src="pixie-launcher.js" defer></script>
 <script src="navigation.js" defer></script>
 </body>

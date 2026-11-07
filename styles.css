@@ -1698,3 +1698,20 @@ body.made-sick-site main p.lede{width:auto;max-width:none}
 .made-sick-site .footer-space-before{margin-top:5rem;}
 .made-sick-site .media-options-grid{grid-template-columns:repeat(auto-fit,minmax(min(100%,20rem),1fr))}
 .made-sick-site .source-reading-link{color: var(--acid); background-color: var(--ink); border: 2px solid var(--ink); display: block; text-align: center; font-weight: 900; text-decoration: none; padding: 12px 18px; text-transform: uppercase;}
+
+/* Voting jurisdiction controls reuse the shared form and focus tokens. */
+.made-sick-site .jurisdiction-form{display:grid;gap:.75rem;margin-block:1.5rem;max-width:42rem}
+.made-sick-site .jurisdiction-form #state-field{display:grid;gap:.75rem}
+.made-sick-site .jurisdiction-form #state-field[hidden]{display:none}
+.made-sick-site .jurisdiction-form label,.made-sick-site .location-choice summary{color:var(--paper);font-weight:700}
+.made-sick-site .location-choice{margin-block:1.5rem}
+.made-sick-site .voting-box .resource{color:var(--ink)}
+.made-sick-site .voting-box .resource small{color:var(--muted)}
+.made-sick-site .voting-box .resource strong{color:var(--red)}
+.made-sick-site .jurisdiction-form select{width:100%}
+.made-sick-site .voting-box .jurisdiction{color:var(--paper)}
+.made-sick-site .voting-box :is(button,summary,select):focus-visible{outline-color:var(--acid)}
+/* Prevent existing creator cards and the tool dock from widening 320px layouts. */
+.made-sick-site .cards{grid-template-columns:repeat(auto-fill,minmax(min(100%,320px),1fr))}
+.made-sick-site .desk-body,.made-sick-site .desk-body>*{min-width:0}
+.made-sick-site .jurisdiction-form button{background:var(--acid);color:var(--ink);border:2px solid var(--acid);padding:.75rem 1rem;justify-self:start}
