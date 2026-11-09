@@ -359,3 +359,28 @@ PIXIE PR #12 remains a separate disabled OAuth/security candidate. Its positive 
 Read: root AGENTS.md in each owning repository; PIXIE `lib/principles.mjs`; canonical ecosystem architecture; Made-Sick retrieval/ledger docs, schema/exporter and tests; Companion dispatcher/server/security tests; `deployment/RAILWAY.md`; open PR listings in both repositories, including PIXIE #12 body/diff/discussion and existing #11 browser CI work. No pending branch was merged into this repair.
 
 Validation commands/results and exact review heads are recorded in the coordinated PR descriptions. Direct PDS/installed-plugin release, physical iPad/VoiceOver and production-route acceptance remain unverified gates, not passing tests.
+
+## Repair recheck — 9 November 2026, 15:17 UTC
+
+The earlier direct-PDS proxy denial is no longer reproducible in this environment.
+The existing Companion local HTTP `/mcp` adapter, using its unchanged default
+proxy-aware server transport, resolved `ibloud.xyz` and searched two pages directly
+from `https://morel.us-east.host.bsky.network`. It examined 200 records, found one
+exact title match and retained continuation. Authenticated HTTP returned 200;
+the same request without the ephemeral machine bearer returned 401. The bearer
+was not recorded. This is a bounded connectivity/search observation, not a new
+full-history enumeration or installed-plugin/hosted MCP acceptance.
+
+Public-source evidence:
+https://github.com/Loptr-Lab/pixie-ecosystem-guide/blob/fix/public-story-discovery/apps/companion/review/STORY_DISCOVERY_DIRECT_PDS.json
+
+The existing Story Finder Vercel preview returned HTTP 200 through the connected
+Vercel fetch tool. A local Chromium live-provider attempt hit
+`ERR_CERT_AUTHORITY_INVALID` for the environment's HTTPS inspection certificate;
+no TLS verification was disabled. It retained the existing visible fetch error
+and selections rather than claiming a successful load. This is an environment
+browser-trust limitation, not proof of an application/provider defect. Physical
+Safari/VoiceOver and deployed-browser search/export remain unverified.
+
+Made-Sick's existing suite was rerun: 85 tests pass. No Finder behavior,
+dependencies, stylesheet, exporter or source pin changed in this repair recheck.
