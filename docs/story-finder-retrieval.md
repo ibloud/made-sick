@@ -75,3 +75,65 @@ remains; public AT repository reads themselves require no account credential.
 See [historical acceptance evidence](story-history-acceptance.md). Physical iPad
 Safari/VoiceOver, production publishing and installed-plugin discovery are
 separate release gates.
+
+## Standard.site public snapshots — review 9 November 2026
+
+Existing authority check: the current `published-work.js` and
+`docs/SIFA_PUBLISHED_WORK.md` already implement Standard.site lookup. This
+increment adds `standard-references.js` as a reusable, side-effect-free reader,
+using the existing reader's bounded document page and URL construction and Story
+Finder's verified account/PDS resolution and closed provider policy. No directory,
+curated-story, publishing, OAuth or Ledger v2 behavior is changed.
+
+Primary sources checked:
+- https://standard.site/docs/lexicons/document/
+- https://standard.site/docs/lexicons/publication/
+- https://standard.site/docs/verification/
+- https://atproto.com/specs/xrpc
+- https://pckt.blog/ (external publishing service, not a private-project database)
+
+The Standard.site documentation's linked lexicon authority is
+`did:plc:re3ebnp5v7ffagz6rb6xfei4`. Its public
+`com.atproto.lexicon.schema/site.standard.document` was read via the standard
+repository relay at CID `bafyreifylc5lfr4vqfzrwdtqm4pnfg7cbra7z4acbgikylqandzefwdeaq`;
+publication schema CID
+`bafyreiapvnarfn3nl2wvg27hsylli5zqvou7a74p7od5mu4detprtejapy`.
+Schemas require document site/title/publishedAt and publication URL/name, while
+content remains an open union. `textContent` is the defined plain-text
+representation; rich formats are not interchangeable.
+
+Live public sample:
+`at://did:plc:o6kuv3yieti2vqrb7ckmd5vg/site.standard.document/3mzkofw7ak7xb`,
+CID `bafyreifmmb2otmwjehrmqbv2mms2pa3fyebdzqvjz2qrj4lgnclcyoecdq`,
+contains `blog.pckt.content` with `items` and a separate 3,056-character
+`textContent`. The live reusable reader resolved its publication and canonical
+pckt URL. A separate bounded page read returned 14 records plus continuation;
+this is not a total-archive count. No rich pckt converter or undocumented REST /
+oEmbed API is inferred from that sample. No public text was copied into a private
+project in this live check. CIDs remain source-reported, not verified signatures.
+
+`pixie.standard-reference/v1` is separate from Bluesky-only Ledger v2. It retains
+DID, collection/rkey/AT-URI, CID, publication relationship and publication revision,
+canonical URL, source dates, retrieval endpoint/time, representation and explicit
+verification limitations. `createReader({retrieval,work,fetcher,signal})` exposes
+one-page discovery (up to 20 records), exact AT-URI retrieval and a retained
+continuation cursor. Unsupported/over-20,000-character text stays reference-only.
+Records and publication references are validated; exact lookups must return the
+requested URI. Network requests omit credentials, reject redirects, use timeouts
+and bound decoded response bytes to 500,000. No media is fetched.
+
+Website checks are a separate explicit operation. Publication checks compare the
+specified `.well-known` endpoint; document checks use the browser's inert parser
+and an exact head link relation/AT-URI. Only reviewed pckt.blog host patterns can
+be fetched. Custom domains, missing endpoints, redirects, CORS/network failure or
+an unavailable browser parser report unavailable/mismatch; they do not become
+verification success. Matching confirms the reciprocal web association only,
+not authorship, permission, ownership or cryptographic verification. This
+increment has fixture website-check evidence, not live pckt website verification.
+
+Companion owns project configuration, review, rights declarations and private
+snapshot persistence; the reader performs none of these. Deletion of a PDS
+record does not establish deletion from pckt or other copies. No synchronization,
+publication or automatic refresh is introduced. New tests cover identity and
+publication links, format/byte limits, exact-URI mismatch, unsafe endpoints,
+cursors, cancellation, HTTP errors and reciprocal publication checks.
