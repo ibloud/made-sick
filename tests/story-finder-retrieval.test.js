@@ -6,6 +6,7 @@ const {JSDOM}=require('jsdom');
 const html=fs.readFileSync(require('node:path').join(__dirname,'../story-finder.html'),'utf8');
 function setup(fetch){
  const dom=new JSDOM(html,{url:'https://made-sick.org/story-finder.html',runScripts:'outside-only'});
+ dom.window.eval(fs.readFileSync(require('node:path').join(__dirname,'../story-retrieval.js'),'utf8'));
  dom.window.fetch=fetch;
  dom.window.eval([...html.matchAll(/<script>([\s\S]*?)<\/script>/g)].map(m=>m[1]).join('\n')+'\nwindow.finderTest={state,loadPage,render,parsePostLink};');
  return dom;

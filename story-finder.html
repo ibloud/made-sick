@@ -30,14 +30,15 @@
 <section class="hero">
 <p class="eyebrow">Public archive · device-local review</p>
 <h1>Find the story in your feed.</h1>
-<p class="lede">Story Finder retrieves one author’s public AT Protocol posts through Bluesky’s public API, then searches the posts already loaded in this browser. It is designed for people who use social media as a diary, notebook, or distributed story archive.</p>
+<p class="lede">Story Finder retrieves one author’s public AT Protocol posts from their public repository or Bluesky’s AppView, then searches the posts already loaded in this browser. It is designed for people who use social media as a diary, notebook, or distributed story archive.</p>
 <p class="notice"><strong>Privacy boundary:</strong> no password, Bluesky sign-in, DMs, likes, private data, analytics, or server-side archive. Your search terms and selections stay in this tab. A public post is never added to Made Sick without human review and consent.</p>
 </section>
 <section class="panel" id="finder" aria-labelledby="finder-title">
 <p class="eyebrow">Step 1 · choose an archive</p><h2 id="finder-title">Load public posts</h2>
 <form id="search-form">
 <div class="row">
-<label>AT Protocol handle<span>Your public handle, such as ibloud.xyz. Posts are retrieved through Bluesky’s public API.</span><input id="handle" name="handle" type="text" value="ibloud.xyz" autocomplete="off" required></label>
+<label>AT Protocol handle or DID<span>A public handle or DID, such as ibloud.xyz. No sign-in required.</span><input id="handle" name="handle" type="text" value="ibloud.xyz" autocomplete="off" required></label>
+<label>Retrieval source<select id="retrieval-source"><option value="appview">Bluesky AppView (hydrated feed)</option><option value="pds">Public PDS repository (historical records)</option><option value="bsky-entryway">Bluesky entryway repository relay</option></select></label>
 <label>From date<span>Optional</span><input id="date-from" name="from" type="date"></label>
 <label>Through date<span>Optional</span><input id="date-to" name="to" type="date"></label>
 </div>
@@ -71,17 +72,18 @@
 </section>
 </main>
 <footer><p>Independent Made Sick research tool. Bluesky and AT Protocol are external services and do not endorse this project. Public API data remains subject to the author's deletions and current Bluesky availability.</p><p class="policy-links"><a href="privacy.html">Privacy &amp; your choices</a> · <a href="terms.html">Terms of Use</a></p></footer>
+<script src="story-retrieval.js?v=1"></script>
 <script src="story-ledger.js"></script>
 <script>
 "use strict";
 const API="https://public.api.bsky.app/xrpc/";
-const state={actor:"",actorDid:"",cursor:null,posts:[],selected:new Map(),loading:false,dateSearch:false,stop:false,controller:null};
+const state={actor:"",actorDid:"",cursor:null,posts:[],selected:new Map(),loading:false,dateSearch:false,stop:false,controller:null,source:null,account:null,coverage:[],complete:false};
 const $=id=>document.getElementById(id);
 const form=$("search-form"),results=$("results"),status=$("status"),more=$("more"),exportButton=$("export"),selectVisible=$("select-visible");
-function cleanHandle(value){return value.trim().replace(/^@/,"").toLowerCase()}
-function normalize(value){return (value||"").normalize("NFKD").replace(/[\u0300-\u036f]/g,"").toLowerCase()}
+function cleanHandle(value){const v=value.trim().replace(/^@/,"");return v.startsWith("did:")?v:v.toLowerCase()}
+function normalize(value){return STORY_RETRIEVAL.normalize(value)}
 function postKey(post){return post.post.uri}
-function postUrl(item){const rkey=item.post.uri.split("/").pop();return "https://bsky.app/profile/"+encodeURIComponent(item.post.author.handle)+"/post/"+encodeURIComponent(rkey)}
+function postUrl(item){const rkey=item.post.uri.split("/").pop();return "https://bsky.app/profile/"+encodeURIComponent(item.post.author.did)+"/post/"+encodeURIComponent(rkey)}
 function hasLinks(item){const r=item.post.record||{};return Boolean((r.facets||[]).some(f=>(f.features||[]).some(x=>x.uri)))||Boolean(item.post.embed)}
 function isReply(item){return Boolean(item.post.record&&item.post.record.reply)}
 function isRepost(item){return Boolean(item.reason&&item.reason.$type==="app.bsky.feed.defs#reasonRepost")}
@@ -120,8 +122,10 @@ function render(){
   card.append(top,text,badges,links);results.append(card);
  });
  status.textContent=state.posts.length+" public posts loaded · "+visible.length+" visible match"+(visible.length===1?"":"es")+".";
+ if(state.source)status.textContent+=coverageSummary();
  selectVisible.disabled=!visible.length;updateButtons();
 }
+function coverageSummary(){const times=state.posts.map(item=>created(item).getTime()).filter(Number.isFinite);return ' Source: '+state.source+'. Examined '+state.posts.length+' unique records'+(times.length?' dated '+new Date(Math.min(...times)).toISOString()+' to '+new Date(Math.max(...times)).toISOString():'')+'. '+(state.complete?'Available source exhausted; deleted or inaccessible records are outside coverage.':'Historical coverage incomplete; continue loading older batches.')}
 function updateButtons(){exportButton.disabled=!state.selected.size}
 async function resolveActor(handle){
  const url=API+"com.atproto.identity.resolveHandle?handle="+encodeURIComponent(handle);
@@ -135,21 +139,28 @@ async function loadPage(reset,dateSearch=false,batch=false){
  status.textContent=dateSearch?"Searching the selected date range…":"Loading public posts…";
  try{
   const handle=cleanHandle($("handle").value);if(!handle)throw new Error("Enter an AT Protocol handle.");
-  if(reset||state.actor!==handle){state.actor=handle;state.actorDid="";state.cursor=null;state.posts=[];state.selected.clear()}
-  const did=await resolveActor(handle);
+  const source=$("retrieval-source").value;
+  if(reset||state.actor!==handle||state.source!==source){state.source=source;state.account=null;state.coverage=[];state.complete=false;state.actor=handle;state.actorDid="";state.cursor=null;state.posts=[];state.selected.clear()}
+  const account=source==='appview'?{did:handle.startsWith('did:')?handle:await resolveActor(handle)}:await STORY_RETRIEVAL.resolveAccount(handle,fetch,state.controller.signal);
+  const did=account.did;state.account=account;
   if(state.actorDid&&state.actorDid!==did){state.posts=[];state.selected.clear();state.cursor=null}
   state.actorDid=did;
   let pagesLoaded=0,reachedBoundary=false;
   do{
    const params=new URLSearchParams({actor:did,limit:"100",filter:"posts_with_replies",includePins:"false"});
    if(state.cursor)params.set("cursor",state.cursor);
-   const response=await fetch(API+"app.bsky.feed.getAuthorFeed?"+params,{signal:state.controller.signal});if(!response.ok)throw new Error("Bluesky did not return this public feed.");
-   const data=await response.json(),known=new Set(state.posts.map(postKey));
+   let data;
+   if(source==='appview'){
+    const response=await fetch(API+"app.bsky.feed.getAuthorFeed?"+params,{signal:state.controller.signal,redirect:'error',credentials:'omit'});if(!response.ok)throw new Error("Public feed HTTP "+response.status+"; retry later using the retained cursor.");
+    data=await response.json();
+   }else{const page=await STORY_RETRIEVAL.page({actor:account,cursor:state.cursor,source},fetch,state.controller.signal);data={feed:page.items,cursor:page.cursor};}
+   if(data.cursor&&data.cursor===state.cursor)throw new Error('Repeated cursor; historical coverage incomplete.');
+   const known=new Set(state.posts.map(postKey));
    (data.feed||[]).forEach(item=>{if(!known.has(postKey(item))){state.posts.push(item);known.add(postKey(item))}});
-   state.cursor=data.cursor||null;pagesLoaded++;
+   state.cursor=data.cursor||null;state.complete=!state.cursor;pagesLoaded++;
    const pageTimes=(data.feed||[]).filter(item=>!item.reason).map(item=>created(item).getTime()).filter(Number.isFinite);
    const oldest=pageTimes.length?Math.max(...pageTimes):null;
-   if(from&&oldest!==null&&oldest<new Date(from+"T00:00:00").getTime())reachedBoundary=true;
+   if(source==='appview'&&from&&oldest!==null&&oldest<new Date(from+"T00:00:00").getTime())reachedBoundary=true;
    render();
    if(dateSearch&&state.cursor&&!reachedBoundary)status.textContent=state.posts.length+" public posts loaded; searching backward to cover the selected date range…";
   }while((dateSearch||batch)&&state.cursor&&!reachedBoundary&&pagesLoaded<25&&!state.stop);
@@ -159,6 +170,7 @@ async function loadPage(reset,dateSearch=false,batch=false){
    else status.textContent=state.posts.length+" public posts loaded so far. Select Continue date search to keep searching backward.";
    more.textContent="Continue date search";
   }else{more.textContent="Load 100 older posts"}
+  if(dateSearch)status.textContent+=coverageSummary();
   more.disabled=!state.cursor;
  }catch(error){render();status.textContent=error.name==="AbortError"?"Loading stopped. Loaded posts and selections are retained.":error.message+" Loaded posts and selections are retained."}
  finally{state.loading=false;$("stop").disabled=true;$("batch").disabled=false;$("clear").disabled=false;$("load").disabled=false;if(state.cursor)more.disabled=false}
@@ -168,11 +180,11 @@ more.addEventListener("click",()=>loadPage(false,state.dateSearch));
 $("batch").addEventListener("click",()=>loadPage(false,false,true));
 $("stop").addEventListener("click",()=>{state.stop=true;state.controller?.abort()});
 ["query","date-from","date-to","exact","replies","reposts","links-only","videos-only"].forEach(id=>$(id).addEventListener("input",render));
-$("clear").addEventListener("click",()=>{state.actor="";state.actorDid="";state.cursor=null;state.posts=[];state.selected.clear();state.dateSearch=false;more.textContent="Load 100 older posts";$("query").value="";$("date-from").value="";$("date-to").value="";results.innerHTML='<p class="empty">Load a public feed to begin.</p>';status.textContent="This tab was cleared.";more.disabled=true;selectVisible.disabled=true;updateButtons()});
+$("clear").addEventListener("click",()=>{state.actor="";state.actorDid="";state.cursor=null;state.posts=[];state.selected.clear();state.dateSearch=false;state.source=null;state.complete=false;more.textContent="Load 100 older posts";$("query").value="";$("date-from").value="";$("date-to").value="";results.innerHTML='<p class="empty">Load a public feed to begin.</p>';status.textContent="This tab was cleared.";more.disabled=true;selectVisible.disabled=true;updateButtons()});
 selectVisible.addEventListener("click",()=>{state.posts.filter(matches).forEach(item=>state.selected.set(postKey(item),state.selected.get(postKey(item))||new Date().toISOString()));render()});
 exportButton.addEventListener("click",()=>{
  let payload;
- try{payload=STORY_LEDGER.exportLedger({actor:{handle:state.actor,did:state.actorDid},items:state.posts.filter(item=>state.selected.has(postKey(item))),selectedAt:state.selected})}
+ try{payload=STORY_LEDGER.exportLedger({actor:{handle:state.account?.handle||state.actor,did:state.actorDid},items:state.posts.filter(item=>state.selected.has(postKey(item))),selectedAt:state.selected})}
  catch(error){status.textContent=error.message;return}
  const blob=new Blob([JSON.stringify(payload,null,2)],{type:"application/json"}),url=URL.createObjectURL(blob),a=document.createElement("a");a.href=url;a.download="made-sick-story-ledger-"+new Date().toISOString().slice(0,10)+".json";a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);
  status.textContent=payload.posts.length+" selected post"+(payload.posts.length===1?"":"s")+" exported to your device.";
