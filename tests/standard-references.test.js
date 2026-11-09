@@ -28,3 +28,10 @@ test('publication verification checks exact AT-URI with no redirects or credenti
  const r=await reader(fake()).record(pub);const checked=await S.verifyWebsite(r,async(url,opts)=>{assert.equal(url,'https://made-sick.pckt.blog/.well-known/site.standard.publication');assert.equal(opts.credentials,'omit');assert.equal(opts.redirect,'manual');return {ok:true,text:async()=>pub};});assert.equal(checked.verification.website,'matched');
  assert.equal((await S.verifyWebsite(r,async()=>({ok:true,text:async()=>uri}))).verification.website,'mismatch');
 });
+
+test('exact supplied identity, unavailable records and cancellation fail without replacing sources',async()=>{
+ await assert.rejects(reader(fake()).record(uri),/identity mismatch/);
+ const blocked=async(url,options)=>{if(url.includes('resolveHandle'))return {ok:true,text:async()=>JSON.stringify({did})};if(url.includes('plc.directory'))return {ok:true,text:async()=>JSON.stringify({id:did,alsoKnownAs:['at://made-sick.org'],service:[{id:'#atproto_pds',type:'AtprotoPersonalDataServer',serviceEndpoint:'https://127.0.0.1'}]})};throw Error('No unsafe request allowed');};
+ await assert.rejects(reader(blocked).page({account:'made-sick.org'}),/provider|endpoint/i);
+ const controller=new AbortController();controller.abort();await assert.rejects(S.createReader({retrieval:R,work:W,signal:controller.signal,fetcher:async(u,o)=>{if(o.signal.aborted)throw Object.assign(Error('cancelled'),{name:'AbortError'});return fake()(u,o);}}).page({account:'made-sick.org'}),/cancelled/);
+});

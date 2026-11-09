@@ -19,7 +19,7 @@
   const resolve=async input=>{if(resolved.has(input))return resolved.get(input);const actor=await R.resolveAccount(input,fetcher,signal);resolved.set(input,actor);return actor;};
   async function request(url){const u=new URL(url);R.publicOrigin(u.origin);if(!['/xrpc/com.atproto.repo.listRecords','/xrpc/com.atproto.repo.getRecord'].includes(u.pathname)||!collections.includes(u.searchParams.get('collection')))throw Error('Unsupported public record endpoint');const response=await fetcher(url,{credentials:'omit',referrerPolicy:'no-referrer',redirect:'manual',signal:signal?AbortSignal.any([signal,AbortSignal.timeout(15000)]):AbortSignal.timeout(15000)});const raw=await boundedText(response);return {ok:true,json:async()=>JSON.parse(raw)};}
   const legacy=W.createReader(request,signal);
-  async function record(uri){const ref=parseUri(uri),actor=await resolve(ref.did);const endpoint=actor.pds+'/xrpc/com.atproto.repo.getRecord?'+new URLSearchParams({repo:ref.did,collection:ref.collection,rkey:ref.rkey});const data=await(await request(endpoint)).json();return snapshot(data,actor,endpoint);}
+  async function record(uri){const ref=parseUri(uri),actor=await resolve(ref.did);const endpoint=actor.pds+'/xrpc/com.atproto.repo.getRecord?'+new URLSearchParams({repo:ref.did,collection:ref.collection,rkey:ref.rkey});const data=await(await request(endpoint)).json();if(data.uri!==uri)throw Error('Requested record identity mismatch');return snapshot(data,actor,endpoint);}
   async function snapshot(entry,actor,endpoint){
    const ref=parseUri(entry.uri);if(ref.did!==actor.did||!/^b[a-z2-7]{20,}$/.test(entry.cid||'')||entry.value?.$type!==ref.collection)throw Error('Invalid record identity/revision');
    const v=entry.value;let canonicalUrl=null,publication=null,relationship='standalone',linkError=null;
@@ -38,7 +38,7 @@
    const actor=await resolve(account);const endpoint=actor.pds+'/xrpc/com.atproto.repo.listRecords?'+new URLSearchParams({repo:actor.did,collection,limit:'20',...(cursor?{cursor}:{})});
    const data=collection==='site.standard.document'?await legacy.page(actor,cursor):await(await request(endpoint)).json();
    if(!Array.isArray(data.records)||data.records.length>20||data.cursor!==undefined&&(typeof data.cursor!=='string'||!data.cursor||data.cursor.length>2000||data.cursor===cursor))throw Error('Malformed records or repeated continuation cursor');
-   const references=[];for(const entry of data.records){if(parseUri(entry.uri).collection!==collection)throw Error('Unexpected record collection');references.push(await snapshot(entry,actor,endpoint));}
+   const references=[],seen=new Set();for(const entry of data.records){if(seen.has(entry.uri))throw Error('Duplicate record identity in page');seen.add(entry.uri);if(parseUri(entry.uri).collection!==collection)throw Error('Unexpected record collection');references.push(await snapshot(entry,actor,endpoint));}
    return {schema:'pixie.standard-page/v1',actor,references,cursor:data.cursor||null,complete:!data.cursor,notice:'One bounded page, up to 20 records. Missing/deleted/inaccessible records are outside coverage. No automatic import.'};
   }
   return {page,record};
