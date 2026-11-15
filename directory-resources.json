@@ -567,6 +567,357 @@
       "fees": "Check provider terms; funding eligibility is not guaranteed",
       "availability": "Check current service scope, eligibility and any deadlines with the provider",
       "accessibility": "Not independently tested; ask the provider about your specific needs"
+    },
+    {
+      "kind": "resource",
+      "recordType": "resource",
+      "jurisdiction": "International online resources; institutional and local participation terms require confirmation",
+      "location": "",
+      "reviewedOn": "2026-11-15",
+      "relationship": "Independent resource; no partnership or endorsement established; no iFixit affiliation with Loptr Lab",
+      "accessibility": "Provider accessibility and physical workshop accommodations not independently tested; ask about nonvisual instructions, accessible benches and communication needs.",
+      "id": "ifixit-repair-learning",
+      "name": "iFixit — repair learning and device research",
+      "url": "https://www.ifixit.com/Device/Electronics_Skills",
+      "evidenceUrl": "https://www.ifixit.com/Info/Device_Safety",
+      "description": "Free repair and electronics reference material. Beginners can study component diagrams without opening their device; exact-model repair coverage and firmware compatibility are not established by a general guide.",
+      "audience": "Beginner learning, device research and safe reuse planning. A guide or easy difficulty rating is not approval for a minor to service equipment.",
+      "practicalAction": "Record the model and condition externally, read Device Safety, then name three components and their functions from the linked diagram guide. Do not open an unknown synthesizer. Mains circuits, stored-charge capacitors, CRTs and damaged batteries require a qualified technician; an adult without relevant competence is not a substitute.",
+      "verification": "Official Electronics Skills, Device Safety and Identifying Major Electronic Components pages read on November 15, 2026. This verifies reference content, not any instrument compatibility, repair result, professional supervision or product availability.",
+      "fees": "Reading the referenced guides is free. Tools, parts, connectivity, professional supervision and workshop access can cost money; no purchase is required for the reading activity.",
+      "availability": "Public reading; no account needed for this starter exercise. Read current age, guardian-consent and licensing terms before posting or reusing content. No hardware work, public post or funding application occurs here.",
+      "tags": [
+        "iFixit",
+        "repair",
+        "electronics",
+        "synthesizer",
+        "hardware",
+        "beginner",
+        "safety",
+        "device research"
+      ],
+      "detailLinks": [
+        {
+          "label": "Component diagrams — reading only",
+          "url": "https://www.ifixit.com/Guide/Identifying+Major+Electronic+Components/27244"
+        },
+        {
+          "label": "Manufacturer-independent repair guide index",
+          "url": "https://www.ifixit.com/Guide"
+        },
+        {
+          "label": "Contribution and content terms",
+          "url": "https://www.ifixit.com/Info/Terms_of_Use"
+        }
+      ]
+    },
+    {
+      "kind": "resource",
+      "recordType": "resource",
+      "jurisdiction": "International online resources; institutional and local participation terms require confirmation",
+      "location": "",
+      "reviewedOn": "2026-11-15",
+      "relationship": "Independent resource; no partnership or endorsement established; no iFixit affiliation with Loptr Lab",
+      "accessibility": "Provider accessibility and physical workshop accommodations not independently tested; ask about nonvisual instructions, accessible benches and communication needs.",
+      "id": "ifixit-community-repair",
+      "name": "iFixit — community repair and volunteering",
+      "url": "https://www.ifixit.com/Wiki/Community_Repair",
+      "evidenceUrl": "https://www.ifixit.com/Wiki/Community_Repair_Getting_Started",
+      "description": "Community-authored guidance for repair groups, shared learning and event planning, plus an established route for contributing documentation and translations.",
+      "audience": "Community organisers and learners exploring supervised repair. These are discovery resources, not a booked event, vetted mentor, paid placement or open grant programme.",
+      "practicalAction": "Read what a repair event involves. Ask an existing library, school or repair group about age rules, costs, accessibility, safeguarding and qualified supervision before attending. Volunteer time is not guaranteed or cost-free. Prepare research only while Loptr Lab’s outreach gate is closed.",
+      "verification": "Official Community Repair, Getting Started and Participate pages read on November 15, 2026. Local events, membership, mentor availability and any institutional support application remain unverified.",
+      "fees": "Reference reading is free. Local events, travel, parts and supervision have their own terms; no donated kit or paid work is promised.",
+      "availability": "Online guidance and public contribution routes; no local event, youth admission or volunteer appointment verified.",
+      "tags": [
+        "iFixit",
+        "repair",
+        "community",
+        "volunteer",
+        "makerspace",
+        "library",
+        "youth",
+        "documentation"
+      ],
+      "detailLinks": [
+        {
+          "label": "Contribute documentation or translations",
+          "url": "https://www.ifixit.com/Participate"
+        }
+      ]
+    },
+    {
+      "kind": "resource",
+      "recordType": "resource",
+      "jurisdiction": "International online resources; institutional and local participation terms require confirmation",
+      "location": "",
+      "reviewedOn": "2026-11-15",
+      "relationship": "Independent resource; no partnership or endorsement established; no iFixit affiliation with Loptr Lab",
+      "accessibility": "Provider accessibility and physical workshop accommodations not independently tested; ask about nonvisual instructions, accessible benches and communication needs.",
+      "id": "ifixit-edu",
+      "name": "iFixit EDU — technical writing and repair documentation",
+      "url": "https://edu.ifixit.com/",
+      "evidenceUrl": "https://edu.ifixit.com/prospective-universities",
+      "description": "A documented service-learning curriculum in which students create or improve repair documentation. The institutional route is described for college and university courses.",
+      "audience": "Educators assessing a possible studio learning pilot. Loptr Lab’s non-accredited status, teenage participation, geography, course requirements and programme eligibility need confirmation.",
+      "practicalAction": "Review the curriculum as a reference and scope a documentation-only exercise. Before proposing enrolment, confirm eligibility, instructor responsibility, accessibility, guardian consent, costs, equipment terms and content rights. Public programme questions go to education@ifixit.com only after owner approval; no contact is authorised now.",
+      "verification": "Official EDU home and Prospective Universities pages read on November 15, 2026. Public education channel documented; Loptr Lab acceptance, programme fees and any allocation of staff or toolkits are not confirmed.",
+      "fees": "Public curriculum can be read online. Institutional participation costs and device/toolkit arrangements require confirmation; do not infer free kits or grant funding.",
+      "availability": "Prospective institutional enquiry route exists. No application submitted, cohort booked, academic credit or affiliation established.",
+      "tags": [
+        "iFixit",
+        "education",
+        "EDU",
+        "technical writing",
+        "repair",
+        "portfolio",
+        "institutional",
+        "prospective partner"
+      ]
+    },
+    {
+      "kind": "resource",
+      "recordType": "resource",
+      "jurisdiction": "International online resources; institutional and local participation terms require confirmation",
+      "location": "",
+      "reviewedOn": "2026-11-15",
+      "relationship": "Independent resource; no partnership or endorsement established; no iFixit affiliation with Loptr Lab",
+      "accessibility": "Provider accessibility and physical workshop accommodations not independently tested; ask about nonvisual instructions, accessible benches and communication needs.",
+      "id": "ifixit-partnerships",
+      "name": "iFixit — prospective repair and innovation partnerships",
+      "url": "https://www.ifixit.com/collaborations",
+      "evidenceUrl": "https://www.ifixit.com/collaborations",
+      "description": "Official descriptions of education, repair, commercial and innovation collaborations. Innovation is a possible discussion route for a bounded repair-access pilot, not an advertised grant award.",
+      "audience": "Institutional research only. No iFixit endorsement, funding, sponsorship or partnership with Loptr Lab is established.",
+      "practicalAction": "Prepare a brief with a pilot outcome, supervision, safeguards, access plan, documented need, budget, requested support and proposed mutual benefits. Resolve EDU versus community/innovation routing and obtain owner approval before using the public Partner with iFixit channel. Outreach gate remains CLOSED.",
+      "verification": "Official Collaborations and linked Solutions contact routes reviewed on November 15, 2026. The collaborations CTA leads to manufacturer-oriented Solutions; verify that it accepts studio/innovation enquiries. No applicable grant notice, award amount, sponsor commitment or eligibility approval was verified.",
+      "fees": "Tools and parts are commercial products; wholesale terms are not grants. Possible in-kind or sponsorship support is prospective only, with zero confirmed support.",
+      "availability": "Public partnership route exists, but pilot eligibility, programme capacity, cost and support terms are unconfirmed. No form submitted or message sent.",
+      "tags": [
+        "iFixit",
+        "repair",
+        "innovation",
+        "institutional",
+        "prospective partner",
+        "sponsorship",
+        "no verified grant"
+      ],
+      "detailLinks": [
+        {
+          "label": "Official Solutions contact route — no submission",
+          "url": "https://www.ifixit.com/solutions"
+        },
+        {
+          "label": "Commercial parts and tools — not funding",
+          "url": "https://www.ifixit.com/Store"
+        },
+        {
+          "label": "Existing PIXIE coordination and closed outreach gate",
+          "url": "https://github.com/ibloud/ibloud.github.io/blob/main/docs/PIXIE_CONSOLIDATION.md#ifixit--prospective-studio-pilot-research-15-november-2026"
+        }
+      ]
+    },
+    {
+      "kind": "resource",
+      "recordType": "resource",
+      "location": "",
+      "reviewedOn": "2026-11-15",
+      "relationship": "Independent resource; no partnership or endorsement established; no Loptr Lab affiliation or sponsorship.",
+      "accessibility": "Provider interfaces and software have not been independently tested with assistive technology. Ask about functional access needs; no diagnosis or movement recording is needed to browse this directory.",
+      "id": "xsens-animation-contest-2026",
+      "name": "Xsens — animation contest 2026",
+      "url": "https://www.xsens.com/animation-contest-2026",
+      "evidenceUrl": "https://www.xsens.com/animation-contest-2026",
+      "description": "Commercial motion-capture opportunity: work with supplied performance data without buying a suit. A contest is not employment, a grant or an accommodation. Deadline: 10 December 2026, 23:59 GMT (recheck). No generative AI for submitted characters, environments, animation or final imagery. No contest-data redistribution, use outside the competition, or AI training/fine-tuning/evaluation. Ordinary denoising, upscaling and motion cleanup are permitted when the creative work is yours.",
+      "tags": [
+        "animation",
+        "creative technology",
+        "contest",
+        "motion capture"
+      ],
+      "jurisdiction": "International; export restrictions and local law apply",
+      "verification": "Verified official page and terms v2.5 (15 September 2026), checked 15 November 2026. Deadline: 10 December 2026, 23:59 GMT. Recheck before entry.",
+      "fees": "Free entry; creation, hosting, tax and import costs remain yours. Any 3D package is allowed; compatible tools and accessible workflow must be verified.",
+      "availability": "Individuals/teams; minors require guardian acceptance. Export-restricted places and specified organiser/jury/sponsor relationships are excluded. No acceptance or prize guaranteed.",
+      "practicalAction": "No generative AI for submitted characters, environments, animation or final imagery. Ordinary denoising, upscaling and motion cleanup are permitted when the creative work is yours. No redistribution, use outside the contest, or AI training/fine-tuning/evaluation of contest data or derivatives. Finished-entry portfolio display is permitted; raw-data reuse is not. Read promotional rights before registering; no automatic entry here.",
+      "detailLinks": [
+        {
+          "label": "Full contest terms (PDF)",
+          "url": "https://www.xsens.com/hubfs/3DCA%20-%20ENT%20-%20Terry%20Notary%20Animation%20Contest/Terry%20Notary%20Animation%20Contest%20-%20Terms%20and%20Conditions%20(v2.5).pdf"
+        },
+        {
+          "label": "Accessible-work planning",
+          "url": "https://loptr-lab.github.io/training/case-study/03-accessibility-requirements.html#adaptive-work"
+        }
+      ]
+    },
+    {
+      "kind": "resource",
+      "recordType": "resource",
+      "location": "",
+      "reviewedOn": "2026-11-15",
+      "relationship": "Independent resource; no partnership or endorsement established; no Loptr Lab affiliation or sponsorship.",
+      "accessibility": "Provider interfaces and software have not been independently tested with assistive technology. Ask about functional access needs; no diagnosis or movement recording is needed to browse this directory.",
+      "id": "psyonic-ability-hand",
+      "name": "PSYONIC — Ability Hand and robotics",
+      "url": "https://www.psyonic.io/ability-hand",
+      "evidenceUrl": "https://www.psyonic.io/ability-hand",
+      "description": "Company-documented prosthetic and robotics applications are examples for research, not a demonstrated Xsens integration or an available job.",
+      "tags": [
+        "prosthetics",
+        "robotics",
+        "assistive technology",
+        "commercial"
+      ],
+      "jurisdiction": "US product/coverage context; other jurisdictions differ",
+      "verification": "Company-reported: PSYONIC says its Ability Hand is covered by Medicare. This is not an individual coverage decision. Its robotics page links an API and technical documentation.",
+      "fees": "Commercial product; obtain current clinical or robotics pricing separately. No equipment purchase is required for the reading exercise.",
+      "availability": "Clinical suitability, supplier participation, individual coverage and costs require confirmation; no job or device eligibility verified.",
+      "practicalAction": "Compare a prosthetic clinical use with a robotics research use. Do not infer Xsens compatibility. Medicare coverage of medically necessary prostheses does not establish coverage for commercial motion-capture suits.",
+      "detailLinks": [
+        {
+          "label": "Company statement of Medicare coverage (not individual approval)",
+          "url": "https://www.psyonic.io/news/why-we-built-a-bionics-company"
+        },
+        {
+          "label": "Robotics and API documentation",
+          "url": "https://www.psyonic.io/robots"
+        },
+        {
+          "label": "Medicare: artificial eyes and limbs",
+          "url": "https://www.medicare.gov/coverage/artificial-eyes-limbs"
+        },
+        {
+          "label": "Ability Fund: current company description",
+          "url": "https://www.psyonic.io/philanthropy"
+        }
+      ]
+    },
+    {
+      "kind": "resource",
+      "recordType": "resource",
+      "location": "",
+      "reviewedOn": "2026-11-15",
+      "relationship": "Independent resource; no partnership or endorsement established; no Loptr Lab affiliation or sponsorship.",
+      "accessibility": "Provider interfaces and software have not been independently tested with assistive technology. Ask about functional access needs; no diagnosis or movement recording is needed to browse this directory.",
+      "id": "psyonic-ability-fund",
+      "name": "PSYONIC — Ability Fund research",
+      "url": "https://www.psyonic.io/philanthropy",
+      "evidenceUrl": "https://www.psyonic.io/philanthropy",
+      "description": "Company-described charitable prosthetic-care support, not a studio grant, motion-capture subsidy or employment programme.",
+      "tags": [
+        "prosthetics",
+        "charitable support",
+        "eligibility review"
+      ],
+      "jurisdiction": "US patient-care examples; current applicant rules unverified",
+      "verification": "Current page names Range of Motion Project (ROMP) as fund administrator. An older company announcement names Limbs for Life; transition details and current intake were not verified.",
+      "fees": "Donations are not an application or promise of care. No beneficiary cost or award confirmed.",
+      "availability": "Current application route, intake, clinical/geographic criteria and funds available remain unverified.",
+      "practicalAction": "Verify the current administering organisation and patient eligibility before proposing an application. Never send clinical or benefit records to PIXIE or a public issue.",
+      "detailLinks": [
+        {
+          "label": "Older announcement — different administrator",
+          "url": "https://www.psyonic.io/news/psyonic-and-limbs-for-life-launch-the-ability-fund"
+        }
+      ]
+    },
+    {
+      "kind": "resource",
+      "recordType": "resource",
+      "location": "",
+      "reviewedOn": "2026-11-15",
+      "relationship": "Independent resource; no partnership or endorsement established; no Loptr Lab affiliation or sponsorship.",
+      "accessibility": "Provider interfaces and software have not been independently tested with assistive technology. Ask about functional access needs; no diagnosis or movement recording is needed to browse this directory.",
+      "id": "eeoc-accommodation",
+      "name": "EEOC — workplace reasonable accommodation",
+      "url": "https://www.eeoc.gov/laws/guidance/enforcement-guidance-reasonable-accommodation-and-undue-hardship-under-ada",
+      "evidenceUrl": "https://www.eeoc.gov/laws/guidance/enforcement-guidance-reasonable-accommodation-and-undue-hardship-under-ada",
+      "description": "Authoritative US employment guidance. Modified or specialised equipment can be an accommodation; an employer may choose another effective option.",
+      "tags": [
+        "employment",
+        "accessibility",
+        "accommodations",
+        "rights"
+      ],
+      "jurisdiction": "United States; covered employment relationships",
+      "verification": "Verified EEOC guidance; its pre-ADAAA notice and current-law qualifications remain relevant. This directory is educational, not independent legal review.",
+      "fees": "Free public guidance; not a grant or equipment voucher.",
+      "availability": "Duties depend on applicable law, employment relationship, essential functions, circumstances and undue hardship. Freelance labels do not settle legal status.",
+      "practicalAction": "Describe the task and barrier, then discuss effective alternatives through the appropriate private process. The preferred product is not automatically required. Do not publish medical documentation here.",
+      "detailLinks": [
+        {
+          "label": "JAN accommodation guidance",
+          "url": "https://askjan.org/about-us/"
+        }
+      ]
+    },
+    {
+      "kind": "resource",
+      "recordType": "resource",
+      "location": "",
+      "reviewedOn": "2026-11-15",
+      "relationship": "Independent resource; no partnership or endorsement established; no Loptr Lab affiliation or sponsorship.",
+      "accessibility": "Provider interfaces and software have not been independently tested with assistive technology. Ask about functional access needs; no diagnosis or movement recording is needed to browse this directory.",
+      "id": "jan-accommodation",
+      "name": "Job Accommodation Network (JAN)",
+      "url": "https://askjan.org/about-us/",
+      "evidenceUrl": "https://askjan.org/about-us/",
+      "description": "JAN describes free, confidential workplace-accommodation guidance and ADA Title I technical assistance. Not a benefit adjudicator or paid-work marketplace.",
+      "tags": [
+        "employment",
+        "accessibility",
+        "accommodations"
+      ],
+      "jurisdiction": "United States; ADA Title I guidance",
+      "verification": "Verified official About JAN page on 15 November 2026; homepage initially timed out, About page retrieved. Confidentiality is provider-described, not a Loptr Lab guarantee.",
+      "fees": "Free guidance per JAN; no funding or equipment award promised.",
+      "availability": "Consultation suitability and provider accessibility should be confirmed. No legal representation established.",
+      "practicalAction": "Start with a functional task and barrier. Browse guidance before deciding whether to use JAN’s own contact process; review its privacy terms first.",
+      "detailLinks": [
+        {
+          "label": "Accommodation options",
+          "url": "https://askjan.org/soar.cfm/solution"
+        }
+      ]
+    },
+    {
+      "kind": "resource",
+      "recordType": "resource",
+      "location": "",
+      "reviewedOn": "2026-11-15",
+      "relationship": "Independent resource; no partnership or endorsement established; no Loptr Lab affiliation or sponsorship.",
+      "accessibility": "Provider interfaces and software have not been independently tested with assistive technology. Ask about functional access needs; no diagnosis or movement recording is needed to browse this directory.",
+      "id": "state-vr-at",
+      "name": "State vocational rehabilitation and assistive technology",
+      "url": "https://mn.gov/deed/job-seekers/disabilities/policies/",
+      "evidenceUrl": "https://mn.gov/deed/job-seekers/disabilities/policies/",
+      "description": "VR may support qualifying employment-related assistive technology. State AT programmes may offer demonstrations, short-term loans or reuse; this is distinct from Medicare and employer duties.",
+      "tags": [
+        "employment",
+        "assistive technology",
+        "vocational rehabilitation",
+        "funding research"
+      ],
+      "jurisdiction": "US; Minnesota is an example, not a nationwide eligibility rule",
+      "verification": "Verified DEED policy portal, Minnesota Rule 3325.0420 and ACL state-AT description. Eligibility, employment plan, authorisation, resources and current agency rules control.",
+      "fees": "No guaranteed grant or reimbursement. Ask before buying; loan, purchase, service and participant costs differ.",
+      "availability": "Self-employment support must be specifically approved where available. Minnesota rules cited include State Services for the Blind; do not apply them automatically to every VRS participant.",
+      "practicalAction": "Ask the responsible state programme about the work goal, equipment alternatives, evaluation, prior approval, self-employment policy and benefits effects. Keep private eligibility documents with the agency, not public checkpoints.",
+      "detailLinks": [
+        {
+          "label": "Minnesota rule — check agency scope",
+          "url": "https://www.revisor.mn.gov/rules/3325.0420/"
+        },
+        {
+          "label": "ACL: state AT programmes and directory",
+          "url": "https://acl.gov/programs/assistive-technology/assistive-technology"
+        },
+        {
+          "label": "Minnesota VRS entry",
+          "url": "https://mn.gov/deed/vrs/"
+        }
+      ]
     }
   ]
 }
