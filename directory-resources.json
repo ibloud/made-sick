@@ -776,6 +776,10 @@
       "practicalAction": "Compare a prosthetic clinical use with a robotics research use. Do not infer Xsens compatibility. Medicare coverage of medically necessary prostheses does not establish coverage for commercial motion-capture suits.",
       "detailLinks": [
         {
+          "label": "Company statement of Medicare coverage (not individual approval)",
+          "url": "https://www.psyonic.io/news/why-we-built-a-bionics-company"
+        },
+        {
           "label": "Robotics and API documentation",
           "url": "https://www.psyonic.io/robots"
         },
