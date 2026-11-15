@@ -62,3 +62,7 @@ No copyrighted episode, music video, recording, or other third-party work may be
 For work involving substance use, overdose, suicide, self-harm, abuse, or other potentially triggering subjects, publish a specific content note, the documented purpose, and qualified resources outside the artist relationship. Collaborators should approve shared campaign framing. Do not infer that depiction equals endorsement, or that participation proves lived experience.
 
 Claims about platform moderation require preserved primary evidence such as the artist's statement, a platform notice, a screenshot, or an appeal record. Until then, label the claim as reported and unverified; never present a platform action as proof of wrongdoing.
+
+## Accessible economic participation
+
+Ask about functional barriers when a contribution is scoped and agree adaptations before work begins. Disabled participants can design, test, document and operate technology, not merely consume it. Clearly distinguish voluntary contribution, training, paid professional work and third-party support. Commissioned work needs fair compensation and written terms. Participants control attribution and what becomes public; neither disability information nor biometric movement data is a prerequisite. Secondary uses, including AI training, need appropriate rights and explicit authorisation. Directory listings and sponsorship never determine a participant’s suitability or replace a legal accommodation duty.
