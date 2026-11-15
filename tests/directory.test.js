@@ -26,25 +26,20 @@ test('directory filters distinguish participants from public references', () => 
  assert.equal(win.document.querySelectorAll('#resources article').length, JSON.parse(read('directory-resources.json')).resources.length);
  win.close();
 });
-test('PIXIE stays unloaded until requested and closes without retaining its frame URL', () => {
- const win = new JSDOM(read('directory.html'), {runScripts:'outside-only'}).window;
- const d = win.document;
- assert.equal(d.querySelector('#resources').nextElementSibling.id, 'pixie-demo');
- const script = d.querySelector('script[src="directory-pixie.js"]');
- assert.ok(script, 'Directory must actually include the PIXIE demo script');
- const style = d.createElement('style'); style.textContent = read('styles.css'); d.head.appendChild(style);
- assert.equal(win.getComputedStyle(d.getElementById('close-pixie-demo')).display, 'none');
- win.eval(read(script.getAttribute('src')));
- const frame = d.getElementById('pixie-demo-frame');
- assert.equal(frame.hasAttribute('src'), false);
- d.getElementById('load-pixie-demo').click();
- assert.equal(frame.src, 'https://ibloud.github.io/50-ways-to-leave-another/pixie/demo/index.html');
- assert.equal(d.getElementById('pixie-demo-panel').hidden, false);
- d.getElementById('close-pixie-demo').click();
- assert.equal(frame.hasAttribute('src'), false);
- assert.equal(d.getElementById('pixie-demo-panel').hidden, true);
- assert.equal(d.activeElement.id, 'load-pixie-demo');
- win.close();
+test('directory prioritizes the canonical Companion and does not embed legacy PIXIE', () => {
+ const d = new JSDOM(read('directory.html')).window.document;
+ const section = d.getElementById('pixie-demo');
+ assert.equal(d.querySelector('#resources').nextElementSibling, section);
+ assert.equal(section.querySelector('h2').textContent, 'PIXIE · Project Companion');
+ const companion = section.querySelector('a.button');
+ assert.equal(companion.href, 'https://pixie-project-companion-production.up.railway.app/');
+ assert.ok(companion.rel.includes('noreferrer'));
+ const legacy = section.querySelector('details a');
+ assert.equal(legacy.href, 'https://50ways.loptrlab.com/pixie/demo/index.html');
+ assert.ok(legacy.closest('details'));
+ assert.equal(section.querySelectorAll('iframe').length, 0);
+ assert.equal(d.querySelector('script[src="directory-pixie.js"]'), null);
+ assert.ok(d.querySelector('script[src="pixie-launcher.js"]'));
 });
 
 test('resource contract and visible cards stay aligned without enrolling professionals',()=>{
