@@ -961,6 +961,115 @@
           "url": "https://www.strayer.edu/about/accessibility/"
         }
       ]
+    },
+    {
+      "id": "printninja",
+      "name": "PrintNinja",
+      "kind": "resource",
+      "recordType": "resource",
+      "description": "Offset printing for card decks, manga and companion books. Compare batch costs after testing demand.",
+      "url": "https://printninja.com/printing-products/card-game-printing/",
+      "evidenceUrl": "https://printninja.com/printing-products/card-game-printing/",
+      "tags": [
+        "printing",
+        "cards",
+        "publishing"
+      ],
+      "jurisdiction": "",
+      "location": "",
+      "reviewedOn": "2026-11-16",
+      "verification": "Official provider website reviewed November 16, 2026. This is a public research reference, not a recommendation or verified participant.",
+      "relationship": "Independent resource; no partnership or endorsement established",
+      "fees": "500-deck card minimum; comic minimum 250. Project-specific quote required.",
+      "availability": "Public enquiry route; acceptance and current capacity unverified",
+      "accessibility": "Provider accessibility not tested; ask about functional requirements"
+    },
+    {
+      "id": "makeplayingcards",
+      "name": "MakePlayingCards",
+      "kind": "resource",
+      "recordType": "resource",
+      "description": "Custom cards, boxes and booklets, with single-deck ordering on standard products and an optional creator marketplace.",
+      "url": "https://www.makeplayingcards.com/",
+      "evidenceUrl": "https://www.makeplayingcards.com/",
+      "tags": [
+        "printing",
+        "cards",
+        "prototypes"
+      ],
+      "jurisdiction": "",
+      "location": "",
+      "reviewedOn": "2026-11-16",
+      "verification": "Official provider website reviewed November 16, 2026. This is a public research reference, not a recommendation or verified participant.",
+      "relationship": "Independent resource; no partnership or endorsement established",
+      "fees": "Price depends on specification, quantity and shipping; marketplace earnings differ from retail revenue.",
+      "availability": "Public enquiry route; acceptance and current capacity unverified",
+      "accessibility": "Provider accessibility not tested; ask about functional requirements"
+    },
+    {
+      "id": "lvp",
+      "name": "LVP",
+      "kind": "resource",
+      "recordType": "resource",
+      "description": "Games-focused investor covering studios, content, technology and services from angel through growth.",
+      "url": "https://londonvp.com/",
+      "evidenceUrl": "https://londonvp.com/",
+      "tags": [
+        "funding",
+        "games"
+      ],
+      "jurisdiction": "",
+      "location": "",
+      "reviewedOn": "2026-11-16",
+      "verification": "Official provider website reviewed November 16, 2026. This is a public research reference, not a recommendation or verified participant.",
+      "relationship": "Independent resource; no partnership or endorsement established",
+      "fees": "Investment terms require discussion; no funding or eligibility promised.",
+      "availability": "Public enquiry route; acceptance and current capacity unverified",
+      "accessibility": "Provider accessibility not tested; ask about functional requirements"
+    },
+    {
+      "id": "chimera-vc",
+      "name": "Chimera VC",
+      "kind": "resource",
+      "recordType": "resource",
+      "description": "Pre-seed and seed investor in games, media and recurring-use consumer products; includes anime/manga community and browser-game investments.",
+      "url": "https://chimeravc.com/",
+      "evidenceUrl": "https://chimeravc.com/",
+      "tags": [
+        "funding",
+        "games",
+        "media"
+      ],
+      "jurisdiction": "",
+      "location": "",
+      "reviewedOn": "2026-11-16",
+      "verification": "Official provider website reviewed November 16, 2026. This is a public research reference, not a recommendation or verified participant.",
+      "relationship": "Independent resource; no partnership or endorsement established",
+      "fees": "Geographic eligibility and terms require confirmation.",
+      "availability": "Public enquiry route; acceptance and current capacity unverified",
+      "accessibility": "Provider accessibility not tested; ask about functional requirements"
+    },
+    {
+      "id": "transcend",
+      "name": "Transcend",
+      "kind": "resource",
+      "recordType": "resource",
+      "description": "Early-stage investor focused on AI-native game studios and tools. Relevant to demonstrated production systems, not a promise of project funding.",
+      "url": "https://www.transcend.fund/",
+      "evidenceUrl": "https://www.transcend.fund/",
+      "tags": [
+        "funding",
+        "games",
+        "production"
+      ],
+      "jurisdiction": "",
+      "location": "",
+      "reviewedOn": "2026-11-16",
+      "verification": "Official provider website reviewed November 16, 2026. This is a public research reference, not a recommendation or verified participant.",
+      "relationship": "Independent resource; no partnership or endorsement established",
+      "fees": "Investment terms require discussion; no funding or eligibility promised.",
+      "availability": "Public enquiry route; acceptance and current capacity unverified",
+      "accessibility": "Provider accessibility not tested; ask about functional requirements"
     }
   ]
 }
