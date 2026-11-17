@@ -982,7 +982,8 @@
       "relationship": "Independent resource; no partnership or endorsement established",
       "fees": "500-deck card minimum; comic minimum 250. Project-specific quote required.",
       "availability": "Public enquiry route; acceptance and current capacity unverified",
-      "accessibility": "Provider accessibility not tested; ask about functional requirements"
+      "accessibility": "Provider accessibility not tested; ask about functional requirements",
+      "practicalAction": "Treat the dated portfolio examples as manufacturing benchmarks, not a project quote. Keep historical art expenditure, future labour, manufacturing and fulfillment separate; do not infer demand or margins from unit costs."
     },
     {
       "id": "makeplayingcards",
@@ -1004,7 +1005,14 @@
       "relationship": "Independent resource; no partnership or endorsement established",
       "fees": "Price depends on specification, quantity and shipping; marketplace earnings differ from retail revenue.",
       "availability": "Public enquiry route; acceptance and current capacity unverified",
-      "accessibility": "Provider accessibility not tested; ask about functional requirements"
+      "accessibility": "Provider accessibility not tested; ask about functional requirements",
+      "practicalAction": "Compare prototype specifications and landed costs before ordering. A printer resource is not a verified creator-product listing: Jupiter Lenormand’s owner-supplied listing and matching companion remain unreadable in this review, so no product price, bundling or purchase recommendation is asserted.",
+      "detailLinks": [
+        {
+          "label": "Existing deck/manga portfolio (showcase update under review)",
+          "url": "https://ibloud.github.io/ecosystem/projects/deaths-daughter/"
+        }
+      ]
     },
     {
       "id": "lvp",
