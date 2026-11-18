@@ -961,6 +961,196 @@
           "url": "https://www.strayer.edu/about/accessibility/"
         }
       ]
+    },
+    {
+      "id": "printninja",
+      "name": "PrintNinja",
+      "kind": "resource",
+      "recordType": "resource",
+      "description": "Offset printing for card decks, manga and companion books. Compare batch costs after testing demand.",
+      "url": "https://printninja.com/printing-products/card-game-printing/",
+      "evidenceUrl": "https://printninja.com/printing-products/card-game-printing/",
+      "tags": [
+        "printing",
+        "cards",
+        "publishing"
+      ],
+      "jurisdiction": "",
+      "location": "",
+      "reviewedOn": "2026-11-16",
+      "verification": "Official provider website reviewed November 16, 2026. This is a public research reference, not a recommendation or verified participant.",
+      "relationship": "Independent resource; no partnership or endorsement established",
+      "fees": "500-deck card minimum; comic minimum 250. Project-specific quote required.",
+      "availability": "Public enquiry route; acceptance and current capacity unverified",
+      "accessibility": "Provider accessibility not tested; ask about functional requirements",
+      "practicalAction": "Treat the dated portfolio examples as manufacturing benchmarks, not a project quote. Keep historical art expenditure, future labour, manufacturing and fulfillment separate; do not infer demand or margins from unit costs."
+    },
+    {
+      "id": "makeplayingcards",
+      "name": "MakePlayingCards",
+      "kind": "resource",
+      "recordType": "resource",
+      "description": "Custom cards, boxes and booklets, with single-deck ordering on standard products and an optional creator marketplace.",
+      "url": "https://www.makeplayingcards.com/",
+      "evidenceUrl": "https://www.makeplayingcards.com/",
+      "tags": [
+        "printing",
+        "cards",
+        "prototypes"
+      ],
+      "jurisdiction": "",
+      "location": "",
+      "reviewedOn": "2026-11-16",
+      "verification": "Official provider website reviewed November 16, 2026. This is a public research reference, not a recommendation or verified participant.",
+      "relationship": "Independent resource; no partnership or endorsement established",
+      "fees": "Price depends on specification, quantity and shipping; marketplace earnings differ from retail revenue.",
+      "availability": "Public enquiry route; acceptance and current capacity unverified",
+      "accessibility": "Provider accessibility not tested; ask about functional requirements",
+      "practicalAction": "Compare prototype specifications and landed costs before ordering. A printer resource is not a verified creator-product listing: Jupiter Lenormand’s owner-supplied listing and matching companion remain unreadable in this review, so no product price, bundling or purchase recommendation is asserted.",
+      "detailLinks": [
+        {
+          "label": "Existing deck/manga portfolio (showcase update under review)",
+          "url": "https://ibloud.github.io/ecosystem/projects/deaths-daughter/"
+        }
+      ]
+    },
+    {
+      "id": "lvp",
+      "name": "LVP",
+      "kind": "resource",
+      "recordType": "resource",
+      "description": "Games-focused investor covering studios, content, technology and services from angel through growth.",
+      "url": "https://londonvp.com/",
+      "evidenceUrl": "https://londonvp.com/",
+      "tags": [
+        "funding",
+        "games"
+      ],
+      "jurisdiction": "",
+      "location": "",
+      "reviewedOn": "2026-11-16",
+      "verification": "Official provider website reviewed November 16, 2026. This is a public research reference, not a recommendation or verified participant.",
+      "relationship": "Independent resource; no partnership or endorsement established",
+      "fees": "Investment terms require discussion; no funding or eligibility promised.",
+      "availability": "Public enquiry route; acceptance and current capacity unverified",
+      "accessibility": "Provider accessibility not tested; ask about functional requirements"
+    },
+    {
+      "id": "chimera-vc",
+      "name": "Chimera VC",
+      "kind": "resource",
+      "recordType": "resource",
+      "description": "Pre-seed and seed investor in games, media and recurring-use consumer products; includes anime/manga community and browser-game investments.",
+      "url": "https://chimeravc.com/",
+      "evidenceUrl": "https://chimeravc.com/",
+      "tags": [
+        "funding",
+        "games",
+        "media"
+      ],
+      "jurisdiction": "",
+      "location": "",
+      "reviewedOn": "2026-11-16",
+      "verification": "Official provider website reviewed November 16, 2026. This is a public research reference, not a recommendation or verified participant.",
+      "relationship": "Independent resource; no partnership or endorsement established",
+      "fees": "Geographic eligibility and terms require confirmation.",
+      "availability": "Public enquiry route; acceptance and current capacity unverified",
+      "accessibility": "Provider accessibility not tested; ask about functional requirements"
+    },
+    {
+      "id": "transcend",
+      "name": "Transcend",
+      "kind": "resource",
+      "recordType": "resource",
+      "description": "Early-stage investor focused on AI-native game studios and tools. Relevant to demonstrated production systems, not a promise of project funding.",
+      "url": "https://www.transcend.fund/",
+      "evidenceUrl": "https://www.transcend.fund/",
+      "tags": [
+        "funding",
+        "games",
+        "production"
+      ],
+      "jurisdiction": "",
+      "location": "",
+      "reviewedOn": "2026-11-16",
+      "verification": "Official provider website reviewed November 16, 2026. This is a public research reference, not a recommendation or verified participant.",
+      "relationship": "Independent resource; no partnership or endorsement established",
+      "fees": "Investment terms require discussion; no funding or eligibility promised.",
+      "availability": "Public enquiry route; acceptance and current capacity unverified",
+      "accessibility": "Provider accessibility not tested; ask about functional requirements"
+    },
+    {
+      "id": "milkyway-brands",
+      "name": "Milkyway Brands",
+      "kind": "resource",
+      "recordType": "resource",
+      "description": "Provider-listed merchandise production: screen printing, embroidery, cut-and-sew and private-label manufacturing, with warehousing, fulfillment and Shopify integration.",
+      "url": "https://milkywaybrands.com/",
+      "evidenceUrl": "https://milkywaybrands.com/",
+      "tags": [
+        "merchandise",
+        "apparel",
+        "fulfillment",
+        "printing"
+      ],
+      "jurisdiction": "",
+      "location": "Los Angeles, California",
+      "reviewedOn": "2026-11-18",
+      "verification": "Official service descriptions reviewed; production quality, delivery performance and suitability are not independently verified.",
+      "relationship": "Independent public reference; no partnership or endorsement established with Loptr Lab.",
+      "fees": "Quote, minimum order or booking charge not verified",
+      "availability": "Lead times and capacity not verified",
+      "accessibility": "Ask about your specific access needs; not assessed",
+      "practicalAction": "Compare written scope, total delivered cost, sample or session terms, lead time, cancellation/returns and accessibility before a separately approved purchase. Research does not authorize spending."
+    },
+    {
+      "id": "prjct-blanks",
+      "name": "PRJCT BLANKS · Milkyway Brands",
+      "kind": "resource",
+      "recordType": "resource",
+      "description": "Milkyway describes PRJCT BLANKS as its own heavyweight tee and hoodie line, with production services on the Fab Factory Studios campus.",
+      "url": "https://www.linkedin.com/company/milkyway-brand",
+      "evidenceUrl": "https://www.linkedin.com/company/milkyway-brand",
+      "tags": [
+        "prjct blanks",
+        "merchandise",
+        "apparel",
+        "heavyweight blanks"
+      ],
+      "jurisdiction": "",
+      "location": "Los Angeles, California",
+      "reviewedOn": "2026-11-18",
+      "verification": "Provider company page reviewed. This is a Milkyway product line, not a separate confirmed supplier or evidence that it manufactured the jackets shown in a social story.",
+      "relationship": "Independent public reference; no partnership or endorsement established with Loptr Lab.",
+      "fees": "Quote, minimum order or booking charge not verified",
+      "availability": "Lead times and capacity not verified",
+      "accessibility": "Ask about your specific access needs; not assessed",
+      "practicalAction": "Compare written scope, total delivered cost, sample or session terms, lead time, cancellation/returns and accessibility before a separately approved purchase. Research does not authorize spending."
+    },
+    {
+      "id": "fab-factory-studios",
+      "name": "Fab Factory Studios",
+      "kind": "resource",
+      "recordType": "resource",
+      "description": "North Hollywood creative campus listing recording and Atmos, content and podcast, event and rehearsal facilities.",
+      "url": "https://www.fabfactorystudios.com/",
+      "evidenceUrl": "https://www.fabfactorystudios.com/",
+      "tags": [
+        "studio",
+        "recording",
+        "podcast",
+        "rehearsal",
+        "production"
+      ],
+      "jurisdiction": "",
+      "location": "North Hollywood, California",
+      "reviewedOn": "2026-11-18",
+      "verification": "Official site reviewed for advertised services and North Hollywood location. No booking, equipment suitability, accessible route or studio visit has been verified.",
+      "relationship": "Independent public reference; no partnership or endorsement established with Loptr Lab.",
+      "fees": "Quote, minimum order or booking charge not verified",
+      "availability": "Lead times and capacity not verified",
+      "accessibility": "Ask about your specific access needs; not assessed",
+      "practicalAction": "Compare written scope, total delivered cost, sample or session terms, lead time, cancellation/returns and accessibility before a separately approved purchase. Research does not authorize spending."
     }
   ]
 }
