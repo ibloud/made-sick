@@ -3,7 +3,7 @@
 (function(root){
  "use strict";
  const ENDPOINTS=["wss://jetstream.us-west.bsky.network/xrpc/network.bsky.jetstream.subscribeEvents","wss://jetstream.us-east.bsky.network/xrpc/network.bsky.jetstream.subscribeEvents"];
- const COLLECTION="app.bsky.feed.post";
+ const COLLECTION="app.bsky.feed.post";\n const MAX_RECORDS=500;
  function buildUrl(endpoint,did){const u=new URL(endpoint);u.searchParams.set("collections",COLLECTION);u.searchParams.set("kinds","commit");if(did)u.searchParams.set("dids",did);return u.toString();}
  function eventPost(event){
  if(!event||event.kind!=="commit"||!event.did||!event.commit)return null;
