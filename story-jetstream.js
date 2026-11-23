@@ -1,0 +1,16 @@
+/* Made Sick Story Finder — Jetstream live discovery.
+   Browser-only, read-only public stream. No persistence or server archive. */
+(function(root){
+ "use strict";
+ const ENDPOINTS=["wss://jetstream.us-west.bsky.network/xrpc/network.bsky.jetstream.subscribeEvents","wss://jetstream.us-east.bsky.network/xrpc/network.bsky.jetstream.subscribeEvents"];
+ const COLLECTION="app.bsky.feed.post";\n const MAX_RECORDS=500;
+ function buildUrl(endpoint,did){const u=new URL(endpoint);u.searchParams.set("collections",COLLECTION);u.searchParams.set("kinds","commit");if(did)u.searchParams.set("dids",did);return u.toString();}
+ function eventPost(event){
+ if(!event||event.kind!=="commit"||!event.did||!event.commit)return null;
+ const commit=event.commit;
+ if(commit.operation!=="create"||commit.collection!==COLLECTION||!commit.record||typeof commit.record.text!=="string"||!commit.record.createdAt||!commit.rkey||!commit.cid)return null;
+ const indexedAt=Number.isFinite(event.time_us)?new Date(event.time_us/1000).toISOString():commit.record.createdAt;
+ return {post:{uri:"at://"+event.did+"/"+COLLECTION+"/"+commit.rkey,cid:commit.cid,author:{did:event.did,handle:event.did},record:commit.record,indexedAt},seq:event.time_us};
+}
+ function matches(item,query){const terms=query.trim().toLocaleLowerCase().split(/\s+/).filter(Boolean);const text=(item.post.record.text||"").toLocaleLowerCase();return terms.every(term=>text.includes(term));}
+ function start({handle="",query="",onPost=()=>{},onStatus=()=>{}},retrieval=root.STORY_RETRIEVAL,WebSocketImpl=root.WebSocket){if(!WebSocketImpl)throw new Error("WebSocket is unavailable in this browser.");let socket=null,closed=false,records=0,matched=0;const controller={records:()=>records,matched:()=>matched,stop:()=>{closed=true;if(socket)socket.close(1000,"Stopped by user")}};async function connect(){let did="";if(handle.trim()){onStatus("Resolving account and connecting to Jetstream…");const account=await retrieval.resolveAccount(handle.trim().replace(/^@/,""),fetch);did=account.did;}if(closed)return;const endpoint="wss://jetstream.us-west.bsky.network/xrpc/network.bsky.jetstream.subscribeEvents";socket=new WebSocketImpl(buildUrl(endpoint,did),["xrpc.v1.json"]);socket.onopen=()=>onStatus("Connected to Jetstream "+(did?"for "+handle:"network-wide")+". Waiting for live posts…");socket.onmessage=event=>{if(closed)return;let envelope;try{envelope=JSON.parse(event.data)}catch{return}const item=eventPost(envelope);if(!item)return;records++;if(matches(item,query)){matched++;onPost(item)}onStatus("Live stream connected · "+records+" post events received · "+matched+" matches.");if(records>=MAX_RECORDS){closed=true;socket.close(1000,"Session record limit reached");onStatus("Session safety limit reached ("+MAX_RECORDS+" events). Stop or restart to continue.");}};socket.onerror=()=>onStatus("Jetstream connection error. Check your network and restart to reconnect.");socket.onclose=()=>{if(!closed)onStatus("Jetstream connection closed. Stop and restart to reconnect.");};}connect().catch(error=>{closed=true;onStatus(error.message||"Unable to connect to Jetstream.");});return controller;}root.STORY_JETSTREAM=Object.freeze({start,buildUrl,eventPost,matches});})(globalThis);

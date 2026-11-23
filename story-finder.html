@@ -65,6 +65,16 @@
 <h2 id="thread-title">Read a post and its conversation</h2>
 <form id="thread-form"><label>Public post link<span>Bluesky or mu.social post URL</span><input type="text" id="post-link" required></label><button>Read conversation</button></form>
 <p id="thread-status" role="status" aria-live="polite"></p><div id="thread-results"></div>
+<section class="panel" id="jetstream" aria-labelledby="jetstream-title">
+<p class="eyebrow">Live discovery · Jetstream</p><h2 id="jetstream-title">Listen to the public stream</h2>
+<p>Jetstream delivers new public AT Protocol events in real time. This is not a historical search: posts arrive only after you connect. Narrow the stream to one public account to reduce traffic, or listen network-wide and filter text in this browser.</p>
+<p class="notice"><strong>External connection:</strong> when started, this browser connects directly to a public Bluesky Jetstream WebSocket. No credentials are sent. Posts and search terms stay in this tab; nothing is stored or sent to Made Sick. Stream text is untrusted and is displayed as text.</p>
+<form id="jetstream-form">
+<div class="row"><label>Account (optional)<span>Handle or DID. Leave blank for network-wide live discovery.</span><input id="jetstream-handle" type="text" placeholder="ibloud.xyz"></label>
+<label>Words to match (optional)<span>All entered words must appear in post text. Filtering happens locally.</span><input id="jetstream-query" type="search" placeholder="artist name, venue, phrase"></label></div>
+<div class="actions"><button type="submit" id="jetstream-start">Start live stream</button><button type="button" class="secondary" id="jetstream-stop" disabled>Stop stream</button><button type="button" class="secondary" id="jetstream-clear">Clear live results</button><button type="button" class="secondary" id="jetstream-export" disabled>Export live matches</button></div>
+<p id="jetstream-status" class="status" role="status" aria-live="polite">Stream stopped.</p></form>
+<div id="jetstream-results" class="results"><p class="empty">Start a stream to collect live matches in this tab.</p></div>
 </section>
 <section aria-labelledby="results-title">
 <div class="results-head"><div><p class="eyebrow">Step 2 · review and preserve</p><h2 id="results-title">Matches</h2></div><div class="actions"><button type="button" class="secondary" id="select-visible" disabled>Select visible</button><button type="button" class="secondary" id="export" disabled>Export selected ledger</button></div></div>
@@ -75,6 +85,7 @@
 <footer><p>Independent Made Sick research tool. Bluesky and AT Protocol are external services and do not endorse this project. Public API data remains subject to the author's deletions and current Bluesky availability.</p><p class="policy-links"><a href="privacy.html">Privacy &amp; your choices</a> · <a href="terms.html">Terms of Use</a></p></footer>
 <script src="story-retrieval.js?v=1"></script>
 <script src="story-ledger.js"></script>
+<script src="story-jetstream.js?v=1"></script>
 <script>
 "use strict";
 const API="https://public.api.bsky.app/xrpc/";
@@ -221,7 +232,15 @@ $("thread-form").addEventListener("submit",async event=>{
 });
 </script>
 <script src="pixie-launcher.js" defer></script>
-<script src="navigation.js" defer></script>
+<script src="navigation.js" defer>
+const liveState={controller:null,items:[],seen:new Set(),running:false};
+const liveResults=$("jetstream-results"),liveStatus=$("jetstream-status");
+function renderLive(){liveResults.replaceChildren();if(!liveState.items.length){const p=document.createElement("p");p.className="empty";p.textContent="No live matches yet. Leave the stream running or adjust the filter.";liveResults.append(p)}liveState.items.slice().reverse().forEach(item=>{const card=document.createElement("article");card.className="post";const time=document.createElement("time");time.dateTime=item.post.record.createdAt;time.textContent=new Date(item.post.record.createdAt).toLocaleString();const body=document.createElement("p");body.textContent=item.post.record.text||"[No text]";const link=document.createElement("a");link.href="https://bsky.app/profile/"+encodeURIComponent(item.post.author.did)+"/post/"+encodeURIComponent(item.post.uri.split("/").pop());link.target="_blank";link.rel="noreferrer";link.textContent="Open original ↗";card.append(time,body,link);liveResults.append(card)});$("jetstream-export").disabled=!liveState.items.length}
+$("jetstream-form").addEventListener("submit",event=>{event.preventDefault();if(liveState.running)return;liveState.items=[];liveState.seen.clear();renderLive();liveState.running=true;$("jetstream-start").disabled=true;$("jetstream-stop").disabled=false;liveStatus.textContent="Starting stream…";liveState.controller=STORY_JETSTREAM.start({handle:$("jetstream-handle").value,query:$("jetstream-query").value,onStatus:message=>{liveStatus.textContent=message},onPost:item=>{if(liveState.seen.has(item.post.uri))return;liveState.seen.add(item.post.uri);liveState.items.push(item);if(liveState.items.length>500)liveState.items.shift();renderLive();}});});
+$("jetstream-stop").addEventListener("click",()=>{liveState.controller?.stop();liveState.running=false;$("jetstream-start").disabled=false;$("jetstream-stop").disabled=true;liveStatus.textContent="Stream stopped. "+liveState.items.length+" matching posts retained in this tab."});
+$("jetstream-clear").addEventListener("click",()=>{liveState.controller?.stop();liveState.running=false;liveState.items=[];liveState.seen.clear();$("jetstream-start").disabled=false;$("jetstream-stop").disabled=true;renderLive();liveStatus.textContent="Live results cleared from this tab."});
+$("jetstream-export").addEventListener("click",()=>{const payload={schemaVersion:1,source:"Bluesky Jetstream live stream",exportedAt:new Date().toISOString(),notice:"Live public records captured in this browser session. Not historical coverage or publication consent.",posts:liveState.items.map(item=>({uri:item.post.uri,cid:item.post.cid,authorDid:item.post.author.did,createdAt:item.post.record.createdAt,text:item.post.record.text,url:"https://bsky.app/profile/"+encodeURIComponent(item.post.author.did)+"/post/"+encodeURIComponent(item.post.uri.split("/").pop())}))};const blob=new Blob([JSON.stringify(payload,null,2)],{type:"application/json"}),url=URL.createObjectURL(blob),a=document.createElement("a");a.href=url;a.download="made-sick-jetstream-live-"+new Date().toISOString().slice(0,10)+".json";a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);liveStatus.textContent=payload.posts.length+" live posts exported to your device."});
+</script>
 </body>
 </html>
 
