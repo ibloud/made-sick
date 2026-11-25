@@ -384,6 +384,53 @@
       ]
     },
     {
+      "id": "pietro-pacs",
+      "name": "Pietro Impagliazzo — AI workflow reliability",
+      "kind": "resource",
+      "recordType": "resource",
+      "description": "Explore PACS, an open-source convention for tracking silent dependencies in AI-assisted engineering, and Pietro’s professional website.",
+      "audience": "For systems architects, developers, technical leads and independent creative technology studios.",
+      "practicalAction": "Study a silent dependency, identify its source and distant consumers, and write an executable regression check. See Loptr Lab’s transmedia case study for the initial breadcrumb pilot.",
+      "url": "https://pietro.works/",
+      "evidenceUrl": "https://github.com/pietro-works/PACS",
+      "reviewedOn": "2026-11-25",
+      "verification": "PACS README, specification, CLI entry point and MIT license reviewed directly through GitHub. The registry convention requires no installation; optional CLI requires Bash, ripgrep and yq. Linter execution and full supporting-module audit remain pending. Professional site linked as supplied; no independent claims about client outcomes or services.",
+      "relationship": "Independent resource; no partnership or endorsement established",
+      "fees": "PACS is MIT-licensed open source. Professional service pricing not verified.",
+      "availability": "Public repository; professional availability and response times not confirmed",
+      "accessibility": "External services not independently tested; check your access needs with the provider",
+      "jurisdiction": "",
+      "location": "",
+      "tags": [
+        "systems architecture",
+        "AI reliability",
+        "open source",
+        "PACS",
+        "software engineering"
+      ],
+      "actionLabel": "Explore Pietro’s work",
+      "additionalLinks": [
+        {
+          "label": "Read PACS on GitHub",
+          "url": "https://github.com/pietro-works/PACS"
+        },
+        {
+          "label": "Read Loptr Lab’s transmedia case study",
+          "url": "https://loptrlab.com/field-notes/one-universe-many-entrances.html"
+        }
+      ],
+      "detailLinks": [
+        {
+          "label": "PACS specification",
+          "url": "https://github.com/pietro-works/PACS/blob/main/SPEC.md"
+        },
+        {
+          "label": "MIT license",
+          "url": "https://github.com/pietro-works/PACS/blob/main/LICENSE"
+        }
+      ]
+    },
+    {
       "id": "disability-hub-mn",
       "name": "Disability Hub MN",
       "kind": "resource",

@@ -225,3 +225,7 @@ The existing 16px directory overflow at 320px does not obstruct this path: the
 resource jump and every visible Chris-card action are reachable within x=42–278
 with horizontal scroll remaining zero. No stylesheet change was required.
 Physical iPad Safari and VoiceOver remain untested.
+
+## Pietro Impagliazzo — PACS, 25 November 2026
+
+Canonical resource: `pietro-pacs` in `directory-resources.json`. Public GitHub README, SPEC.md, bin/pacs and LICENSE reviewed through connected GitHub. MIT license confirmed; optional CLI needs Bash, ripgrep and yq. No linter execution, professional-services audit, accessibility acceptance or partnership claimed. Professional website supplied by owner; linked for discovery without relying on unverified service claims. The transmedia article and PACS0001 pilot are Loptr Lab’s own application. No third-party artwork, contact details, or new data capture added.
