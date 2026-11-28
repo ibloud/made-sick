@@ -312,6 +312,49 @@
       "fees": "Check current participation terms"
     },
     {
+      "id": "play-it-forward-music",
+      "name": "Play It Forward Music — charitable audio fundraisers",
+      "kind": "resource",
+      "recordType": "resource",
+      "description": "A volunteer-run nonprofit platform where musicians and other audio creators can offer original recordings in exchange for donations to an artist-selected charity. Fans discover music while supporting a cause.",
+      "url": "https://www.playitforward.com/",
+      "evidenceUrl": "https://www.playitforward.com/howitworks/",
+      "tags": [
+        "music",
+        "original audio",
+        "charity",
+        "fundraising",
+        "concert recordings",
+        "creator resources"
+      ],
+      "jurisdiction": "United States",
+      "location": "",
+      "reviewedOn": "2026-11-28",
+      "verification": "Official fundraiser instructions, FAQ and terms reviewed. The provider describes itself as a 501(c)(3) nonprofit; independent tax-status verification and a live fundraiser transaction were not performed. This is a charitable fundraising resource, not artist income or an affiliation with Loptr Lab’s Play It Forward project.",
+      "relationship": "Independent resource; no partnership or endorsement established",
+      "fees": "Provider states no platform share of donations; third-party card processing fees apply. Fans must meet the artist’s minimum donation.",
+      "availability": "Public fundraiser instructions; account and charity eligibility subject to provider terms",
+      "accessibility": "Accessibility not independently tested; ask about your specific needs",
+      "practicalAction": "Choose an eligible registered charity and prepare original audio you have rights to distribute. Confirm recording and distribution permissions before submitting concert audio.",
+      "actionLabel": "Explore PlayItForward.com",
+      "additionalLinks": [
+        {
+          "label": "How to start a fundraiser",
+          "url": "https://www.playitforward.com/howitworks/"
+        }
+      ],
+      "detailLinks": [
+        {
+          "label": "FAQ",
+          "url": "https://www.playitforward.com/contact"
+        },
+        {
+          "label": "Terms of service",
+          "url": "https://www.playitforward.com/terms"
+        }
+      ]
+    },
+    {
       "kind": "resource",
       "reviewedOn": "2026-10-24",
       "relationship": "Independent resource; no partnership or endorsement established",
